@@ -11692,7 +11692,7 @@ end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ٴ\n✪︙ ➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁. ](t.me/DV_POWER1)➤ ')
 end
 if text == "غنيلي" then
-data,res = https.request('https://forhassan.ml/Black/audios.php')
+data = https.request('https://forhassan.ml/Black/audios.php')
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
