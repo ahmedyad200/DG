@@ -1449,7 +1449,7 @@ for k,v in pairs(list) do
 sendSticker(v, 0, 0, 1, nil, msg.content_.sticker_.sticker_.persistent_id_)   
 end 
 end
-send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{"..#list.."} مشترك في البوت ")
+send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{'..#list..'} مشترك في البوت ")
 database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
 
@@ -1482,7 +1482,7 @@ for k,v in pairs(list) do
 sendSticker(v, 0, 0, 1, nil, msg.content_.sticker_.sticker_.persistent_id_)   
 end 
 end
-send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{"..#list.."} جروب في البوت ")
+send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{'..#list..'} جروب في البوت ")
 database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
 
@@ -1502,7 +1502,7 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
+send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{'..#list..'} جروبات في البوت ")
 database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
@@ -1522,7 +1522,7 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{"..#list.."} مشترك في البوت ")
+send(msg.chat_id_, msg.id_," ✪︙ تمت الاذاعه الى >>{'..#list..'} مشترك في البوت ")
 database:del(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
@@ -3542,7 +3542,7 @@ chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم حظره عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3587,7 +3587,7 @@ send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك حظر ملك التلجر�
 return false 
 end
 usertext = '\n ✪︙ العضو » ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم حظره عام من {'..#list..'} جروب'
 texts = usertext..status
 database:sadd(bot_id..'GBan:User', result.id_)
 else
@@ -3633,11 +3633,11 @@ database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم حظره عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ✪︙ العضو » '..userid..''
-status  = '\n ✪︙ تم حظره عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم حظره عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -3677,7 +3677,7 @@ database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم كتمه عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3722,7 +3722,7 @@ send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك كتم ملك التلجر�
 return false 
 end
 usertext = '\n ✪︙ العضو » ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم كتمه عام من {'..#list..'} جروب'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
 else
@@ -3768,11 +3768,11 @@ database:sadd(bot_id..'Gmute:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم كتمه عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ✪︙ العضو » '..userid..''
-status  = '\n ✪︙ تم كتمه عام من '..Groups..' جروب'
+status  = '\n ✪︙ تم كتمه عام من {'..#list..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
