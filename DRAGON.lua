@@ -1092,7 +1092,7 @@ io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUF
 send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')  
 end
-if text == 'الاصدار ✪' or text 'الاصدار' and DevSoFi(msg) then 
+if text == 'الاصدار ✪' and DevSoFi(msg) then 
 database:del(bot_id..'Srt:Bot') 
 send(msg.chat_id_, msg.id_,' ✪︙ اصدار سورس باور \n ✪︙ الاصدار »{`v1.3.1`}')
 end
