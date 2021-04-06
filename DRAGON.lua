@@ -11865,13 +11865,11 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-🛡┇𝙿𝚁𝙾𝚃𝙴𝙲𝚃𝙸𝙾𝙽 𝙾𝚁𝙳𝙴𝚁𝚂.
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اوامر الحمايه اتبع مايلي 🔐 .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ قفل + فتح ← الامر… 
 ✪︙ ← { بالتقيد ، بالطرد ، بالكتم }
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ الروابط
 ✪︙ المعرف
 ✪︙ التاك
@@ -11882,7 +11880,7 @@ local Teext =[[
 ✪︙ الملفات
 ✪︙ الصور
 ✪︙ التفليش
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ الماركداون
 ✪︙ البوتات
 ✪︙ الاباحي
@@ -11893,14 +11891,14 @@ local Teext =[[
 ✪︙ الفيديو
 ✪︙ الانلاين
 ✪︙ الدردشه
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ التوجيه
 ✪︙ الاغاني
 ✪︙ الصوت
 ✪︙ الجهات
 ✪︙ الاشعارات
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11926,13 +11924,10 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-🔏┇𝙾𝚁𝙳𝙴𝚁𝚂 - 𝙰𝙲𝚃𝙸𝚅𝙰𝚃𝙸𝙾𝙽
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اهلا بك عزيزي 🔊 .
-✪︙اوامر تفعيل وتعطيل ( 🔐 - 🔓) .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ تفعيل ~ تعطيل + امر 🔚 .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+✪︙ اوامر تفعيل وتعطيل
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ اطردني
 ✪︙ صيح
 ✪︙ ضافني
@@ -11961,8 +11956,8 @@ local Teext =[[
 ✪︙ ردود البوت
 ✪︙ اوامر التسليه
 ✪︙ صورتي 
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -11988,16 +11983,15 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-📝┇𝙿𝚄𝚃 - 𝙰𝙳𝙳 .
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اهلا بك عزيزي 🔊 .
-✪︙ اوامر الوضع - اضف ( 📌 - 📍) .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+✪︙ اوامر الوضع - اضف
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ اضف / مسح ← رد
 ✪︙ اضف / مسح ← صلاحيه
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ ضع + امر …
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ اسم
 ✪︙ رابط
 ✪︙ ترحيب
@@ -12006,8 +12000,34 @@ local Teext =[[
 ✪︙ صوره
 ✪︙ وصف
 ✪︙ تكرار + عدد
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+✪︙ اوامر مسح / المسح ← امر
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ مسح + امر ↓
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ الايدي 
+✪︙ المميزين
+✪︙ الادمنيه
+✪︙ المدراء
+✪︙ المنشئين
+✪︙ الاساسين
+✪︙ الاسماء المكتومه
+✪︙ ردود المدير
+✪︙ البوتات
+✪︙ امسح
+✪︙ صلاحيه
+✪︙ قائمه منع المتحركات
+✪︙ قائمه منع الصور
+✪︙ قائمه منع الملصقات
+✪︙ مسح قائمه المنع
+✪︙ المحذوفين
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ مسح  امر + الامر القديم  
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ الاوامر المضافه ( لعرض الاوامر المضافه ) 
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12033,67 +12053,10 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
-✂️┇W𝙸𝙿𝙴 - 𝙳𝙴𝙻𝙴𝚃𝙴 .
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اهلا بك عزيزي 🔊 .
-✪︙ اوامر مسح / المسح ← امر ( ✂️ - 📝 ).
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ مسح + امر ↓
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ الايدي 
-✪︙ المميزين
-✪︙ الادمنيه
-✪︙ المدراء
-✪︙ المنشئين
-✪︙ الاساسين
-✪︙ الاسماء المكتومه
-✪︙ ردود المدير
-✪︙ البوتات
-✪︙ امسح
-✪︙ صلاحيه
-✪︙ قائمه منع المتحركات
-✪︙ قائمه منع الصور
-✪︙ قائمه منع الملصقات
-✪︙ مسح قائمه المنع
-✪︙ المحذوفين
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ مسح  امر + الامر القديم  
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ الاوامر المضافه ( لعرض الاوامر المضافه ) 
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/help5' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
-local Teext =[[
-🎚┇𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 - 𝚄𝙿𝙻𝙾𝙰𝙳 .
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اهلا بك عزيزي 🔊 .
-✪︙ اوامر تنزيل ورفع ( ⚖️ ) .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ تنزيل 🔛 رفع + امر ↓
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+✪︙ اوامر تنزيل ورفع
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ مميز
 ✪︙ ادمن
 ✪︙ مدير
@@ -12106,9 +12069,9 @@ local Teext =[[
 ✪︙ القيود 
 ✪︙ تنزيل جميع الرتب
 ✪︙ تنزيل الكل 
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ اوامر التغير …
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ تغير رد المطور + اسم
 ✪︙ تغير رد المالك + اسم
 ✪︙ تغير رد منشئ الاساسي + اسم
@@ -12119,40 +12082,10 @@ local Teext =[[
 ✪︙ تغير رد العضو + اسم
 ✪︙ تغير امر الاوامر
 ✪︙ تغير امر م1 ~ الئ م10
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == '/help6' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
-https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
-return false
-end
-local Teext =[[
-🎫┇𝙶𝚁𝙾𝚄𝙿 𝙾𝚁𝙳𝙴𝚁𝚂 .
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ اهلا بك عزيزي 🔊 .
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
 ✪︙ اوامر المجموعه 📢 .
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-✪︙ الاوامر كالتالي ♻️ ↓
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ استعاده الاوامر 
 ✪︙ تحويل كالاتي~⪼ بالرد على صوره او ملصق او صوت او بصمه بالامر ← تحويل 
 ✪︙ صيح ~ تاك ~ المميزين : الادمنيه : المدراء : المنشئين : المنشئين الاساسين
@@ -12197,8 +12130,154 @@ local Teext =[[
 ✪︙ نسبه الانوثه
 ✪︙ الساعه
 ✪︙ التاريخ
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help5' then
+if not Mod(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+
+✪︙ اوامر المطورين
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ تفعيل ← تعطيل 
+✪︙ المجموعات ← المشتركين ← الاحصائيات
+✪︙ رفع ← تنزيل منشئ اساسي
+✪︙ مسح الاساسين ← المنشئين الاساسين
+✪︙ مسح المنشئين ← المنشئين
+✪︙ اسم ~ ايدي + بوت غادر 
+✪︙ اذاعه 
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+✪︙ اوامر مطور الاساسي
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ تفعيل
+✪︙ تعطيل
+✪︙ مسح الاساسين
+✪︙ المنشئين الاساسين
+✪︙ رفع/تنزيل منشئ اساسي
+✪︙ رفع/تنزيل مطور اساسي 
+✪︙ مسح المطورين
+✪︙ المطورين
+✪︙ رفع | تنزيل مطور
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ اسم البوت + غادر
+✪︙ غادر
+✪︙ اسم بوت + الرتبه
+✪︙ تحديث السورس
+✪︙ حضر عام
+✪︙ كتم عام
+✪︙ الغاء العام
+✪︙ قائمه العام
+✪︙ مسح قائمه العام
+✪︙ جلب نسخه الاحتياطيه
+✪︙ رفع نسخه الاحتياطيه
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ اذاعه خاص
+✪︙ اذاعه
+✪︙ اذاعه بالتوجيه
+✪︙ اذاعه بالتوجيه خاص
+✪︙ اذاعه بالتثبيت
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ جلب نسخه البوت
+✪︙ رفع نسخه البوت
+✪︙ ضع عدد الاعضاء + العدد
+✪︙ ضع كليشه المطور
+✪︙ تفعيل/تعطيل الاذاعه
+✪︙ تفعيل/تعطيل البوت الخدمي
+✪︙ تفعيل/تعطيل التواصل
+✪︙ تغير اسم البوت
+✪︙ اضف/مسح رد عام
+✪︙ ردود المطور
+✪︙ مسح ردود المطور
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ الاشتراك الاجباري
+✪︙ تعطيل الاشتراك الاجباري
+✪︙ تفعيل الاشتراك الاجباري
+✪︙ مسح رساله الاشتراك
+✪︙ تغير رساله الاشتراك
+✪︙ تغير الاشتراك
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ الاحصائيات
+✪︙ المشتركين
+✪︙ المجموعات 
+✪︙ تفعيل/تعطيل المغادره
+✪︙ مسح الجروبات
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help6' then
+if not Mod(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+
+✪︙ اوامر الاعضاء كالتالي ↓
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ عرض معلوماتك ↑↓
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ ايديي ← اسمي 
+✪︙ رسايلي ← مسح رسايلي 
+✪︙ رتبتي ← سحكاتي 
+✪︙ مسح سحكاتي ← المنشئ 
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ اوآمر المجموعه ↑↓
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ الرابط ← القوانين – الترحيب
+✪︙ ايدي ← اطردني
+✪︙ اسمي ← المطور  
+✪︙ كشف ~ بالرد بالمعرف
+✪︙ قول + كلمه
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ اسم البوت + الامر ↑↓
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+✪︙ بوسه بالرد 
+✪︙ مصه بالرد
+✪︙ رزله بالرد 
+✪︙ شنو رئيك بهذا بالرد
+✪︙ شنو رئيك بهاي بالرد
+✪︙ تحب هذا
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
@@ -12217,62 +12296,62 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == '/help7' then
+if Text == '/help7' or text == 'الاوامر' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
 local Teext =[[
-🤹🏻┇𝙵𝚄𝙽𝙽𝚈 𝙾𝚁𝙳𝙴𝚁𝚂 .
-━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
-✪︙ الاوامر التسليه 🃏
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
+✪︙ اوامر التسليه 🃏
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← الامࢪ ↓
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← مطي 
 ✪︙ تاك للمطايه
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← صخل
 ✪︙ تاك لصخوله
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← كلب
 ✪︙ تاك للكلاب
 ✪︙ مسح الكلاب
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← قرد 
 ✪︙ تاك لقروده
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← بقره
 ✪︙ تاك لبقرات
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← ضلع
 ✪︙ تاك لضلوع
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← مره
 ✪︙ تاك للنسوان
 ✪︙ مسح النسوان
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← طلي
 ✪︙ تاك لطليان
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← حكاك 
 ✪︙ تاك للحكاكين
 ✪︙ مسح الحكاكين
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← خنزير
 ✪︙ تاك للخنازير
 ✪︙ مسح الخنازير
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ رفع + تنزيل ← خول
 ✪︙ تاك للخولات
 ✪︙ مسح الخولات
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ✪︙ زواج + طلاق
 ✪︙ تاك للمتزوجين
 ✪︙ مسح المتزوجين
-≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
-➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
