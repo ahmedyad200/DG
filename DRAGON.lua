@@ -11578,7 +11578,7 @@ end
 ---------------------- الاوامر الجديدة
 if text == 'الاوامر' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,' بس ابابا بطل لعب ')
+send(msg.chat_id_, msg.id_,' ✪︙ ')
 return false
 end
 if AddChannel(msg.sender_user_id_) == false then
@@ -12012,7 +12012,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
@@ -12066,7 +12066,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
@@ -12128,7 +12128,7 @@ keyboard.inline_keyboard = {
 {text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
 },
 {
 {text = 'اوامر التسليه', callback_data="/help7"},
@@ -12206,7 +12206,7 @@ keyboard.inline_keyboard = {
 {text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
 },
 {
 {text = 'اوامر التسليه', callback_data="/help7"},
@@ -12283,10 +12283,201 @@ keyboard.inline_keyboard = {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
 },
 {
 {text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help8' then
+if not Sudo(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+🏅┇𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁𝚂' 𝙾𝚁𝙳𝙴𝚁𝚂 .
+━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
+✪︙ اوامر المطورين ( 👥).
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ تفعيل ← تعطيل 
+✪︙ المجموعات ← المشتركين ← الاحصائيات
+✪︙ رفع ← تنزيل منشئ اساسي
+✪︙ مسح الاساسين ← المنشئين الاساسين
+✪︙ مسح المنشئين ← المنشئين
+✪︙ اسم ~ ايدي + بوت غادر 
+✪︙ اذاعه 
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '1️⃣', callback_data="/help1"},{text = '2️⃣', callback_data="/help2"},{text = '3️⃣', callback_data="/help3"},
+},
+{
+{text = '4️⃣', callback_data="/help4"},{text = '5️⃣', callback_data="/help5"},
+},
+{
+{text = '6️⃣', callback_data="/help6"},{text = '7️⃣', callback_data="/help7"},{text = '8️⃣', callback_data="/help8"},
+},
+{
+{text = '9️⃣', callback_data="/help9"},{text = '🔟', callback_data="/help10"},
+},
+{
+{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
+},
+{
+{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/DV_POWER1"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help9' then
+if not Sudo(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+🎖┇ 𝙱𝙰𝚂𝙸𝙲 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂 .
+━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ 
+✪︙ اهلا بك عزيزي 🔊
+✪︙ اوامر مطور الاساسي 👨🏼‍✈️
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ تفعيل
+✪︙ تعطيل
+✪︙ مسح الاساسين
+✪︙ المنشئين الاساسين
+✪︙ رفع/تنزيل منشئ اساسي
+✪︙ رفع/تنزيل مطور اساسي 
+✪︙ مسح المطورين
+✪︙ المطورين
+✪︙ رفع | تنزيل مطور
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ اسم البوت + غادر
+✪︙ غادر
+✪︙ اسم بوت + الرتبه
+✪︙ تحديث السورس
+✪︙ حضر عام
+✪︙ كتم عام
+✪︙ الغاء العام
+✪︙ قائمه العام
+✪︙ مسح قائمه العام
+✪︙ جلب نسخه الاحتياطيه
+✪︙ رفع نسخه الاحتياطيه
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ اذاعه خاص
+✪︙ اذاعه
+✪︙ اذاعه بالتوجيه
+✪︙ اذاعه بالتوجيه خاص
+✪︙ اذاعه بالتثبيت
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ جلب نسخه البوت
+✪︙ رفع نسخه البوت
+✪︙ ضع عدد الاعضاء + العدد
+✪︙ ضع كليشه المطور
+✪︙ تفعيل/تعطيل الاذاعه
+✪︙ تفعيل/تعطيل البوت الخدمي
+✪︙ تفعيل/تعطيل التواصل
+✪︙ تغير اسم البوت
+✪︙ اضف/مسح رد عام
+✪︙ ردود المطور
+✪︙ مسح ردود المطور
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ الاشتراك الاجباري
+✪︙ تعطيل الاشتراك الاجباري
+✪︙ تفعيل الاشتراك الاجباري
+✪︙ مسح رساله الاشتراك
+✪︙ تغير رساله الاشتراك
+✪︙ تغير الاشتراك
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ الاحصائيات
+✪︙ المشتركين
+✪︙ المجموعات 
+✪︙ تفعيل/تعطيل المغادره
+✪︙ مسح الجروبات
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/DV_POWER1)➤
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '1️⃣', callback_data="/help1"},{text = '2️⃣', callback_data="/help2"},{text = '3️⃣', callback_data="/help3"},
+},
+{
+{text = '4️⃣', callback_data="/help4"},{text = '5️⃣', callback_data="/help5"},
+},
+{
+{text = '6️⃣', callback_data="/help6"},{text = '7️⃣', callback_data="/help7"},{text = '8️⃣', callback_data="/help8"},
+},
+{
+{text = '9️⃣', callback_data="/help9"},{text = '🔟', callback_data="/help10"},
+},
+{
+{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
+},
+{
+{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/DV_POWER1"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/help10' then
+local help_text = database:get(bot_id..'help10_text')
+local Teext =[[
+🎒┇𝙼𝙴𝙼𝙱𝙴𝚁 𝙾𝚁𝙳𝙴𝚁𝚂 .
+━ ━ ━ ━ ━ ━ ━ ━ ━ 
+✪︙ اهلا بك عزيزي 🔊 .
+✪︙ اوامر الاعضاء كالتالي ↓
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ عرض معلوماتك ↑↓
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ ايديي ← اسمي 
+✪︙ رسايلي ← مسح رسايلي 
+✪︙ رتبتي ← سحكاتي 
+✪︙ مسح سحكاتي ← المنشئ 
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ اوآمر المجموعه ↑↓
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ الرابط ← القوانين – الترحيب
+✪︙ ايدي ← اطردني 
+✪︙ اسمي ← المطور  
+✪︙ كشف ~ بالرد بالمعرف
+✪︙ قول + كلمه
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ اسم البوت + الامر ↑↓
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+✪︙ بوسه بالرد 
+✪︙ مصه بالرد
+✪︙ رزله بالرد 
+✪︙ شنو رئيك بهذا بالرد
+✪︙ شنو رئيك بهاي بالرد
+✪︙ تحب هذا
+≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫
+➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁. ](t.me/DV_POWER1)➤
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '1️⃣', callback_data="/help1"},{text = '2️⃣', callback_data="/help2"},{text = '3️⃣', callback_data="/help3"},
+},
+{
+{text = '4️⃣', callback_data="/help4"},{text = '5️⃣', callback_data="/help5"},
+},
+{
+{text = '6️⃣', callback_data="/help6"},{text = '7️⃣', callback_data="/help7"},{text = '8️⃣', callback_data="/help8"},
+},
+{
+{text = '9️⃣', callback_data="/help9"},{text = '🔟', callback_data="/help10"},
+},
+{
+{text = '🔙 الاوامر الرئيسيه 🔙', callback_data="/help"},
+},
+{
+{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/DV_POWER1"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
