@@ -11578,7 +11578,7 @@ end
 ---------------------- الاوامر الجديدة
 if text == 'الاوامر' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'بس ابابا بطل لعب')
+send(msg.chat_id_, msg.id_,'️ ')
 return false
 end
 if AddChannel(msg.sender_user_id_) == false then
