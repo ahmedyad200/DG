@@ -11691,17 +11691,6 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ٴ\n✪︙ ➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁. ](t.me/DV_POWER1)➤ ')
 end
-if text == "غنيلي" then
-data = https.request('https://forhassan.ml/Black/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local done = download_to_file(audios.info,msg.sender_user_id_..'.mp3')
-sendAudio(msg.chat_id_,msg.id_,'./'..msg.sender_user_id_..'.mp3','@DV_POWER1','•غنيلي = اغاني عشوائيه اهداء من البوت•','end')
-os.execute('rm -rf ./'..msg.sender_user_id_..'.mp3') 
-end
-end
-end
 if text == "تعطيل الابراج" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '✪︙ تم تعطيل الابراج')
 database:set(bot_id.."sofi:brj_Bots"..msg.chat_id_,"close")
