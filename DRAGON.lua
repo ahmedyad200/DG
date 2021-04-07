@@ -3510,12 +3510,6 @@ return false
 end
 if text == ("حظر عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
 if AddChannel(msg.sender_user_id_) == false then
-local list = database:smembers(bot_id.."Chek:Groups") 
-if msg.content_.text_ then
-for k,v in pairs(list) do 
-send(v, 0,"["..msg.content_.text_.."]")  
-database:set(bot_id..'Msg:Pin:Chat'..v,msg.content_.text_) 
-end
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
@@ -3550,7 +3544,7 @@ chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من {`'..list..'`} جروب'
+status  = '\n ✪︙ تم حظره عام من جروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3596,7 +3590,7 @@ send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك حظر ملك التلجر�
 return false 
 end
 usertext = '\n ✪︙ العضو » ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم حظره عام من الجروبات'
 texts = usertext..status
 database:sadd(bot_id..'GBan:User', result.id_)
 else
@@ -3643,11 +3637,11 @@ database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم حظره عام من الجروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ✪︙ العضو » '..userid..''
-status  = '\n ✪︙ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم حظره عام من الجروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -3688,7 +3682,7 @@ database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم كتمه عام من الجروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3734,7 +3728,7 @@ send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك كتم ملك التلجر�
 return false 
 end
 usertext = '\n ✪︙ العضو » ['..result.title_..'](t.me/'..(username or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم كتمه عام من الجروبات'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
 else
@@ -3781,11 +3775,11 @@ database:sadd(bot_id..'Gmute:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ✪︙ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'DV_POWER1')..')'
-status  = '\n ✪︙ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم كتمه عام من الجروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ✪︙ العضو » '..userid..''
-status  = '\n ✪︙ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ✪︙ تم كتمه عام من الجروبات'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
