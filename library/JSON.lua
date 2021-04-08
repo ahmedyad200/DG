@@ -17,6 +17,7 @@
 local VERSION = 20141223.14 -- version history at end of file
 local AUTHOR_NOTE = "-[ JSON.lua package by Jeffrey Friedl (http://regex.info/blog/lua/json) version 20141223.14 ]-"
 
+--
 -- The 'AUTHOR_NOTE' variable exists so that information about the source
 -- of the package is maintained even in compiled versions. It's also
 -- included in OBJDEF below mostly to quiet warnings about unused variables.
@@ -633,7 +634,8 @@ grok_one = function(self, text, start, etc)
       self:onDecodeError("can't parse JSON", text, start, etc)
    end
 end
-   function OBJDEF:decode(text, etc)
+
+function OBJDEF:decode(text, etc)
    if type(self) ~= 'table' or self.__index ~= OBJDEF then
       OBJDEF:onDecodeError("JSON:decode must be called in method format", nil, nil, etc)
    end
@@ -931,6 +933,7 @@ function encode_value(self, value, parents, etc, options, indent)
       return result_value
    end
 end
+
 
 function OBJDEF:encode(value, etc, options)
    if type(self) ~= 'table' or self.__index ~= OBJDEF then

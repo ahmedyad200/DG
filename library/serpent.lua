@@ -9,6 +9,7 @@ for _,k in ipairs({'and', 'break', 'do', 'else', 'elseif', 'end', 'false',
 for k,v in pairs(G) do globals[v] = k end -- build func to name mapping
 for _,g in ipairs({'coroutine', 'debug', 'io', 'math', 'string', 'table', 'os'}) do
   for k,v in pairs(G[g] or {}) do globals[v] = g..'.'..k end end
+
 local function s(t, opts)
   local name, indent, fatal, maxnum = opts.name, opts.indent, opts.fatal, opts.maxnum
   local sparse, custom, huge = opts.sparse, opts.custom, not opts.nohuge
@@ -101,6 +102,7 @@ local function s(t, opts)
   local warn = opts.comment and #sref>1 and space.."--[[incomplete output with shared/self-references skipped]]" or ''
   return not name and body..warn or "do local "..body..sepr..tail.."return "..name..sepr.."end"
 end
+
 local function deserialize(data, opts)
   local env = (opts and opts.safe == false) and G
     or setmetatable({}, {
@@ -113,6 +115,7 @@ local function deserialize(data, opts)
   if setfenv then setfenv(f, env) end
   return pcall(f)
 end
+
 local function merge(a, b) if b then for k,v in pairs(b) do a[k] = v end end; return a; end
 return { _NAME = n, _COPYRIGHT = c, _DESCRIPTION = d, _VERSION = v, serialize = s,
   load = deserialize,
