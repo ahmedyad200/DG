@@ -931,7 +931,7 @@ function encode_value(self, value, parents, etc, options, indent)
       parents[T] = false
       return result_value
    end
-end<
+end
 
 function OBJDEF:encode(value, etc, options)
    if type(self) ~= 'table' or self.__index ~= OBJDEF then
