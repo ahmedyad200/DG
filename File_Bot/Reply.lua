@@ -190,7 +190,7 @@ TextReply = 'شبيك كالب خلقتك'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
-if string.find(text,"نيك")
+if string.find(text,"نيك") then
 TextReply = 'انا عاوز انيك ونبي 🥺'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
