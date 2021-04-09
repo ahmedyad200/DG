@@ -1094,8 +1094,8 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && rm -rf Reply.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
-dofile('DRAGON.lua')
 send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.3`}')
+dofile('DRAGON.lua')
 end
 
 if text == "ضع اسم للبوت ✪" and DevSoFi(msg) then  
@@ -2340,6 +2340,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && rm -rf Reply.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.3`}')
 dofile('DRAGON.lua')
 end
 
