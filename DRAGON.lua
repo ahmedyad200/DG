@@ -172,7 +172,7 @@ local runapp = sudos.token
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841}   
+sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841,bot_id}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
