@@ -57,13 +57,13 @@ send(msg.chat_id_,msg.id_, 'انت مجرد عضو ملوش لازمه😹 ')
 return false
 end
 
-if text == 'تفعيل ردود البوت' and Manager(msg) then
+if text == 'تفعيل انا مين' and Manager(msg) then
 database:del(bot_id..'anamen:Status'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,'℘︙تم تفعيل انا مين')
 return false
 end
 
-if text == 'تعطيل ردود البوت' and Manager(msg) then
+if text == 'تعطيل انا مين' and Manager(msg) then
 database:set(bot_id..'anamen:Status'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,'℘︙تم تعطيل انا مين')
 return false
