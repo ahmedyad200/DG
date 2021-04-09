@@ -552,7 +552,7 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /start لاظهار كيبورد المطور الاساسي\n\nاصدارك{v1.2.3}",0,'md')
+sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /start لاظهار كيبورد المطور الاساسي\n\nاصدارك{v1.2.5}",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
@@ -1092,12 +1092,21 @@ end
 
 if text == 'تحديث السورس' or text == 'تحديث السورس ✪' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && rm -rf Reply.lua')
+os.execute('cd File_Bot && rm -rf anamen.lua')
+os.execute('cd File_Bot && rm -rf commands.lua')
+os.execute('cd File_Bot && rm -rf games.lua')
+os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.3`}')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
 dofile('DRAGON.lua')
 dofile('File_Bot/Reply.lua')
+dofile('File_Bot/anamen.lua')
+dofile('File_Bot/games.lua')
+dofile('File_Bot/commands.lua')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 end
 
 if text == "ضع اسم للبوت ✪" and DevSoFi(msg) then  
@@ -2339,12 +2348,21 @@ end
 return false
 end
 os.execute('rm -rf DRAGON.lua')
-os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && rm -rf Reply.lua')
+os.execute('cd File_Bot && rm -rf anamen.lua')
+os.execute('cd File_Bot && rm -rf commands.lua')
+os.execute('cd File_Bot && rm -rf games.lua')
+os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.3`}')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
 dofile('DRAGON.lua')
 dofile('File_Bot/Reply.lua')
+dofile('File_Bot/anamen.lua')
+dofile('File_Bot/games.lua')
+dofile('File_Bot/commands.lua')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
