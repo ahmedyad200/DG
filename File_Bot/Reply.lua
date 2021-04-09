@@ -136,11 +136,6 @@ TextReply = 'شبيك كالب خلقتك'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
-if string.find(text,"نيك") then
-TextReply = 'انا عاوز انيك ونبي 🥺'
-send(msg.chat_id_, msg.id_,'['..TextReply..']')
-return false
-end
 if text == 'خخخخ' then
 TextReply = 'كسم بضانك اجدع'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
@@ -216,7 +211,7 @@ TextReply = 'مليش مزاق الوقت'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
-if string.find(text,"ـــ") then
+if string.find(text,"ـــــ") then
 TextReply = 'مش بقول هكر محدش مصدقني'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
@@ -231,7 +226,7 @@ TextReply = 'اعدل وشك ونت بتكلمني'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
-if string.find(text,"هههههههه") then
+if string.find(text,"ههههههه") then
 TextReply = 'ضحكت هكر'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
