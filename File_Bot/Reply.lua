@@ -231,7 +231,7 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if text == '😌' then
-TextReply = 'متكبر ابن وسخه'
+TextReply = 'بحبك ❤'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
@@ -276,12 +276,12 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if text == 'بس ابابا' then
-TextReply = 'بابا علي السرير مع ماما\nاقولك بيعمل اي ولا بلاش'
+TextReply = 'بابا علي السرير مع ماما\nاقولك بيعمل اي ولا بلاش🌚'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if string.find(text,"😒") then
-TextReply = 'كسمك متكبر علي اي'
+TextReply = 'بصلي ونا بكلمك'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
