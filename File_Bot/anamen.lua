@@ -1,6 +1,5 @@
 local function Reply(msg)
 local text = msg.content_.text_
-if not database:get(bot_id..'anamen:Status'..msg.chat_id_) then
 
 if text == 'انا مين' and SudoBot(msg) then 
 send(msg.chat_id_,msg.id_, 'انت مطوري تاج راسي 😊') 
