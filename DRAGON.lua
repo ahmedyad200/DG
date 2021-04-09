@@ -1101,14 +1101,13 @@ os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 dofile('DRAGON.lua')
 dofile('File_Bot/Reply.lua')
 dofile('File_Bot/anamen.lua')
 dofile('File_Bot/games.lua')
 dofile('File_Bot/commands.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 end
-
 if text == "ضع اسم للبوت ✪" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," ✪︙ ارسل اليه الاسم الان ")
@@ -2357,12 +2356,12 @@ os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 dofile('DRAGON.lua')
 dofile('File_Bot/Reply.lua')
 dofile('File_Bot/anamen.lua')
 dofile('File_Bot/games.lua')
 dofile('File_Bot/commands.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
