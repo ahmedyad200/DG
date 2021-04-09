@@ -281,7 +281,7 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 if string.find(text,"😒") then
-TextReply = 'كسمك متكبر علي اي'
+TextReply = 'اعدل وشك ونت بتكلمني'
 send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
