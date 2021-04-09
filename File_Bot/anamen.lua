@@ -11,13 +11,13 @@ send(msg.chat_id_,msg.id_, 'انت مطوري الثاني 😊')
 return false
 end
 
-if text == 'انا مين' and Bot(msg) then 
-send(msg.chat_id_,msg.id_, 'اطلع مني يبن الدزمه ') 
+if text == 'انا مين' and Sudo(msg) then 
+send(msg.chat_id_,msg.id_, 'انت مطوري الغالي 😊') 
 return false
 end
 
-if text == 'انا مين' and Sudo(msg) then 
-send(msg.chat_id_,msg.id_, 'انت مطوري الغالي 😊') 
+if text == 'انا مين' and cleaner(msg) then 
+send(msg.chat_id_,msg.id_, ' انت منظف ملهوش لزمه 😂 ') 
 return false
 end
 
