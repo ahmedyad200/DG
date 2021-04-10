@@ -332,7 +332,7 @@ var = 'ملك التلجرام'
 elseif tonumber(user_id) == tonumber(1645553841) then
 var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(1681991286) then
-var = 'الباشمبرمج'
+var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
@@ -3957,7 +3957,7 @@ i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 i = i + 1
-t = t..i..'- الملف » {'..v..'}\n'
+t = t..i..'- الملف » {`'..v..'`}\n'
 end
 end
 send(msg.chat_id_, msg.id_,t)
