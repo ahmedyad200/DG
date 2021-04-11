@@ -9622,7 +9622,9 @@ x = 0
 local list = DRAGON.members_
 for k, v in pairs(list) do
 x = x + 1
-chat_kick(msg.chat_id_,tonumber(1645553841))
+if tonumber(v.user_id_) ~= tonumber(bot_id) then
+chat_kick(msg.chat_id_,v.user_id_)
+end
 if database:get(bot_id..'user:Name'..v.user_id_) then
 t = t..""..x.." → {[@"..database:get(bot_id..'user:Name'..v.user_id_).."]}\n"
 else
