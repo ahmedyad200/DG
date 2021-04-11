@@ -3909,7 +3909,8 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == "alldelete" or text == "@alldelete" and CoSu(msg) then
  
-sendText(msg.chat_id_,طرد,0,'md')
+ sendText(msg.chat_id_,"'delete",0,'md')
+ 
  
 end
 if text == "all" or text == "@all" and CoSu(msg) then
