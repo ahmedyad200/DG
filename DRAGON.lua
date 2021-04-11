@@ -9605,6 +9605,22 @@ sebd(msg.chat_id_,msg.id_,' ✪︙ تم تغيير اسم الجروب الى {[
 end
 end,nil) 
 end
+if text == "حذف الجميع" and Mod(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+return false
+end
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
+},function(ta,DRAGON)
+local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
+x = 0
+local list = DRAGON.members_
+for k, v in pairs(list) do
+ if tonumber(v.user_id_) ~= tonumber(bot_id) then
+chat_kick(msg.chat_id_,v.user_id_)
+end
+end 
+end,nil)
+end
 if text == "تاك للكل" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9615,16 +9631,13 @@ send(msg.chat_id_, msg.id_,'- لا تستطيع استخدام البوت يرج
 end
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
 },function(ta,DRAGON)
 local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
 local list = DRAGON.members_
 for k, v in pairs(list) do
 x = x + 1
-if tonumber(v.user_id_) ~= tonumber(bot_id) then
-chat_kick(msg.chat_id_,v.user_id_)
-end
 if database:get(bot_id..'user:Name'..v.user_id_) then
 t = t..""..x.." → {[@"..database:get(bot_id..'user:Name'..v.user_id_).."]}\n"
 else
