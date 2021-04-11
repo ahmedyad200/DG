@@ -9610,9 +9610,6 @@ if AddChannel(msg.sender_user_id_) == false then
 return false
 end
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
 },function(ta,DRAGON)
 local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
