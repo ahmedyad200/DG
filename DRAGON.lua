@@ -3936,7 +3936,7 @@ tagname = data.first_name_
 tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
 t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
-send(msg.chat_id_, msg.id_,'حظر '..v.user_id_)
+send(msg.sender_user_id_, msg.id_,'حظر '..v.user_id_)
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#all,','#all\n')
 sendText(msg.chat_id_,Text,0,'md')
