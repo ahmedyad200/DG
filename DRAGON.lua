@@ -9605,17 +9605,31 @@ sebd(msg.chat_id_,msg.id_,' ✪︙ تم تغيير اسم الجروب الى {[
 end
 end,nil) 
 end
+if text == 'طرد الكل' or text == 'مسح الاعضاء' then  
+if Mod(msg) then    
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),offset_ = 0,limit_ = 1000}, function(arg,del)
+for k, v in pairs(del.members_) do
+tdcli_function({ID = "GetUser",user_id_ = v.user_id_},function(b,data) 
+if tonumber(v.user_id_) ~= tonumber(bot_id) then
+chat_kick(msg.chat_id_,v.user_id_)
+end
+end,nil)
+end
+send(msg.chat_id_, msg.id_,' ✪︙ تم طرد 1k من الاعضاء')
+end,nil)
+end
+end
 if text == "حذف الجميع" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
 },function(ta,DRAGON)
 local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
 local list = DRAGON.members_
 for k, v in pairs(list) do
- if tonumber(v.user_id_) ~= tonumber(bot_id) then
+if tonumber(v.user_id_) ~= tonumber(bot_id) then
 chat_kick(msg.chat_id_,v.user_id_)
 end
 end 
