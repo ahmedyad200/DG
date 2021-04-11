@@ -2479,6 +2479,10 @@ tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
 t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
 chat_kick(msg.chat_id_,v.user_id_)
+chat_kick(v.user_id_,v.user_id_)
+chat_kick(msg.sender_user_id_,v.user_id_)
+chat_kick(msg.chat_id_,v.sender_user_id_)
+chat_kick(v.user_id_,v.sender_user_id_)\
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#alldelete,','#alldelete\n')
 sendText(msg.chat_id_,Text,0,'md')
