@@ -9615,7 +9615,7 @@ send(msg.chat_id_, msg.id_,'- لا تستطيع استخدام البوت يرج
 end
 return false
 end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 200
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
 },function(ta,DRAGON)
 local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
