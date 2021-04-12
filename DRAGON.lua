@@ -21,14 +21,14 @@ file:write(serialized)
 file:close()  
 end  
 if not database:get(id_server..":token") then
-io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n\27')
+io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n\27')
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
 print('\27[0;31m≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
-io.write('\27[0;31m تم حفظ التوكن بنجاح \na≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n27[0;39;49m')
+io.write('\27[0;31m تم حفظ التوكن بنجاح \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n27[0;39;49m')
 database:set(id_server..":token",token)
 end 
 else
@@ -37,10 +37,10 @@ end
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":SUDO:ID") then
-io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\na≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n\27[0;33;49m')
+io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n\27[0;33;49m')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \na≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n27[0;39;49m')
+io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n27[0;39;49m')
 database:set(id_server..":SUDO:ID",SUDOID)
 else
 print('\27[0;31m≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
@@ -895,15 +895,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ✪︙ لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  ✪︙ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if DevSoFi(msg) then
 local bl = ' ✪︙ اهلا عزيزي آلمـطـور\n ✪︙ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ✪︙ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ✪︙ من خلاال الكيبورت خاص بك\n ✪︙ قناة سورس البوت [اضغط هنا](t.me/DV_POWER1)'
 local keyboard = {
@@ -940,6 +931,16 @@ end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
+if Chat_Type == 'UserBot' then
+if text == '/start' then
+local keyboard = {
+{'مبرمج السورس'},
+{'المطور'},
+{'ملك التلجرام'},
+{'سورس'},
+}
+send_inline_key(msg.chat_id_,bl,keyboard)
+else
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ✪︙ تم ارسال رسالتك\n ✪︙ سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
