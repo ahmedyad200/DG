@@ -11586,9 +11586,10 @@ if text == "تفعيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_,'✪︙ تم تفعيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
 end
+
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
-zh = https.request('https://apiabs.ml/zrf.php?abs?en='..URL.escape(TextZhrfa)..'')
+zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZhrfa)..'')
 zx = JSON.decode(zh)
 t = "\n✪︙ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
@@ -11607,18 +11608,6 @@ i = 0
 for k,v in pairs(Zrf.ok) do
 i = i + 1
 t = t..i.."-  `"..v.."` \n"
-end
-send(msg.chat_id_, msg.id_, t..'┉┉┉┉┉┉\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n✪︙ ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️ ')
-end
-if text and text:match("^زخرفه (.*)$") or text and text:match("^زخرف (.*)$") then 
-local TextZrf = text:match("^زخرفه (.*)$") or text:match("^زخرف (.*)$") 
-UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZrf)) 
-Zrf = JSON.decode(UrlZrf) 
-t = "\n✪︙ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
-i = 0
-for k,v in pairs(Zrf.ok) do
-i = i + 1
-t = t..i.."⌯ `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'┉┉┉┉┉┉\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n✪︙ ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/DV_POWER1)⚡️ ')
 end
