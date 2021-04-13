@@ -11578,7 +11578,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
-if faederdx1:get(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
+if database:get(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
 database:del(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_)
