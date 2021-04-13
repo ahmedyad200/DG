@@ -11581,10 +11581,10 @@ end
 if database:get(bot_id..'sofi:zx_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
-database:del(bot_id..'sofi:zx_Bots'..msg.chat_id_..''..msg.sender_user_id_)
+database:get(bot_id..'sofi:zx_Bots'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
-zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZhrfa)) 
+zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(Text)) 
 zx = JSON.decode(zh) 
 t = "❀ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
@@ -11593,11 +11593,11 @@ i = i + 1
 t = t..i.." `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, 1, t, 1, 'md')
-database:del(bot_id..'sofi:zx_Bots'..msg.chat_id_..''..msg.sender_user_id_)
+database:get(bot_id..'sofi:zx_Bots'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
 end
 if text == 'زخرفه' and Manager(msg) or text == 'الزخرفه' and Manager(msg)  then  
-database:del(bot_id.."sofi:zx_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+database:get(bot_id.."sofi:zx_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
 end
 if text and text:match("^زخرفه (.*)$") or text and text:match("^زخرف (.*)$") then 
