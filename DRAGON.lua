@@ -11630,7 +11630,7 @@ for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."⌯ `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_,
+send(msg.chat_id_, msg.id_, "")
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."sofi:brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
