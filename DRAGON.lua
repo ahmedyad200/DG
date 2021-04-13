@@ -11584,7 +11584,7 @@ send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1
 database:del(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
-UrlZrf = https.request('https://rudi-dev.tk/Amir1/Boyka.php?abs='..URL.escape(text)) 
+UrlZrf = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(text)) 
 Zrf = JSON.decode(UrlZrf) 
 t = "❀ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
@@ -11602,7 +11602,7 @@ send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  �
 end
 if text and text:match("^زخرفه (.*)$") or text and text:match("^زخرف (.*)$") then 
 local TextZrf = text:match("^زخرفه (.*)$") or text:match("^زخرف (.*)$") 
-UrlZrf = https.request('https://rudi-dev.tk/Amir1/Boyka.php?abs='..URL.escape(TextZrf)) 
+UrlZrf = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZrf)) 
 Zrf = JSON.decode(UrlZrf) 
 t = "❀ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
