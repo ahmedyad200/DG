@@ -11597,7 +11597,7 @@ database:del(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
 end
 if text == 'زخرفه' and Manager(msg) or text == 'الزخرفه' and Manager(msg)  then  
-database:set(bot_id.."sofi:zrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+database:del(bot_id.."sofi:zrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
 end
 if text and text:match("^زخرفه (.*)$") or text and text:match("^زخرف (.*)$") then 
