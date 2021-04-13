@@ -11580,7 +11580,7 @@ end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if faederdx1:get(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
-database(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
 database:del(bot_id..'sofi:zrf_Bots'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
