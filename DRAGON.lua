@@ -11594,11 +11594,11 @@ return false
 end 
 UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)) 
 Zrf = JSON.decode(UrlZrf) 
-t = "☉ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+t = "\n☉︙ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
-for k,v in pairs(Zrf.ok) do
+for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.." `"..v.."` \n"
+t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_,'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/sopowerb0t)⚡️ ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
