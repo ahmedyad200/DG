@@ -10899,7 +10899,7 @@ send(msg.chat_id_, msg.id_,' ☉︙ انت دخلت عبر الرابط لتلح
 end
 end,nil)
 else
-send(msg.chat_id_, msg.id_,' ☉︙ تم تعطيل امر منو ضافني') 
+send(msg.chat_id_, msg.id_,' ☉︙ تم تعطيل امر ضافني') 
 end
 end
 
