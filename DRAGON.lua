@@ -10523,7 +10523,7 @@ end
 return false  
 end
 if text == 'بوت' then
-Namebot = (database:get(bot_id..'Name:Bot') or 'اسمي الكيوت باور')
+Namebot = (database:get(bot_id..'Name:Bot') or 'كافي بوت 🥺')
 send(msg.chat_id_, msg.id_,' ['..Namebot..'] ')
 end
 if text == 'الاحصائيات' then
