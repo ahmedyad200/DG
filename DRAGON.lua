@@ -11587,6 +11587,28 @@ send(msg.chat_id_, msg.id_,'☉︙ تم تفعيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
 end
 
+if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_, 1, '☉ تم الغاء امر الزخرفه ،', 1, 'md')
+database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
+return false  
+end 
+UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
+Zrf = JSON.decode(UrlZrf) 
+t = "☉ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+i = 0
+for k,v in pairs(Zrf.ok) do
+i = i + 1
+t = t..i.." `"..v.."` \n"
+end
+send(msg.chat_id_, msg.id_, 1, t, 1, 'md')
+database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
+return false   
+end
+if text == 'زخرفه' and Mod(msg) or text == 'الزخرفه' and Mod(msg) then  
+database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+send(msg.chat_id_, msg.id_, 1, '☉  لي الكلمه لزخرفتها \n☉  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
+end
 
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
 local TextZhrfa = text:match("^زخرفه (.*)$")
