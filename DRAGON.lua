@@ -11593,7 +11593,7 @@ send(msg.chat_id_, msg.id_,'☉ تم الغاء امر الزخرفه ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
-UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
+UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)) 
 Zrf = JSON.decode(UrlZrf) 
 t = "☉ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
