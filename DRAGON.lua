@@ -11607,7 +11607,7 @@ return false
 end
 if text == 'زخرفه' and Mod(msg) or text == 'الزخرفه' and Mod(msg) then  
 database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
-send(msg.chat_id_, msg.id_, 1, '☉  لي الكلمه لزخرفتها \n☉  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
+send(msg.chat_id_, msg.id_, t.. '☉  لي الكلمه لزخرفتها \n☉  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
 end
 
 if text and text:match("^زخرفه (.*)$") and database:get(bot_id.." sofi:zhrf_Bots"..msg.chat_id_) == "open" then
