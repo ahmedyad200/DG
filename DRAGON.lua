@@ -11589,7 +11589,7 @@ end
 
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_, 1, '☉ تم الغاء امر الزخرفه ،', 1, 'md')
+send(msg.chat_id_, msg.id_,'☉ تم الغاء امر الزخرفه ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
