@@ -10980,79 +10980,1180 @@ end
 if text == 'تغير الايدي' and Manager(msg) then 
 local List = {
 [[
-゠𝚄𝚂𝙴𝚁 𖨈 #username 𖥲 .
-゠𝙼𝚂𝙶 𖨈 #msgs 𖥲 .
-゠𝚂𝚃𝙰 𖨈 #stast 𖥲 .
-゠𝙸𝙳 𖨈 #id 𖥲 .
-]],
-[[☉︙ ᴜѕᴇʀɴᴀᴍᴇ ➥• #username .
-☉︙ᴍѕɢѕ ➥• #msgs .
-☉︙ ѕᴛᴀᴛѕ ➥• #stast .
-☉︙ ʏᴏᴜʀ ɪᴅ ➥• #id  .
-☉︙ᴇᴅɪᴛ ᴍsɢ ➥• #edit .
-☉︙ᴅᴇᴛᴀɪʟs ➥• #auto . 
-☉︙ ɢᴀᴍᴇ ➥• #game .]],
-[[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
-➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
+𖤍 |↶ `#id`    ꙰🇪🇬.
+𖤍 |↶ #username    ꙰🇪🇬.
+𖤍 |↶ `#msgs`    ꙰🇪🇬.
+𖤍 |↶ #stast    ꙰🇪🇬.
+𖤍 |↶ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
 ]],
 [[
-⚕ 𓆰 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 𝑮𝒓𝒐𝒖𝒑 ★
-• 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
-• 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
-• 🖤 | 𝑰𝑫 : #id ‌‌‏♕
-• 🖤 | 𝑴𝑺𝑮 : #msgs 𓆊
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+ 𝗨𝗦𝗘𝗥 ⟿ #username  « 
+ 𝗠𝗦𝗚𝗦 ⟿  `#msgs`  « 
+ 𝗦𝗧𝗔 ⟿ #stast  « 
+ 𝗜𝗗  ⟿ `#id`  « 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
 ]],
 [[
-┌ 𝐔𝐒𝐄𝐑 𖤱 #username 𖦴 .
-├ 𝐌𝐒𝐆 𖤱 #msgs 𖦴 .
-├ 𝐒𝐓𝐀 𖤱 #stast 𖦴 .
-└ 𝐈𝐃 𖤱 #id 𖦴 .
+🇪🇬≪💎≫ #username • メ
+🇪🇬≪💎≫ #stast  •メ
+🇪🇬≪💎≫ `#id`  • メ
+🇪🇬≪💎≫ `#msgs`  •メ
+🇪🇬≪💎≫ #game •メ
+🇪🇬[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
 ]],
 [[
-𓄼🇮🇶 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 :#username 
-𓄼🇮🇶 𝑺𝒕𝒂𝒔𝒕 :#stast 
-𓄼🇮🇶 𝒊𝒅 :#id 
-𓄼🇮🇶 𝑮𝒂𝒎𝒆𝑺 :#game 
-𓄼🇮🇶 𝑴𝒔𝒈𝒔 :#msgs
+⌯  𝚄𝚂𝙴𝚁 𓄹𓄼 #username
+⌯  𝙸𝙳  𓄹𓄼 `#id` 
+⌯  𝚂𝚃𝙰 𓄹𓄼 #stast 
+⌯  𝙼𝚂𝙶𝚂𓄹𓄼 `#msgs`
+⌯  [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
 ]],
 [[
-❤️|-وف اتفاعل يحلو😍🙈
-👨‍👧|- ☆يوزرك #username 🎫
-💌|- ☆رسائلك #msgs 💌
-🎫|- ☆ايديك #id   🥇
-🎟|- ☆موقعك #stast 🌐 
-🤸‍♂|- ☆جفصاتك #edit  🌬
-🥉|- ☆تفاعلك #auto 🚀
-🏆|- ☆مجوهراتك #game 🕹
-🌏|- ☆اشترك يحلو🌐《 قناة الجروب》
+𓅓➪:ᗰᔕᘜᔕ : `#msgs` - ❦ .
+𓅓➪ : Iᗪ : `#id` - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
+𓅓➪ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+- ايديڪ  ⁞ `#id` 💘 ٬
+- يوزرڪ القميل ⁞ #username 💘 ٬
+- رسائلڪ  الطيفهہَ ⁞ `#msgs` 💘 ٬
+- رتبتڪ الحلوه ⁞ #stast  💘٬
+- سحڪاتڪ الفول ⁞ #edit 💘 ٬
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : `#msgs` 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: `#id` 𓀀 .
+𓁷 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+𖡋 𝐔𝐒𝐄 ⌯ #username 
+𖡋 𝐌𝐒𝐆 ⌯ `#msgs` 
+𖡋 𝐒𝐓𝐀 ⌯ #stast 
+𖡋 𝐈𝐃 ⌯ `#id` 
+𖡋 𝐄𝐃𝐈𝐓 ⌯ #edit
+𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𖤂 ~ 𝑢𝑠𝑒 #username  𖤐
+𖤂 ~ 𝑚𝑠𝑔 `#msgs` 𖤐
+𖤂 ~ 𝑠𝑡𝑎 #stast  
+𖤂 ~ 𝑖𝑑 `#id` 𖤐
+𖤂 ~ 𝑒𝑑𝑖𝑡 #edit 𖤐
+𖤂 ~ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+••• ••• ••• ••• ••• ••• ••• 
+࿕ ¦• 𝙐𝙎𝙀𝙍  ⟿ #username ༆
+ ࿕ ¦• 𝙈𝙎𝙂𝙎   ⟿ `#msgs` ༆
+ ࿕ ¦• 𝙂𝙈𝘼𝙎  ⟿ #stast ༆
+ ࿕ ¦• 𝙏𝘿 𝙎𝙏𝘼  ⟿ `#id` ༆
+••• ••• ••• ••• ••• ••• •••
+ ࿕ ¦• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+► 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 #username 𓃚  ꙰
+► 𝗜𝗗 `#id` 𓃚 ꙰
+► 𝗦𝗧𝗔𝗦 #stast 𓃚 ꙰
+► 𝗠𝗦𝗔𝗚 `#msgs` 𓃚 ꙰
+► [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . `#id` 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . `#msgs` 🇪🇬 ꙰
+-›   [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🇪🇬 ꙰.
+]],
+[[
+- UsEr🇪🇬 ꙰ #username
+- StA🇪🇬 ꙰   `#msgs`
+- MsGs🇪🇬 ꙰ #stast
+- ID🇪🇬 ꙰  `#id`
+- [𝗖𝗛](t.me/SOPOWERB0T) 🇪🇬 ꙰  @SOPOWERB0T 💞.
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
+🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  `#msgs` 💘.
+🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ `#id` 💘.  
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : `#msgs` 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : `#id` 𓂅 .
+- 𓏬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+ᯓ 𝟔𝟔𝟔 𖡋 #username •✟
+ᯓ 𝟔𝟔𝟔𖡋 #stast  •✟
+ᯓ 𝟔𝟔𝟔𖡋 `#id`  • ✟
+ᯓ 𝟔𝟔𝟔𖡋 `#msgs`  •✟ 
+ᯓ 𝟔𝟔𝟔𖡋 #game •✟
+ᯓ 𝟔𝟔𝟔𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+🦅•𝐮𝐬𝐞𝐫 : #username 𖣬  
+🦅•𝐦𝐬𝐠  : `#msgs` 𖣬 
+🦅•𝐬𝐭𝐚 : #stast 𖣬 
+🦅•𝐢𝐝  : `#id` 𖣬
+🦅•[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ `#msgs` .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+- ᴜѕʀ: #username ঌ.
+- ᴍѕɢ: `#msgs`  ঌ.
+- ѕᴛᴀ: #stast  ঌ.
+- ɪᴅ: `#id` ঌ.
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+- 𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒 ⟿ #username
+- 𝑚𝑠𝑔𝑠 ⟿ `#msgs`
+- 𝑖𝑑 ⟿ `#id`
+- 𝑒𝑑𝑖𝑡 ⟿ #edit
+- 𝑔𝑎𝑚𝑒 ⟿ #game
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+⌔➺: Msgs : `#msgs` - 🔹.
+⌔➺: ID : `#id` - 🔹.
+⌔➺: Stast : #stast -🔹.
+⌔➺: UserName : #username -🔹.
+⌔➺: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 ꙰  - 𝚞 𝚜𝚎 𝚛 ➟ #username  ❃.
+🇪🇬 ꙰  - 𝚖 𝚜𝚐 𝚜 ➟ `#msgs` ❃.
+🇪🇬 ꙰  - 𝚐 𝚖 𝚊𝚜  ➟ #stast ❃.
+🇪🇬 ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ `#id` ❃.
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 ꙰  - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+🌯 ¦✙• 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 ➢ ⁞  #username 🇪🇬
+🌯 ¦✙• 𝒎𝒔𝒈𝒔 ➢ ⁞  `#msgs`  📝
+🌯 ¦✙• 𝒓𝒂𝒏𝒌 ➢ ⁞ #stast  
+🌯 ¦✙• 𝒊𝒅 𝒔𝒕𝒂 ➢ ⁞ `#id`  🆔
+🌯 ¦ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇪🇬.
+¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  `#msgs`  ↝ 🇪🇬.
+¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇪🇬.
+¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ `#id`  ↝🇪🇬.
+¦• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
 ]],
 [[
 ➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
 ➞: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➸💞.
-➞: 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯➸💞.
-➞: 𝒊𝒅 𓂅 #id 𓍯➸💞.
+➞: 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯➸💞.
+➞: 𝒊𝒅 𓂅 `#id` 𓍯➸💞.
+➞: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
 ]],
 [[
-☆•𝐮𝐬𝐞𝐫 : #username 𖣬  
-☆•𝐦𝐬𝐠  : #msgs 𖣬 
-☆•𝐬𝐭𝐚 : #stast 𖣬 
-☆•𝐢𝐝  : #id 𖣬
+➼ : 𝐼𝐷 𖠀 `#id` . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 `#msgs` .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
+➼ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  `#msgs`  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ `#id`  .
+▽ ¦❀• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+• ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
+• ❉ 𝑺𝑻𝑨 : #stast .
+• ❉ 𝑰𝑫 : `#id`  ‌‌‏.
+• ❉  𝑴𝑺𝑮 : `#msgs` 𓆊.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
+• ❉ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+⌯ |USERNAME #username 𓃚
+⌯ | YOUR -ID - `#id` 𓃚
+⌯ | STAS-#stast 𓃚
+ ⌯| MSAG - `#msgs` 𓃚
+ ⌯| [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𝟔𝟔𝟔 𖡋 #username • 𖣰💞
+𝟔𝟔𝟔 𖡋  #stast •𖣰💞
+𝟔𝟔𝟔 𖡋 `#id` • 𖣰💞
+𝟔𝟔𝟔 𖡋 #game • 𖣰💞
+𝟔𝟔𝟔 𖡋 `#msgs` • 𖣰💞
+𝟔𝟔𝟔 𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+⌔➺: Msgs : `#msgs` - 🔹.
+⌔➺: ID : `#id` - 🔹.
+⌔➺: Stast : #stast -🔹.
+⌔➺: UserName : #username -🔹.
+⌔➺: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+🦅 - 𝓾𝓼𝓮𝓻 ➪ #username 🦅.
+🦅 - 𝓼𝓽𝓪𝓼𝓽  ➪ #stast 🦅.
+🦅 - 𝓲𝓭 ➪ `#id` ⸙🦅.
+🦅 - 𝓰𝓶𝓪𝓼 ➪ #gmas ⸙🦅.
+🦅 - 𝓶𝓼𝓰𝓼 ➪ `#msgs` 🦅.
+🦅 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . `#id` ➪🇪🇬
+ - 𝄬 msgs . `#msgs` ➪🇪🇬
+ - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+◣: 𝒔𝒕𝒂𓂅 #stast 𓍯➥♡.
+◣: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➥♡.
+◣: 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯➥♡.
+◣: 𝒊𝒅 𓂅 `#id` 𓍯➥♡.
+◣: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+↣• USE ➤ #username  ↝🍬.
+↣• MSG ➤  `#msgs`  ↝🍬.
+↣• STA ➤  #stast  ↝🍬.
+↣• iD ➤ `#id`  ↝🍬.
+↣• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+➫✿: S #stast 𓍯➟♡.
+➫✿: U𓂅 #username 𓍯➟♡.
+➫✿: M𓂅 `#msgs` 𓍯➟♡.
+➫✿:  I  `#id` ➟♡.
+➫✿: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
+✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
+✶- 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯↝❃.
+✶- 𝒊𝒅 𓂅 `#id` 𓍯↝❃.
+✶- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+• 🖤 | 𝑼𝑬𝑺 :  #username
+
+• 🖤 | 𝑺𝑻𝑨 : #stast
+
+• 🖤 | 𝑰𝑫 :  `#id`
+
+• 🖤 | 𝑴𝑺𝑮 : `#msgs`
+
+• 🖤 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+• USE 𖦹 #username 
+• MSG 𖥳 `#msgs`  
+• STA 𖦹 #stast 
+• iD 𖥳 `#id`
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ `#msgs` .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+⚕𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 : #username
+⚕𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 : `#msgs`
+⚕𝙎𝙏𝘼𝙏𝙎 : #stast
+⚕𝙄𝘿 : `#id`
+⚕𝙅𝙀𝙒𝙀𝙇𝙎 : #game
+⚕𝘿𝙀𝙑 : #ridha
+⚕[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+• 🦄 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• 🦄 | 𝑺𝑻𝑨 : #stast ☥
+• 🦄 | 𝑰𝑫 : `#id` ‌‌‏♕
+• 🦄 | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• 🦄 | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 : ⁞
+• 🦄 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+• △ | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• ▽ | 𝑺𝑻𝑨 : #stast ☥
+• ⊠ | 𝑰𝑫 : `#id` ‌‌‏♕
+• ❏ | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• ❏ | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 :
+• ❏ | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+︙iD ➺ `#id` 💘
+︙UsEr ➺ #username 💕
+︙MsG ➺ `#msgs` 🧸 
+︙StAtE ➺ #stast 🎀
+︙EdIT ➺ #edit  💒
+︙[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+⚕ 𓆰 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝑻𝒐 ★
+• 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
+• 🖤 | 𝑰𝑫 : `#id` ‌‌‏♕
+• 🖤 | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• 🖤 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+┄─━━◉━━─┄
+𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 `#id` 🇪🇬
+𖦼 ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
+𖥪 ᴍѕɢѕ 𓄹𓄼 `#msgs` ✉️
+𖥧 ѕᴛᴀᴛѕ 𓄹𓄼 #stast 👩🏿‍🚒 
+𖥣 ᴇᴅɪᴛ 𓄹𓄼 #game🙇🏿‍♀💕
+✰ ᴄʜ ᴇʟɪɴ ➣ #edit
+┄─━━◉━━─┄
+✰ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𓄼 ᴜѕᴇ : #username ♕
+𓄼 ѕᴛᴀ : #stast ☥
+𓄼 ɪᴅ : `#id` ‌‌‏⚚
+𓄼 ᴍѕɢ : `#msgs` 𓆊
+𓄼 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+• ﮼ايديك  `#id` 🌻 ٬
+• ﮼يوزرك ➺ #username 🌻 ٬
+• ﮼مسجاتك ➺ `#msgs` 🌻 ٬
+•  ﮼رتبتك➺ #stast 🌻 ٬
+• ﮼تعديلك ➺ #edit 🌻 ٬
+• ﮼ تعين ➺ @SOPOWERB0T 💞.
+]],
+[[
+‎⿻┊Yor iD 𖠄 `#id` ٫
+‌‎⿻┊UsEr 𖠄 #username ٫
+‌‎⿻┊MsGs 𖠄 `#msgs` ٫
+‌‎⿻┊StAtS 𖠄 #stast ٫
+‌‎⿻┊‌‎EdiT 𖠄 #edit ٫
+‌‎⿻┊‌‎[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+⌾ | 𝒊𝒅  𓃠 `#id` .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 `#msgs` .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
+⌾ | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+♡ : 𝐼𝐷 𖠀 `#id` .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 `#msgs` .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
+♡ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+•ᑌᔕᗴᖇ- #username 
+•ᔕTᗩ- #stast 
+•ᗰᔕ- `#msgs` 
+•Iᗪ- `#id`
+•[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+• USE ➤ #username  .
+• MSG ➤  `#msgs`  .
+• STA ➤  #stast  .
+• iD ➤ `#id`  .
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+𝐘𝐨𝐮𝐫 𝐈𝐃 ☤🇪🇬- `#id` 
+𝐔𝐬𝐞𝐫𝐍𝐚☤🇪🇬- #username 
+𝐒𝐭𝐚𝐬𝐓 ☤🇪🇬- #stast 
+𝐌𝐬𝐠𝐒☤🇪🇬 - `#msgs`
+[𝗖𝗛](t.me/SOPOWERB0T)☤🇪🇬 - @SOPOWERB0T 🦅.
+]],
+[[
+⭐️𝖘𝖙𝖆 : #stast ـ🍭
+⭐️𝖚𝖘𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
+⭐️𝖒𝖘𝖌𝖘 : `#msgs` ـ🍭
+⭐️𝖎𝖉 : `#id` ـ 🍭
+⭐️[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+• 🇪🇬 - 𝚄𝚂𝙴𝚁 « #username  🍭
+• 🇪🇬 - 𝙸𝙳 « `#id`  🍭
+• 🇪🇬 - 𝙼𝚂𝙶𝚂 « `#msgs`  🍭
+• 🇪🇬 - 𝚂𝚃𝙰𝚂𝚃 « #stast  🍭
+• 🇪🇬 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+• USE ➤  #username .
+• MSG ➤  `#msgs` .
+• STA ➤  #stast .
+• iD ➤ `#id` .
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . `#id` 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . `#msgs`  𓃠
+🇪🇬 - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𓄼🇪🇬 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 : #username ♕
+𓄼🇪🇬 𝑺𝒕𝒂𝒔𝒕 : #stast    ☥
+𓄼🇪🇬 𝒊𝒅 : `#id` ‌‌‏⚚
+𓄼🇪🇬 𝑮𝒂𝒎𝒆𝑺 : #edit ⚚
+𓄼🇪🇬 𝑴𝒔𝒈𝒔 : `#msgs` 𓆊
+𓄼🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+Usᴇʀ Nᴀᴍᴇ ~ #username 
+Yᴏᴜʀ ɪᴅ ~ `#id` 
+Sᴛᴀsᴛ ~ #stast 
+Msᴀɢ ~ `#msgs`
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . `#id` 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . `#msgs` 𖠲
+- 🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . `#id` 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . `#msgs`  𓃠
+🇪🇬 - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . `#id` ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . `#msgs` ⸙
+金 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+➜𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 : #username
+➜𝗠𝗘𝗦𝗦𝗔𝗚𝗘𝗦 : `#msgs`
+➜𝗦𝗧𝗔𝗧𝗦 : #stast
+➜𝗜𝗗 : `#id`
+➜[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+⌔︙Msgs : `#msgs`.
+⌔︙ID : `#id`.
+⌔︙Stast : #stast.
+⌔︙UserName : #username.
+⌔︙[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+𝒔𝒕𝒂𓂅 #stast 𓍯
+𝒖𝒔𝒆𝒓𓂅 #username 𓍯
+𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯
+𝒊𝒅 𓂅 `#id` 𓍯
+𓂅 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . `#id` 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . `#msgs` 𖣂.
+- 🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . `#id` 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . `#msgs` 🇪🇬 ꙰
+ᯓ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  🖤 ↴
+.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  🖤 ↴
+.𖣂 𝙡𝘿 , `#id`  🖤 ↴
+.𖣂 𝘼𝙪𝙩𝙤 , #auto  🖤 ↴
+.𖣂 𝙢𝙨𝙂𝙨 , `#msgs`  🖤 ↴
+.𖣂 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+➥• USE 𖦹 #username - 🇪🇬.
+➥• MSG 𖥳 `#msgs`  - 🇪🇬.
+➥• STA 𖦹 #stast - 🇪🇬.
+➥• iD 𖥳 `#id` - 🇪🇬.
+➥• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . `#id` . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . `#msgs` . 🇪🇬
+👳🏼‍♂ - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯. 💕
+➭- 𝒊𝒅 𓂅 `#id` 𓍯. 💕
+➭- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+𓄼 ᴜѕᴇ : #username ♕
+𓄼 ѕᴛᴀ : #stast  ☥
+𓄼 ɪᴅ : `#id` ‌‌‏⚚
+𓄼 ᴍѕɢ : `#msgs` 𓆊 
+𓐀 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𓀃.
+𓄼 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 `#id` .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 `#msgs` .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
+𝐓𝐓• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𝟓 𝟔 𖡻 #username  ࿇🦄
+𝟓 𝟔 𖡻 `#msgs`  ࿇🦄
+𝟓 𝟔 𖡻 #auto  ࿇🦄
+𝟓 𝟔 𖡻 #stast  ࿇🦄
+𝟓 𝟔 𖡻 `#id`  ࿇🦄
+𝟓 𝟔 𖡻 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 💞.
+]],
+[[
+༻┉𖦹┉┉𖦹┉┉𖦹┉┉𖦹┉༺
+• |𝗜𝗗  ⁞ `#id`
+• |𝗨𝗦𝗘 ⁞ #username
+• |𝗦𝗧𝗔  ⁞ #stast
+• |𝗠𝗦𝗚  ⁞ #edit
+• |𝗔𝗨𝗧𝗢 ⁞ #auto
+—————————————
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+┄─━━◉━━─┄
+𖣰𖡻 𖡋𝗜𝗗• `#id` •𓀎
+𖣰𖡻 𖡋𝗨𝗦𝗘• #username •𓀎
+𖣰𖡻 𖡋𝗦𝗧𝗔• #stast •𓀎
+𖣰𖡻 𖡋𝗠𝗦𝗚• `#msgs` •𓀎
+𖣰𖡻 𖡋𝗔𝗨𝗧𝗢• #auto •𓀎
+𖣰𖡻 𖡋𝗘𝗗𝗜𝗧• #edit • 𓀎
+┄─━━◉━━─┄
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅.
+]],
+[[
+𖤍 |↶ `#id`    ꙰🇪🇬.
+𖤍 |↶ #username    ꙰🇪🇬.
+𖤍 |↶ `#msgs`    ꙰🇪🇬.
+𖤍 |↶ #stast    ꙰🇪🇬.
+𖤍 |↶ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+ 𝗨𝗦𝗘𝗥 ⟿ #username  « 
+ 𝗠𝗦𝗚𝗦 ⟿  `#msgs`  « 
+ 𝗦𝗧𝗔 ⟿ #stast  « 
+ 𝗜𝗗  ⟿ `#id`  « 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🇪🇬≪💎≫ #username • メ
+🇪🇬≪💎≫ #stast  •メ
+🇪🇬≪💎≫ `#id`  • メ
+🇪🇬≪💎≫ `#msgs`  •メ
+🇪🇬≪💎≫ #game •メ
+🇪🇬[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌯  𝚄𝚂𝙴𝚁 𓄹𓄼 #username
+⌯  𝙸𝙳  𓄹𓄼 `#id` 
+⌯  𝚂𝚃𝙰 𓄹𓄼 #stast 
+⌯  𝙼𝚂𝙶𝚂𓄹𓄼 `#msgs`
+⌯  [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𓅓➪:ᗰᔕᘜᔕ : `#msgs` - ❦ .
+𓅓➪ : Iᗪ : `#id` - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
+𓅓➪ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- ايديڪ  ⁞ `#id` 💘 ٬
+- يوزرڪ القميل ⁞ #username 💘 ٬
+- رسائلڪ  الطيفهہَ ⁞ `#msgs` 💘 ٬
+- رتبتڪ الحلوه ⁞ #stast  💘٬
+- سحڪاتڪ الفول ⁞ #edit 💘 ٬
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : `#msgs` 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: `#id` 𓀀 .
+𓁷 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𖡋 𝐔𝐒𝐄 ⌯ #username 
+𖡋 𝐌𝐒𝐆 ⌯ `#msgs` 
+𖡋 𝐒𝐓𝐀 ⌯ #stast 
+𖡋 𝐈𝐃 ⌯ `#id` 
+𖡋 𝐄𝐃𝐈𝐓 ⌯ #edit
+𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𖤂 ~ 𝑢𝑠𝑒 #username  𖤐
+𖤂 ~ 𝑚𝑠𝑔 `#msgs` 𖤐
+𖤂 ~ 𝑠𝑡𝑎 #stast  
+𖤂 ~ 𝑖𝑑 `#id` 𖤐
+𖤂 ~ 𝑒𝑑𝑖𝑡 #edit 𖤐
+𖤂 ~ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . `#id` 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . `#msgs` 🇪🇬 ꙰
+-›   [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🇪🇬 ꙰.
+]],
+[[
+••• ••• ••• ••• ••• ••• ••• 
+࿕ ¦• 𝙐𝙎𝙀𝙍  ⟿ #username ༆
+ ࿕ ¦• 𝙈𝙎𝙂𝙎   ⟿ `#msgs` ༆
+ ࿕ ¦• 𝙂𝙈𝘼𝙎  ⟿ #stast ༆
+ ࿕ ¦• 𝙏𝘿 𝙎𝙏𝘼  ⟿ `#id` ༆
+••• ••• ••• ••• ••• ••• •••
+ ࿕ ¦• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+► 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 #username 𓃚  ꙰
+► 𝗜𝗗 `#id` 𓃚 ꙰
+► 𝗦𝗧𝗔𝗦 #stast 𓃚 ꙰
+► 𝗠𝗦𝗔𝗚 `#msgs` 𓃚 ꙰
+► [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- UsEr🇪🇬 ꙰ #username
+- StA🇪🇬 ꙰   `#msgs`
+- MsGs🇪🇬 ꙰ #stast
+- ID🇪🇬 ꙰  `#id`
+- [𝗖𝗛](t.me/SOPOWERB0T) 🇪🇬 ꙰  @SOPOWERB0T 🦅
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
+🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  `#msgs` 💘.
+🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ `#id` 💘.  
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
 ]],
 [[
 - 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : `#msgs` 𓂅 .
 - 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
-- 𓏬 𝐈𝐃 : #id 𓂅 .
+- 𓏬 𝐈𝐃 : `#id` 𓂅 .
+- 𓏬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
 ]],
 [[
-.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  
-.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  
-.𖣂 𝙡𝘿 , #id  
-.𖣂 𝙂𝙖𝙢𝙨 , #game 
-.𖣂 𝙢𝙨𝙂𝙨 , #msgs
+ᯓ 𝟔𝟔𝟔 𖡋 #username •✟
+ᯓ 𝟔𝟔𝟔𖡋 #stast  •✟
+ᯓ 𝟔𝟔𝟔𖡋 `#id`  • ✟
+ᯓ 𝟔𝟔𝟔𖡋 `#msgs`  •✟ 
+ᯓ 𝟔𝟔𝟔𖡋 #game •✟
+ᯓ 𝟔𝟔𝟔𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🦅•𝐮𝐬𝐞𝐫 : #username 𖣬  
+🦅•𝐦𝐬𝐠  : `#msgs` 𖣬 
+🦅•𝐬𝐭𝐚 : #stast 𖣬 
+🦅•𝐢𝐝  : `#id` 𖣬
+🦅•[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ `#msgs` .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- ᴜѕʀ: #username ঌ.
+- ᴍѕɢ: `#msgs`  ঌ.
+- ѕᴛᴀ: #stast  ঌ.
+- ɪᴅ: `#id` ঌ.
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- 𝑢𝑠𝑒𝑟𝑛𝑎𝑚𝑒 ⟿ #username
+- 𝑚𝑠𝑔𝑠 ⟿ `#msgs`
+- 𝑖𝑑 ⟿ `#id`
+- 𝑒𝑑𝑖𝑡 ⟿ #edit
+- 𝑔𝑎𝑚𝑒 ⟿ #game
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🌯 ¦✙• 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 ➢ ⁞  #username 🇪🇬
+🌯 ¦✙• 𝒎𝒔𝒈𝒔 ➢ ⁞  `#msgs`  📝
+🌯 ¦✙• 𝒓𝒂𝒏𝒌 ➢ ⁞ #stast  
+🌯 ¦✙• 𝒊𝒅 𝒔𝒕𝒂 ➢ ⁞ `#id`  🆔
+🌯 ¦ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 ꙰  - 𝚞 𝚜𝚎 𝚛 ➟ #username  ❃.
+🇪🇬 ꙰  - 𝚖 𝚜𝚐 𝚜 ➟ `#msgs` ❃.
+🇪🇬 ꙰  - 𝚐 𝚖 𝚊𝚜  ➟ #stast ❃.
+🇪🇬 ꙰  - 𝙸𝙳 𝚜𝚝𝚊   ➟ `#id` ❃.
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+🇪🇬 ꙰  - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌔➺: Msgs : `#msgs` - 🔹.
+⌔➺: ID : `#id` - 🔹.
+⌔➺: Stast : #stast -🔹.
+⌔➺: UserName : #username -🔹.
+⌔➺: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+¦• 𝚄𝚂𝙴𝚁  ⇉⁞ #username ↝🇪🇬.
+¦• 𝙼𝚂𝙶𝚂 ⇉ ⁞  `#msgs`  ↝ 🇪🇬.
+¦• 𝚁𝙰𝙽𝙺  ⇉⁞ #stast  ↝🇪🇬.
+¦• 𝙸𝙳 𝚂𝚃𝙰 ⇉ `#id`  ↝🇪🇬.
+¦• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➞: 𝒔𝒕𝒂𓂅 #stast 𓍯➸💞.
+➞: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➸💞.
+➞: 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯➸💞.
+➞: 𝒊𝒅 𓂅 `#id` 𓍯➸💞.
+➞: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➼ : 𝐼𝐷 𖠀 `#id` . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 `#msgs` .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
+➼ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  `#msgs`  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ `#id`  .
+▽ ¦❀• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
+• ❉ 𝑺𝑻𝑨 : #stast .
+• ❉ 𝑰𝑫 : `#id`  ‌‌‏.
+• ❉  𝑴𝑺𝑮 : `#msgs` 𓆊.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
+• ❉ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌯ |USERNAME #username 𓃚
+⌯ | YOUR -ID - `#id` 𓃚
+⌯ | STAS-#stast 𓃚
+ ⌯| MSAG - `#msgs` 𓃚
+ ⌯| [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𝟔𝟔𝟔 𖡋 #username • 𖣰💞
+𝟔𝟔𝟔 𖡋  #stast •𖣰💞
+𝟔𝟔𝟔 𖡋 `#id` • 𖣰💞
+𝟔𝟔𝟔 𖡋 #game • 𖣰💞
+𝟔𝟔𝟔 𖡋 `#msgs` • 𖣰💞
+𝟔𝟔𝟔 𖡋 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌔➺: Msgs : `#msgs` - 🔹.
+⌔➺: ID : `#id` - 🔹.
+⌔➺: Stast : #stast -🔹.
+⌔➺: UserName : #username -🔹.
+⌔➺: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🦅 - 𝓾𝓼𝓮𝓻 ➪ #username 🦅.
+🦅 - 𝓼𝓽𝓪𝓼𝓽  ➪ #stast 🦅.
+🦅 - 𝓲𝓭 ➪ `#id` ⸙🦅.
+🦅 - 𝓰𝓶𝓪𝓼 ➪ #gmas ⸙🦅.
+🦅 - 𝓶𝓼𝓰𝓼 ➪ `#msgs` 🦅.
+🦅 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+◣: 𝒔𝒕𝒂𓂅 #stast 𓍯➥♡.
+◣: 𝒖𝒔𝒆𝒓𓂅 #username 𓍯➥♡.
+◣: 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯➥♡.
+◣: 𝒊𝒅 𓂅 `#id` 𓍯➥♡.
+◣: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . `#id` ➪🇪🇬
+ - 𝄬 msgs . `#msgs` ➪🇪🇬
+ - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+↣• USE ➤ #username  ↝🍬.
+↣• MSG ➤  `#msgs`  ↝🍬.
+↣• STA ➤  #stast  ↝🍬.
+↣• iD ➤ `#id`  ↝🍬.
+↣• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➫✿: S #stast 𓍯➟♡.
+➫✿: U𓂅 #username 𓍯➟♡.
+➫✿: M𓂅 `#msgs` 𓍯➟♡.
+➫✿:  I  `#id` ➟♡.
+➫✿: [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
+✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
+✶- 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯↝❃.
+✶- 𝒊𝒅 𓂅 `#id` 𓍯↝❃.
+✶- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• 🖤 | 𝑼𝑬𝑺 :  #username
+
+• 🖤 | 𝑺𝑻𝑨 : #stast
+
+• 🖤 | 𝑰𝑫 :  `#id`
+
+• 🖤 | 𝑴𝑺𝑮 : `#msgs`
+
+• 🖤 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• USE 𖦹 #username 
+• MSG 𖥳 `#msgs`  
+• STA 𖦹 #stast 
+• iD 𖥳 `#id`
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ `#msgs` .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ `#id`  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
+- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⚕𝙐𝙎𝙀𝙍𝙉𝘼𝙈𝙀 : #username
+⚕𝙈𝙀𝙎𝙎𝘼𝙂𝙀𝙎 : `#msgs`
+⚕𝙎𝙏𝘼𝙏𝙎 : #stast
+⚕𝙄𝘿 : `#id`
+⚕𝙅𝙀𝙒𝙀𝙇𝙎 : #game
+⚕𝘿𝙀𝙑 : #ridha
+⚕[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• 🦄 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• 🦄 | 𝑺𝑻𝑨 : #stast ☥
+• 🦄 | 𝑰𝑫 : `#id` ‌‌‏♕
+• 🦄 | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• 🦄 | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 : ⁞
+• 🦄 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• △ | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• ▽ | 𝑺𝑻𝑨 : #stast ☥
+• ⊠ | 𝑰𝑫 : `#id` ‌‌‏♕
+• ❏ | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• ❏ | 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 :
+• ❏ | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+︙iD ➺ `#id` 💘
+︙UsEr ➺ #username 💕
+︙MsG ➺ `#msgs` 🧸 
+︙StAtE ➺ #stast 🎀
+︙EdIT ➺ #edit  💒
+︙[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• 🖤 | 𝑼𝑬𝑺 : #username ‌‌‏⚚
+• 🖤 | 𝑺𝑻𝑨 : #stast 🧙🏻‍♂ ☥
+• 🖤 | 𝑰𝑫 : `#id` ‌‌‏♕
+• 🖤 | 𝑴𝑺𝑮 : `#msgs` 𓆊
+• 🖤 | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𓄼 ᴜѕᴇ : #username ♕
+𓄼 ѕᴛᴀ : #stast ☥
+𓄼 ɪᴅ : `#id` ‌‌‏⚚
+𓄼 ᴍѕɢ : `#msgs` 𓆊
+𓄼 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+‎⿻┊Yor iD 𖠄 `#id` ٫
+‌‎⿻┊UsEr 𖠄 #username ٫
+‌‎⿻┊MsGs 𖠄 `#msgs` ٫
+‌‎⿻┊StAtS 𖠄 #stast ٫
+‌‎⿻┊‌‎EdiT 𖠄 #edit ٫
+‌‎⿻┊‌‎[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• ﮼ايديك  `#id` 🌻 ٬
+• ﮼يوزرك ➺ #username 🌻 ٬
+• ﮼مسجاتك ➺ `#msgs` 🌻 ٬
+•  ﮼رتبتك➺ #stast 🌻 ٬
+• ﮼تعديلك ➺ #edit 🌻 ٬
+•  تعين ➺ @SOPOWERB0T 🦅
+]],
+[[
+┄─━━◉━━─┄
+𖣤 ᴜѕᴇʀɴᴀᴍᴇ 𓄹𓄼 `#id` 🇪🇬
+𖦼 ʏᴏᴜʀ ɪᴅ 𓄹𓄼 #username  💛
+𖥪 ᴍѕɢѕ 𓄹𓄼 `#msgs` ✉️
+𖥧 ѕᴛᴀᴛѕ 𓄹𓄼 #stast 👩🏿‍🚒 
+𖥣 ᴇᴅɪᴛ 𓄹𓄼 #game🙇🏿‍♀💕
+✰ ᴄʜ ᴇʟɪɴ ➣ #edit
+┄─━━◉━━─┄
+✰ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌾ | 𝒊𝒅  𓃠 `#id` .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 `#msgs` .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
+⌾ | [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+♡ : 𝐼𝐷 𖠀 `#id` .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 `#msgs` .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
+♡ : [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+•ᑌᔕᗴᖇ- #username 
+•ᔕTᗩ- #stast 
+•ᗰᔕ- `#msgs` 
+•Iᗪ- `#id`
+•[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• USE ➤ #username  .
+• MSG ➤  `#msgs`  .
+• STA ➤  #stast  .
+• iD ➤ `#id`  .
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𝐘𝐨𝐮𝐫 𝐈𝐃 ☤🇪🇬- `#id` 
+𝐔𝐬𝐞𝐫𝐍𝐚☤🇪🇬- #username 
+𝐒𝐭𝐚𝐬𝐓 ☤🇪🇬- #stast 
+𝐌𝐬𝐠𝐒☤🇪🇬 - `#msgs`
+[𝗖𝗛](t.me/SOPOWERB0T)☤🇪🇬 - @SOPOWERB0T 🦅
+]],
+[[
+⭐️𝖘𝖙𝖆 : #stast ـ🍭
+⭐️𝖚𝖘𝖊𝖗𝖓𝖆𝖒𝖊 : #username ـ🍭
+⭐️𝖒𝖘𝖌𝖘 : `#msgs` ـ🍭
+⭐️𝖎𝖉 : `#id` ـ 🍭
+⭐️[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• 🇪🇬 - 𝚄𝚂𝙴𝚁 « #username  🍭
+• 🇪🇬 - 𝙸𝙳 « `#id`  🍭
+• 🇪🇬 - 𝙼𝚂𝙶𝚂 « `#msgs`  🍭
+• 🇪🇬 - 𝚂𝚃𝙰𝚂𝚃 « #stast  🍭
+• 🇪🇬 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+• USE ➤  #username .
+• MSG ➤  `#msgs` .
+• STA ➤  #stast .
+• iD ➤ `#id` .
+• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . `#id` 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . `#msgs`  𓃠
+🇪🇬 - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➜𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘 : #username
+➜𝗠𝗘𝗦𝗦𝗔𝗚𝗘𝗦 : `#msgs`
+➜𝗦𝗧𝗔𝗧𝗦 : #stast
+➜𝗜𝗗 : `#id`
+➜[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . `#id` 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . `#msgs` 𖠲
+- 🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+⌔︙Msgs : `#msgs`.
+⌔︙ID : `#id`.
+⌔︙Stast : #stast.
+⌔︙UserName : #username.
+⌔︙[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𝒔𝒕𝒂𓂅 #stast 𓍯
+𝒖𝒔𝒆𝒓𓂅 #username 𓍯
+𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯
+𝒊𝒅 𓂅 `#id` 𓍯
+𓂅 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𓄼🇪🇬 𝑼𝒔𝒆𝒓𝑵𝒂𝒎𝒆 : #username ♕
+𓄼🇪🇬 𝑺𝒕𝒂𝒔𝒕 : #stast    ☥
+𓄼🇪🇬 𝒊𝒅 : `#id` ‌‌‏⚚
+𓄼🇪🇬 𝑮𝒂𝒎𝒆𝑺 : #edit ⚚
+𓄼🇪🇬 𝑴𝒔𝒈𝒔 : `#msgs` 𓆊
+𓄼🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+Usᴇʀ Nᴀᴍᴇ ~ #username 
+Yᴏᴜʀ ɪᴅ ~ `#id` 
+Sᴛᴀsᴛ ~ #stast 
+Msᴀɢ ~ `#msgs`
+[𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➥• USE 𖦹 #username - 🇪🇬.
+➥• MSG 𖥳 `#msgs`  - 🇪🇬.
+➥• STA 𖦹 #stast - 🇪🇬.
+➥• iD 𖥳 `#id` - 🇪🇬.
+➥• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . `#id` 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . `#msgs`  𓃠
+🇪🇬 - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+.𖣂 𝙪𝙨𝙚𝙧𝙣𝙖𝙢𝙚 , #username  🖤 ↴
+.𖣂 𝙨𝙩𝙖𝙨𝙩 , #stast  🖤 ↴
+.𖣂 𝙡𝘿 , `#id`  🖤 ↴
+.𖣂 𝘼𝙪𝙩𝙤 , #auto  🖤 ↴
+.𖣂 𝙢𝙨𝙂𝙨 , `#msgs`  🖤 ↴
+.𖣂 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . `#id` ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . `#msgs` ⸙
+金 - [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . `#id` 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . `#msgs` 𖣂.
+- 🇪🇬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . `#id` 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . `#msgs` 🇪🇬 ꙰
+ᯓ [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . `#id` . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . `#msgs` . 🇪🇬
+👳🏼‍♂ - 𝄬 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 `#msgs` 𓍯. 💕
+➭- 𝒊𝒅 𓂅 `#id` 𓍯. 💕
+➭- [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𓄼 ᴜѕᴇ : #username ♕
+𓄼 ѕᴛᴀ : #stast  ☥
+𓄼 ɪᴅ : `#id` ‌‌‏⚚
+𓄼 ᴍѕɢ : `#msgs` 𓆊 
+𓐀 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𓀃.
+𓄼 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 `#id` .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 `#msgs` .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
+𝐓𝐓• [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
+]],
+[[
+𝟓 𝟔 𖡻 #username  ࿇🦄
+𝟓 𝟔 𖡻 `#msgs`  ࿇🦄
+𝟓 𝟔 𖡻 #auto  ࿇🦄
+𝟓 𝟔 𖡻 #stast  ࿇🦄
+𝟓 𝟔 𖡻 `#id`  ࿇🦄
+𝟓 𝟔 𖡻 [𝗖𝗛](t.me/SOPOWERB0T) - @SOPOWERB0T 🦅
 ]]}
 local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
