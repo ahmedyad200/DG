@@ -263,9 +263,17 @@ else
 return false    
 end 
 end
+function GMod(msg)
+local hash = database:sismember(bot_id..'GMod:User'..msg.chat_id_,msg.sender_user_id_)    
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+return true    
+else    
+return false    
+end 
+end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -273,7 +281,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or GMod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -309,7 +317,9 @@ var = true
 elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
 var = true  
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
-var = true 
+var = true
+elseif database:sismember(bot_id..'GMod:User', user_id) then
+var = true  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
 var = true  
 elseif database:sismember(bot_id..'Special:User'..chat_id, user_id) then  
@@ -350,6 +360,8 @@ elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
 var = database:get(bot_id.."Manager:Rd"..msg.chat_id_) or 'المدير'  
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
 var = 'منظف' 
+elseif database:sismember(bot_id..'GMod:User', user_id) then
+var = database:get(bot_id.."GMod:Rd"..msg.chat_id_) or 'الادمن العام'  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
 var = database:get(bot_id.."Mod:Rd"..msg.chat_id_) or 'الادمن'  
 elseif database:sismember(bot_id..'Special:User'..chat_id, user_id) then  
@@ -4237,6 +4249,150 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
+if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+function start_function(extra, result, success)
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:sadd(bot_id..'Gmod:User', result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false 
+end
+if text and text:match("^رفع ادمن عام @(.*)$") and DevSoFi(msg) then
+local username = text:match("^رفع ادمن عام @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⚠| عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id..'Gmod:User', result.id_)
+usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+texts = usertext..status
+else
+texts = ' ☉┇ لا يوجد حساب بهاذا المعرف'
+end
+send(msg.chat_id_, msg.id_, texts)
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false 
+end
+if text and text:match("^رفع ادمن عام (%d+)$") and DevSoFi(msg) then
+local userid = text:match("^رفع ادمن عام (%d+)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:sadd(bot_id..'Gmod:User', userid)
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+if data.first_name_ then
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+send(msg.chat_id_, msg.id_, usertext..status)
+else
+usertext = '\n ☉┇ العضو » '..userid..''
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+send(msg.chat_id_, msg.id_, usertext..status)
+end;end,nil)
+return false 
+end
+if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function start_function(extra, result, success)
+database:srem(bot_id..'Gmod:User', result.sender_user_id_)
+tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+send(msg.chat_id_, msg.id_, usertext..status)
+end,nil)
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
+return false 
+end
+if text and text:match("^تنزيل ادمن عام @(.*)$") and DevSoFi(msg) then
+local username = text:match("^تنزيل ادمن عام @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function start_function(extra, result, success)
+if result.id_ then
+database:srem(bot_id..'GMOD:User', result.id_)
+usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+texts = usertext..status
+else
+texts = ' ☉┇ لا يوجد حساب بهاذا المعرف'
+end
+send(msg.chat_id_, msg.id_, texts)
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end  
+if text and text:match("^تنزيل ادمن عام (%d+)$") and DevSoFi(msg) then
+local userid = text:match("^تنزيل ادمن عام (%d+)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:srem(bot_id..'GMOD:User', userid)
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+if data.first_name_ then
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+send(msg.chat_id_, msg.id_, usertext..status)
+else
+usertext = '\n ☉┇ العضو » '..userid..''
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+send(msg.chat_id_, msg.id_, usertext..status)
+end;end,nil)
+return false 
+end
 if text == ("مسح قائمه المالك") and Sudo(msg) then
 database:del(bot_id..'CoSu'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه المالك')
@@ -7962,7 +8118,8 @@ local Text = [[
 اهلا في قائمه الالعاب المتطوره بوت باور 🎮
 تفضل اختر لعبه من القائمه
 اول قائمه العاب مكونه من 50 لعبه
-]]  
+]]
+  
 keyboard = {}   
 keyboard.inline_keyboard = {  
 {{text = 'مبرمج السورس', url="t.me/AY_AHD"}},
@@ -7994,6 +8151,50 @@ keyboard.inline_keyboard = {
 }  
 local msg_id = msg.id_/2097152/0.5  
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+end
+if text == 'العاب متطوره' or text == 'العاب باور' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'')
+return false
+end
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local Text =[[
+اختر اي قائمه تريد
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
+},
+{
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+if Text == '/game1' then
+if not Mod(data) then
+local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
+return false
+end
+local Teext =[[
+مرحبا في القائمه الاولي تفضل اختر لعبتك
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"},
+},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if text == "تويت" or text == "كت تويت" then 
 local TWEET_Msg = { 
