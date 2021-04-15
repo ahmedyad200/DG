@@ -1,3 +1,4 @@
+-- by AHMEDYAD --
 redis = require('redis') 
 https = require ("ssl.https") 
 serpent = dofile("./library/serpent.lua") 
@@ -20,7 +21,7 @@ end
 file:write(serialized)    
 file:close()  
 end  
-if not database:get(id_server..":token") then
+if not database:get(id_server..":token") then -- كسمك يسطا حتا السورس  دا هتسرقو
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\na≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n\27')
 local token = io.read()
 if token ~= '' then
@@ -173,7 +174,7 @@ local runapp = sudos.token
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841,1681991286}   
+sudo_users = {SUDO,1718785294,944353237,1605682553,1645553841,1681991286}-- للدرجادي مش عارف تعمل حاجه عدله فا بتسرق 😂
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -284,7 +285,7 @@ end
 local bcg = '08221:'
 local dd = '17740' .. bcg
 function Can_or_NotCan(user_id,chat_id)
-if tonumber(user_id) == tonumber(944353237) then  
+if tonumber(user_id) == tonumber(944353237) then-- يله يعم انا مسامحك فيه
 var = true  
 elseif tonumber(user_id) == tonumber(1718785294) then
 var = true  
@@ -329,7 +330,7 @@ local gg = 'AAGPK3EE1FK6P'
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1718785294) then  
 var = 'مطــور السـورس'
-elseif tonumber(user_id) == tonumber(944353237) then
+elseif tonumber(user_id) == tonumber(944353237) then -- بحبك
 var = 'مبرمـج السورس'
 elseif tonumber(user_id) == tonumber(1605682553) then
 var = 'ملك التلجرام'
@@ -11453,8 +11454,8 @@ local Teext = text:match("^تغير رد العضو (.*)$")
 database:set(bot_id.."Memp:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_," ✪︙ تم تغير رد العضو الى » "..Teext)
 end
-
----------------------- الاوامر الجديده
+-- يا حرامي احنا في رمضان و بتسرق --
+-- by AHMEDYAD --
 if text == 'الاوامر' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'')
@@ -11554,7 +11555,7 @@ t = "\n✪︙ قائمه الزخرفه \n≪━━━━━━𝐏𝐎𝐖𝐄�
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."-  `"..v.."` \n"
+t = t..i.."-  "..v.." \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫ٴ\n✪︙ ➫ .[🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁. ](t.me/DV_POWER1)➤ ')
 end
