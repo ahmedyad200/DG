@@ -1098,7 +1098,7 @@ if text == 'مسح كليشه ستارت ☉' and DevSoFi(msg) then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح كليشه ستارت')
 end
-if text == 'معلومات السيرفر ☉' or text 'السيرفر' and DevSoFi(msg) then 
+if text == 'معلومات السيرفر ☉' or text == 'السيرفر' and DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
