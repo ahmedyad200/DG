@@ -258,8 +258,8 @@ else
 return false    
 end 
 end
-function GMod(msg)
-local hash = database:sismember(bot_id..'GMod:User'..msg.chat_id_,msg.sender_user_id_)    
+function Gmod(msg)
+local hash = database:sismember(bot_id..'Gmod:User'..msg.chat_id_,msg.sender_user_id_)    
 if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
@@ -276,7 +276,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or GMod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -313,7 +313,7 @@ elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
 var = true  
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
 var = true
-elseif database:sismember(bot_id..'GMod:User', user_id) then
+elseif database:sismember(bot_id..'Gmod:User', user_id) then
 var = true  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
 var = true  
@@ -355,8 +355,8 @@ elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
 var = database:get(bot_id.."Manager:Rd"..msg.chat_id_) or 'المدير'  
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
 var = 'منظف' 
-elseif database:sismember(bot_id..'GMod:User', user_id) then
-var = database:get(bot_id.."GMod:Rd"..msg.chat_id_) or 'الادمن العام'  
+elseif database:sismember(bot_id..'Gmod:User', user_id) then
+var = database:get(bot_id.."Gmod:Rd"..msg.chat_id_) or 'الادمن العام'  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
 var = database:get(bot_id.."Mod:Rd"..msg.chat_id_) or 'الادمن'  
 elseif database:sismember(bot_id..'Special:User'..chat_id, user_id) then  
@@ -4048,8 +4048,8 @@ end,nil)
 end
 end
 
-if text == ' ' and DevSoFi(msg) then
-t = ' ☉┇ ملفات السورس باور ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
+if text == 'الملفات' and DevSoFi(msg) then
+t = ' ☉┇ الملفات المفعله في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -4059,7 +4059,7 @@ end
 end
 send(msg.chat_id_, msg.id_,t)
 end
-if text == " " or text == ' ' then
+if text == "المتجر" or text == 'متجر الملفات' then
 if DevSoFi(msg) then
 local Get_Files, res = https.request("https://raw.githubusercontent.com/ahmedyad200/DG/master/getfile.json")
 if res == 200 then
@@ -4089,8 +4089,8 @@ return false
 end
 end
 
-if text and text:match("^( ) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^( ) (.*)(.lua)$")}
+if text and text:match("^(تعطيل) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^(تعطيل) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
@@ -4109,8 +4109,8 @@ send(msg.chat_id_, msg.id_," ☉┇ عذرا الملف لايدعم سورس ب
 end
 return false
 end
-if text and text:match("^( ) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^( ) (.*)(.lua)$")}
+if text and text:match("^(تفعيل) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^(تفعيل) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
@@ -4131,7 +4131,7 @@ send(msg.chat_id_, msg.id_," ☉┇ عذرا الملف لايدعم سورس ب
 end
 return false
 end
-if text == "" and DevSoFi(msg) then
+if text == "مسح الملفات" and DevSoFi(msg) then
 os.execute("rm -fr File_Bot/*")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح الملفات")
 return false
@@ -4389,7 +4389,7 @@ return false
 end
 function start_function(extra, result, success)
 if result.id_ then
-database:srem(bot_id..'GMOD:User', result.id_)
+database:srem(bot_id..'Gmod:User', result.id_)
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'sopowerb0t')..')'
 status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
 texts = usertext..status
@@ -4412,7 +4412,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:srem(bot_id..'GMOD:User', userid)
+database:srem(bot_id..'Gmod:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
