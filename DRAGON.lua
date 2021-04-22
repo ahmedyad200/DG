@@ -901,15 +901,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك'
 local keyboard = {
@@ -938,7 +929,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 SourceDRAGONr = start
 else
-SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ☉┇ معرف المطور ['..UserName..']'
+SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط البوت'
 end 
 send(msg.chat_id_, msg.id_, SourceDRAGONr) 
 end
@@ -954,7 +945,7 @@ keyboard = {
 {'مبرمج السورس'},
 }
 end
-send_inline_key(msg.chat_id_,bl,keyboard)
+send_inline_key(msg.chat_id_, msg.id_, keyboard) 
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
