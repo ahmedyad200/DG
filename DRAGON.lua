@@ -11111,7 +11111,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 if text == 'بوت' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..' 🥺❤️)
+send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..' 🥺❤'️)
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
