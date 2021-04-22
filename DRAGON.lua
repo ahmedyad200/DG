@@ -900,7 +900,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' then  
+if text == '/start' then
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك'
 local keyboard = {
@@ -923,7 +923,7 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
+end
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
