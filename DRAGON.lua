@@ -252,23 +252,23 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
-return true    
-else    
-return false    
-end 
-end
-function Gmod(msg)
-local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_) 
 if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
 end 
 end
+function Gmod(msg) 
+local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_) 
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or cleaner(msg) or CoSu(msg) or Bot(msg)  then       
+return true  
+else  
+return false  
+end  
+end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or cleaner(msg)or Gmod(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -276,7 +276,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or cleaner(msg)or Gmod(msg) or Mod(msg)  or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
