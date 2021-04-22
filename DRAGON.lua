@@ -937,9 +937,7 @@ keyboardi = {
 {'تويت','ايدي'},
 {'مبرمج السورس'},
 }
-end 
 send_inline_key(msg.chat_id_,SourceDRAGONr,keyboardi)
-end
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ☉┇ تم ارسال رسالتك\n ☉┇ سيتم رد في اقرب وقت')
