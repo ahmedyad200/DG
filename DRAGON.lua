@@ -1097,10 +1097,10 @@ end
 
 if text == 'تحديث السورس' or text == 'تحديث السورس ☉' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
-os.execute('cd File_Bot && rm -rf Reply.lua')
-os.execute('cd File_Bot && rm -rf games.lua')
-os.execute('cd File_Bot && rm -rf commands.lua')
-os.execute('cd File_Bot && rm -rf anamen.lua') ----
+os.execute('rm -rf File_Bot/Reply.lua')
+os.execute('rm -rf File_Bot/games.lua')
+os.execute('rm -rf File_Bot/commands.lua')
+os.execute('rm -rf File_Bot/anamen.lua') ----
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
@@ -2380,10 +2380,10 @@ end
 return false
 end
 os.execute('rm -rf DRAGON.lua')
-os.execute('cd File_Bot && rm -rf Reply.lua')
-os.execute('cd File_Bot && rm -rf games.lua')
-os.execute('cd File_Bot && rm -rf commands.lua')
-os.execute('cd File_Bot && rm -rf anamen.lua') ----
+os.execute('rm -rf File_Bot/Reply.lua')
+os.execute('rm -rf File_Bot/games.lua')
+os.execute('rm -rf File_Bot/commands.lua')
+os.execute('rm -rf File_Bot/anamen.lua') ----
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
 os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
