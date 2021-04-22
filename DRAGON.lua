@@ -252,7 +252,7 @@ end
 end
 function cleaner(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmod(msg) or Mod(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -260,7 +260,7 @@ end
 end
 function Gmod(msg) 
 local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or cleaner(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Mod(msg) or Manager(msg) or cleaner(msg) or CoSu(msg) or Bot(msg)  then       
 return true  
 else  
 return false  
@@ -10022,7 +10022,7 @@ end
 send(msg.chat_id_,msg.id_,t)
 end,nil)
 end
----------- ما مبيك خير تسوي مثله جاي تبوكة مطور زربة انته 
+---------- تسمك يسط 😶 
 if text and text:match("^تنزيل الكل @(.*)$") and Manager(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
