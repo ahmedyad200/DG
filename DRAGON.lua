@@ -3709,12 +3709,12 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'تحديث' or text == 'تحديث ☉' and DevSoFi(msg) then    
+send(msg.chat_id_, msg.id_, ' ☉┇ تم تحديث جميع الملفات') 
 dofile('DRAGON.lua')
 dofile('File_Bot/Reply.lua')
 dofile('File_Bot/games.lua')
 dofile('File_Bot/anamen.lua')
 dofile('File_Bot/commands.lua')
-send(msg.chat_id_, msg.id_, ' ☉┇ تم تحديث جميع الملفات') 
 end 
 if text == ("مسح الحظر العام") and DevSoFi(msg) then
 database:del(bot_id..'GBan:User')
@@ -4223,7 +4223,7 @@ end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
 else
-send(msg.chat_id_, msg.id_," ☉┇ لا يوجد اتصال من ال api \n") 
+send(msg.chat_id_, msg.id_," فشل عرض المتجر \n") 
 end
 return false
 end
@@ -4235,9 +4235,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = " ☉┇ الملف » "..file.."\n ☉┇ تم تعطيل ملف \n"
+t = " ☉┇ الملف » "..file.."\n ☉┇ تم مسح ملف \n"
 else
-t = " ☉┇ بالتاكيد تم تعطيل ملف → "..file.."\n"
+t = " ☉┇ بالتاكيد تم مسح ملف → "..file.."\n"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/"..file)
 if res == 200 then
@@ -4245,7 +4245,7 @@ os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
 dofile('DRAGON.lua')  
 else
-send(msg.chat_id_, msg.id_," ☉┇ عذرا الملف لايدعم سورس باور \n") 
+send(msg.chat_id_, msg.id_," فشل مسح الملف \n") 
 end
 return false
 end
@@ -4255,9 +4255,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = " ☉┇ بالتاكيد تم تفعيل ملف → "..file.." \n"
+t = " ☉┇ بالتاكيد تم تحميل ملف → "..file.." \n"
 else
-t = " ☉┇ الملف » "..file.."\n ☉┇ تم تفعيل ملف \n"
+t = " ☉┇ الملف » "..file.."\n ☉┇ تم تحميل ملف \n"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/"..file)
 if res == 200 then
@@ -4267,7 +4267,7 @@ chek:close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('DRAGON.lua')  
 else
-send(msg.chat_id_, msg.id_," ☉┇ عذرا الملف لايدعم سورس باور \n") 
+send(msg.chat_id_, msg.id_,"فشل تحميل الملف\n") 
 end
 return false
 end
