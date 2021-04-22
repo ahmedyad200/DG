@@ -931,9 +931,9 @@ local nn =' ☉┇ اهلا عزيزي\n ☉┇ انا بوت اسمي سون\n 
 keyboard = start
 else
 keyboard = {
-{'سورس'},
+{'سورس'}, -- كيبورد العضو
 {'رتبتي','الاوامر'},
-{'تويت','ايدي'},
+{'ايدي'},
 }
 end
 send_inline_key(msg.chat_id_,msg.id_,nn,keyboard) 
@@ -12853,7 +12853,6 @@ end
 
 ---------------------- الاوامر الجديده
 if text == 'الاوامر' then
-if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'')
 return false
 end
