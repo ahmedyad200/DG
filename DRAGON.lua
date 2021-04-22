@@ -928,28 +928,17 @@ if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 SourceDRAGONr = start
+keyboardi = start
 else
 SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط البوت'
-end 
-send(msg.chat_id_, msg.id_, SourceDRAGONr) 
-end
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-keyboard = start
-else
-keyboard = {
+keyboardi = {
 {'سورس'},
 {'رتبتي','الاوامر'},
 {'تويت','ايدي'},
 {'مبرمج السورس'},
 }
-end
-send_inline_key(msg.chat_id_, msg.id_, keyboard) 
-end
-end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
-return false
+end 
+send_inline_key(msg.chat_id_,SourceDRAGONr,keyboardi)
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ☉┇ تم ارسال رسالتك\n ☉┇ سيتم رد في اقرب وقت')
