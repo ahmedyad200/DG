@@ -924,6 +924,7 @@ local keyboard = {
 {'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
 {'قائمه الكتم العام ☉','قائمه العام ☉'},
+{'مسح الحظر العام ☉','مسح الكتم العام ☉'},
 {'تفعيل البوت الخدمي ☉','تعطيل البوت الخدمي ☉'},
 {'ضع كليشه ستارت ☉','مسح كليشه ستارت ☉'},
 {'جلب نسخه الاحتياطيه ☉','رفع نسخه احطياطيه'},
@@ -954,7 +955,7 @@ keyboard = {
 {'مبرمج السورس'},
 }
 end
-send_inline_key(msg.chat_id_, msg.id_, keyboard) 
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
@@ -1097,7 +1098,7 @@ if text == 'مسح كليشه ستارت ☉' and DevSoFi(msg) then
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح كليشه ستارت')
 end
-if text == 'معلومات السيرفر ☉' and DevSoFi(msg) then 
+if text == 'معلومات السيرفر ☉' or text 'السيرفر' and DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1133,7 +1134,11 @@ io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUF
 send(msg.chat_id_, msg.id_,'☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`1.6.0`}')
 dofile('DRAGON.lua')
 end
-
+if text == ("مسح الحظر العام ☉") and DevSoFi(msg) then
+database:del(bot_id..'GBan:User')
+send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه العام')
+return false
+end
 if text == "ضع اسم للبوت ☉" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل اليه الاسم الان ")
@@ -1192,7 +1197,7 @@ t = "☉┇ لا يوجد مطورين اساسيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("قائمه العام ☉") and DevSoFi(msg) then
+if text == ("قائمه الحظر العام ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n ☉┇ قائمه المحظورين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1207,6 +1212,11 @@ if #list == 0 then
 t = " ☉┇ لا يوجد محظورين عام"
 end
 send(msg.chat_id_, msg.id_, t)
+return false
+end
+if text == ("مسح الكتم العام ☉") and DevSoFi(msg) then
+database:del(bot_id..'Gmute:User')
+send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح الكتم العام')
 return false
 end
 if text == ("قائمه الكتم العام ☉") and DevSoFi(msg) then
@@ -1254,7 +1264,7 @@ end
 if text == 'جلب نسخه الاحتياطيه ☉' and DevSoFi(msg) then 
 GetFile_Bot(msg)
 end
-if text == " " and DevSoFi(msg) then 
+if text == " " and DevSoFi(msg) then --- مسح المشتركين
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
