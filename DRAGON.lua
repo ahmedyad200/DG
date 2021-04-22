@@ -12853,9 +12853,6 @@ end
 
 ---------------------- الاوامر الجديده
 if text == 'الاوامر' then
-send(msg.chat_id_, msg.id_,'')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
