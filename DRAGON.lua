@@ -48,7 +48,7 @@ end
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":SUDO:USERNAME") then
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
+io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND ID FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
@@ -907,6 +907,7 @@ local keyboard = {
 {'الاحصائيات ☉'},
 {'تعطيل التواصل ☉','تفعيل التواصل ☉'},
 {'المطورين ☉','المطورين الاساسيين ☉'},
+{'الادمنيه العامين ☉'}
 {'اذاعه ☉','اذاعه خاص ☉'},
 {'اذاعه بالتثبيت ☉',''},
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
@@ -1162,9 +1163,25 @@ t = " ☉┇ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
+if text == ("الادمنيه العامين ☉") and sudo(msg) then
+local list = database:smembers(bot_id..'Gmod:User')
+t = "\n ☉┇ قائمة الادمنيه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- ("..v..")\n"
+end
+end
+if #list == 0 then
+t = " ☉┇ لا يوجد ادمنيه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 if text == ("المطورين الاساسيين ☉") and SudoBot(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
-t = "\n☉┇ قائمة مطورين الاساسيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+t = "\n☉┇ قائمة مطورين الاساسيين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -1437,6 +1454,109 @@ send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
 status  = '\n ☉┇ تم تنزيله من المطورين'
+send(msg.chat_id_, msg.id_, usertext..status)
+end;end,nil)
+return false 
+end
+------------------------------------------------------------------------------------------------------------------------
+if text and text:match("^رفع ادمن عام @(.*)$") and DevSoFi(msg) then
+local username = text:match("^رفع ادمن عام @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function start_function(extra, result, success)
+if result.id_ then
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_," ☉┇ عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")
+return false 
+end      
+database:sadd(bot_id..'Gmod:User', result.id_)
+usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+texts = usertext..status
+else
+texts = ' ☉┇ لا يوجد حساب بهاذا المعرف'
+end
+send(msg.chat_id_, msg.id_, texts)
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false 
+end
+if text and text:match("^رفع ادمن عام (%d+)$") and DevSoFi(msg) then
+local userid = text:match("^رفع ادمن عام (%d+)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:sadd(bot_id..'Gmod:User', userid)
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+if data.first_name_ then
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+send(msg.chat_id_, msg.id_, usertext..status)
+else
+usertext = '\n ☉┇ العضو » '..userid..''
+status  = '\n ☉┇ تم ترقيته ادمن عام'
+send(msg.chat_id_, msg.id_, usertext..status)
+end;end,nil)
+return false 
+end
+if text and text:match("^تنزيل ادمن عام @(.*)$") and DevSoFi(msg) then
+local username = text:match("^تنزيل ادمن عام @(.*)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function start_function(extra, result, success)
+if result.id_ then
+database:srem(bot_id..'Gmod:User', result.id_)
+usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+texts = usertext..status
+else
+texts = ' ☉┇ لا يوجد حساب بهاذا المعرف'
+end
+send(msg.chat_id_, msg.id_, texts)
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
+return false
+end  
+if text and text:match("^تنزيل ادمن عام (%d+)$") and DevSoFi(msg) then
+local userid = text:match("^تنزيل ادمن عام (%d+)$")
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:srem(bot_id..'Gmod:User', userid)
+tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
+if data.first_name_ then
+usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'sopowerb0t')..')'
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
+send(msg.chat_id_, msg.id_, usertext..status)
+else
+usertext = '\n ☉┇ العضو » '..userid..''
+status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
@@ -4013,6 +4133,26 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
+if text == ("مسح الادمنيه العامين") and DevSoFi(msg) then
+database:del(bot_id..'Gmod:User')
+send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة الادمنيه العامين  ")
+end
+if text == ("الادمنيه العامين") and DevSoFi(msg) then
+local list = database:smembers(bot_id..'Gmod:User')
+t = "\n ☉┇ قائمة ادمنيه البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = " ☉┇ لا يوجد مطورين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 
 if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
@@ -4281,7 +4421,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and sudo(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -4302,7 +4442,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام @(.*)$") and sudo(msg) then
 local username = text:match("^رفع ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -4331,7 +4471,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام (%d+)$") and sudo(msg) then
 local userid = text:match("^رفع ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -4355,7 +4495,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and sudo(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4376,7 +4516,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^تنزيل ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام @(.*)$") and sudo(msg) then
 local username = text:match("^تنزيل ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -4401,7 +4541,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام (%d+)$") and sudo(msg) then
 local userid = text:match("^تنزيل ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -9899,8 +10039,6 @@ if tonumber(result.id_) == true then
 send(msg.chat_id_, msg.id_,"☉┇ لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
-if database:sismember(bot_id.."Sudo:User",result.id_) then
-dev = "المطور ،" else dev = "" end
 if database:sismember(bot_id.."CoSu",result.id_) then
 cu = "المالك ،" else cu = "" end
 if database:sismember(bot_id.."Basic:Constructor"..msg.chat_id_, result.id_) then
@@ -9922,7 +10060,6 @@ else
 send(msg.chat_id_, msg.id_,"\n☉┇  عذرا العضو لايملك رتبه \n")
 end
 if tonumber(msg.sender_user_id_) == true then
-database:srem(bot_id.."Sudo:User", result.id_)
 database:srem(bot_id.."CoSu", result.id_)
 database:srem(bot_id.."Basic:Constructor"..msg.chat_id_,result.id_)
 database:srem(bot_id..'Constructor'..msg.chat_id_, result.id_)
@@ -9930,7 +10067,6 @@ database:srem(bot_id..'Manager'..msg.chat_id_, result.id_)
 database:srem(bot_id..'Mod:User'..msg.chat_id_, result.id_)
 database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, result.id_)
 database:srem(bot_id..'Special:User'..msg.chat_id_, result.id_)
-elseif database:sismember(bot_id.."Sudo:User",msg.sender_user_id_) then
 database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, result.id_)
 database:srem(bot_id..'Mod:User'..msg.chat_id_, result.id_)
 database:srem(bot_id..'Special:User'..msg.chat_id_, result.id_)
@@ -9980,8 +10116,6 @@ if tonumber(SUDO) == tonumber(result.sender_user_id_) then
 send(msg.chat_id_, msg.id_," ☉┇ لا تستطيع تنزيل المطور الاساسي")
 return false 
 end
-if database:sismember(bot_id..'Sudo:User',result.sender_user_id_) then
-dev = 'المطور ،' else dev = '' end
 if database:sismember(bot_id..'CoSu'..msg.chat_id_, result.sender_user_id_) then
 cu = 'المالك ،' else cu = '' end
 if database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, result.sender_user_id_) then
@@ -10003,7 +10137,6 @@ else
 send(msg.chat_id_, msg.id_,"\n ☉┇  عذرا العضو لايملك رتبه \n")
 end
 if tonumber(SUDO) == tonumber(msg.sender_user_id_) then
-database:srem(bot_id..'Sudo:User', result.sender_user_id_)
 database:srem(bot_id..'CoSu'..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id..'Basic:Constructor'..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id..'Constructor'..msg.chat_id_, result.sender_user_id_)
@@ -10019,7 +10152,6 @@ database:srem(bot_id..'Manager'..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id..'Constructor'..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id..'Basic:Constructor'..msg.chat_id_,result.sender_user_id_)
 database:srem(bot_id..'CoSu'..msg.chat_id_, result.sender_user_id_)
-elseif database:sismember(bot_id..'Sudo:User',msg.sender_user_id_) then
 database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id..'Mod:User'..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id..'Special:User'..msg.chat_id_, result.sender_user_id_)
@@ -10778,10 +10910,6 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب')
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 end
 return false  
-end
-if text == 'بوت' then
-Namebot = (database:get(bot_id..'Name:Bot') or 'كافي بوت 🥺')
-send(msg.chat_id_, msg.id_,' ['..Namebot..'] ')
 end
 if text == 'الاحصائيات' then
 if Sudo(msg) then 
@@ -12570,7 +12698,7 @@ Text = ' ☉┇ عدد جهاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == " " and DevSoFi(msg) then 
+if text == " " and DevSoFi(msg) then  --- مسح المشتركين
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
