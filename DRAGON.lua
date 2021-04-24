@@ -11206,8 +11206,9 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 
 if text == "أحمد"  then
-local my_ph = database:get(bot_id.."AHMED_photo:status"..msg.chat_id_)
-if not my_ph then
+database:set(bot_id.."Ahmed_photo:status"..msg.chat_id_,true) 
+local AY_ph = database:get(bot_id.."Ahmed_photo:status"..msg.chat_id_)
+if not AY_ph then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
 return false  
 end
