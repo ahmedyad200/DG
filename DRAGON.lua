@@ -11219,10 +11219,22 @@ else
 send(msg.chat_id_, msg.id_,'فشل الاتصال', 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'مبرمج السورس', url="t.me/AY_AHD"}},} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
+if text == "الاوامر"  then
+database:set(bot_id.."bot_photo:status"..msg.chat_id_,true) 
+local bot_ph = database:get(bot_id.."bot_photo:status"..msg.chat_id_)
+if not bot_ph then
+
+return false  
+end
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
+else
+
+  end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = bot_id, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
 if text == 'تغير الايدي' and Manager(msg) then 
@@ -12561,7 +12573,7 @@ Text = ' ☉┇ عدد جهاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == " " and DevSoFi(msg) then 
+if text == " " and DevSoFi(msg) then -- مسح المشتركين
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12858,11 +12870,9 @@ end
 return false
 end
 local Text =[[
-① +++++++++++++++ ②
-③ +++++++++++++++ ④
-++++++اوامر التسليه++++++
-*قفل و فتح تعطيل و تفعيل*
-⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/sopowerb0t)⚡️
+اختر من الاوامر بلاسفل
+َ
+َ
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
