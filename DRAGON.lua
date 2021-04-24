@@ -179,7 +179,7 @@ end
 end  
 return DRAGON  
 end 
-sendText(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
+send(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
 -------- اولا
 function regexx(data) ---- داله الاتصال الثاني كتابه أحمد عياد -----
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
