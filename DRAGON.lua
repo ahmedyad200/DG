@@ -11217,7 +11217,7 @@ sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.p
 else
 send(msg.chat_id_, msg.id_,'لا تمتلك صوره في حسابك', 1, 'md')
   end end
-tdcli_function ({ ID = "GetUserProfilePhotos", 944353237 = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
 if text == 'تغير الايدي' and Manager(msg) then 
