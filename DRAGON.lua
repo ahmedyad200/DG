@@ -12917,8 +12917,8 @@ return false
 end
 if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
 local Ttext = text:match('^بصمه (.*)$') 
-local InfoSearch = https.request('https://raad-markapi.ml/api/bj.php?Search='..URL.escape(Ttext))
-local JsonSearch = JSON.decode(InfoSearch)
+InfoSearch = https.request('https://raad-markapi.ml/api/bj.php?Search='..URL.escape(Ttext))
+JsonSearch = JSON.decode(InfoSearch)
 for k,vv in pairs(JsonSearch.results) do
 if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
@@ -12932,8 +12932,8 @@ end
 end
 if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
 local Ttext = text:match('^صوت (.*)$') 
-local InfoSearch = https.request('https://raad-markapi.ml/api/searyu.php?Search='..URL.escape(Ttext))
-local JsonSearch = JSON.decode(InfoSearch)
+InfoSearch = https.request('https://raad-markapi.ml/api/searyu.php?Search='..URL.escape(Ttext))
+JsonSearch = JSON.decode(InfoSearch)
 for k,vv in pairs(JsonSearch.results) do
 if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
