@@ -12905,21 +12905,21 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
-if text == 'تعطيل اليوتيوب' and Manager(msg) then  
+if text == 'تعطيل اليوتيوب' and Constructor(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
 return false  
 end 
-if text == 'تفعيل اليوتيوب' and Manager(msg) then  
+if text == 'تفعيل اليوتيوب' and Constructor(msg) then  
 send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
 database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
 return false  
 end
 if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
 local Ttext = text:match('^بصمه (.*)$') 
-InfoSearch = https.request('https://raad-markapi.ml/api/bj.php?Search='..URL.escape(Ttext))
-JsonSearch = JSON.decode(InfoSearch)
-for k,vv in pairs(JsonSearch.ok) do
+local InfoSearch = https.request('https://raad-markapi.ml/api/bj.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
 if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
 if GetStart and GetStart:match('(.*)oksend(.*)') then
@@ -12932,9 +12932,9 @@ end
 end
 if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
 local Ttext = text:match('^صوت (.*)$') 
-InfoSearch = https.request('https://raad-markapi.ml/api/searyu.php?Search='..URL.escape(Ttext))
-JsonSearch = JSON.decode(InfoSearch)
-for k,vv in pairs(JsonSearch.ok) do
+local InfoSearch = https.request('https://raad-markapi.ml/api/searyu.php?Search='..URL.escape(Ttext))
+local JsonSearch = JSON.decode(InfoSearch)
+for k,vv in pairs(JsonSearch.results) do
 if k == 1 then
 local GetStart = io.popen('downloadsh '..vv.url):read('*all')
 if GetStart and GetStart:match('(.*)oksend(.*)') then
