@@ -4083,8 +4083,8 @@ end
 local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
-chek:write(json_file)
-chek:close()
+io.open("File_Bot/"..file,'w+'):write(json_file)
+io.open("File_Bot/"..file,'w+'):close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('DRAGON.lua')  
 else
