@@ -4079,15 +4079,15 @@ send(msg.chat_id_, msg.id_," فشل مسح الملف \n")
 end
 return false
 end
-if text and text:match("^(تفعيل) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^(تفعيل) (.*)(.lua)$")}
+if text and text:match("^(تحميل) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^(تحميل) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = " ☉┇ بالتاكيد تم تفعيل ملف → "..file.." \n"
+t = " ☉┇ بالتاكيد تم تحميل ملف → `"..file.."` \n"
 else
-t = " ☉┇ الملف » "..file.."\n ☉┇ تم تفعيل ملف \n"
+t = " ☉┇ الملف » `"..file.."`\n ☉┇ تم تحميل ملف \n"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/"..file)
 if res == 200 then
@@ -4097,7 +4097,7 @@ chek:close()
 send(msg.chat_id_, msg.id_,t) 
 dofile('DRAGON.lua')  
 else
-send(msg.chat_id_, msg.id_," ☉┇ عذرا الملف لايدعم سورس باور \n") 
+send(msg.chat_id_, msg.id_," فشل تحميل الملف \n") 
 end
 return false
 end
