@@ -2711,6 +2711,7 @@ keyboard.inline_keyboard = {
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token.."/sendphoto?chat_id="..msg.chat_id_)) 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -12905,46 +12906,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
-if text == 'تعطيل اليوتيوب' and Constructor(msg) then  
-send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
-database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"close") 
-return false  
-end 
-if text == 'تفعيل اليوتيوب' and Constructor(msg) then  
-send(msg.chat_id_,msg.id_,'\n• تم الامر بنجاح')  
-database:set(bot_id.."dl_yt_dl"..msg.chat_id_,"open") 
-return false  
-end
-if text and text:match('^بصمه (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
-local Ttext = text:match('^بصمه (.*)$') 
-local InfoSearch = https.request('https://raad-markapi.ml/api/bj.php?Search='..URL.escape(Ttext))
-local JsonSearch = JSON.decode(InfoSearch)
-for k,vv in pairs(JsonSearch.results) do
-if k == 1 then
-local GetStart = io.popen('downloadsh '..vv.url):read('*all')
-if GetStart and GetStart:match('(.*)oksend(.*)') then
-print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
-sendVoice(msg.chat_id_, msg.id_, 0, 1, nil,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @THE_M3RK','@THE_M3RK')  
-os.execute('rm -rf ./'..vv.url..'.mp3') 
-end
-end
-end
-end
-if text and text:match('^صوت (.*)$')  and database:get(bot_id.."dl_yt_dl"..msg.chat_id_) == "open" then            
-local Ttext = text:match('^صوت (.*)$') 
-local InfoSearch = https.request('https://raad-markapi.ml/api/searyu.php?Search='..URL.escape(Ttext))
-local JsonSearch = JSON.decode(InfoSearch)
-for k,vv in pairs(JsonSearch.results) do
-if k == 1 then
-local GetStart = io.popen('downloadsh '..vv.url):read('*all')
-if GetStart and GetStart:match('(.*)oksend(.*)') then
-print('download Mp3 done ...\nName : '..vv.title..'\nIdLink : '..vv.url)
-sendAudio(msg.chat_id_,msg.id_,'./'..vv.url..'.mp3',vv.title,'- '..vv.title..'\n- @THE_M3RK','@THE_M3RK')
-os.execute('rm -rf ./'..vv.url..'.mp3') 
-end
-end
-end
-end
 if text == "تعطيل الزخرفه" and Manager(msg) then
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
