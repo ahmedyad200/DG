@@ -4076,9 +4076,9 @@ local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
 io.close(file_bot)
-t = " ☉┇ بالتاكيد تم تحميل ملف → `"..file.."` \n"
+t = " ☉┇ بالتاكيد تم تفعيل ملف → "..file.." \n"
 else
-t = " ☉┇ الملف » `"..file.."`\n ☉┇ تم تحميل ملف \n"
+t = " ☉┇ الملف » "..file.."\n ☉┇ تم تفعيل ملف \n"
 end
 local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/"..file)
 if res == 200 then
