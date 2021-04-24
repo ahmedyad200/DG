@@ -11209,14 +11209,14 @@ if text == "أحمد"  then
 database:set(bot_id.."Ahmed_photo:status"..msg.chat_id_,true) 
 local AY_ph = database:get(bot_id.."Ahmed_photo:status"..msg.chat_id_)
 if not AY_ph then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
+send(msg.chat_id_, msg.id_," حدث خطأ في ال api") 
 return false  
 end
-keyboard = {} 
-keyboard.inline_keyboard = {{{text = 'مبرمج السورس', url="t.me/AY_AHD"}},} 
 local function getpro(extra, result, success)
 if result.photos_[0] then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = 'مبرمج السورس', url="t.me/AY_AHD"}},} 
 else
 send(msg.chat_id_, msg.id_,'فشل الاتصال', 1, 'md')
   end end
