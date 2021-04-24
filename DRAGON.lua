@@ -565,7 +565,7 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
-send(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
+sendtext(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
