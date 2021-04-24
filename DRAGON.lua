@@ -58,6 +58,7 @@ print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
 os.execute('lua DRAGON.lua')
 end
+sendText(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
