@@ -153,7 +153,6 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------
-sendText(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
 os.execute("rm -rf /File_Bot/*") 
 os.execute("mkdir File_Bot") 
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
@@ -180,6 +179,7 @@ end
 end  
 return DRAGON  
 end 
+sendText(SUDO,' اهلا عزيزي المطور الاساسي شكرا لاستخدامك سورس باور اضغط /start لاظهار كيبورد الاوامر الخاص بك ',0,'md')
 -------- اولا
 function regexx(data) ---- داله الاتصال الثاني كتابه أحمد عياد -----
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
