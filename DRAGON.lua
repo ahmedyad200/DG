@@ -259,7 +259,7 @@ return false
 end 
 end
 function Gmod(msg)
-local hash = database:sismember(bot_id..'Gmod:User'..msg.chat_id_,msg.sender_user_id_)    
+local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_)
 if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
@@ -356,7 +356,7 @@ var = database:get(bot_id.."Manager:Rd"..msg.chat_id_) or 'المدير'
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
 var = 'منظف' 
 elseif database:sismember(bot_id..'Gmod:User', user_id) then
-var = database:get(bot_id.."GMod:Rd"..msg.chat_id_) or 'الادمن العام'  
+var = database:get(bot_id.."Gmod:Rd"..msg.chat_id_) or 'الادمن العام'  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
 var = database:get(bot_id.."Mod:Rd"..msg.chat_id_) or 'الادمن'  
 elseif database:sismember(bot_id..'Special:User'..chat_id, user_id) then  
@@ -4070,8 +4070,8 @@ send(msg.chat_id_, msg.id_," فشل مسح الملف \n")
 end
 return false
 end
-if text and text:match("^(تحميل) (.*)(.lua)$") and DevSoFi(msg) then
-local name_t = {string.match(text, "^(تحميل) (.*)(.lua)$")}
+if text and text:match("^(تفعيل) (.*)(.lua)$") and DevSoFi(msg) then
+local name_t = {string.match(text, "^(تفعيل) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
