@@ -905,15 +905,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت يرجى الاشتراك في القناة حتى تتمكن من استخدام الاوامر \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
 local keyboard = {
@@ -936,25 +927,16 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-keyboard = start
-Sourcepowerr = start
-else
-Sourcepowerr = ' ☉┇ يمكنك التفاعل مع البوت عن طريق اوامر كيبورد الاعضاء'
-keyboard = {
+end
+if Chat_Type == 'UserBot' then
+if text == '/start' then  
+local bil = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
+local keyboardi = {
 {'سورس'},
 {'رتبتي','ايدي','الاوامر'},
 {'المطور'},
 }
-end
-send_inline_key(msg.chat_id_,Sourcepowerr,keyboard) 
-end
-end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
-return false
+send_inline_key(msg.chat_id_,bil,keyboardi)
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ☉┇ تم ارسال رسالتك\n ☉┇ سيتم رد في اقرب وقت')
