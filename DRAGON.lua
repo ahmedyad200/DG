@@ -927,7 +927,7 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
+end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then    
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
