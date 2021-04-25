@@ -928,9 +928,8 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end
-if Chat_Type == 'UserBot' then
 if text == '/start' then  
-local bil = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
+local bil = ' '
 local keyboardi = {
 {'سورس'},
 {'رتبتي','ايدي','الاوامر'},
