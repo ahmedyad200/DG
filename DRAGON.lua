@@ -930,22 +930,12 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
-local msg_id = msg.id_/2097152/0.5 
 if start then 
 SourceDRAGONr = start
-keyboard = start
-keyboard.inline_keyboard = start
 else
-SourceDRAGONr = ' \n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-اضفني الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {`تفعيل`} في الدردشه '
-keyboard = {
-{'سورس'},
-{'رتبتي','ايدي','الاوامر'},
-{'المطور'},
-} 
-keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+SourceDRAGONr = ' \n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-اضفني الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه '
 end 
 send(msg.chat_id_, msg.id_, SourceDRAGONr) 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
