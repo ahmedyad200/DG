@@ -3582,7 +3582,7 @@ database:set(bot_id..'lock:Fars'..msg.chat_id_,true)
 database:set(bot_id..'lock:edit'..msg.chat_id_,true) 
 database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'\n☉┇ تم قفل البوتات بالطرد\n☉┇ تم وضع الايدي بدون صوره\n☉┇ تم قفل التكرار بالطرد\n☉┇ تم قفل الروابط\n☉┇ تم قفل التوجيه\n☉┇ تم قفل الملصقات\n☉┇ تم قفل المتحركه\n☉┇ تم قفل الفيديو\n☉┇ تم قفل السب\n☉┇ تم قفل التعديل\n☉┇ تم قفل الفارسيه\n☉┇ تم قفل التفليش\n\n☉┇ تم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
+send(msg.chat_id_, msg.id_,'\n☉┇ تم قفل البوتات بالطرد\n☉┇ تم وضع الايدي بدون صوره\n☉┇ تم قفل التكرار بالطرد\n☉┇ تم قفل الروابط\n☉┇ تم قفل التوجيه\n☉┇ تم قفل الملصقات\n☉┇ تم قفل المتحركه\n☉┇ تم قفل الفيديو\n☉┇ تم قفل السب\n☉┇ تم قفل التعديل\n☉┇ تم قفل الفارسيه\n☉┇ تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
 end,nil)   
 end
 --------------------------------------------------------------------------------------------------------------
