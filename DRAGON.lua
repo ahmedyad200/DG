@@ -942,7 +942,7 @@ local start = database:get(bot_id.."Start:Bot")
 if start then 
 SourceDRAGONr = start
 else
-SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ☉┇ معرف المطور ['..UserName..']'
+SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } فقط بي تفعيل البوت'
 end 
 send(msg.chat_id_, msg.id_, SourceDRAGONr) 
 end
@@ -3664,7 +3664,7 @@ chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3714,7 +3714,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السور�
 return false 
 end
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام من {`'..Groups..'`} جورب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جورب'
 texts = usertext..status
 database:sadd(bot_id..'GBan:User', result.id_)
 else
@@ -3765,11 +3765,11 @@ database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم حظره عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -3814,7 +3814,7 @@ database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -3864,7 +3864,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السور�
 return false 
 end
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
 else
@@ -3915,11 +3915,11 @@ database:sadd(bot_id..'Gmute:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم كتمه عام من {`'..Groups..'`} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
