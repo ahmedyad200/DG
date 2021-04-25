@@ -950,15 +950,16 @@ if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local start = database:get(bot_id.."Start:Bot")  
 if start then 
 keyboard = start
+Sourcepowerr = start
 else
-local bll = ' ☉┇ يمكنك التفاعل مع البوت عن طريق اوامر كيبورد الاعضاء'
+Sourcepowerr = ' ☉┇ يمكنك التفاعل مع البوت عن طريق اوامر كيبورد الاعضاء'
 keyboard = {
 {'سورس'},
 {'رتبتي','ايدي','الاوامر'},
 {'المطور'},
 }
 end
-send_inline_key(msg.chat_id_, msg.id_,bll,keyboard) 
+send_inline_key(msg.chat_id_, msg.id_,Sourcepowerr,keyboard) 
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
