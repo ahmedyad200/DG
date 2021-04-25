@@ -928,8 +928,7 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end
-if Chat_Type == 'UserBot' then
-if text == '/start' then  
+if start then  
 local bil = ' \n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-اضفني الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه '
 local keyboardi = {
 {'سورس'},
