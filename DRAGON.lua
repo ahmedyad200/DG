@@ -927,30 +927,15 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-else
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-SourceDRAGONr = start
-else
-SourceDRAGONr = ' ☉┇ اهلا عزيزي \n☉┇ انا بوت \n☉┇ اختصاصي حمايه الجروبات \n☉┇ من تكرار والسبام والتوجيه والخ… \nt☉┇ لتفعيلي اتبع الاخطوات…↓\n ☉┇ اضفني الي مجموعتك وقم بترقيتي ادمن واكتب كلمه { تفعيل }  ويستطيع »{ منشئ او المشرفين } بتفعيل فقط\n[ ☉┇ معرف المطور ['..UserName..']'
-end 
-send(msg.chat_id_, msg.id_, SourceDRAGONr) 
 end
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-keyboard = start
-else
-keyboard = {
-{'.'},
-{'.'},
+if text == '/start' then  
+local bil = ' \n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-اضفني الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه '
+local keyboardi = {
+{'سورس'},
+{'رتبتي','ايدي','الاوامر'},
+{'المطور'},
 }
-end
-send_inline_key(msg.chat_id_, msg.id_, keyboard, msg.id_, SourceDRAGONr) 
-end
-end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
+send_inline_key(msg.chat_id_,bil,keyboardi)
 return false
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
