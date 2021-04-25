@@ -927,15 +927,22 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-end
-if start then  
-local bil = ' \n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-اضفني الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه '
-local keyboardi = {
-{'سورس'},
-{'رتبتي','ايدي','الاوامر'},
-{'المطور'},
+else
+if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
+local start = database:get(bot_id.."Start:Bot")  
+if start then 
+keyboard = start
+else
+keyboard = {
+{'.'},
+{'.'},
 }
-send_inline_key(msg.chat_id_,bil,keyboardi)
+end
+send_inline_key(msg.chat_id_, msg.id_, keyboard) 
+end
+end
+database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
+return false
 end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ☉┇ تم ارسال رسالتك\n ☉┇ سيتم رد في اقرب وقت')
