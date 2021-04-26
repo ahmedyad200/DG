@@ -5230,10 +5230,6 @@ local ID_FILE = result.content_.document_.document_.persistent_id_
 local File_Name = result.content_.document_.file_name_
 local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_," ☉┇  جاري ...\n ☉┇  رفع الملف الان")
-else
-send(chat,msg.id_,"* ☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")
-end      
 local info_file = io.open('./users.json', "r"):read('*a')
 local users = JSON.decode(info_file)
 for k,v in pairs(users.users) do
