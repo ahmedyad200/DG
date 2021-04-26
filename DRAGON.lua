@@ -296,6 +296,14 @@ else
 return false 
 end 
 end
+function memp(msg)
+local hash = database:sismember(bot_id..'Memp:User'..msg.chat_id_,msg.sender_user_id_) 
+if hash or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+return true 
+else 
+return false 
+end 
+end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_id) == tonumber(944353237) then  
 var = true  
@@ -940,8 +948,9 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then    
+if Memp(msg) then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت'
+local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉'},
