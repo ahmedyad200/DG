@@ -921,6 +921,14 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
+if Chat_Type == 'UserBot' then 
+if text == '/start' then   
+function adding(extra,result,success)
+local Users = database:scard(bot_id..'User_Bot')  
+send(tostring((database:get(bot_id.."bot:leader:gr") or Sudo)), 0, 1, "☉┇  دا عمل ستارت للبوت \n☉┇ اليوزر ⌯» @"..(result.username_ or "لا يوجد").."\n☉┇ ايديه ⌯» {"..msg.sender_user_id_.."}\n☉┇ اصبح عدد المشتركين { "..Users.." }" , 1, 'html')
+end 
+getUser(msg.sender_user_id_,adding) 
+end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if DevSoFi(msg) then
