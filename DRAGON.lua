@@ -5210,40 +5210,6 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
-if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_, 1, '☉┇ للمطور الاساسي فقط ', 1, 'md')
-else----- kakakak
-local groups = function(extra, result) 
-local num = (database:scard(bot_id.."bot:groups"))
-local list = database:smembers(bot_id.."bot:groups")
-local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n"
-for k,v in pairs(list) do
-local GroupsMonsh = database:scard(bot_id.."Constructor:"..v) or 0
-local GroupsOwner = database:scard(bot_id.."Manager:"..v) or 0
-local GroupsMod = database:scard(bot_id.."Mod:User:"..v) or 0
-local Groupslink = database:get(bot_id.."bot:group:link"..v)
-if result.first_name_ then
-if #result.first_name_ < 35 then
-else
-for AHMED222 in string.gmatch(result.first_name_, "[^%s]+") do
-result.first_name_ = AHMED222
-break
-end end end
-text = text..k.."☉┇ Group ID  : [ "..v.." ]\n☉┇ Group Link : [ "..(Groupslink or "Not Found").." ]\n☉┇ Group Monsh : [ "..GroupsMonsh.." ]\n☉┇ Group Owners : [ "..GroupsOwner.." ]\n☉┇ Group Momods : [ "..GroupsMod.." ] \n~~~~~~~~~~~~~~~~~\n"
-end
-local file = io.open('Groups_Bot.txt', 'w')
-file:write(text)
-file:close()
-local dxx = 'https://api.telegram.org/bot'..token..'/sendDocument'
-local dxxx = 'curl "'..dxx..'" -F "chat_id='..msg.chat_id_..'" -F "document=@'..'Groups_Bot.txt'..'"'
-io.popen(dxxx)
-send(msg.chat_id_, msg.id_, 1, '☉┇ حسنا عزيزي\n☉┇ جاري ارسال نسخه لي روابط الجروبات \n☉┇ تحتوي علي *('..num..')* مجموعه\n         •┉ • ┉ • ┉ Ͳλℜλ ┉ • ┉ • ┉•\n', 1, 'md')
-sleep(1.5)
-send(msg.chat_id_, msg.id_, 1, dxxx, 1, 'md')
-end
-getUser(msg.sender_user_id_, groups)
-end end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع نسخه الاحتياطيه' and DevSoFi(msg) then   
@@ -10678,6 +10644,14 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 return false
 end
 ---------------------- بداء اضافه مميزات أحمد
+------ بدايه الاغاني
+local wegz1 = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. msg.chat_id_ ..'" -F "document=@'..'Wegz - El Ghasala (El Ghasala Official Movie Song) - (ويجز - الغسالة (الأغنية الرسمية لفيلم الغسالة(MP3_160K)_1.mp3'..'"'
+
+if text == 'ويجز 1' then
+io.popen(wegz1)
+return false
+end
+----- نهايه الاغاني
 if text == 'العاب باور' or text == 'العاب خارقه' or text == 'العاب متطوره' then  
 local Text = [[  
 اهلا في قائمه الالعاب المتطوره بوت باور 🎮
