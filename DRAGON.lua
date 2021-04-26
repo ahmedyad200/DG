@@ -298,7 +298,7 @@ end
 end
 function Memp(msg)
 local hash = database:sismember(bot_id..'Memp:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash then       
 return true 
 else 
 return false 
@@ -921,14 +921,6 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if Chat_Type == 'UserBot' then 
-if text == '/start' then   
-function adding(extra,result,success)
-local Users = database:scard(bot_id..'User_Bot')  
-send(tostring((database:get(bot_id.."bot:leader:gr") or SUDO)), 0, 1, "☉┇  دا عمل ستارت للبوت \n☉┇ اليوزر ⌯» @"..(result.username_ or "لا يوجد").."\n☉┇ ايديه ⌯» {"..msg.sender_user_id_.."}\n☉┇ اصبح عدد المشتركين { "..Users.." }" , 1, 'html')
-end 
-getUser(msg.sender_user_id_,adding) 
-end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then  
 if DevSoFi(msg) then
@@ -12516,11 +12508,13 @@ if not AY_ph then
 send(msg.chat_id_, msg.id_," حدث خطأ في ال api") 
 return false  
 end
+ahmed = 'أحمد مبرمج سورس باور @AY_AHD'
+local inline = {{{text = '𝗔𝗛𝗠𝗘𝗗', url="t.me/AY_AHD"}},} 
 local function getpro(extra, result, success)
 if result.photos_[0] then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
 else
-send(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @AY_AHD', 1, 'md')
+send_inline_key(msg.chat_id_,ahmed,nil,inline)
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
