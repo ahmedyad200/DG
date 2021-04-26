@@ -5228,7 +5228,7 @@ file:close()
 local dxx = 'https://api.telegram.org/bot' .. tokenbot .. '/sendDocument'
 local dxxx = 'curl "' .. dxx .. '" -F "chat_id=' .. msg.chat_id_ .. '" -F "document=@' .. 'Groups_Bot.txt' .. '"'
 io.popen(dxxx)
-send(msg.chat_id_, msg.id_, 1, '☉┇ عزيزي ⌯» *'..result.first_name_..'*\n☉┇ جاري ارسال نسخه للمجموعات \n☉┇ تحتوي علي *('..num..')* مجموعه\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '☉┇ حسنا عزيزي \n☉┇ جاري ارسال نسخه للمجموعات \n☉┇ تحتوي علي *('..num..')* مجموعه\n', 1, 'md')
 sleep(1.5)
 send(msg.chat_id_, msg.id_, 1, dxxx, 1, 'md')
 end
