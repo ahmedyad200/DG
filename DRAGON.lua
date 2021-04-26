@@ -5205,14 +5205,14 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 if text == 'روابط الجروبات' or text == 'روابط المجموعات' and DevSoFi(msg) then
 local groups = function(extra, result) 
-local num = database:scard(bot_id.."Chek:Groups"))
+local num = database:smembers(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERB0T\n\n"
 for k,v in pairs(list) do
-local GroupsMonsh = database:scard(bot_id.."Constructor:"..v) or 0
-local GroupsManager = database:scard(bot_id.."Manager:"..v) or 0
-local GroupsMod = database:scard(bot_id.."Mod:User:"..v) or 0
-local Groupslink = database:get(bot_id.."Private:Group:Link" ..v)
+local GroupsMonsh = database:smembers(bot_id.."Constructor:"..v) or 0
+local GroupsManager = database:smembers(bot_id.."Manager:"..v) or 0
+local GroupsMod = database:smembers(bot_id.."Mod:User:"..v) or 0
+local Groupslink = database:smembers(bot_id.."Private:Group:Link" ..v)
 if result.first_name_ then
 if #result.first_name_ < 35 then
 else
