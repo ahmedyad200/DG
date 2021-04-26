@@ -15398,11 +15398,6 @@ tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dat
 if data.username_ then
 database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
 end
-elseif Chat_Type == 'UserBot' and ChekAddU(msg.chat_id_) == true then
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-if data.username_ then
-database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
-end
 --------------------------------------------------------------------------------------------------------------
 if tonumber(data.id_) == tonumber(bot_id) then
 return false
