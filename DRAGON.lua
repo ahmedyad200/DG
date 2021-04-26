@@ -6553,7 +6553,6 @@ send(msg.chat_id_, msg.id_,t)
 end
 if text == "المتجر" or text == 'متجر الملفات' then
 if DevSoFi(msg) then
-os.execute('rm -rf getfile.json')
 local Get_Files, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
