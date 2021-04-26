@@ -4859,14 +4859,6 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح ال�
 dofile('getfile.json')
 end
 
-if text == 'تحميل كل الملفات' and DevSoFi(msg) then  
-os.execute("rm -fr File_Bot/*")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/*") 
-os.execute('rm -rf getfile.json')
-dofile('File_Bot/*')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث و تحميل كل الملفات')
-end
-
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي معرف القناة')
