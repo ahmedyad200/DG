@@ -939,7 +939,7 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 end end
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == 'الاوامر الخدميه' then
+if text == '/start' then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
@@ -5230,12 +5230,16 @@ local ID_FILE = result.content_.document_.document_.persistent_id_
 local File_Name = result.content_.document_.file_name_
 local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
+send(chat,msg.id_," ☉┇  جاري ...\n ☉┇  رفع الملف الان")
+else
+send(chat,msg.id_,"* ☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")
+end      
 local info_file = io.open('./users.json', "r"):read('*a')
 local users = JSON.decode(info_file)
 for k,v in pairs(users.users) do
 database:sadd(bot_id..'User_Bot',v) 
 end
-send(msg.chat_id_,msg.id_,'تم رفع المشتركين ')
+send(msg.chat_id_,msg.id_,' ☉┇ تم رفع المشتركين ')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
