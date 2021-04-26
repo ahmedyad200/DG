@@ -5201,7 +5201,7 @@ send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبر�
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
 local Text = [[ 
-☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉
+☉ 𝐏𝐎𝐖𝐄𝐑  ☉
 ]] 
 keyboard = {} 
 keyboard.inline_keyboard = { 
@@ -5233,6 +5233,22 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+if text == 'جلب المشتركين' and DevSoFi(msg) then
+local list = database:smembers(bot_id..'User_Bot') 
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
+end 
 if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
