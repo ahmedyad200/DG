@@ -914,7 +914,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == 'كيبورد المطور' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
+if text == '/start' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
 local keyboard = {
@@ -940,6 +940,7 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then
+if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
@@ -5235,7 +5236,7 @@ local users = JSON.decode(info_file)
 for k,v in pairs(users.users) do
 database:sadd(bot_id..'User_Bot',v) 
 end
-send(msg.chat_id_,msg.id_,' ☉┇ تم رفع المشتركين ')
+send(msg.chat_id_,msg.id_,'تم رفع المشتركين ')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
