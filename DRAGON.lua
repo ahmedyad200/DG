@@ -5205,7 +5205,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 if text == 'روابط الجروبات' or text == 'روابط المجموعات' and DevSoFi(msg) then
 local groups = function(extra, result) 
-local num = (database:scard(bot_id.."Chek:Groups"))
+local num = database:scard(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERB0T\n\n"
 for k,v in pairs(list) do
@@ -5220,13 +5220,13 @@ for AHMED222 in string.gmatch(result.first_name_, "[^%s]+") do
 result.first_name_ = AHMED222
 break
 end end end
-text = text..k.."☉┇ Group ID  : [ "..v.." ]\n☉┇ Group Link : [ "..(Groupslink or "Not Found").." ]\n☉┇ Group Monsh : [ "..GroupsMonsh.." ]\n☉┇ Group Owners : [ "..GroupsOwner.." ]\n☉┇ Group Momods : [ "..GroupsMod.." ] \n~~~~~~~~~~~~~~~~~\n"
+text = text..k.."☉┇ Group Link : [ "..(Groupslink or "Not Found").." ]\n☉┇ Group Monsh : [ "..GroupsMonsh.." ]\n☉┇ Group Owners : [ "..GroupsOwner.." ]\n☉┇ Group Momods : [ "..GroupsMod.." ] \n~~~~~~~~~~~~~~~~~\n"
 end
 local file = io.open('Groups_Bot.txt', 'w')
 file:write(text)
 file:close()
 local dxx = 'https://api.telegram.org/bot'..token..'/sendDocument'
-local dxxx = 'curl "'.. dxx ..'" -F "chat_id='..msg.chat_id_..'" -F "document=@'..'Groups_Bot.txt'..'"'
+local dxxx = 'curl "'..dxx..'" -F "chat_id='..msg.chat_id_..'" -F "document=@'..'Groups_Bot.txt'..'"'
 io.popen(dxxx)
 send(msg.chat_id_, msg.id_, 1, '☉┇ حسنا عزيزي \n☉┇ جاري ارسال نسخه للمجموعات \n☉┇ تحتوي علي *('..num..')* مجموعه\n', 1, 'md')
 sleep(1.5)
