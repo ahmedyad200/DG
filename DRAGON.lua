@@ -388,6 +388,14 @@ var = false
 end
 return var
 end
+function ChekAddU(User_id)
+if database:sismember(bot_id.."User_Bot",User_id) then
+var = true
+else 
+var = false
+end
+return var
+end
 function Muted_User(Chat_id,User_id) 
 if database:sismember(bot_id..'Muted:User'..Chat_id,User_id) then
 Var = true
@@ -914,7 +922,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'UserBot' then
-if text == '/start' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
+if text == 'كيب المطور' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
 if DevSoFi(msg) then
 local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
 local keyboard = {
@@ -934,12 +942,13 @@ local keyboard = {
 {'جلب نسخه الاحتياطيه ☉'},
 {'تحديث السورس ☉'},
 {'معلومات السيرفر ☉'},
+{'الاوامر الخدميه'},
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end end
 if Chat_Type == 'UserBot' then
-if text == '/start' then
+if text == '/start' or text == 'الاوامر الخدميه' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
@@ -1133,6 +1142,10 @@ return false
 end
 if text == 'زخرفه' then
 send(msg.chat_id_,msg.id_, ' الزخرفه ارسل `زخرفه + الكلمه` ') 
+return false
+end
+if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉' and DevSoFi(msg) then
+send(msg.chat_id_,msg.id_, '') 
 return false
 end
 if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉' then
@@ -5224,6 +5237,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
+if Chat_Type == 'UserBot' and ChekAddU(msg.chat_id_) == true then
 if text == 'رفع المشتركين' and DevSoFi(msg) then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -5366,7 +5380,7 @@ end,nil)
 elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id..'lock:pin',msg.chat_id_) 
-tdcli_function ({ ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,data.pinned_message_id_)  end,nil)
+tdcli_function ({ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,data.pinned_message_id_)  end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل التثبيت ')
 end,nil)   
@@ -5731,12 +5745,12 @@ send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id
 end,nil)   
 elseif text == 'قفل الفيديو بالكتم' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:Video"..msg.chat_id_,'ktm')  
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+tdcli_function ({ID = "v1.3.5",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الفيديو بالكتم ')
 end,nil)   
 elseif text == 'قفل الفيديو بالطرد' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:Video"..msg.chat_id_,'kick')  
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+tdcli_function ({ID = "v1.3.5",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الفيديو بالطرد ')
 end,nil)   
 elseif text == 'فتح الفيديو' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
@@ -16584,6 +16598,11 @@ SourceDRAGON(data.message_,data)
 plugin_Dragon(data.message_)
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
+if data.username_ then
+database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
+end
+if Chat_Type == 'UserBot' and ChekAddU(msg.chat_id_) == true then
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 if data.username_ then
 database:set(bot_id..'user:Name'..msg.sender_user_id_,(data.username_))
