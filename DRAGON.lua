@@ -925,7 +925,7 @@ if Chat_Type == 'UserBot' then
 if text == '/start' then   
 function adding(extra,result,success)
 local Users = database:scard(bot_id..'User_Bot')  
-send(tostring((database:get(bot_id.."bot:leader:gr") or Sudo)), 0, 1, "☉┇  دا عمل ستارت للبوت \n☉┇ اليوزر ⌯» @"..(result.username_ or "لا يوجد").."\n☉┇ ايديه ⌯» {"..msg.sender_user_id_.."}\n☉┇ اصبح عدد المشتركين { "..Users.." }" , 1, 'html')
+send(tostring((database:get(bot_id.."bot:leader:gr") or SUDO)), 0, 1, "☉┇  دا عمل ستارت للبوت \n☉┇ اليوزر ⌯» @"..(result.username_ or "لا يوجد").."\n☉┇ ايديه ⌯» {"..msg.sender_user_id_.."}\n☉┇ اصبح عدد المشتركين { "..Users.." }" , 1, 'html')
 end 
 getUser(msg.sender_user_id_,adding) 
 end end
