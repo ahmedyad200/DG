@@ -5224,7 +5224,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'رفع المشتركين' or text == 'رفع احصائيه'  then
+if text == 'رفع المشتركين' and DevSoFi(msg) then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
 local ID_FILE = result.content_.document_.document_.persistent_id_ 
@@ -5234,9 +5234,9 @@ download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.fi
 local info_file = io.open('./users.json', "r"):read('*a')
 local users = JSON.decode(info_file)
 for k,v in pairs(users.users) do
-redis:sadd(bot_id..'NightRang:Num:User:Pv',v) 
+database:sadd(bot_id..'User_Bot',v) 
 end
-send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+send(msg.chat_id_,msg.id_,'تم رفع المشتركين ')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
