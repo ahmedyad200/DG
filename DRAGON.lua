@@ -691,7 +691,7 @@ end
 end   
 t = t..'],'
 end
-t = t..'"linkgroup":"'..link..'"}' or ''
+t = t..'"linkgroup":"'..link..'"}' or 'clear'
 end
 t = t..'}}'
 local File = io.open('./'..bot_id..'.json', "w")
@@ -2487,6 +2487,22 @@ if text=="اذاعه بالتوجيه خاص ☉" and msg.reply_to_message_id_ =
 database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
+end 
+if text == 'جلب المشتركين' and DevSoFi(msg) then
+local list = database:smembers(bot_id..'User_Bot') 
+local t = '{"users":['  
+for k,v in pairs(list) do
+if k == 1 then
+t =  t..'"'..v..'"'
+else
+t =  t..',"'..v..'"'
+end
+end
+t = t..']}'
+local File = io.open('./users.json', "w")
+File:write(t)
+File:close()
+sendDocument(msg.chat_id_, msg.id_, './users.json', 'عدد المشتركين :'..#list)
 end 
 if text == 'جلب نسخه الاحتياطيه ☉' and DevSoFi(msg) then 
 GetFile_Bot(msg)
