@@ -1128,7 +1128,7 @@ if text == 'سحب السورس' or text == 'جلب السورس' then
 local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) 
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
-if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' and DevSoFi(msg) then 
+if text == 'تحديث السورس' or text == 'تحديث السورس ☉' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
