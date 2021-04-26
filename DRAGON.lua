@@ -941,7 +941,7 @@ end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then    
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local Sudo_Welcome = 'مرحبا عزيز يمكنك استخدام الاوامر الخدميه للبوت'
+local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉'},
@@ -12236,7 +12236,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 if text == 'بوت' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..'❤')
+send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..' ❤🥺')
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
