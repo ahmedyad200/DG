@@ -5224,8 +5224,25 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'جلب المشتركين' and DevSoFi(msg) then
-local list = database:smembers(bot_id..'User_Bot') 
+if text == 'رفع المشتركين' or text == 'رفع احصائيه'  then
+function by_reply(extra, result, success)   
+if result.content_.document_ then 
+local ID_FILE = result.content_.document_.document_.persistent_id_ 
+local File_Name = result.content_.document_.file_name_
+local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
+download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
+local info_file = io.open('./users.json', "r"):read('*a')
+local users = JSON.decode(info_file)
+for k,v in pairs(users.users) do
+redis:sadd(bot_id..'NightRang:Num:User:Pv',v) 
+end
+send(msg.chat_id_,msg.id_,'تم رفع :'..#users.users..' مشترك ')
+end   
+end
+tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
+end
+if text == 'جلب المشتركين' and DevSoFi(msg) then---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+local list = database:smembers(bot_id..'User_Bot')
 local t = '{"users":['  
 for k,v in pairs(list) do
 if k == 1 then
