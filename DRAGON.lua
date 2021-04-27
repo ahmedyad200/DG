@@ -916,24 +916,28 @@ end
 if Chat_Type == 'UserBot' then
 if text == 'كيب المطور' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉" then  
 if DevSoFi(msg) then
-local bl = ' ☉┇ اهلا عزيزي آلمـطـور\n ☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n ☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n ☉┇ من خلاال الكيبورت خاص بك\n ☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
+local bl = '☉┇ اهلا عزيزي آلمـطـور\n☉┇ آنت آلمـطـور آلآسـآسـي للبوت\n━  ━  ━  ━  ━  ━  ━  ━ء\n☉┇ تسـتطـيع‌‏ آلتحگم باوامر البوت\n☉┇ من خلاال الكيبورت خاص بك\n☉┇ قناة سورس البوت [اضغط هنا](t.me/SOPOWERB0T)'
 local keyboard = {
 {'الاحصائيات ☉'},
-{'تعطيل التواصل ☉','تفعيل التواصل ☉'},
 {'ضع اسم للبوت ☉'},
 {'المطورين الاساسيين ☉','المطورين ☉'},
+{'مسح المطورين الاساسيين ☉','مسح المطورين ☉'},
+{'مسح رد عام ☉','الردود العامه ☉','اضف رد عام ☉'},
+{'مسح الردود العامه ☉','مسح الردود المتعدده ☉'},
+{'مسح رد متعدد ☉','الردود متعدده ☉','اضف رد متعدد ☉'},
 {'ضع كليشه ستارت ☉','مسح كليشه ستارت ☉'},
-{'اذاعه ☉','اذاعه خاص ☉'},
 {'قائمه الكتم العام ☉','قائمه الحظر العام ☉'},
 {'مسح الكتم العام ☉','مسح الحظر العام ☉'},
-{'اذاعه بالتثبيت ☉'},
+{'اذاعه بالتثبيت ☉','اذاعه ☉','اذاعه خاص ☉'},
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
-{'تغير رساله الاشتراك','مسح رساله الاشتراك ☉','تغير الاشتراك'},
-{'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
-{'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
+{'تعطيل التواصل ☉','تفعيل التواصل ☉'},
 {'تفعيل البوت الخدمي ☉','تعطيل البوت الخدمي ☉'},
+{'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
+{'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
+{'تغير رساله الاشتراك ☉','مسح رساله الاشتراك ☉','تغير الاشتراك ☉'},
+{'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
 {'جلب نسخه الاحتياطيه ☉','جلب المشتركين ☉'},
-{'تحديث السورس ☉','اعاده التشغيل ☉'},
+{'تحديث السورس ☉','اعاده التشغيل ☉','تحديث المتجر ☉'},
 {'معلومات السيرفر ☉'},
 {'الغاء ☉'},
 }
@@ -1107,6 +1111,125 @@ if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 end 
+if text == ("الردود المتعدده ☉") and CoSu(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local list = database:smembers(bot_id.."botss:DRAGON:List:Rd:Sudo")
+text = "\nقائمة ردود المتعدده \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+db = "رساله "
+text = text..""..k.." => {"..v.."} => {"..db.."}\n"
+end
+if #list == 0 then
+text = "لا توجد ردود متعدده"
+end
+send(msg.chat_id_, msg.id_,"["..text.."]")
+end
+if text == "اضف رد متعدد ☉" and CoSu(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"☉┇ارسل الرد الذي اريد اضافته")
+end
+if text == "مسح رد متعدد ☉" and CoSu(msg) then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+database:set(bot_id.."botss:DRAGON:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
+return send(msg.chat_id_, msg.id_,"☉┇ارسل الان الكلمه لمسحها ")
+end
+if text == 'اضف رد عام ☉' and DevSoFi(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد اضافتها')
+database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
+return false 
+end
+if text == ("مسح الردود العامه ☉") and DevSoFi(msg) then 
+local list = database:smembers(bot_id..'List:Rd:Sudo')
+for k,v in pairs(list) do
+database:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
+database:del(bot_id.."Add:Rd:Sudo:vico"..v)   
+database:del(bot_id.."Add:Rd:Sudo:stekr"..v)     
+database:del(bot_id.."Add:Rd:Sudo:Text"..v)   
+database:del(bot_id.."Add:Rd:Sudo:Photo"..v)
+database:del(bot_id.."Add:Rd:Sudo:Video"..v)
+database:del(bot_id.."Add:Rd:Sudo:File"..v)
+database:del(bot_id.."Add:Rd:Sudo:Audio"..v)
+database:del(bot_id..'List:Rd:Sudo')
+end
+send(msg.chat_id_, msg.id_," ☉┇ تم مسح الردود العامه")
+end
+
+if text == ("الردود العامه ☉") and DevSoFi(msg) then 
+local list = database:smembers(bot_id..'List:Rd:Sudo')
+text = "\n ☉┇ قائمة الردود العامه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+if database:get(bot_id.."Add:Rd:Sudo:Gif"..v) then
+db = 'متحركه'
+elseif database:get(bot_id.."Add:Rd:Sudo:vico"..v) then
+db = 'بصمه'
+elseif database:get(bot_id.."Add:Rd:Sudo:stekr"..v) then
+db = 'ملصق'
+elseif database:get(bot_id.."Add:Rd:Sudo:Text"..v) then
+db = 'رساله'
+elseif database:get(bot_id.."Add:Rd:Sudo:Photo"..v) then
+db = 'صوره'
+elseif database:get(bot_id.."Add:Rd:Sudo:Video"..v) then
+db = 'فيديو'
+elseif database:get(bot_id.."Add:Rd:Sudo:File"..v) then
+db = 'ملف'
+elseif database:get(bot_id.."Add:Rd:Sudo:Audio"..v) then
+db = 'اغنيه'
+end
+text = text..""..k.." >> ("..v..") » {"..db.."}\n"
+end
+if #list == 0 then
+text = " ☉┇ لا يوجد ردود عامه"
+end
+send(msg.chat_id_, msg.id_,'['..text..']')
+end
+if text == 'مسح رد عام ☉' and DevSoFi(msg) then 
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد مسحها')
+database:set(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_,true)
+return false 
+end
 if text == 'معلومات السيرفر ☉' and DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
@@ -1162,6 +1285,10 @@ if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑  ☉' then
 send(msg.chat_id_,msg.id_, ' اختر من الاوامر بلكيبورد ') 
 return false
 end
+if text == ("مسح المطورين الاساسيين ☉") and SudoBot(msg) then
+database:del(bot_id.."Dev:SoFi:2")
+send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الاساسيين  ")
+end
 if text == ("المطورين الاساسيين ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
 t = "\n☉┇ قائمة مطورين الاساسيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
@@ -1177,6 +1304,15 @@ if #list == 0 then
 t = "☉┇ لا يوجد مطورين اساسيين"
 end
 send(msg.chat_id_, msg.id_, t)
+end
+if text == 'تحديث المتجر ☉' and DevSoFi(msg) then  
+os.execute("rm -fr File_Bot/*")
+os.execute("mkdir File_Bot")
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/games.lua") 
+os.execute('rm -rf getfile.json')
+dofile('File_Bot/anamen.lua')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 if text == 'العاب باور' or text == 'العاب خارقه' or text == 'العاب متطوره' then  
 local Text = [[  
@@ -2434,6 +2570,10 @@ Text = '\n ☉┇ الجروبات»{`'..Groups..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
+if text == ("مسح المطورين ☉") and DevSoFi(msg) then
+database:del(bot_id..'Sudo:User')
+send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
+end
 if text == ("المطورين ☉") and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة المطورين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
@@ -3665,14 +3805,6 @@ os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/fi
 os.execute('rm -rf getfile.json')
 dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
-end
-
-if text == 'تحميل كل الملفات' and DevSoFi(msg) then  
-os.execute("rm -fr File_Bot/*")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/*") 
-os.execute('rm -rf getfile.json')
-dofile('File_Bot/*')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث و تحميل كل الملفات')
 end
 
 if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
@@ -5229,6 +5361,7 @@ end;end,nil)
 return false
 end
 if text == ("الغاء العام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5252,6 +5385,7 @@ return false
 end
 if text and text:match("^الغاء العام @(.*)$") and DevSoFi(msg) then
 local username = text:match("^الغاء العام @(.*)$") 
+local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5278,6 +5412,7 @@ return false
 end
 if text and text:match("^الغاء العام (%d+)$") and DevSoFi(msg) then
 local userid = text:match("^الغاء العام (%d+)$")
+local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -5296,7 +5431,7 @@ status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {'..Gro
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم حظره عام من {'..Groups..'} جروب'
+status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {'..Groups..'} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -11412,7 +11547,7 @@ end
 text = text..""..k.." >> ("..v..") » {"..db.."}\n"
 end
 if #list == 0 then
-text = " ☉┇ لا يوجد ردود للمطور"
+text = " ☉┇ لا يوجد ردود عامه"
 end
 send(msg.chat_id_, msg.id_,'['..text..']')
 end
