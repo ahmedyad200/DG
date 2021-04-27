@@ -13024,7 +13024,7 @@ if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
 if not GeId.result.custom_title then
-send(msg.chat_id_, msg.id_,'☉┇وينك وين القب ') 
+send(msg.chat_id_, msg.id_,'☉┇مفيش لقب يتافه ') 
 else
 send(msg.chat_id_, msg.id_,'☉┇لقبك هو : '..GeId.result.custom_title) 
 end
@@ -13486,7 +13486,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 end
 if text == 'بوت' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
-send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp'❤')
+send(msg.chat_id_, msg.id_,' نعم حبيبي '..rtp..' 🥺❤\nِ')
 end
 if text == 'رتبتي' then
 local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
