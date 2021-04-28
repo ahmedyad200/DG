@@ -8,7 +8,7 @@
 تم تعديل و تطورير السورس من قبل أحمد عياد @AY_AHD @ahmedyad200
 AHMEDYAD
 ]]--
-ahmedred = require('ahmedred') 
+ahmedred = require('redis') 
 https = require ("ssl.https") 
 serpent = dofile("./library/serpent.lua") 
 json = dofile("./library/JSON.lua") 
