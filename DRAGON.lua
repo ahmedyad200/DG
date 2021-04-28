@@ -273,7 +273,7 @@ return false
 end 
 end
 function Gmod(msg)
-local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_)
+local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_)
 if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
