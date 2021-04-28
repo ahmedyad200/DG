@@ -8,14 +8,14 @@
 تم تعديل و تطورير السورس من قبل أحمد عياد @AY_AHD @ahmedyad200
 AHMEDYAD
 ]]--
-redis = require('redis') 
+ahmedred = require('ahmedred') 
 https = require ("ssl.https") 
 serpent = dofile("./library/serpent.lua") 
 json = dofile("./library/JSON.lua") 
 JSON  = dofile("./library/dkjson.lua")
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
-ahmedx1 = redis.connect('127.0.0.1', 6379) 
+ahmedx1 = ahmedred.connect('127.0.0.1', 6379) 
 id_server = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
 --------------------------------------------------------------------------------------------------------------
 local AutoSet = function() 
@@ -132,7 +132,7 @@ end
 file:write(serialized)  
 file:close() 
 end 
-local load_redis = function()  
+local load_ahmedred = function()  
 local f = io.open("./DG_INFO.lua", "r")  
 if not f then   
 AutoSet()  
@@ -144,7 +144,7 @@ end
 local config = loadfile("./DG_INFO.lua")() 
 return config 
 end 
-_redis = load_redis()  
+_ahmedred = load_ahmedred()  
 --------------------------------------------------------------------------------------------------------------
 print([[
 
