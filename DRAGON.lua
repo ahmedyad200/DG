@@ -3695,10 +3695,11 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '\nتم تعطيل الجروب  ☉┇ '..
+Text = '☉┇ تم تعطيل الجروب\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
 '\n ☉┇ ايدي الجروب {'..IdChat..'}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
+'\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
 '\n ☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
