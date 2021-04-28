@@ -14292,16 +14292,16 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14337,10 +14337,10 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -14584,16 +14584,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = '⌯ قفل و القفل ⌯', callback_data=data.sender_user_id_"/help"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14643,16 +14643,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data=data.sender_user_id_"/help"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14713,16 +14713,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data=data.sender_user_id_"/help"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14816,16 +14816,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '⌯ ❷❷ ⌯', callback_data=data.sender_user_id_"/help"},
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14909,16 +14909,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '⌯ ❸❸ ⌯', callback_data=data.sender_user_id_"/help"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14962,16 +14962,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '⌯ ❹❹ ⌯', callback_data=data.sender_user_id_"/help"},
+{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15036,16 +15036,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = '⌯ اوامر التسليه ⌯', callback_data=data.sender_user_id_"/help"},
+{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15064,16 +15064,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15132,7 +15132,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
+{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15151,7 +15151,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
+{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15170,7 +15170,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data=data.sender_user_id_"/game"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
+{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15189,7 +15189,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '⌯ ❷❷ ⌯', callback_data=data.sender_user_id_"/game"},
+{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15213,13 +15213,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15246,13 +15246,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15276,13 +15276,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15306,13 +15306,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15336,13 +15336,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15371,10 +15371,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
