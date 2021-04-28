@@ -9629,54 +9629,6 @@ tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, 
 return false
 end
 ---------------------- بداء اضافه مميزات أحمد
------- بدايه الاغاني
-local wegz1 = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. msg.chat_id_ ..'" -F "document=@'..'Wegz - El Ghasala (El Ghasala Official Movie Song) - (ويجز - الغسالة (الأغنية الرسمية لفيلم الغسالة(MP3_160K)_1.mp3'..'"'
-
-if text == 'ويجز 1' then
-
-io.popen(wegz1)
-
-end
------ نهايه الاغاني
-if text == 'العاب باور' or text == 'العاب خارقه' or text == 'العاب متطوره' then  
-local Text = [[  
-اهلا في قائمه الالعاب المتطوره بوت باور 🎮
-تفضل اختر لعبه من القائمه
-اول قائمه العاب مكونه من 50 لعبه
-]]
-  
-keyboard = {}   
-keyboard.inline_keyboard = {  
-{{text = 'مبرمج السورس', url="t.me/AY_AHD"}},
-{{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
-{{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
-{{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
-{{text = 'ورق', url="https://t.me/gamee?game=Hexonix"},{text = 'لعبه 2048', url="https://t.me/awesomebot?game=g2048"}}, 
-{{text = 'SQUARES', url="https://t.me/gamee?game=Squares"},{text = 'ATOMIC', url="https://t.me/gamee?game=AtomicDrop1"}}, 
-{{text = 'CORSAIRS', url="https://t.me/gamebot?game=Corsairs"},{text = 'LumberJack', url="https://t.me/gamebot?game=LumberJack"}}, 
-{{text = 'LittlePlane', url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco', url="https://t.me/gamee?game=RollerDisco"}},  
-{{text = 'كره القدم 2', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'جمع المياه', url="https://t.me/gamee?game=BlockBuster"}},  
-{{text = 'لا تجعلها تسقط', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
-{{text = 'Astrocat', url="https://t.me/gamee?game=Astrocat"},{text = 'Skipper', url="https://t.me/gamee?game=Skipper"}},  
-{{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
-{{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
-{{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
-{{text = 'BrickStacker', url="https://t.me/gamee?game=BrickStacker"},{text = 'StairMaster3D', url="https://t.me/gamee?game=StairMaster3D"}},  
-{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'BasketBoyRush', url="https://t.me/gamee?game=BasketBoyRush"}},  
-{{text = 'GravityNinja21', url="https://t.me/gamee?game=GravityNinja21"},{text = 'MarsRover', url="https://t.me/gamee?game=MarsRover"}},  
-{{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"}},  
-{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'KeepItUp', url="https://t.me/gamee?game=KeepItUp"}},  
-{{text = 'SunshineSolitaire', url="https://t.me/gamee?game=SunshineSolitaire"},{text = 'Qubo', url="https://t.me/gamee?game=Qubo"}},  
-{{text = 'PenaltyShooter2', url="https://t.me/gamee?game=PenaltyShooter2"},{text = 'Getaway', url="https://t.me/gamee?game=Getaway"}},  
-{{text = 'PaintioTeams', url="https://t.me/gamee?game=PaintioTeams"},{text = 'SpikyFish2', url="https://t.me/gamee?game=SpikyFish2"}},  
-{{text = 'GroovySki', url="https://t.me/gamee?game=GroovySki"},{text = 'KungFuInc', url="https://t.me/gamee?game=KungFuInc"}},  
-{{text = 'SpaceTraveler', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
-{{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
-{{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
-}  
-local msg_id = msg.id_/2097152/0.5  
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
-end
 if text == "تويت" or text == "كت تويت" then 
 local TWEET_Msg = { 
 "اخر افلام شاهدتها", 
@@ -14340,16 +14292,16 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14385,10 +14337,10 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -14632,16 +14584,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = '⌯ قفل و القفل ⌯', callback_data=data.sender_user_id_"/help"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14691,16 +14643,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data=data.sender_user_id_"/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14761,16 +14713,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
+{text = '⌯ ❶️❶ ⌯', callback_data=data.sender_user_id_"/help"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14864,16 +14816,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '⌯ ❷❷ ⌯', callback_data=data.sender_user_id_"/help"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14957,16 +14909,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
+{text = '⌯ ❸❸ ⌯', callback_data=data.sender_user_id_"/help"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15010,16 +14962,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '⌯ ❹❹ ⌯', callback_data=data.sender_user_id_"/help"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15084,16 +15036,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
+{text = '⌯ اوامر التسليه ⌯', callback_data=data.sender_user_id_"/help"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15112,16 +15064,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/help3"},{text = '❷❷', callback_data=data.sender_user_id_"/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+{text = '❸❸', callback_data=data.sender_user_id_"/help5"},{text = '❹❹', callback_data=data.sender_user_id_"/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"},
+{text = 'اوامر التسليه', callback_data=data.sender_user_id_"/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+{text = 'قفل و القفل', callback_data=data.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=data.sender_user_id_"/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15136,7 +15088,7 @@ local Text = [[
   
 keyboard = {}   
 keyboard.inline_keyboard = {  
-{{text = 'مبرمج السورس', url="t.me/AY_AHD"}},
+
 {{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
 {{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
 {{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
@@ -15166,7 +15118,7 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5  
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))  
 end
-if Text == 'العاب باور' or Text == 'العاب متطوره' then
+if text == 'العاب باور' or text == 'العاب خارقه' or text == 'العاب متطوره' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
@@ -15180,7 +15132,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15199,7 +15151,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15218,7 +15170,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"},
+{text = '⌯ ❶️❶ ⌯', callback_data=data.sender_user_id_"/game"},{text = '❷❷', callback_data=data.sender_user_id_"/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15237,7 +15189,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"},
+{text = '❶️❶', callback_data=data.sender_user_id_"/game1"},{text = '⌯ ❷❷ ⌯', callback_data=data.sender_user_id_"/game"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15261,13 +15213,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15294,13 +15246,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15324,13 +15276,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15354,13 +15306,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15384,13 +15336,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data=data.sender_user_id_"/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15419,10 +15371,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+{text = 'كتم الاسماء', callback_data=data.sender_user_id_"/mute-name"},{text = 'التوحيد', callback_data=data.sender_user_id_"/sofi"},{text = 'تنبيه الأسماء', callback_data=data.sender_user_id_"/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+{text = 'تنبيه المعرف', callback_data=data.sender_user_id_"/change-id"},{text = 'تنبيه الصور', callback_data=data.sender_user_id_"/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
