@@ -354,11 +354,11 @@ var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = "المطور الاساسي²"  
+var = "مطور رتبه ثانيه"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
-var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور'  
+var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'مطور رتبه ثالثه'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
 var = database:get(bot_id.."CoSu:Rd"..msg.chat_id_) or 'المالك'
 elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
@@ -3658,7 +3658,7 @@ Text = ' ☉┇ تم تفعيل جروب جديده\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
 '\n ☉┇ ايدي الجروب {'..IdChat..'}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
-'\n ☉┇ عدد اعضاء الجروب *{'..NumMember..'}*'..
+'\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
 '\n ☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -3668,7 +3668,7 @@ end,nil)
 end,nil) 
 end,nil)
 end
-if text == 'تعطيل' and Sudo(msg) then
+if text == 'تعطيل' and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3757,7 +3757,7 @@ Text = ' ☉┇ تم تفعيل جروب جديده\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
 '\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
 '\n ☉┇ ايدي الجروب {'..IdChat..'}'..
-'\n ☉┇ عدد اعضاء الجروب *{'..NumMember..'}*'..
+'\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
 '\n ☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
