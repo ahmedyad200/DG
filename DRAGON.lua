@@ -14352,10 +14352,10 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
-if database:get(bot_id..'sofi:zhrf_Bots'..msg.chat_id_..''..msg.sender_user_id_) then 
+if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
-database:del(bot_id..'sofi:zhrf_Bots'..msg.chat_id_..''..msg.sender_user_id_)
+database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
 UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
@@ -14372,7 +14372,7 @@ return false
 end
 --     By Developer Faeder     -- 
 if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
-database:setex(bot_id.."sofi:zhrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
 if text == "تعطيل الزخرفه" and Manager2(msg) then
