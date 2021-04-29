@@ -1375,7 +1375,7 @@ send(msg.chat_id_, msg.id_, '𖤓 لا يوجد حساب بهذا المعرف')
 end
 end, nil)
 database:del(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_)
-send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الرجاء ارسل امر [`اعاده تشغيل`]')
+send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الرجاء ارسل امر {`اعاده تشغيل`}')
 dofile('DG_INFO.lua')  
 return false
 end
