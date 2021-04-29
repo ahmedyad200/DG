@@ -14352,10 +14352,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
-if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
-database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
-send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
-end
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
 zx = JSON.decode(zh) 
@@ -14368,6 +14364,10 @@ end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
+end
+if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
+database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
