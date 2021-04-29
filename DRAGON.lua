@@ -14356,6 +14356,7 @@ if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manage
 database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
+if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
 zx = JSON.decode(zh) 
 t = "\n☉┇ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
