@@ -14354,19 +14354,19 @@ end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_, 1, '❀ تم الغاء امر الزخرفه ،', 1, 'md')
+send(msg.chat_id_, msg.id_, '❀ تم الغاء امر الزخرفه ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
 UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
 Zrf = JSON.decode(UrlZrf) 
-t = "❀ قائمه الزخرفه ⬇️،\n         •┉ • ┉ • ┉ Ͳλℜλ ┉ • ┉ • ┉•\n"
+t = "\n☉┇ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
 for k,v in pairs(Zrf.ok) do
 i = i + 1
 t = t..i.." `"..v.."` \n"
 end
-send(msg.chat_id_, msg.id_, 1, t, 1, 'md')
+send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
 end
