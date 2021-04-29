@@ -1361,9 +1361,6 @@ send(msg.chat_id_,msg.id_,"𖤓 عذرا عزيزي هذا معرف قناه ي�
 return false 
 end
 os.execute('rm -rf DG_INFO.lua')
-local create = io.open("DG_INFO.lua", 'w')
-create_config_auto:write([[
-do 
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
