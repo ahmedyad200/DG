@@ -1342,6 +1342,7 @@ os.execute('rm -rf getfile.json')
 dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
+--[[
 if text == 'تغير المطور الاساسي' and SudoBot(msg) then
 database:set(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,' ارسل الان معرف المطور الاساسي الجديد')
@@ -1379,6 +1380,7 @@ send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الر�
 dofile('DG_INFO.lua')  
 return false
 end
+]]--
 if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' and DevSoFi(msg) then 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
