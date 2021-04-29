@@ -361,11 +361,11 @@ var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = "مطور رتبه ثانيه"  
+var = "المطور الثاني"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
-var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'مطور رتبه ثالثه'  
+var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
 var = database:get(bot_id.."CoSu:Rd"..msg.chat_id_) or 'المالك'
 elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
@@ -1348,7 +1348,6 @@ local Text = [[
 تفضل اختر لعبه من القائمه
 اول قائمه العاب مكونه من 50 لعبه
 ]]
-  
 keyboard = {}   
 keyboard.inline_keyboard = {  
 {{text = 'مبرمج السورس', url="t.me/AY_AHD"}},
@@ -15050,10 +15049,8 @@ local Text = [[
 تفضل اختر لعبه من القائمه
 اول قائمه العاب مكونه من 50 لعبه
 ]]
-  
 keyboard = {}   
 keyboard.inline_keyboard = {  
-
 {{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
 {{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
 {{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
