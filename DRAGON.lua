@@ -14358,11 +14358,11 @@ send(msg.chat_id_, msg.id_, '❀ تم الغاء امر الزخرفه ')
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false  
 end 
-UrlZrf = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
-Zrf = JSON.decode(UrlZrf) 
+zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
+zx = JSON.decode(zh) 
 t = "\n☉┇ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 i = 0
-for k,v in pairs(Zrf.ok) do
+for k,v in pairs(zx.ok) do
 i = i + 1
 t = t..i.." `"..v.."` \n"
 end
@@ -14370,9 +14370,8 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
 end
---     By Developer Faeder     -- 
 if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
-database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
+database:setex(bot_id.."Zrf:add"..msg.chat_id_,msg.chat_id_..""..msg.sender_user_id_ )
 send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
 if text == "تعطيل الزخرفه" and Manager2(msg) then
