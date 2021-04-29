@@ -14353,6 +14353,11 @@ return false
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
+if text == 'الغاء' then 
+send(msg.chat_id_, msg.id_, '❀ تم الغاء امر الزخرفه ')
+database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
+return false  
+end 
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(text)) 
 zx = JSON.decode(zh) 
 t = "\n☉┇ قائمه الزخرفه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
@@ -14369,12 +14374,6 @@ if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manage
 database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
-if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
-if text == 'الغاء' then 
-send(msg.chat_id_, msg.id_, '❀ تم الغاء امر الزخرفه ')
-database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
-return false  
-end 
 if text == "تعطيل الزخرفه" and Manager2(msg) then
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
