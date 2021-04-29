@@ -1361,16 +1361,15 @@ send(msg.chat_id_,msg.id_,"𖤓 عذرا عزيزي هذا معرف قناه ي�
 return false 
 end
 os.execute('rm -rf DG_INFO.lua')
-local create_config_auto = function()
+local create_config = function()
 config = {
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":SUDO:ID"),
 UserName = database:get(id_server..":SUDO:USERNAME"),
  }
 create(config, "./DG_INFO.lua")   
-end 
-]])
-create_config_auto:close()
+end
+create_config:close()
 else
 send(msg.chat_id_, msg.id_, '𖤓 لا يوجد حساب بهذا المعرف')
 end
