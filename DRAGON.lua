@@ -1359,17 +1359,17 @@ if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"𖤓 عذرا عزيزي هذا معرف قناه يرجى ارسال المعرف مره اخره")   
 return false 
-end
+end end
 os.execute('rm -rf DG_INFO.lua')
-local create_config = function()
+local create = function()
 config = {
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":SUDO:ID"),
 UserName = database:get(id_server..":SUDO:USERNAME"),
- }
+}
 create(config, "./DG_INFO.lua")   
 end
-create_config:close()
+create:close()
 else
 send(msg.chat_id_, msg.id_, '𖤓 لا يوجد حساب بهذا المعرف')
 end
