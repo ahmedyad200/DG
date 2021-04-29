@@ -14373,7 +14373,7 @@ end
 --     By Developer Faeder     -- 
 if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
 database:setex(bot_id.."sofi:zhrf_Bots"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
-send(msg.chat_id_, msg.id_, 1, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ', 1, 'md')
+send(msg.chat_id_, msg.id_, '❀  لي الكلمه لزخرفتها \n❀  الزخرفه باللغه : { en } ~ { ar } ')
 end
 if text == "تعطيل الزخرفه" and Manager2(msg) then
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الزخرفه')
