@@ -1359,25 +1359,27 @@ if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"𖤓 عذرا عزيزي هذا معرف قناه يرجى ارسال المعرف مره اخره")   
 return false 
-end      
-local file_Info_Sudo = io.open("DG_INFO.lua", 'w')
-file_Info_Sudo:write([[
-do 
-local File_Info = {
-SUDO = "]]..SUDO:ID..[[",
-UserName = "]]..SUDO:USERNAME..[[",
-token = "]]..token..[[",
-}
-return File_Info
 end
+os.execute('rm -rf DG_INFO.lua')
+local create = io.open("DG_INFO.lua", 'w')
+create_config_auto:write([[
+do 
+local create_config_auto = function()
+config = {
+token = database:get(id_server..":token"),
+SUDO = database:get(id_server..":SUDO:ID"),
+UserName = database:get(id_server..":SUDO:USERNAME"),
+ }
+create(config, "./DG_INFO.lua")   
+end 
 ]])
-file_Info_Sudo:close()
+create_config_auto:close()
 else
 send(msg.chat_id_, msg.id_, '𖤓 لا يوجد حساب بهذا المعرف')
 end
 end, nil)
 database:del(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_)
-send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الرجاء ارسل امر [تحديث]')
+send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الرجاء ارسل امر [`اعاده تشغيل`]')
 dofile('DG_INFO.lua')  
 return false
 end
