@@ -30,21 +30,21 @@ io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
   
-  The power source was established on 4/4/2021
-  By the developer Ahmedyad
-   @ahmedyad200
-   @ahmedyad200
+   The power source was established on 4/4/2021
+   By the developer Ahmedyad
+    @ahmedyad200
+    @ahmedyad200
  
 
  
 
  
  
-       _     _  _   __  __   ___   ___   __   __    _     ___  
-      /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ 
-     / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
-    /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
-                                                             
+             _     _  _   __  __   ___   ___   __   __    _     ___  
+            /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ 
+           / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
+          /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
+                                                               
  
  
 ]])
