@@ -13075,7 +13075,7 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," المطور @".. SUDOUSERNAME .." ", msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," المطور ", msg.id_, msg.id_, "md")
 else
 send(msg.chat_id_, msg.id_,'المطور @'.. SUDOUSERNAME ..' ', 1, 'md')
   end end
