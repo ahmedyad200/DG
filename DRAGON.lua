@@ -995,7 +995,7 @@ end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
 end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
+database:setex(bot_id..'Start:Time'..msg.sender_user_id_,10,true)
 return false
 end end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
@@ -1519,7 +1519,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "☉┇ لا يوجد مطورين ثانيين"
+t = "☉┇ لا يوجد مطورين ثانين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -2857,7 +2857,7 @@ t = t..""..k.."- ("..v..")\n"
 end
 end
 if #list == 0 then
-t = " ☉┇ لا يوجد مطورين"
+t = " ☉┇ لا يوجد مطورين ثالثين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -5760,7 +5760,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = " ☉┇ لا يوجد مطورين"
+t = " ☉┇ لا يوجد مطورين ثالثين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -7220,7 +7220,7 @@ end
 if text == ("تنزيل مطور ثاني") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
 function Function_DRAGON(extra, result, success)
 database:srem(bot_id.."Dev:SoFi:2", result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","☉┇ تم تنزيله من المطور ثانيين")  
+Reply_Status(msg,result.sender_user_id_,"reply","☉┇ تم تنزيله من المطور ثانين")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_DRAGON, nil)
 return false 
@@ -7230,7 +7230,7 @@ local username = text:match("^تنزيل مطور ثاني @(.*)$")
 function Function_DRAGON(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Dev:SoFi:2", result.id_)
-Reply_Status(msg,result.id_,"reply","☉┇ تم تنزيله من المطور ثانيين")  
+Reply_Status(msg,result.id_,"reply","☉┇ تم تنزيله من المطور ثانين")  
 else
 send(msg.chat_id_, msg.id_,"☉┇ لا يوجد حساب بهاذا المعرف")
 end
@@ -7241,7 +7241,7 @@ end
 if text and text:match("^تنزيل مطور ثاني (%d+)$") and SudoBot(msg) then
 local userid = text:match("^تنزيل مطور ثاني (%d+)$")
 database:srem(bot_id.."Dev:SoFi:2", userid)
-Reply_Status(msg,userid,"reply","☉┇ تم تنزيله من المطور ثانيين")  
+Reply_Status(msg,userid,"reply","☉┇ تم تنزيله من المطور ثانين")  
 return false 
 end
 if text == ("المطورين الثانين") and SudoBot(msg) then
@@ -7256,7 +7256,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "☉┇ لا يوجد مطورين ثانيين"
+t = "☉┇ لا يوجد مطورين ثانين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -7525,11 +7525,11 @@ return false
 end
 if text == 'مسح المدراء الثانين' and BasicConstructor(msg) then
 database:del(bot_id..'S00F4:MN:TF'..msg.chat_id_)
-send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المدير ثانيين')
+send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المدير الثاني')
 end
 if text == ("المدراء الثانين") and BasicConstructor(msg) then
 local list = database:smembers(bot_id..'S00F4:MN:TF'..msg.chat_id_)
-t = "\n ☉┇ قائمة المدير ثانيين \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
+t = "\n ☉┇ قائمة المدير الثاني \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -7539,7 +7539,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = " ☉┇ لا يوجد المدير ثانيين"
+t = " ☉┇ لا يوجد المدير الثاني"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -7643,7 +7643,7 @@ function start_function(extra, result, success)
 database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم تنزيله من المدير ثانيين'
+status  = '\n ☉┇ تم تنزيله من المدير الثاني'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -7665,7 +7665,7 @@ function start_function(extra, result, success)
 if result.id_ then
 database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, result.id_)
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم تنزيله من المدير ثانيين'
+status  = '\n ☉┇ تم تنزيله من المدير الثاني'
 texts = usertext..status
 else
 texts = ' ☉┇ لا يوجد حساب بهاذا المعرف'
@@ -7690,11 +7690,11 @@ database:srem(bot_id..'S00F4:MN:TF'..msg.chat_id_, userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم تنزيله من المدير ثانيين'
+status  = '\n ☉┇ تم تنزيله من المدير الثاني'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم تنزيله من المدير ثانيين'
+status  = '\n ☉┇ تم تنزيله من المدير الثاني'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
