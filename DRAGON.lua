@@ -10,9 +10,9 @@ AHMEDYAD
 ]]--
 redis = require('redis') 
 https = require ("ssl.https") 
-serpent = dofile("./library/serpent.lua") 
-json = dofile("./library/JSON.lua") 
-JSON  = dofile("./library/dkjson.lua")
+serpent = dofile("./serpent.lua") 
+json = dofile("./JSON.lua") 
+JSON  = dofile("./dkjson.lua")
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
 database = redis.connect('127.0.0.1', 6379) 

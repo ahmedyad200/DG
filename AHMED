@@ -2,24 +2,35 @@
 cd $HOME/DRAGON
 install() {
 rm -rf $HOME/.telegram-cli
+echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
 sudo apt-get update -y
 sudo apt-get upgrade -y
+echo -e "\e[38;5;77m    •{ install source power  %10 }•\e[0m"
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+echo -e "\e[38;5;77m    •{ install source power  %20 }•\e[0m"
 sudo luarocks install luasocket
 sudo luarocks install luasec
 sudo luarocks install redis-lua
+echo -e "\e[38;5;77m    •{ install source power  %30 }•\e[0m"
 sudo luarocks install Lua-cURL
 sudo service redis-server start
 sudo apt-get update -y
+echo -e "\e[38;5;77m    •{ install source power  %40 }•\e[0m"
 sudo apt-get install g++-4.7 -y c++-4.7
 sudo apt-get install libreadline-dev -y libconfig-dev -y libssl-dev -y lua5.2 -y liblua5.2-dev -y lua-socket -y lua-sec -y lua-expat -y libevent-dev -y make unzip git redis-server autoconf g++ -y libjansson-dev -y libpython-dev -y expat libexpat1-dev -y curl -y htop -y
+echo -e "\e[38;5;77m    •{ install source power  %50 }•\e[0m"
 sudo apt-get install screen -y
+echo -e "\e[38;5;77m    •{ install source power  %60 }•\e[0m"
 sudo apt-get install libstdc++6 -y
+echo -e "\e[38;5;77m    •{ install source power  %70 }•\e[0m"
 sudo apt-get install lua-lgi -y
+echo -e "\e[38;5;77m    •{ install source power  %80 }•\e[0m"
 sudo apt-get install libnotify-dev -y
+echo -e "\e[38;5;77m    •{ install source power  %90 }•\e[0m"
 sudo chmod +x tg
 lua DRAGON.lua
+echo -e "\e[38;5;77m    •{ install source power  %100 }•\e[0m"
 sudo chmod +x DRAGON
 sudo chmod +x ./DRG
 ./DRG
@@ -33,6 +44,7 @@ exit 1
 fi
 sudo chmod +x tg
 lua DRAGON.lua
+echo -e "\e[38;5;77m    •{ installd source power  }•\e[0m"
 sudo chmod +x DRAGON
 sudo chmod +x ./DRG
 ./DRG
