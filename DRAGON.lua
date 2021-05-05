@@ -961,6 +961,7 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الرتب العامه' then  
@@ -974,6 +975,7 @@ local keyboard = {
 {'مسح الادمنيه العامين ☉','مسح المدراء العامين ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاشتراك الاجباري' then  
@@ -986,6 +988,7 @@ local keyboard = {
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉','تغير الاشتراك ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاذاعه' then  
@@ -998,6 +1001,7 @@ local keyboard = {
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الردود' then  
@@ -1010,6 +1014,7 @@ local keyboard = {
 {'مسح رد متعدد ☉','الردود المتعدده ☉','اضف رد متعدد ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر العام' then  
@@ -1021,6 +1026,7 @@ local keyboard = {
 {'مسح الكتم العام ☉','مسح الحظر العام ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر ملفات البوت' then  
@@ -1032,6 +1038,7 @@ local keyboard = {
 {'الملفات ☉','المتجر ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
+return false
 end end
 if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'كيبورد الاعضاء' then
