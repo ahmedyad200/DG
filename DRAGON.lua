@@ -1033,7 +1033,7 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end end
-if Chat_Type == 'UserBot' then --- كيبورد الاعضاء
+if Chat_Type == 'UserBot' then
 if text == '/start' or text == 'كيبورد الاعضاء' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
@@ -1057,7 +1057,7 @@ end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
 end
-database:setex(bot_id..'Start:Time'..msg.sender_user_id_,1,true)
+database:setex(bot_id..'Start:Time'..msg.sender_user_id_,10,true)
 return false
 end end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
