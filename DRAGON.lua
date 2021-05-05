@@ -14705,16 +14705,16 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14750,10 +14750,10 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15019,16 +15019,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = '⌯ قفل و القفل ⌯', callback_data=944353237,"/help"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15078,16 +15078,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data=944353237,"/help"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15148,16 +15148,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data=944353237,"/help"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15251,16 +15251,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '⌯ ❷❷ ⌯', callback_data=944353237,"/help"},
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15344,16 +15344,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '⌯ ❸❸ ⌯', callback_data=944353237,"/help"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15397,16 +15397,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '⌯ ❹❹ ⌯', callback_data=944353237,"/help"},
+{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15471,16 +15471,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = '⌯ اوامر التسليه ⌯', callback_data=944353237,"/help"},
+{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15499,16 +15499,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/help3"},{text = '❷❷', callback_data=944353237,"/help4"},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data=944353237,"/help5"},{text = '❹❹', callback_data=944353237,"/help6"},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data=944353237,"/help7"},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data=944353237,"/help1"},{text = 'تعطيل و تفعيل', callback_data=944353237,"/help2"},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15529,7 +15529,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/game1"},{text = '❷❷', callback_data=944353237,"/game2"},
+{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15548,7 +15548,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/game1"},{text = '❷❷', callback_data=944353237,"/game2"},
+{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15567,7 +15567,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data=944353237,"/game"},{text = '❷❷', callback_data=944353237,"/game2"},
+{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15586,7 +15586,7 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data=944353237,"/game1"},{text = '⌯ ❷❷ ⌯', callback_data=944353237,"/game"},
+{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15610,13 +15610,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=944353237,"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15643,13 +15643,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=944353237,"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15673,13 +15673,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=944353237,"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15703,13 +15703,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=944353237,"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15733,13 +15733,13 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
-{text = '🔙 القائمة الرئيسيه 🔙', callback_data=944353237,"/add"},
+{text = '🔙 القائمة الرئيسيه 🔙', callback_data="/add"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
@@ -15768,10 +15768,10 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'كتم الاسماء', callback_data=944353237,"/mute-name"},{text = 'التوحيد', callback_data=944353237,"/sofi"},{text = 'تنبيه الأسماء', callback_data=944353237,"/change-names"},
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
 },
 {
-{text = 'تنبيه المعرف', callback_data=944353237,"/change-id"},{text = 'تنبيه الصور', callback_data=944353237,"/change-photo"},
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
 },
 {
 {text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
