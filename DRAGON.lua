@@ -13076,9 +13076,9 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," المطور\n "..UserName.." \n مطور البوت", msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," المطور\n "..UserName.." \n 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ", msg.id_, msg.id_, "md")
 else
-send(msg.chat_id_, msg.id_,' المطور\n '..UserName..'\n مطور البوت', 1, 'md')
+send(msg.chat_id_, msg.id_,' المطور '..UserName..' \n 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑', 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
