@@ -1,7 +1,9 @@
---  The power source was established on 4/4/2021
---  By the developer Ahmedyad
---   @ahmedyad200
---   @ahmedyad200
+---------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------
+--   The power source was established on 4/4/2021
+--   By the developer Ahmedyad
+--     @ahmedyad200
+--     @ahmedyad200
 
 redis = require('redis') 
 https = require ("ssl.https") 
@@ -5399,7 +5401,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السور�
 return false 
 end
 if database:sismember(bot_id.."Dev:SoFi:2") then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
+var = '☉┇ لا تسطيع حظر المطور الثاني عام'
 return false 
 end
 if database:sismember(bot_id.."Sudo:User") then  
