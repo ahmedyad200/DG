@@ -976,7 +976,7 @@ if text == '/start' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {
-{{text = 'المطور', url="t.me/"..SUDOUSERNAME}},
+{{text = 'المطور', url="t.me/ahmedyad200"}},
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
 } 
 local Keyboard = {
