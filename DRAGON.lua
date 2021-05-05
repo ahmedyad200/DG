@@ -5404,7 +5404,7 @@ if database:sismember(bot_id.."Dev:SoFi:2", user_id) then
 var = '☉┇ لا تسطيع حظر المطور الثاني عام'
 return false 
 end
-if database:sismember(bot_id.."Sudo:User") then  
+if database:sismember(bot_id.."Sudo:User", user_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثالث عام")
 return false 
 end
