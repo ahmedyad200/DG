@@ -5400,7 +5400,7 @@ if tonumber(result.sender_user_id_) == tonumber(0909090909) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
-if database:sismember(bot_id.."Dev:SoFi:2") then  
+if database:sismember(bot_id.."Dev:SoFi:2", user_id) then  
 var = '☉┇ لا تسطيع حظر المطور الثاني عام'
 return false 
 end
