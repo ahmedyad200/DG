@@ -376,16 +376,16 @@ elseif tonumber(user_id) == tonumber(0909090909) then
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
-elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = "المطور الثاني"  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
+elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
+var = "المطور الثاني"  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
 var = database:get(bot_id.."CoSu:Rd"..msg.chat_id_) or 'المالك'
 elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
-var = database:get(bot_id.."BasicConstructor:Rd"..msg.chat_id_) or 'المنشئ اساسي'
+var = database:get(bot_id.."BasicConstructor:Rd"..msg.chat_id_) or 'المنشئ الاساسي'
 elseif database:sismember(bot_id..'Constructor'..chat_id, user_id) then
 var = database:get(bot_id.."Constructor:Rd"..msg.chat_id_) or 'المنشئ'  
 elseif database:sismember(bot_id..'Gmanager', user_id) then
@@ -393,7 +393,7 @@ var = database:get(bot_id.."Gmanager:Rd"..msg.chat_id_) or 'المدير الع�
 elseif database:sismember(bot_id..'Manager'..chat_id, user_id) then
 var = database:get(bot_id.."Manager:Rd"..msg.chat_id_) or 'المدير'  
 elseif database:sismember(bot_id..'S00F4:MN:TF'..chat_id, user_id) then
-var = database:get(bot_id.."S00F4:MN:TF:Rd"..msg.chat_id_) or 'مدير ثاني'  
+var = database:get(bot_id.."S00F4:MN:TF:Rd"..msg.chat_id_) or 'المدير الثاني'  
 elseif database:sismember(bot_id..'Gmod:User', user_id) then
 var = database:get(bot_id.."Gmod:Rd"..msg.chat_id_) or 'الادمن العام'  
 elseif database:sismember(bot_id..'Mod:User'..chat_id, user_id) then
@@ -945,8 +945,8 @@ local bl = 'اهلا عزيزي المطور الاساسي\nشكرا لاستخ
 local keyboard = {
 {'الاحصائيات ☉'},
 {'ضع اسم للبوت ☉'},
-{'المطورين الثانيين ☉','المطورين ☉'},
-{'مسح المطورين الثانيين ☉','مسح المطورين ☉'},
+{'المطورين الثانين ☉','المطورين الثالثين ☉'},
+{'مسح المطورين الثانين ☉','مسح المطورين الثالثين ☉'},
 {'الادمنيه العامين ☉','المدراء العامين ☉'},
 {'مسح الادمنيه العامين ☉','مسح المدراء العامين ☉'},
 {'مسح رد عام ☉','الردود العامه ☉','اضف رد عام ☉'},
@@ -1399,9 +1399,9 @@ if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' then
 send(msg.chat_id_,msg.id_, ' اختر من الاوامر بلكيبورد ') 
 return false
 end
-if text == ("مسح المطورين الثانيين ☉") and SudoBot(msg) then
+if text == ("مسح المطورين الثانين ☉") and SudoBot(msg) then
 database:del(bot_id.."Dev:SoFi:2")
-send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانيين  ")
+send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانين  ")
 end
 if text and text:match("^رفع مدير عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع مدير عام @(.*)$")
@@ -1505,9 +1505,9 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("المطورين الثانيين ☉") and Sudo(msg) then
+if text == ("المطورين الثانين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
-t = "\n☉┇ قائمة مطورين الثانيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+t = "\n☉┇ قائمة مطورين الثانين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -2821,7 +2821,7 @@ end
 if text == 'الاحصائيات ☉' and DevSoFi(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {'..Groups..'}'..'\n ☉┇  عدد المشتركين » {'..Users..'}'
+Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {`'..Groups..'`}'..'\n ☉┇  عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
@@ -2839,11 +2839,11 @@ Text = '\n ☉┇ الجروبات»{`'..Groups..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == ("مسح المطورين ☉") and DevSoFi(msg) then
+if text == ("مسح المطورين الثالثين ☉") and DevSoFi(msg) then
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
 end
-if text == ("المطورين ☉") and Sudo(msg) then
+if text == ("المطورين الثالثين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة المطورين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -5398,12 +5398,16 @@ if tonumber(result.sender_user_id_) == tonumber(0909090909) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
+if database:sismember(bot_id.."Dev:SoFi:2", user_id) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
+return false 
+end
 database:sadd(bot_id..'GBan:User', result.sender_user_id_)
 chat_kick(result.chat_id_, result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5454,7 +5458,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السور�
 return false 
 end
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 texts = usertext..status
 database:sadd(bot_id..'GBan:User', result.id_)
 else
@@ -5506,11 +5510,11 @@ database:sadd(bot_id..'GBan:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم حظره عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم حظره عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم حظره عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -5555,7 +5559,7 @@ database:sadd(bot_id..'Gmute:User', result.sender_user_id_)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},
 function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
@@ -5605,7 +5609,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السور�
 return false 
 end
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 texts = usertext..status
 database:sadd(bot_id..'Gmute:User', result.id_)
 else
@@ -5656,11 +5660,11 @@ database:sadd(bot_id..'Gmute:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم كتمه عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم كتمه عام في {'..Groups..'} جروب'
+status  = '\n ☉┇ تم كتمه عام في {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
@@ -5703,7 +5707,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {'..Groups..'} جروب'
+status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {`'..Groups..'`} جروب'
 texts = usertext..status
 database:srem(bot_id..'GBan:User', result.id_)
 database:srem(bot_id..'Gmute:User', result.id_)
@@ -5732,21 +5736,21 @@ database:srem(bot_id..'Gmute:User', userid)
 tdcli_function ({ID = "GetUser",user_id_ = userid},function(arg,data) 
 if data.first_name_ then
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {'..Groups..'} جروب'
+status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 else
 usertext = '\n ☉┇ العضو » '..userid..''
-status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {'..Groups..'} جروب'
+status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {`'..Groups..'`} جروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == ("مسح المطورين") and DevSoFi(msg) then
+if text == ("مسح المطورين") or text == ('مسح المطورين الثالثين') and DevSoFi(msg) then
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
 end
-if text == ("المطورين") and DevSoFi(msg) then
+if text == ("المطورين") or text == ('المطورين الثالثين') and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة مطورين البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7242,9 +7246,9 @@ database:srem(bot_id.."Dev:SoFi:2", userid)
 Reply_Status(msg,userid,"reply","☉┇ تم تنزيله من المطور ثانيين")  
 return false 
 end
-if text == ("المطورين الثانيين") and SudoBot(msg) then
+if text == ("المطورين الثانين") and SudoBot(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
-t = "\n☉┇ قائمة مطورين الثانيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+t = "\n☉┇ قائمة مطورين الثانين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."user:Name" .. v)
 if username then
@@ -7258,9 +7262,9 @@ t = "☉┇ لا يوجد مطورين ثانيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح المطورين الثانيين") and SudoBot(msg) then
+if text == ("مسح المطورين الثانين") and SudoBot(msg) then
 database:del(bot_id.."Dev:SoFi:2")
-send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانيين  ")
+send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانين  ")
 end
 if text == ("الادمنيه العامين") and SudoBot(msg) then
 local list = database:smembers(bot_id.."Gmod:User")
@@ -12596,7 +12600,7 @@ if text == 'الاحصائيات' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {'..Groups..'}'..'\n ☉┇  عدد المشتركين » {'..Users..'}'
+Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {`'..Groups..'`}'..'\n ☉┇  عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
@@ -12614,7 +12618,7 @@ if text == 'المشتركين' then
 if Sudo(msg) then 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
-Text = ' ☉┇ عدد المشتركين » {`'..Users..'|}'
+Text = ' ☉┇ عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
 return false
