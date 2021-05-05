@@ -13067,6 +13067,7 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0
 end
 
 if text == "المطور" or text == 'مطور' then
+UserName = database:get(id_server..":SUDO:USERNAME"),
 database:set(bot_id.."Sudo_photo:status"..msg.chat_id_,true) 
 local Su_ph = database:get(bot_id.."Sudo_photo:status"..msg.chat_id_)
 if not Su_ph then
@@ -13075,9 +13076,9 @@ return false
 end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_, TEXT_SUDO, msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," المطور "..UserName.." POWER ", msg.id_, msg.id_, "md")
 else
-send(msg.chat_id_, msg.id_,TEXT_SUDO , 1, 'md')
+send(msg.chat_id_, msg.id_,' المطور '..UserName..' POWER', 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
