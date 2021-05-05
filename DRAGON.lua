@@ -961,7 +961,7 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الرتب العامه' then  
 if DevSoFi(msg) then
@@ -974,7 +974,7 @@ local keyboard1 = {
 {'مسح الادمنيه العامين ☉','مسح المدراء العامين ☉'},
 }
 send_inline_key(msg.chat_id_,bl1,keyboard1)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاشتراك الاجباري' then  
 if DevSoFi(msg) then
@@ -986,7 +986,7 @@ local keyboard2 = {
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉','تغير الاشتراك ☉'},
 }
 send_inline_key(msg.chat_id_,bl2,keyboard2)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاذاعه' then  
 if DevSoFi(msg) then
@@ -998,7 +998,7 @@ local keyboard3 = {
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
 }
 send_inline_key(msg.chat_id_,bl3,keyboard3)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الردود' then  
 if DevSoFi(msg) then
@@ -1010,7 +1010,7 @@ local keyboard4 = {
 {'مسح رد متعدد ☉','الردود المتعدده ☉','اضف رد متعدد ☉'},
 }
 send_inline_key(msg.chat_id_,bl4,keyboard4)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر العام' then  
 if DevSoFi(msg) then
@@ -1021,7 +1021,7 @@ local keyboard5 = {
 {'مسح الكتم العام ☉','مسح الحظر العام ☉'},
 }
 send_inline_key(msg.chat_id_,bl5,keyboard5)
-end end
+end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر ملفات البوت' then  
 if DevSoFi(msg) then
