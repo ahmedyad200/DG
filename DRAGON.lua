@@ -14705,7 +14705,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_,},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
