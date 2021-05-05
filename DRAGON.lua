@@ -1129,7 +1129,7 @@ database:set(bot_id..'Start:Bots',true)
 send(msg.chat_id_, msg.id_,' ☉┇ ارسل لي الكليشه الان')
 return false
 end
-if text == ("المدراء العامين ☉") and SudoBot(msg) then
+if text == ("المدراء العامين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id.."Gmanager")
 t = "\n☉┇ قائمة المدراء في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1145,7 +1145,7 @@ t = "☉┇ لا يوجد مدراء عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح المدراء العامين ☉") and SudoBot(msg) then
+if text == ("مسح المدراء العامين ☉") and Sudo(msg) then
 database:del(bot_id.."Gmanager")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المدراء العامين  ")
 end
@@ -1233,7 +1233,7 @@ database:del(bot_id..'List:Rd:Sudo')
 end
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح الردود العامه")
 end
-if text == ("الادمنيه العامين ☉") and SudoBot(msg) then
+if text == ("الادمنيه العامين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id.."Gmod:User")
 t = "\n☉┇ قائمة الادمنيه في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1249,7 +1249,7 @@ t = "☉┇ لا يوجد ادمنيه عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الادمنيه العامين ☉") and SudoBot(msg) then
+if text == ("مسح الادمنيه العامين ☉") and Sudo(msg) then
 database:del(bot_id.."Gmod:User")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة الادمنيه العامين  ")
 end
@@ -1326,7 +1326,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}')
 end
-if text and text:match("^تنزيل ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام @(.*)$") and Sudo(msg) then
 local username = text:match("^تنزيل ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1351,7 +1351,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^تنزيل ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1403,7 +1403,7 @@ if text == ("مسح المطورين الثانيين ☉") and SudoBot(msg) the
 database:del(bot_id.."Dev:SoFi:2")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانيين  ")
 end
-if text and text:match("^رفع مدير عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^رفع مدير عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع مدير عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1432,7 +1432,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مدير عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^رفع مدير عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^رفع مدير عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1456,7 +1456,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text and text:match("^تنزيل مدير عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل مدير عام @(.*)$") and Sudo(msg) then
 local username = text:match("^تنزيل مدير عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1481,7 +1481,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل مدير عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^تنزيل مدير عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1505,7 +1505,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("المطورين الثانيين ☉") and DevSoFi(msg) then
+if text == ("المطورين الثانيين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id.."Dev:SoFi:2")
 t = "\n☉┇ قائمة مطورين الثانيين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1569,7 +1569,7 @@ dofile('DG_INFO.lua')
 return false
 end
 ]]--
-if text and text:match("^رفع ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -1598,7 +1598,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^رفع ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -2843,7 +2843,7 @@ if text == ("مسح المطورين ☉") and DevSoFi(msg) then
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
 end
-if text == ("المطورين ☉") and DevSoFi(msg) then
+if text == ("المطورين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة المطورين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -2931,7 +2931,7 @@ end
 if text == 'جلب نسخه الاحتياطيه ☉' and DevSoFi(msg) then 
 GetFile_Bot(msg)
 end
-if text == " " and DevSoFi(msg) then 
+if text == "مسح المشتركين" and DevSoFi(msg) then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6031,7 +6031,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and Sudo(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6052,7 +6052,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6081,7 +6081,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^رفع ادمن عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^رفع ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6105,7 +6105,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and Sudo(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6126,7 +6126,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^تنزيل ادمن عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام @(.*)$") and Sudo(msg) then
 local username = text:match("^تنزيل ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6151,7 +6151,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل ادمن عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل ادمن عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^تنزيل ادمن عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6178,7 +6178,7 @@ end
 
 
 
-if text == ("رفع مدير عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع مدير عام") and msg.reply_to_message_id_ and Sudo(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6199,7 +6199,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مدير عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^رفع مدير عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع مدير عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6228,7 +6228,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false 
 end
-if text and text:match("^رفع مدير عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^رفع مدير عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^رفع مدير عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6252,7 +6252,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل مدير عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("تنزيل مدير عام") and msg.reply_to_message_id_ and Sudo(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6273,7 +6273,7 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false 
 end
-if text and text:match("^تنزيل مدير عام @(.*)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل مدير عام @(.*)$") and Sudo(msg) then
 local username = text:match("^تنزيل مدير عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6298,7 +6298,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end  
-if text and text:match("^تنزيل مدير عام (%d+)$") and DevSoFi(msg) then
+if text and text:match("^تنزيل مدير عام (%d+)$") and Sudo(msg) then
 local userid = text:match("^تنزيل مدير عام (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
