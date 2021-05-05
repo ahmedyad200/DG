@@ -965,73 +965,73 @@ end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الرتب العامه' then  
 if DevSoFi(msg) then
-local bl1 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الرتب العامه'
-local keyboard1 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الرتب العامه'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'المطورين الثانين ☉','المطورين الثالثين ☉'},
 {'مسح المطورين الثانين ☉','مسح المطورين الثالثين ☉'},
 {'الادمنيه العامين ☉','المدراء العامين ☉'},
 {'مسح الادمنيه العامين ☉','مسح المدراء العامين ☉'},
 }
-send_inline_key(msg.chat_id_,bl1,keyboard1)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاشتراك الاجباري' then  
 if DevSoFi(msg) then
-local bl2 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الاشتراك الاجباري'
-local keyboard2 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الاشتراك الاجباري'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
 {'تغير رساله الاشتراك ☉','مسح رساله الاشتراك ☉'},
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉','تغير الاشتراك ☉'},
 }
-send_inline_key(msg.chat_id_,bl2,keyboard2)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الاذاعه' then  
 if DevSoFi(msg) then
-local bl3 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الاذاعه'
-local keyboard3 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر الاذاعه'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'اذاعه ☉','اذاعه خاص ☉'},
 {'اذاعه بالتثبيت ☉'},
 {'اذاعه بالتوجيه ☉','اذاعه بالتوجيه خاص ☉'},
 }
-send_inline_key(msg.chat_id_,bl3,keyboard3)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر الردود' then  
 if DevSoFi(msg) then
-local bl4 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر اوامر الردود'
-local keyboard4 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر اوامر الردود'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'مسح رد عام ☉','الردود العامه ☉','اضف رد عام ☉'},
 {'مسح الردود العامه ☉','مسح الردود المتعدده ☉'},
 {'مسح رد متعدد ☉','الردود المتعدده ☉','اضف رد متعدد ☉'},
 }
-send_inline_key(msg.chat_id_,bl4,keyboard4)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر العام' then  
 if DevSoFi(msg) then
-local bl5 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر العام'
-local keyboard5 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر العام'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'قائمه الكتم العام ☉','قائمه الحظر العام ☉'},
 {'مسح الكتم العام ☉','مسح الحظر العام ☉'},
 }
-send_inline_key(msg.chat_id_,bl5,keyboard5)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if Chat_Type == 'UserBot' then
 if text == 'اوامر ملفات البوت' then  
 if DevSoFi(msg) then
-local bl6 = 'اهلا عزيزي المطور الاساسي\nاليك اوامر ملفات البوت'
-local keyboard6 = {
+local bl = 'اهلا عزيزي المطور الاساسي\nاليك اوامر ملفات البوت'
+local keyboard = {
 {'كيبورد المطور الاساسي'},
 {'تحديث المتجر ☉','مسح الملفات ☉'},
 {'الملفات ☉','المتجر ☉'},
 }
-send_inline_key(msg.chat_id_,bl6,keyboard6)
+send_inline_key(msg.chat_id_,bl,keyboard)
 end end
 if Chat_Type == 'UserBot' then
 if text == '/start' then
