@@ -1,7 +1,7 @@
-echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
 #!/usr/bin/env bash
 cd $HOME/DRAGON
 install() {
+echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
 rm -rf $HOME/.telegram-cli
 sudo apt-get update -y
 sudo apt-get upgrade -y
