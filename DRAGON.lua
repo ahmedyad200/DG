@@ -31,7 +31,8 @@ file:write(serialized)
 file:close()  
 end  
 if not database:get(id_server..":token") then
-io.write('\27[38;5;77m[[
+io.write('\27[38;5;77m\nAHMEDYAD\n\27')
+print([[
 تم البدء في سورس باور بتاريخ 1/4/2021
 بواسطه المبرمج أحمد عياد
 @ahmedyad200
@@ -49,7 +50,7 @@ io.write('\27[38;5;77m[[
                                                             
 
 
-]]\27')
+]])
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
 if token ~= '' then
