@@ -270,7 +270,7 @@ return false
 end 
 end
 function Gmanager(msg)
-local hash = database:sismember(bot_id..'Gmanager'..msg.chat_id_,msg.sender_user_id_)    
+local hash = database:sismember(bot_id..'Gmanager', msg.sender_user_id_)    
 if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
