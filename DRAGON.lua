@@ -31,23 +31,23 @@ file:write(serialized)
 file:close()  
 end  
 if not database:get(id_server..":token") then
-echo -e "\e[38;5;77m    •{ installd source power }•\e[0m"
-echo -e " "
+echo "\e[38;5;77m    •{ installd source power }•\e[0m"
+echo " "
 
-echo -e " "
-echo -e " "
-echo -e " "
-echo -e "\e[38;5;77m    _     _  _   __  __   ___   ___   __   __    _     ___  \e[0m"
-echo -e "\e[38;5;77m   /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ \e[0m"
-echo -e "\e[38;5;77m  / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |\e[0m"
-echo -e "\e[38;5;77m /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ \e[0m"
-echo -e "\e[38;5;77m                                                            \e[0m"
-echo -e " "
-echo -e " "
-echo -e " "
-echo -e " "
-echo -e " "
-echo -e " "
+echo " "
+echo " "
+echo " "
+echo "\e[38;5;77m    _     _  _   __  __   ___   ___   __   __    _     ___  \e[0m"
+echo "\e[38;5;77m   /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ \e[0m"
+echo "\e[38;5;77m  / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |\e[0m"
+echo "\e[38;5;77m /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ \e[0m"
+echo "\e[38;5;77m                                                            \e[0m"
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
 if token ~= '' then
