@@ -379,9 +379,9 @@ var = 'المطور الاساسي'
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = "المطور الثاني"  
+var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) or 'المطور الثاني'  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
-var = database:get(bot_id.."Sudo:Rd"..msg.chat_id_) or 'المطور الثالث'  
+var = database:get(bot_id.."Sudo:User:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
 var = database:get(bot_id.."CoSu:Rd"..msg.chat_id_) or 'المالك'
 elseif database:sismember(bot_id..'Basic:Constructor'..chat_id, user_id) then
@@ -5398,8 +5398,12 @@ if tonumber(result.sender_user_id_) == tonumber(0909090909) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
-if database:sismember(bot_id.."Dev:SoFi:2", user_id) then  
+if database:sismember(bot_id.."Dev:SoFi:2") then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
+return false 
+end
+if database:sismember(bot_id.."Sudo:User") then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثالث عام")
 return false 
 end
 database:sadd(bot_id..'GBan:User', result.sender_user_id_)
@@ -5683,7 +5687,7 @@ end
 function start_function(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n ☉┇ العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
-status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من '
+status  = '\n ☉┇ تم الغاء (الحظر-الكتم) عام من {`'..Groups..'`} جروب '
 send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 database:srem(bot_id..'GBan:User', result.sender_user_id_)
