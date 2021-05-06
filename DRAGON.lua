@@ -3977,7 +3977,7 @@ Text = '☉┇ تم تعطيل الجروب\n'..
 '\n ☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
 '\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
-'\n ☉┇ الرابط {['..LinkGp..']}'
+'\n ☉┇ الرابط {['..linkgpp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
