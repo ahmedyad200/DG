@@ -3929,6 +3929,7 @@ LinkGp = 'لا يوجد'
 end
 Text = ' ☉┇ تم تفعيل جروب جديده\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
+'\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
 '\n ☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
 '\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
@@ -3941,6 +3942,7 @@ end,nil)
 end,nil) 
 end,nil)
 end
+--- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 if text == 'تعطيل' and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3962,6 +3964,7 @@ local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
 local IdChat = msg.chat_id_
 local AddPy = var
+local NumMember = data.member_count_
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
@@ -3970,8 +3973,10 @@ LinkGp = 'لا يوجد'
 end
 Text = '☉┇ تم تعطيل الجروب\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
+'\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
 '\n ☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
+'\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
 '\n ☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
