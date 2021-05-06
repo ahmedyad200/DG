@@ -2843,7 +2843,7 @@ return false
 end
 if text == ("مسح المطورين الثالثين ☉") and DevSoFi(msg) then
 database:del(bot_id..'Sudo:User')
-send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين الثالثين ")
 end
 if text == ("المطورين الثالثين ☉") and Sudo(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
@@ -5746,7 +5746,7 @@ end
 ------------------------------------------------------------------------
 if text == ('مسح المطورين الثالثين') and DevSoFi(msg) then
 database:del(bot_id..'Sudo:User')
-send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين  ")
+send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين الثالثين ")
 end
 if text == ('المطورين الثالثين') and DevSoFi(msg) then
 local list = database:smembers(bot_id..'Sudo:User')
@@ -5888,8 +5888,7 @@ os.execute("rm -fr File_Bot/*")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
 return false
 end
-
-if text == ("رفع مطور ثالث") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ and DevSoFi(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
