@@ -3963,7 +3963,6 @@ database:srem(bot_id..'Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
 local IdChat = msg.chat_id_
-local AddPy = var
 local NumMember = data.member_count_
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
@@ -3971,13 +3970,13 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '☉┇ تم تعطيل الجروب\n'..
+Text = ' ☉┇ تم تعطيل جروب\n'..
 '\n ☉┇ بواسطة {'..Name..'}'..
 '\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
 '\n ☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n ☉┇ اسم الجروب {['..NameChat..']}'..
 '\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
-'\n ☉┇ الرابط {['..linkgpp..']}'
+'\n ☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
