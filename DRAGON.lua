@@ -13097,7 +13097,7 @@ if text == "المطور" or text == 'مطور' then
 database:set(bot_id.."SUDO_photo:status"..msg.chat_id_,true) 
 local SU_ph = database:get(bot_id.."SUDO_photo:status"..msg.chat_id_)
 if not SU_ph then
-send(msg.chat_id_, msg.id_," ") 
+send(msg.chat_id_, msg.id_,"حدث خطأ") 
 return false  
 end
 local function getpro(extra, result, success)
