@@ -1297,20 +1297,21 @@ send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد مسحها')
 database:set(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'معلومات السيرفر ☉' and DevSoFi(msg) then 
+if text == 'معلومات السيرفر ☉' or text == 'السيرفر' and DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '⇗ نظام التشغيل ⇖•\n*»» '"$linux_version"'*' 
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⇎\n*»» '"$memUsedPrc"'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⇎\n*»» '"$HardDisk"'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⇎\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⇎\n*»» '`whoami`'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر }⇎\n*»» '"$uptime"'*'
-]]):read('*all'))  
+echo '📟l •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all')
 end
 if text == 'جلب المشتركين ☉' and DevSoFi(msg) then---- الكود كتابه أحمد عياد كامل تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
@@ -5764,8 +5765,22 @@ t = " ☉┇ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-
-
+if text == 'السيرفر' and DevSoFi(msg) then 
+send(msg.chat_id_, msg.id_, io.popen([[
+linux_version=`lsb_release -ds`
+memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
+HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
+CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
+uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
+echo '📟l •⊱ { نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all')
+end
 if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
