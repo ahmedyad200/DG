@@ -3943,7 +3943,7 @@ end,nil)
 end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
-if text == 'تعطيل' and CoSu(msg) then
+if text == 'تعطيل' and Sudo(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3955,21 +3955,12 @@ return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
-if da and da.user_id_ == msg.sender_user_id_ then
-if da.status_.ID == "ChatMemberStatusCreator" then
-var = 'المالك'
-elseif da.status_.ID == "ChatMemberStatusEditor" then
-var = 'مشرف'
-end
 if not database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 send(msg.chat_id_, msg.id_,' ☉┇ بالتأكيد تم تعطيل الجروب')
 else
-sendText(msg.chat_id_,'\n ☉┇ بواسطه » ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n ☉┇ تم تعطيل الجروب {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
+sendText(msg.chat_id_,'\n ☉┇ بواسطه ⤶ ['..string.sub(result.first_name_,0, 70)..'](tg://user?id='..result.id_..')\n 𖢠 تم تعطيل الجروب {'..chat.title_..'}',msg.id_/2097152/0.5,'md')
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-local NumMember = data.member_count_
 local NameChat = chat.title_
 local IdChat = msg.chat_id_
 local AddPy = var
@@ -3979,18 +3970,16 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = ' ☉┇ تم تعطيل جروب\n'..
-'\n ☉┇ بواسطة {'..Name..'}'..
-'\n ☉┇ موقعه في الجروب {'..AddPy..'}' ..
-'\n ☉┇ ايدي الجروب {'..IdChat..'}'..
-'\n ☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
-'\n ☉┇ اسم الجروب {['..NameChat..']}'..
-'\n ☉┇ الرابط {['..LinkGp..']}'
+Text = '☉┇ تم تعطيل الجروب'..
+'\n☉┇ بواسطة {'..Name..'}'..
+'\n☉┇ ايدي الجروب {'..IdChat..'}'..
+'\n☉┇ اسم الجروب {☉┇['..NameChat..']}'..
+'\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
 end
-end
+end,nil) 
 end,nil) 
 end
 if text == 'تفعيل' and not Sudo(msg) and not database:get(bot_id..'Free:Bots') then
