@@ -13093,22 +13093,6 @@ send(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @ahmedyad200',
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
-if text == "المطور" or text == 'مطور' then
-database:set(bot_id.."SUDO_photo:status"..msg.chat_id_,true) 
-local SU_ph = database:get(bot_id.."SUDO_photo:status"..msg.chat_id_)
-if not SU_ph then
-send(msg.chat_id_, msg.id_," ") 
-return false  
-end
-local function getpro(extra, result, success)
-if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," صوره المطور ", msg.id_, msg.id_, "md")
-else
-send(msg.chat_id_, msg.id_,'المطور لا يضع صوره', 1, 'md')
-  end end
-tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
-end
-
 if text == 'تغير الايدي' and Manager2(msg) then 
 local List = {
 [[
