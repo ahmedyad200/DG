@@ -5889,7 +5889,7 @@ send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك 
 return false
 end
 
-if text == ("رفع مطور") or text == ("رفع مطور ثالث") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع مطور ثالث") and msg.reply_to_message_id_ and DevSoFi(msg) then
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
