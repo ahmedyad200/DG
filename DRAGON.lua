@@ -1313,7 +1313,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == 'جلب المشتركين ☉' and DevSoFi(msg) then---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+if text == 'جلب المشتركين ☉' and DevSoFi(msg) then---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
 local t = '{"users":['  
 for k,v in pairs(list) do
@@ -13091,6 +13091,22 @@ else
 send(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @ahmedyad200', 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
+end
+
+if text == "المطور" or text == 'مطور' then
+database:set(bot_id.."SUDO_photo:status"..msg.chat_id_,true) 
+local SU_ph = database:get(bot_id.."SUDO_photo:status"..msg.chat_id_)
+if not SU_ph then
+send(msg.chat_id_, msg.id_," ") 
+return false  
+end
+local function getpro(extra, result, success)
+if result.photos_[0] then
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," صوره المطور ", msg.id_, msg.id_, "md")
+else
+send(msg.chat_id_, msg.id_,'المطور لا يضع صوره', 1, 'md')
+  end end
+tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
 if text == 'تغير الايدي' and Manager2(msg) then 
