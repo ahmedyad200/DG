@@ -1311,7 +1311,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــع
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
-]]):read('*all')
+]]):read('*all'))  
 end
 if text == 'جلب المشتركين ☉' and DevSoFi(msg) then---- الكود كتابه أحمد عياد كامل تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
