@@ -15559,8 +15559,7 @@ keyboard.inline_keyboard = {
 {{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
 {{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
 {{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
-{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"},
-},
+{{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15585,8 +15584,7 @@ keyboard.inline_keyboard = {
 {{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
 {{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
-{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"},
-},
+{{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
