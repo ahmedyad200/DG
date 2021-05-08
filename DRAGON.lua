@@ -4677,7 +4677,7 @@ end---- الكود كتابه أحمد عياد تسرق هنيكك
 local groups = database:smembers(bot_id..'Chek:Groups') 
 local num = (database:scard(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
-local Groupslink = database:get(bot_id.."Private:Group:Link" ..v)
+local Groupslink = database:get(bot_id.."Private:Group:Link")
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
 for k,v in pairs(list) do
 if k == 1 then
