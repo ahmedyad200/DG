@@ -4678,10 +4678,10 @@ local groups = database:smembers(bot_id..'Chek:Groups')
 local num = (database:scard(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
-local GroupsMonsh = database:scard(bot_id.."bot:monsh:"..v) or 0
-local GroupsOwner = database:scard(bot_id.."bot:owners:"..v) or 0
-local GroupsMod = database:scard(bot_id.."bot:momod:"..v) or 0
-local Groupslink = database:get(bot_id.."bot:group:link" ..v)
+local GroupsMonsh = database:scard(bot_id.."Constructor:"..v) or 0
+local GroupsOwner = database:scard(bot_id.."Manager:"..v) or 0
+local GroupsMod = database:scard(bot_id.."Mod:User:"..v) or 0
+local Groupslink = database:get(bot_id.."Private:Group:Link" ..v)
 for k,v in pairs(list) do
 if k == 1 then
 else
