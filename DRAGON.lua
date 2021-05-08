@@ -14094,7 +14094,7 @@ else
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
   end end
-tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result) 
+tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result))
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
 
