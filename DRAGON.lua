@@ -662,9 +662,9 @@ MNSH = database:smembers(bot_id..'Constructor'..v)
 MDER = database:smembers(bot_id..'Manager'..v)
 MOD = database:smembers(bot_id..'Mod:User'..v)
 if k == 1 then
-t = t..'"'..v..'":{"DRAGON":"'..NAME..'",'
+t = t..'"'..v..'":{"PWOER":"'..NAME..'",'
 else
-t = t..',"'..v..'":{"DRAGON":"'..NAME..'",'
+t = t..',"'..v..'":{"PWOER":"'..NAME..'",'
 end
 if #ASAS ~= 0 then 
 t = t..'"ASAS":['
@@ -4673,35 +4673,28 @@ if text == 'روابط الجروبات' or text == 'روابط المجموعا
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
-end---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+end---- الكود كتابه أحمد عياد تسرق هنيكك
 local groups = database:smembers(bot_id..'Chek:Groups') 
 local num = (database:scard(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
-local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
-local GroupsMonsh = database:smembers(bot_id.."Constructor:"..v) or 0
-local GroupsOwner = database:smembers(bot_id.."Manager:"..v) or 0
-local GroupsMod = database:smembers(bot_id.."Mod:User:"..v) or 0
 local Groupslink = database:get(bot_id.."Private:Group:Link" ..v)
+local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
 for k,v in pairs(list) do
 if k == 1 then
 else
-text = text..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n Group Monsh : [ "..GroupsMonsh.." ]\n Group Owners : [ "..GroupsOwner.." ]\n Group Momods : [ "..GroupsMod.." ] \n~~~~~~~~~~~~~~~~~\n"
+text = text..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
 end
 end
-local file = io.open('Groups_Bot.txt', 'w')
+local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
-sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups_Bot.txt', ' الجروبات { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' الجروبات { '..groups..'}')
 end
-
-
-
-
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
-end---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
 local t = '{"users":['  
 for k,v in pairs(list) do
