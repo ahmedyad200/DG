@@ -655,7 +655,7 @@ function GetFile_Bot(msg)
 local list = database:smembers(bot_id..'Chek:Groups') 
 local t = '{"BOT_ID": '..bot_id..',"GP_BOT":{'  
 for k,v in pairs(list) do   
-NAME = 'DRAGON Chat'
+NAME = 'PWOER Chat'
 link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_) or ''
 ASAS = database:smembers(bot_id..'Basic:Constructor'..v)
 MNSH = database:smembers(bot_id..'Constructor'..v)
@@ -4669,6 +4669,34 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
+if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end---- الكود كتابه أحمد عياد كامل تسرق هنيكك
+local groups = database:smembers(bot_id..'Chek:Groups') 
+local num = (database:scard(bot_id.."Chek:Groups"))
+local list = database:smembers(bot_id.."Chek:Groups")
+local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
+local GroupsMonsh = database:scard(bot_id.."bot:monsh:"..v) or 0
+local GroupsOwner = database:scard(bot_id.."bot:owners:"..v) or 0
+local GroupsMod = database:scard(bot_id.."bot:momod:"..v) or 0
+local Groupslink = database:get(bot_id.."bot:group:link" ..v)
+for k,v in pairs(list) do
+if k == 1 then
+else
+text = text..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n Group Monsh : [ "..GroupsMonsh.." ]\n Group Owners : [ "..GroupsOwner.." ]\n Group Momods : [ "..GroupsMod.." ] \n~~~~~~~~~~~~~~~~~\n"
+end
+end
+local file = io.open('Groups_Bot.txt', 'w')
+file:write(text)
+file:close()
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups_Bot.txt', ' الجروبات { '..#list..'}')
+end
+
+
+
+
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -14083,7 +14111,7 @@ send(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @ahmedyad200',
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
-
+--[[
 if text == "المطور" or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then
@@ -14091,12 +14119,13 @@ local function getpro(extra, result, success)
 if result.photos_[0] then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,TEXT_SUDO , msg.id_, msg.id_, "md")
 else
+tdcli_function ({ID = "GetUser",user_id_ = SUDO},function(arg,result)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = SUDO, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
-
+]]--
 if text == 'تغير الايدي' then
 if not Manager2(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
@@ -15832,9 +15861,7 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game1"},
-},
+{{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -16642,15 +16669,15 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'فلابي بيرد', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'تحداني فالرياضيات',url="https://t.me/gamebot?game=MathBattle"}},   
-{{text = 'لعبه دراجات', url="https://t.me/gamee?game=MotoFX"},{text = 'سباق سيارات', url="https://t.me/gamee?game=F1Racer"}}, 
-{{text = 'تشابه', url="https://t.me/gamee?game=DiamondRows"},{text = 'كره القدم', url="https://t.me/gamee?game=FootballStar"}}, 
-{{text = 'ورق', url="https://t.me/gamee?game=Hexonix"},{text = 'لعبه 2048', url="https://t.me/awesomebot?game=g2048"}}, 
+{{text = 'FlappyBird', url="https://t.me/awesomebot?game=FlappyBird"},{text = 'MathBattle',url="https://t.me/gamebot?game=MathBattle"}},   
+{{text = 'MotoFX', url="https://t.me/gamee?game=MotoFX"},{text = 'F1Racer', url="https://t.me/gamee?game=F1Racer"}}, 
+{{text = 'DiamondRows', url="https://t.me/gamee?game=DiamondRows"},{text = 'FootballStar', url="https://t.me/gamee?game=FootballStar"}}, 
+{{text = 'Hexonix', url="https://t.me/gamee?game=Hexonix"},{text = 'g2048', url="https://t.me/awesomebot?game=g2048"}}, 
 {{text = 'SQUARES', url="https://t.me/gamee?game=Squares"},{text = 'ATOMIC', url="https://t.me/gamee?game=AtomicDrop1"}}, 
 {{text = 'CORSAIRS', url="https://t.me/gamebot?game=Corsairs"},{text = 'LumberJack', url="https://t.me/gamebot?game=LumberJack"}}, 
 {{text = 'LittlePlane', url="https://t.me/gamee?game=LittlePlane"},{text = 'RollerDisco', url="https://t.me/gamee?game=RollerDisco"}},  
-{{text = 'كره القدم 2', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'جمع المياه', url="https://t.me/gamee?game=BlockBuster"}},  
-{{text = 'لا تجعلها تسقط', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
+{{text = 'PocketWorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'BlockBuster', url="https://t.me/gamee?game=BlockBuster"}},  
+{{text = 'Touchdown', url="https://t.me/gamee?game=Touchdown"},{text = 'GravityNinja', url="https://t.me/gamee?game=GravityNinjaEmeraldCity"}},  
 {{text = 'Astrocat', url="https://t.me/gamee?game=Astrocat"},{text = 'Skipper', url="https://t.me/gamee?game=Skipper"}},  
 {{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
 {{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
@@ -16668,6 +16695,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
+{{text = 'rocket', url="https://t.me/T4TTTTBOT?game=rocket"},{text = 'color', url="https://t.me/T4TTTTBOT?game=color"}},  
 {{text = 'BrickStacker', url="https://t.me/gamee?game=BrickStacker"},{text = 'StairMaster3D', url="https://t.me/gamee?game=StairMaster3D"}},  
 {{text = 'LoadTheVan', url="https://t.me/gamee?game=LoadTheVan"},{text = 'BasketBoyRush', url="https://t.me/gamee?game=BasketBoyRush"}},  
 {{text = 'GravityNinja21', url="https://t.me/gamee?game=GravityNinja21"},{text = 'MarsRover', url="https://t.me/gamee?game=MarsRover"}},  
@@ -16685,6 +16713,41 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+
+
+
+
+
+
+
+
+
+
+
+if Text == '/game3' then
+local Teext =[[
+اختر لعبه من الاسفل
+ثم اختار المحادثه
+َ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
+{{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"}},
+}
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+
+
+
+
+
+
+
+
+
+
+
 if Text == '/game' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
@@ -16698,9 +16761,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"},
-},
+{{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
