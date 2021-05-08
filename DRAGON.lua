@@ -4674,21 +4674,21 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end---- الكود كتابه أحمد عياد تسرق هنيكك
-local groups = database:smembers(bot_id..'Chek:Groups') 
-local num = (database:scard(bot_id.."Chek:Groups"))
 local list = database:smembers(bot_id.."Chek:Groups")
-local Groupslink = database:get(bot_id.."Private:Group:Link")
+local Groupslink = database:get(bot_id.."Private:Group:Link"..v)
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
 for k,v in pairs(list) do
 if k == 1 then
+text = text..'"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
 else
-text = text..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
+text = text..',"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
 end
 end
+text = text..']}'
 local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
-sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' الجروبات { '..groups..'}')
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' عدد الجروبات في الملف { '..#list..'}')
 end
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
