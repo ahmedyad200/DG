@@ -4568,7 +4568,6 @@ local Text = {
 'ها مغير اليوزر ', 
 "منور اليوزر الجديد :  "..data.username_.."",
 }
-}
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
 database:set(bot_id.."DRAGON:Cheng:UserName"..data.id_, data.username_) 
