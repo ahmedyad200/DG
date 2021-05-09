@@ -15752,32 +15752,6 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == "من سيربح المليون" or text == 'الاسئله' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local Text =[[
-لعبه من سيربح المليون .
-لعبه ترفيهيه.
-تحتوي علي ٣ مستويات. 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'ابدء لعب المستوي الاول ' callback_data="/mel1"},
-},
-{
-{text = ' معلومات عن اللعبه ' callback_data="/melinfo"},
-},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
 if text == 'الاوامر' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
@@ -15810,6 +15784,34 @@ keyboard.inline_keyboard = {
 },
 {
 {text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+if text == "من سيربح المليون" or text == 'الاسئله' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local Text =[[
+لعبه من سيربح المليون .
+لعبه ترفيهيه.
+تحتوي علي ٣ مستويات. 
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'ابدء لعب المستوي الاول ' callback_data="/mel1"},
+},
+{
+{text = ' معلومات عن اللعبه ' callback_data="/melinfo"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
