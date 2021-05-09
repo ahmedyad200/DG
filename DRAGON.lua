@@ -4616,13 +4616,13 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local Text = [[ 
 ☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
 •┉•┉•┉┉•┉•┉••┉•┉•┉┉•┉•┉•
-☉┇ [AHMED](t.me/ahmedyad200) ┇☉
+☉┇ [AHMED](t.me/ahmedyad200)
 
-☉┇ [POWER](t.me/SOPOWERB0T) ┇☉
+☉┇ [POWER](t.me/SOPOWERB0T)
 
-☉┇ [TWASL](t.me/AYTSL1BOT) ┇☉
+☉┇ [TWASL](t.me/AYTSL1BOT)
 
-☉┇ [BOT](t.me/SOPOWERBOT) ┇☉
+☉┇ [BOT](t.me/SOPOWERBOT)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
