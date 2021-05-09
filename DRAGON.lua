@@ -5217,6 +5217,61 @@ end
 send(msg.chat_id_, msg.id_,Text) 
 end
 
+if text == 'تفعيل قول' and CoSu(msg) then   
+if database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
+Text = ' ☉┇ تم تفعيل امر قول'
+database:del(bot_id..'Speak:after:me'..msg.chat_id_)  
+else
+Text = ' ☉┇ بالتاكيد تم تفعيل امر قول'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل قول' and CoSu(msg) then  
+if not database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
+database:set(bot_id..'Speak:after:me'..msg.chat_id_,true)  
+Text = '\n ☉┇ تم تعطيل امر قول'
+else
+Text = '\n ☉┇ بالتاكيد تم تعطيل امر قول'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+
+if text == 'تفعيل غنيلي' and CoSu(msg) then   
+if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+Text = ' ☉┇ تم تفعيل امر غنيلي الان ارسل غنيلي'
+database:del(bot_id..'sing:for:me'..msg.chat_id_)  
+else
+Text = ' ☉┇ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل غنيلي' and CoSu(msg) then  
+if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
+Text = '\n ☉┇ تم تعطيل امر غنيلي'
+else
+Text = '\n ☉┇ بالتاكيد تم تعطيل امر غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تفعيل الاوامر' and CoSu(msg) then   
+if database:get(bot_id..'coomand'..msg.chat_id_) then
+Text = ' ☉┇ تم تفعيل امر الاوامر'
+database:del(bot_id..'coomand'..msg.chat_id_)  
+else
+Text = ' ☉┇ بالتاكيد تم تفعيل امر الاوامر'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل الاوامر' and CoSu(msg) then  
+if not database:get(bot_id..'coomand'..msg.chat_id_) then
+database:set(bot_id..'coomand'..msg.chat_id_,true)  
+Text = '\n ☉┇ تم تعطيل امر الاوامر'
+else
+Text = '\n ☉┇ بالتاكيد تم تعطيل امر الاوامر'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 if text == 'قفل التاك' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:hashtak"..msg.chat_id_,'del')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -13249,7 +13304,7 @@ local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
 ------------------------------------------------------------------------
-if text and text:match("^قول (.*)$") then
+if text and text:match("^قول (.*)$") and not database:get(bot_id.."Speak:after:me"..msg.chat_id_) then
 local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
@@ -15752,7 +15807,7 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == 'الاوامر' then
+if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
 return false
@@ -15831,6 +15886,21 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
+end
+if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'اغنيه اخري',callback_data="VOISME1"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 end
 if text == 'العاب متطوره' or text == 'الالعاب المتطوره' then
 if not Mod(msg) then
@@ -16717,7 +16787,36 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-
+if Text == "VOISME1" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'اغنيه اخري',callback_data="VOISME2"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if Text == "VOISME2" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'اغنيه اخري',callback_data="VOISME1"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
 if Text == '/mute-name' then
 if not Constructor(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
