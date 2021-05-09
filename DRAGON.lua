@@ -4546,7 +4546,7 @@ end
 end
 end,nil)   
 end
-if text hen  
+if text then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
