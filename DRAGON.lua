@@ -15790,8 +15790,8 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data=msg.sender_user_id_ "/help3"},{text = '❷❷', callback_data=msg.sender_user_id_ "/help4"}},
-{{text = '❸❸', callback_data=msg.sender_user_id_ "/help5"},{text = '❹❹', callback_data=msg.sender_user_id_ "/help6"}},
+{{text = '❶️❶', callback_data=msg.sender_user_id_"/help3"},{text = '❷❷', callback_data=msg.sender_user_id_"/help4"}},
+{{text = '❸❸', callback_data=msg.sender_user_id_"/help5"},{text = '❹❹', callback_data=msg.sender_user_id_"/help6"}},
 {{text = 'اوامر التسليه', callback_data=msg.sender_user_id_"/help7"}},
 {{text = 'قفل و القفل', callback_data=msg.sender_user_id_"/help1"},{text = 'تعطيل و تفعيل', callback_data=msg.sender_user_id_"/help2"}},
 }
@@ -15876,7 +15876,7 @@ if audios.Info == true then
 local Text ='☉┇ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'مقطع اخر.',callback_data="/voice1"}},
+{{text = 'مقطع اخر.' ,callback_data="/voice1"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -16724,7 +16724,7 @@ keyboard.inline_keyboard = {
 {{text = 'مقطع اخر.',callback_data="/voice2"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/editMessageVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end end end
 if Text == "/voice2" then
 data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
@@ -16737,7 +16737,7 @@ keyboard.inline_keyboard = {
 {{text = 'مقطع اخر.',callback_data="/voice1"}},
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/editMessageVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end end end
 if Text == '/mute-name' then
 if not Constructor(data) then
