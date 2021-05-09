@@ -13565,8 +13565,7 @@ local Users = database:scard(bot_id..'User_Bot')
 Text = ' ☉┇ عدد الجروبات » {`'..Groups..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
-return false
-end
+
 if text == 'المشتركين' then
 if not Sudo(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
@@ -13577,8 +13576,7 @@ local Users = database:scard(bot_id..'User_Bot')
 Text = ' ☉┇ عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
-return false
-end
+
 if text == 'تفعيل المغادره' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
