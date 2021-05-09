@@ -15769,7 +15769,7 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == "من سيربح المليون" or text 'الاسئله' then
+if text == "من سيربح المليون" or text == 'الاسئله' then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
