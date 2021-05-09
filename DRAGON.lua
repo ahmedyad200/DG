@@ -985,7 +985,7 @@ if Chat_Type == 'UserBot' then
 if text == '/start' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+local inline = {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
@@ -4618,7 +4618,7 @@ local Text = [[
 ☉ 𝐏𝐎𝐖𝐄𝐑  ☉
 ]] 
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+keyboard.inline_keyboard = {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
@@ -15786,8 +15786,8 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{{text = 'ابدء لعب المستوي الاول ' callback_data="mel1"}},
-{{{text = ' معلومات عن اللعبه ' callback_data="melinfo"}},
+{{text = 'ابدء لعب المستوي الاول ' callback_data="mel1"}},
+{{text = ' معلومات عن اللعبه ' callback_data="melinfo"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
