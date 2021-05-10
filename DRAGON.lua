@@ -16807,7 +16807,7 @@ keyboard.inline_keyboard = {
 },
 }
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if Text == '/game1' then
@@ -16895,8 +16895,9 @@ Random = {'🍏','🍎','🍐','🍊','??','🍉','🍇','🍓','🍈','🍒','�
 SM = Random[math.random(#Random)]
 database:set(bot_id..'Random:Sm'..msg.chat_id_,SM)
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز هاذا السمايل ? » {`'..SM..'`}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 if Text == ''..(database:get(bot_id..'Random:Sm'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Sma'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Sma'..msg.chat_id_) then 
@@ -16913,7 +16914,8 @@ if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
 else
 send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
@@ -16962,8 +16964,9 @@ name = string.gsub(name,'انترنيت','ا ت ن ر ن ي ت')
 name = string.gsub(name,'ساحه','ح ا ه س')
 name = string.gsub(name,'جسر','ر ج س')
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يرتبها » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..'Klam:Speed'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Speed:Tr'..msg.chat_id_) then
@@ -17076,8 +17079,9 @@ name = string.gsub(name,'قنفذ','🦔')
 name = string.gsub(name,'تفاحه','🍎')
 name = string.gsub(name,'باذنجان','🍆')
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز معنى السمايل » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..'Maany'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Maany'..msg.chat_id_) then
@@ -17128,8 +17132,9 @@ name = string.gsub(name,'خوش ولد','موخوش ولد')
 name = string.gsub(name,'اني','مطي')
 name = string.gsub(name,'هادئ','عصبي')
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز العكس » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..'Set:Aks:Game'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Aks'..msg.chat_id_) then
@@ -17270,8 +17275,9 @@ name = string.gsub(name,'🕤','🕥🕥🕥🕥🕥🕤🕥🕥🕥')
 name = string.gsub(name,'⌛️','⏳⏳⏳⏳⏳⏳⌛️⏳⏳')
 name = string.gsub(name,'📅','📆📆📆📆📆📆📅📆📆')
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز الاختلاف » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..':Set:Moktlf'..msg.chat_id_) or '')..'' then 
@@ -17312,8 +17318,9 @@ name = string.gsub(name,'50','30+20=')
 name = string.gsub(name,'10','2+8=')
 name = string.gsub(name,'19','6+13=')
 send(msg.chat_id_, msg.id_,' 𖡞︙حل المسأله الرياضيه  » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..':Set:Ryadeat'..msg.chat_id_) or '')..'' then 
@@ -17353,8 +17360,9 @@ name = string.gsub(name,'تمساح','crocodile')
 name = string.gsub(name,'مختلف','Different')
 name = string.gsub(name,'ذكي','Intelligent')
 send(msg.chat_id_, msg.id_,' 𖡞︙ترجم الكلمات الاتيه  » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..':Set:English'..msg.chat_id_) or '')..'' then 
@@ -17402,8 +17410,9 @@ name = string.gsub(name,'شكه','يامن تعب يامن__يا من على ا�
 name = string.gsub(name,'القرد','__بعين امه غزال')
 name = string.gsub(name,'يكحله','اجه___عماها')
 send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يكمل المثل » {'..name..'}')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
-end
 end
 ------------------------------------------------------------------------
 if Text == ''..(database:get(bot_id..'Set:Amth'..msg.chat_id_) or '')..'' then 
