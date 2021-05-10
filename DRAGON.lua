@@ -16899,7 +16899,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if Text == ''..(database:get(bot_id..'Random:Sm'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Sma'..msg.chat_id_) then
+if text == ''..(database:get(bot_id..'Random:Sm'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Sma'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Sma'..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ سمايل , سمايلات }')
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_, 1)  
@@ -16969,7 +16969,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..'Klam:Speed'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Speed:Tr'..msg.chat_id_) then
+if text == ''..(database:get(bot_id..'Klam:Speed'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Speed:Tr'..msg.chat_id_) then
 if not database:get(bot_id..'Speed:Tr'..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ الاسرع , ترتيب }')
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_, 1)  
@@ -17030,7 +17030,7 @@ return false
 end
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..'Klam:Hzor'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Hzora'..msg.chat_id_) then
+if text == ''..(database:get(bot_id..'Klam:Hzor'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Hzora'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Hzora'..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ حزوره }')
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_, 1)  
@@ -17084,7 +17084,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..'Maany'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Maany'..msg.chat_id_) then
+if text == ''..(database:get(bot_id..'Maany'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Maany'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Maany'..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,' 𖡞︙ الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ معاني }')
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_, 1)  
@@ -17137,7 +17137,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..'Set:Aks:Game'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Aks'..msg.chat_id_) then
+if text == ''..(database:get(bot_id..'Set:Aks:Game'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Aks'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Aks'..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ العكس }')
 database:incrby(bot_id..'NUM:GAMES'..msg.chat_id_..msg.sender_user_id_, 1)  
@@ -17280,7 +17280,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..':Set:Moktlf'..msg.chat_id_) or '')..'' then 
+if text == ''..(database:get(bot_id..':Set:Moktlf'..msg.chat_id_) or '')..'' then 
 if not database:get(bot_id..'Set:Moktlf:Bot'..msg.chat_id_) then 
 database:del(bot_id..':Set:Moktlf'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ المختلف }')
@@ -17323,7 +17323,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..':Set:Ryadeat'..msg.chat_id_) or '')..'' then 
+if text == ''..(database:get(bot_id..':Set:Ryadeat'..msg.chat_id_) or '')..'' then 
 if not database:get(bot_id..'Set:Ryadeat:Bot'..msg.chat_id_) then 
 database:del(bot_id..':Set:Ryadeat'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ رياضيات }')
@@ -17365,7 +17365,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..':Set:English'..msg.chat_id_) or '')..'' then 
+if text == ''..(database:get(bot_id..':Set:English'..msg.chat_id_) or '')..'' then 
 if not database:get(bot_id..'Set:English:Bot'..msg.chat_id_) then 
 database:del(bot_id..':Set:English'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ `انكليزي` }')
@@ -17415,7 +17415,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ------------------------------------------------------------------------
-if Text == ''..(database:get(bot_id..'Set:Amth'..msg.chat_id_) or '')..'' then 
+if text == ''..(database:get(bot_id..'Set:Amth'..msg.chat_id_) or '')..'' then 
 if not database:get(bot_id..'Set:Amth:Bot'..msg.chat_id_) then 
 database:del(bot_id..'Set:Amth'..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' 𖡞︙الف مبروك لقد فزت \n 𖡞︙للعب مره اخره ارسل »{ امثله }')
