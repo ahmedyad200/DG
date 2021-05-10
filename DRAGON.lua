@@ -16880,24 +16880,12 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/gamesmael' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Set:Sma'..msg.chat_id_)
 Random = {'🍏','🍎','🍐','🍊','??','🍉','🍇','🍓','🍈','🍒','🍑','🍍','??','🥝','🍅','🍆','🥑','🥦','🥒','🌶','🌽','🥕','🥔','🥖','🥐','🍞','🥨','🍟','🧀','🥚','🍳','🥓','🥩','🍗','🍖','🌭','🍔','🍠','🍕','🥪','🥙','☕️','🍵','🥤','🍶','🍺','🍻','🏀','⚽️','🏈','⚾️','🎾','🏐','🏉','🎱','🏓','🏸','🥅','🎰','🎮','🎳','🎯','🎲','🎻','🎸','🎺','🥁','🎹','🎼','🎧','🎤','🎬','🎨','🎭','🎪','🎟','🎫','🎗','🏵','🎖','🏆','🥌','🛷','🚗','🚌','🏎','🚓','🚑','🚚','🚛','🚜','🇮🇶','⚔','🛡','🔮','🌡','💣','📌','📍','📓','📗','📂','📅','📪','📫','📬','📭','⏰','📺','🎚','☎️','📡'}
 SM = Random[math.random(#Random)]
 database:set(bot_id..'Random:Sm'..msg.chat_id_,SM)
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز هاذا السمايل ? » {`'..SM..'`}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز هاذا السمايل ? » {`'..SM..'`}')return false
 end
 if text == ''..(database:get(bot_id..'Random:Sm'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Sma'..msg.chat_id_) then
 if not database:get(bot_id..'Set:Sma'..msg.chat_id_) then 
@@ -16908,16 +16896,6 @@ database:set(bot_id..'Set:Sma'..msg.chat_id_,true)
 return false
 end 
 if Text == '/gamespeed' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Speed:Tr'..msg.chat_id_)
 KlamSpeed = {'سحور','سياره','استقبال','قنفه','ايفون','بزونه','مطبخ','كرستيانو','دجاجه','مدرسه','الوان','غرفه','ثلاجه','كهوه','سفينه','العراق','محطه','طياره','رادار','منزل','مستشفى','كهرباء','تفاحه','اخطبوط','سلمون','فرنسا','برتقاله','تفاح','مطرقه','بتيته','لهانه','شباك','باص','سمكه','ذباب','تلفاز','حاسوب','انترنيت','ساحه','جسر'};
@@ -16963,10 +16941,7 @@ name = string.gsub(name,'حاسوب','س ا ح و ب')
 name = string.gsub(name,'انترنيت','ا ت ن ر ن ي ت')
 name = string.gsub(name,'ساحه','ح ا ه س')
 name = string.gsub(name,'جسر','ر ج س')
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يرتبها » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يرتبها » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..'Klam:Speed'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Speed:Tr'..msg.chat_id_) then
@@ -16978,15 +16953,6 @@ database:set(bot_id..'Speed:Tr'..msg.chat_id_,true)
 end 
 
 if Text == '/game7zora' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Set:Hzora'..msg.chat_id_)
 Hzora = {'الجرس','عقرب الساعه','السمك','المطر','5','الكتاب','البسمار','7','الكعبه','بيت الشعر','لهانه','انا','امي','الابره','الساعه','22','غلط','كم الساعه','البيتنجان','البيض','المرايه','الضوء','الهواء','الضل','العمر','القلم','المشط','الحفره','البحر','الثلج','الاسفنج','الصوت','بلم'};
@@ -17039,15 +17005,6 @@ database:set(bot_id..'Set:Hzora'..msg.chat_id_,true)
 end 
 
 if Text == '/gamem3ne' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Set:Maany'..msg.chat_id_)
 Maany_Rand = {'قرد','دجاجه','بطريق','ضفدع','بومه','نحله','ديك','جمل','بقره','دولفين','تمساح','قرش','نمر','اخطبوط','سمكه','خفاش','اسد','فأر','ذئب','فراشه','عقرب','زرافه','قنفذ','تفاحه','باذنجان'}
@@ -17078,10 +17035,7 @@ name = string.gsub(name,'زرافه','🦒')
 name = string.gsub(name,'قنفذ','🦔')
 name = string.gsub(name,'تفاحه','🍎')
 name = string.gsub(name,'باذنجان','🍆')
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز معنى السمايل » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز معنى السمايل » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..'Maany'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Maany'..msg.chat_id_) then
@@ -17092,15 +17046,6 @@ end
 database:set(bot_id..'Set:Maany'..msg.chat_id_,true)
 end 
 if Text == '/game3ks' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 database:del(bot_id..'Set:Aks'..msg.chat_id_)
 katu = {'باي','فهمت','موزين','اسمعك','احبك','موحلو','نضيف','حاره','ناصي','جوه','سريع','ونسه','طويل','سمين','ضعيف','شريف','شجاع','رحت','عدل','نشيط','شبعان','موعطشان','خوش ولد','اني','هادئ'}
@@ -17131,10 +17076,7 @@ name = string.gsub(name,'موعطشان','عطشان')
 name = string.gsub(name,'خوش ولد','موخوش ولد')
 name = string.gsub(name,'اني','مطي')
 name = string.gsub(name,'هادئ','عصبي')
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز العكس » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز العكس » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..'Set:Aks:Game'..msg.chat_id_) or '')..'' and not database:get(bot_id..'Set:Aks'..msg.chat_id_) then
@@ -17170,15 +17112,6 @@ end
 end
 end
 if Text == '/gamet5menn' then   
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 Num = math.random(1,20)
 database:set(bot_id.."GAMES:NUM"..msg.chat_id_,Num) 
@@ -17207,15 +17140,6 @@ end
 end
 
 if Text == '/gamebat' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then   
 Num = math.random(1,6)
 database:set(bot_id.."Games:Bat"..msg.chat_id_,Num) 
@@ -17234,15 +17158,6 @@ end
 
 ------------------------------------------------------------------------
 if Text == '/game5laf' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 mktlf = {'😸','☠','🐼','🐇','??','🌚','⭐️','✨','⛈','🌥','⛄️','👨‍🔬','👨‍💻','👨‍🔧','👩‍🍳','🧚‍♀','??‍♂','??‍♂','🙍‍♂','🧖‍♂','👬','👨‍👨‍👧','🕒','🕤','⌛️','📅',};
 name = mktlf[math.random(#mktlf)]
@@ -17274,10 +17189,7 @@ name = string.gsub(name,'🕒','🕒🕒🕒🕒🕒🕒🕓🕒🕒🕒')
 name = string.gsub(name,'🕤','🕥🕥🕥🕥🕥🕤🕥🕥🕥')
 name = string.gsub(name,'⌛️','⏳⏳⏳⏳⏳⏳⌛️⏳⏳')
 name = string.gsub(name,'📅','📆📆📆📆📆📆📅📆📆')
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز الاختلاف » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يدز الاختلاف » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..':Set:Moktlf'..msg.chat_id_) or '')..'' then 
@@ -17290,15 +17202,6 @@ database:set(bot_id..'Set:Moktlf:Bot'..msg.chat_id_,true)
 end
 ------------------------------------------------------------------------
 if Text == '/game7s' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 Amer = {'22','30','33','60','90','2','5','36','16','88','50','10','19',};
 name = Amer[math.random(#Amer)]
@@ -17317,10 +17220,7 @@ name = string.gsub(name,'88','8+80=')
 name = string.gsub(name,'50','30+20=')
 name = string.gsub(name,'10','2+8=')
 name = string.gsub(name,'19','6+13=')
-send(msg.chat_id_, msg.id_,' 𖡞︙حل المسأله الرياضيه  » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙حل المسأله الرياضيه  » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..':Set:Ryadeat'..msg.chat_id_) or '')..'' then 
@@ -17333,15 +17233,6 @@ database:set(bot_id..'Set:Ryadeat:Bot'..msg.chat_id_,true)
 end
 ------------------------------------------------------------------------
 if Text == '/gameeng' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 Amer = {'معلومات','قنوات','مجموعات','كتاب','تفاحه','مختلف','سدني','فلوس','اعلم','ذئب','تمساح','ذكي',};
 name = Amer[math.random(#Amer)]
@@ -17359,10 +17250,7 @@ name = string.gsub(name,'اعلم','I know')
 name = string.gsub(name,'تمساح','crocodile')
 name = string.gsub(name,'مختلف','Different')
 name = string.gsub(name,'ذكي','Intelligent')
-send(msg.chat_id_, msg.id_,' 𖡞︙ترجم الكلمات الاتيه  » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙ترجم الكلمات الاتيه  » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..':Set:English'..msg.chat_id_) or '')..'' then 
@@ -17375,15 +17263,6 @@ database:set(bot_id..'Set:English:Bot'..msg.chat_id_,true)
 end
 ------------------------------------------------------------------------
 if Text == '/gamemsla' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' 𖡞︙لا تستطيع استخدام البوت \n  𖡞︙يرجى الاشتراك بالقناه اولا \n  𖡞︙اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
 if database:get(bot_id..'Lock:Games'..msg.chat_id_) then
 mthal = {'جوز','ضراطه','الحبل','الحافي','شقره','بيدك','سلايه','النخله','الخيل','حداد','المبلل','يركص','قرد','العنب','العمه','الخبز','بالحصاد','شهر','شكه','يكحله',};
 name = mthal[math.random(#mthal)]
@@ -17409,10 +17288,7 @@ name = string.gsub(name,'شهر','امشي__ولا تعبر نهر')
 name = string.gsub(name,'شكه','يامن تعب يامن__يا من على الحاضر لكة')
 name = string.gsub(name,'القرد','__بعين امه غزال')
 name = string.gsub(name,'يكحله','اجه___عماها')
-send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يكمل المثل » {'..name..'}')
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
+send(msg.chat_id_, msg.id_,' 𖡞︙اسرع واحد يكمل المثل » {'..name..'}')return false
 end
 ------------------------------------------------------------------------
 if text == ''..(database:get(bot_id..'Set:Amth'..msg.chat_id_) or '')..'' then 
