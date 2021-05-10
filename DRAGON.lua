@@ -7834,11 +7834,7 @@ database:del(bot_id.."Gmanager")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المدراء العامين  ")
 end
 ------------------------------------------------------------------------
-if text ==("رفع الادمنيه") then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
+if text then
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
@@ -7858,9 +7854,9 @@ database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
 end
 end
 if num2 == 0 then
-send(msg.chat_id_, msg.id_," ☉┇ لا يوجد ادمنيه ليتم رفعهم") 
+send(msg.chat_id_, msg.id_,"") 
 else
-send(msg.chat_id_, msg.id_," ☉┇ تمت ترقيه { "..num2.." } من الادمنيه") 
+send(msg.chat_id_, msg.id_,"") 
 end
 end,nil)   
 end
