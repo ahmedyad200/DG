@@ -10739,7 +10739,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم رفعه مشرف '
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=True&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_voice_chats=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=True&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10761,7 +10761,7 @@ usertext = '\n ☉┇ العضو » ['..result.title_..'](t.me/'..(username or '
 status  = '\n ☉┇  تم رفعه مشرف '
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=True&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 else
 send(msg.chat_id_, msg.id_, ' ☉┇  لا يوجد حساب بهاذا المعرف')
 end
@@ -10779,7 +10779,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم تنزيله ادمن من الجروب'
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=True&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
@@ -10811,7 +10811,7 @@ return false
 end
 
 
-if text == ("رفع مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
+if text == ("رفع مشرف كامل") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10827,8 +10827,8 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text and text:match("^رفع مشرف @(.*)$") and BasicConstructor(msg) then
-local username = text:match("^رفع مشرف @(.*)$")
+if text and text:match("^رفع مشرف كامل @(.*)$") and BasicConstructor(msg) then
+local username = text:match("^رفع مشرف كامل @(.*)$")
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
 return false  
@@ -10851,7 +10851,7 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-if text == ("تنزيل مشرف") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
+if text == ("تنزيل مشرف كامل") and msg.reply_to_message_id_ ~= 0 and BasicConstructor(msg) then
 function start_function(extra, result, success)
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
@@ -10867,8 +10867,8 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
-if text and text:match("^تنزيل مشرف @(.*)$") and BasicConstructor(msg) then
-local username = text:match("^تنزيل مشرف @(.*)$")
+if text and text:match("^تنزيل مشرف كامل @(.*)$") and BasicConstructor(msg) then
+local username = text:match("^تنزيل مشرف كامل @(.*)$")
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
 return false  
@@ -15825,7 +15825,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶',msg.sender_user_id_, callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
