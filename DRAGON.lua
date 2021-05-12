@@ -4535,7 +4535,7 @@ local Text = {
   "في اي يسطا ماله اسمك القديم 😂",
 "هاااا غير اسمك لي رجع القديم",
 "اسمك مش عاجبني خليه شبهي ",
-"معرفتكش لنل كدا لمل غيرت اسمك صح",
+"معرفتكش انا كدا لما غيرت اسمك صح",
 "حلو الاسم الجديد",
 }
 send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
@@ -10739,7 +10739,7 @@ tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,
 usertext = '\n ☉┇  العضو » ['..data.first_name_..'](t.me/'..(data.username_ or 'SOPOWERB0T')..')'
 status  = '\n ☉┇  الايدي » `'..result.sender_user_id_..'`\n ☉┇  تم رفعه مشرف '
 send(msg.chat_id_, msg.id_, usertext..status)
-https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_voice_chats=True&can_promote_members=false")
+https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=True&can_invite_users=True&can_restrict_members=false&can_pin_messages=True&can_voice_chats=True&can_promote_members=false")
 end,nil)
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
