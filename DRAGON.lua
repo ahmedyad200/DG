@@ -167,13 +167,20 @@ _redis = load_redis()
 os.execute("mkdir File_Bot") 
 os.execute("rm -rf /File_Bot/*")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
-io.write('\27[38;5;77m\n                •{ STARTED SOURCE POWER }•\n\27')
+os.execute("clear") 
 print([[
+
+
+
+                •{ STARTED SOURCE POWER }•
     _     _  _   __  __   ___   ___   __   __    _     ___  
    /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ 
   / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
  /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
                                                             
+
+
+
 ]])
 sudos = dofile("./DG_INFO.lua") 
 SUDO = tonumber(sudos.SUDO)
@@ -4614,12 +4621,13 @@ local Text = [[
 ☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
 •┉•┉•┉┉•┉•┉••┉•┉•┉┉•┉•┉•
 ☉┇ [AHMED](t.me/ahmedyad200)
+☉┇ [DEVID](t.me/de_vi_d)
+☉┇ [DONGOL](t.me/UU_DON)
 
 ☉┇ [POWER](t.me/SOPOWERB0T)
+☉┇ [FILES](t.me/FIPOWERB0T)
 
-☉┇ [TWASL](t.me/AYTSL1BOT)
-
-☉┇ [BOT](t.me/SOPOWERBOT)
+☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
