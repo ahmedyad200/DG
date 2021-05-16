@@ -14,10 +14,20 @@ URL = require('socket.url')
 utf8 = require ('lua-utf8') 
 database = redis.connect('127.0.0.1', 6379) 
 id_server = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
-os.execute("mkdir File_Bot") 
-os.execute("rm -rf /File_Bot/*")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 --------------------------------------------------------------------------------------------------------------
+local AutoSet = function() 
+local create = function(data, file, uglify)  
+file = io.open(file, "w+")   
+local serialized   
+if not uglify then  
+serialized = serpent.block(data, {comment = false, name = "Info"})  
+else  
+serialized = serpent.dump(data)  
+end    
+file:write(serialized)    
+file:close()  
+end  
+if not database:get(id_server..":token") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -39,19 +49,6 @@ print([[
  
  
 ]])
-local AutoSet = function() 
-local create = function(data, file, uglify)  
-file = io.open(file, "w+")   
-local serialized   
-if not uglify then  
-serialized = serpent.block(data, {comment = false, name = "Info"})  
-else  
-serialized = serpent.dump(data)  
-end    
-file:write(serialized)    
-file:close()  
-end  
-if not database:get(id_server..":token") then
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
 if token ~= '' then
@@ -153,7 +150,6 @@ done
 ]])  
 file:close() 
 os.execute('rm -fr $HOME/.telegram-cli')
-os.execute("Clear") 
 end 
 local serialize_to_file = function(data, file, uglify)  
 file = io.open(file, "w+")  
@@ -180,7 +176,6 @@ return config
 end 
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
-os.execute("Clear") 
 print([[
 
 
@@ -490,7 +485,9 @@ end
 end
 return var
 end
-
+os.execute("mkdir File_Bot") 
+os.execute("rm -rf /File_Bot/*")
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 function dl_cb(a,d)
 end
 function getChatId(id)
