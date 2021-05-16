@@ -27,7 +27,6 @@ end
 file:write(serialized)    
 file:close()  
 end  
-if not database:get(id_server..":USERBOT") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -49,6 +48,7 @@ print([[
  
  
 ]])
+if not database:get(id_server..":USERBOT") then
 io.write('\27[1;31m ↓ ارسل معرف البوت بدون @ :\n SEND USER FOR BOT : \27[0;39;49m')
 local BOTUSERNAME = io.read():gsub('@','')
 if BOTUSERNAME ~= '' then
@@ -70,17 +70,6 @@ print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉�
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":USERSUDO") then
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND USER FOR SIDO : \27[0;39;49m')
-local SUDOUSERNAME = io.read():gsub('@','')
-if SUDOUSERNAME ~= '' then
-io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
-database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
-else
-print('\n\27[1;34m لم يتم حفظ معرف المطور :')
-end 
-os.execute('lua DRAGON.lua')
-end
 if not database:get(id_server..":token") then
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
@@ -94,6 +83,17 @@ database:set(id_server..":token",token)
 end 
 else
 print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
+end 
+os.execute('lua DRAGON.lua')
+end
+if not database:get(id_server..":USERSUDO") then
+io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND USER FOR SIDO : \27[0;39;49m')
+local SUDOUSERNAME = io.read():gsub('@','')
+if SUDOUSERNAME ~= '' then
+io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
+database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
+else
+print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
 os.execute('lua DRAGON.lua')
 end
