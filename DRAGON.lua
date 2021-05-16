@@ -58,7 +58,6 @@ print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉�
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
 database:set(id_server..":token",token)
-database:set(id_server.."UserBotNew",username)
 end 
 else
 print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -77,13 +76,24 @@ end
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":SUDO:USERNAME") then
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND ID FOR SIDO : \27[0;39;49m')
+io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي :\n SEND USER FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
 database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
+end 
+os.execute('lua DRAGON.lua')
+end
+if not database:get(id_server..":UserBotNew") then
+io.write('\27[1;31m ↓ ارسل معرف البوت :\n SEND USER FOR BOT : \27[0;39;49m')
+local BOTUSERNAME = io.read():gsub('@','')
+if BOTUSERNAME ~= '' then
+io.write('\n\27[1;34m تم حفظ معرف البوت :\n\27[0;39;49m')
+database:set(id_server..":UserBotNew",'@'..BOTUSERNAME)
+else
+print('\n\27[1;34m لم يتم حفظ معرف البوت :')
 end 
 os.execute('lua DRAGON.lua')
 end
