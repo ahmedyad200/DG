@@ -58,7 +58,7 @@ print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉�
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
 database:set(id_server..":token",token)
-database:set(id_server.."UserBotNew",User_Info.result.username)
+database:set(id_server.."Token_Devbotuser",User_Info_bot.result.username)
 end 
 else
 print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -82,6 +82,7 @@ local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
 database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
+database:set(id_server.."UserBotNew",User_Info.result.username)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
