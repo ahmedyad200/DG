@@ -27,6 +27,9 @@ end
 file:write(serialized)    
 file:close()  
 end  
+os.execute("mkdir File_Bot") 
+os.execute("rm -rf /File_Bot/*")
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -150,6 +153,7 @@ done
 ]])  
 file:close() 
 os.execute('rm -fr $HOME/.telegram-cli')
+os.execute("Clear") 
 end 
 local serialize_to_file = function(data, file, uglify)  
 file = io.open(file, "w+")  
@@ -176,19 +180,21 @@ return config
 end 
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
-os.execute("mkdir File_Bot") 
-os.execute("rm -rf /File_Bot/*")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
-os.execute("clear") 
+os.execute("Clear") 
 print([[
 
 
 
+
+
+
                 •{ STARTED SOURCE POWER }•
-    _     _  _   __  __   ___   ___   __   __    _     ___  
-   /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ 
-  / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
- /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
+                
+                
+        _     _  _   __  __   ___   ___   __   __    _     ___  
+       /_\   | || | |  \/  | | __| |   \  \ \ / /   /_\   |   \ 
+      / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
+     /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
                                                             
 
 
@@ -4644,7 +4650,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="http://t.me/".. USERBOT .."?startgroup=AHMEDYAD"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..USERBOT.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
