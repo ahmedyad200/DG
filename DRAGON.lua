@@ -4626,7 +4626,6 @@ local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
-local user = USERBOT
 local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
 ☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
@@ -4643,7 +4642,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..user.."?startgroup=start"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..database:get(id_server.."USERBOT"),.."?startgroup=start"}},
 } 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
