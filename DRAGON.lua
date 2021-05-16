@@ -27,7 +27,7 @@ end
 file:write(serialized)    
 file:close()  
 end  
---[[if not database:get(id_server..":SUDO:ID") then
+--[[if not database:get(id_server..":IDSUDO") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -53,35 +53,35 @@ io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n
 local SUDOID = io.read()
 if SUDOID ~= '' then
 io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
-database:set(id_server..":SUDO:ID",SUDOID)
+database:set(id_server..":IDSUDO",SUDOID)
 else
 print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
 end 
 os.execute('lua DRAGON.lua')
 end]]--
-if not database:get(id_server..":UserBotNew") then
+if not database:get(id_server..":USERBOT") then
 io.write('\27[1;31m ↓ ارسل معرف البوت بدون @ :\n SEND USER FOR BOT : \27[0;39;49m')
 local BOTUSERNAME = io.read():gsub('@','')
 if BOTUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف البوت :\n\27[0;39;49m')
-database:set(id_server..":UserBotNew",'@'..BOTUSERNAME)
+database:set(id_server..":USERBOT",'@'..BOTUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف البوت :')
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":SUDO:USERNAME") then
+if not database:get(id_server..":USERSUDO") then
 io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND USER FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
-database:set(id_server..":SUDO:USERNAME",'@'..SUDOUSERNAME)
+database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":token") then
+--[[if not database:get(id_server..":token") then
 io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
 local token = io.read()
 if token ~= '' then
@@ -96,19 +96,19 @@ else
 print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
 end 
 os.execute('lua DRAGON.lua')
-end
+end]]--
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
-UserBot = database:get(id_server.."UserBotNew"),
-SUDO = database:get(id_server..":SUDO:ID"),
-UserName = database:get(id_server..":SUDO:USERNAME"),
+USERBOT = database:get(id_server.."USERBOT"),
+SUDO = database:get(id_server..":IDSUDO"),
+UserName = database:get(id_server..":USERSUDO"),
  }
 create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
 token = database:get(id_server..":token")
-SUDO = database:get(id_server..":SUDO:ID")
+SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
@@ -169,7 +169,7 @@ AutoSet()
 else   
 f:close()  
 database:del(id_server..":token")
-database:del(id_server..":SUDO:ID")
+database:del(id_server..":IDSUDO")
 end  
 local config = loadfile("./DG_INFO.lua")() 
 return config 
@@ -923,7 +923,7 @@ database:incr(bot_id..'Msg_User'..msg.chat_id_..':'..msg.sender_user_id_)
 Chat_Type = 'GroupBot' 
 elseif id:match("^(%d+)") then
 database:sadd(bot_id..'User_Bot',msg.sender_user_id_)  
-Chat_Type = 'UserBot' 
+Chat_Type = 'USERBOT' 
 else
 Chat_Type = 'GroupBot' 
 end
@@ -966,7 +966,7 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if Chat_Type == 'UserBot' then
+if Chat_Type == 'USERBOT' then
 if text == 'كيب' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" then  
 if DevSoFi(msg) then
 local bl = 'اهلا عزيزي المطور الاساسي\nشكرا لاستخدام سورس باور\nيمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
@@ -997,7 +997,7 @@ local keyboard = {
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
 end end
-if Chat_Type == 'UserBot' then
+if Chat_Type == 'USERBOT' then
 if text == '/start' then
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
@@ -1666,8 +1666,8 @@ os.execute('rm -rf DG_INFO.lua')
 local create = function()
 config = {
 token = database:get(id_server..":token"),
-SUDO = database:get(id_server..":SUDO:ID"),
-UserName = database:get(id_server..":SUDO:USERNAME"),
+SUDO = database:get(id_server..":IDSUDO"),
+UserName = database:get(id_server..":USERSUDO"),
 }
 create(config, "./DG_INFO.lua")   
 end
@@ -4644,7 +4644,7 @@ local Text = [[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="http://t.me/".. UserBot .."?startgroup=AHMEDYAD"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..USERBOT.."?startgroup=AHMEDYAD"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
