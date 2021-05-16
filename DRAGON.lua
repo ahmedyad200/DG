@@ -58,6 +58,7 @@ print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉�
 else
 io.write('\27[0;31m تم حفظ التوكن بنجاح \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
 database:set(id_server..":token",token)
+database:set(id_server.."UserBotNew",User_Info.result.username)
 end 
 else
 print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
@@ -89,6 +90,7 @@ end
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
+UserBot = database:get(id_server.."UserBotNew"),
 SUDO = database:get(id_server..":SUDO:ID"),
 UserName = database:get(id_server..":SUDO:USERNAME"),
  }
@@ -4630,7 +4632,10 @@ local Text = [[
 ☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {} 
-keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+keyboard.inline_keyboard = {
+{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..UserBot.."?startgroup=AHMEDYAD"}},
+} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
