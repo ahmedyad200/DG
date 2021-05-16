@@ -963,14 +963,6 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if Chat_Type == 'USERBOT' then 
-if text == '/start' then   
-function adding(extra,result,success)
-local users = database:scard(bot_id.."bot:userss")
-send(tostring(SUDO)),"☉┇  هذا دز ستارت للبوت \n☉┇ معرفه ⌯» @"..(result.username_ or "لا يوجد").."\n☉┇ ايديه ⌯» {"..msg.sender_user_id_.."}\n☉┇ اصبح عدد المشتركين { "..users.." }" , 1, 'html')
-end 
-getUser(msg.sender_user_id_,adding) 
-end end
 if Chat_Type == 'USERBOT' then
 if text == 'كيب' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
@@ -1391,6 +1383,7 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
+local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1405,6 +1398,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
+send_inline_key(msg.chat_id_,bl,keyboard)
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
