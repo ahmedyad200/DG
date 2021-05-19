@@ -210,10 +210,10 @@ local bot_username = (USERNAMEBOT or 'TARA1BOT')
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-dev_user = {944353237}   
+dev_users = {944353237}   
 function DEV(msg)  
 local DRAGON = false  
-for k,v in pairs(dev_user) do  
+for k,v in pairs(dev_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(944353237) then  
 DRAGON = true  
 end  
