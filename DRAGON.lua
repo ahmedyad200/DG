@@ -10336,7 +10336,12 @@ database:del(bot_id.."Link_Group:status"..msg.chat_id_)
 send(msg.chat_id_, msg.id_," 🔴┇ تم تعطيل الرابط") 
 return false end
 end
-
+if text == 'بوت' or text == 'البوت' then
+local TEXT_BOT = database:get(bot_id..'TEXT_BOT')
+if TEXT_BOT then 
+send(msg.chat_id_, msg.id_,TEXT_BOT)
+end
+end
 if text == 'المطور' or text == 'مطور' then
 local TEXT_SUDO = database:get(bot_id..'TEXT_SUDO')
 if TEXT_SUDO then 
@@ -10658,7 +10663,6 @@ database:del(bot_id.."filtersteckr"..msg.chat_id_)
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح قائمه منع الملصقات')  
 end
 ------------------
-
 if text == 'مسح كليشه المطور' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -10685,6 +10689,35 @@ end
 database:set(bot_id..'TEXT_SUDO',text)
 database:del(bot_id..'Set:TEXT_SUDO'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ كليشة المطور')
+return false
+end
+-----------------
+if text == 'مسح كليشه المطور' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:del(bot_id..'TEXT_BOT')
+send(msg.chat_id_, msg.id_,' ☉┇ تم مسح رد بوت')
+end
+if text == 'ضع رد بوت' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:set(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل رد الان')
+return false
+end
+if text and database:get(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+if text == 'الغاء' then 
+database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم الغاء حفظ رد بوت')
+return false
+end
+database:set(bot_id..'TEXT_BOT',text)
+database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
 return false
 end
 -----------------
