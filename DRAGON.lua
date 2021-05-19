@@ -1622,11 +1622,9 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end  
-os.execute("rm -fr File_Bot/*")
+os.execute("rm -fr File_Bot/ *")
 os.execute("mkdir File_Bot")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute('rm -rf getfile.json')
-dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 --[[
@@ -1734,6 +1732,7 @@ local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedya
 send(msg.chat_id_, msg.id_,' ☉┇ جاري مسح الملفات القديمه')
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
+os.execute("rm -fr File_Bot/ *")
 send(msg.chat_id_, msg.id_,' ☉┇ تم مسح الملفات القديمه')
 send(msg.chat_id_, msg.id_,' ☉┇ جاري تحميل الملفات الجديده')
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
@@ -3063,17 +3062,22 @@ database:set(bot_id..'Num:Add:Bot',Num)
 send(msg.chat_id_, msg.id_,' ☉┇ تم تعيين عدد الاعضاء سيتم تفعيل الجروبات التي اعضائها اكثر من  >> {'..Num..'} عضو')
 end
 
-if text == 'تحديث السورس' or text == 'تحديث' then
+if text == "تحديث" or text == 'تحديث السورس' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
+local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
+send(msg.chat_id_, msg.id_,' ☉┇ جاري مسح الملفات القديمه')
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
+os.execute("rm -fr File_Bot/ *")
+send(msg.chat_id_, msg.id_,' ☉┇ تم مسح الملفات القديمه')
+send(msg.chat_id_, msg.id_,' ☉┇ جاري تحميل الملفات الجديده')
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n ☉┇ لديك اخر اصدار لسورس باور\n ☉┇ الاصدار » {`v1.3.1`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحميل الملفات الجديده')
+send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 dofile('DRAGON.lua')
 end
 
@@ -3082,9 +3086,8 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end  
-os.execute("rm -fr File_Bot/*")
+os.execute("rm -fr File_Bot/ *")
 os.execute("mkdir File_Bot")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute('rm -rf getfile.json')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
@@ -3454,7 +3457,7 @@ local Text = [[
 keyboard = {}
 keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="t.me/"..bot_username..""}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
