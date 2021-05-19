@@ -65,8 +65,6 @@ os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
 io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
-local USERBOT = io.read()
-if USERBOT ~= '' then
 database:set(id_server..":USERBOT",USERBOT)
 else
 io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف البوت ارسله مره اخره \27[0;34;49m\n')
@@ -2024,8 +2022,6 @@ end,nil)
 end
 return false
 end
-
-
 if text and text:match("^رفع مطور ثالث @(.*)$") and DevSoFi(msg) then
 local username = text:match("^رفع مطور ثالث @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
@@ -4050,7 +4046,6 @@ Text = '\n ☉┇ بالتاكيد تم تعطيل امر @all'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-
 if text == 'تفعيل قول' and CoSu(msg) then   
 if database:get(bot_id..'Speak:after:me'..msg.chat_id_) then
 Text = ' ☉┇ تم تفعيل امر قول'
@@ -5087,7 +5082,21 @@ end,nil)
 end,nil)
 end
 end
-
+if text == 'ملفات السورس' then
+if not DEV(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+return false
+end
+t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
+i = 0
+for v in io.popen('ls'):lines() do
+if v:match(".lua$") then
+i = i + 1
+t = t..i..'- الملف » {`'..v..'`}\n'
+end
+end
+send(msg.chat_id_, msg.id_,t)
+end
 if text == 'الملفات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -5180,8 +5189,24 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end
-os.execute("rm -fr File_Bot/*")
+os.execute("rm -fr File_Bot/ *")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
+return false
+end
+if text and text:match("^(توليد) (.*)$") and DEV(msg) then
+local name_t = {string.match(text, "^(توليد) (.*)$")}
+local file = name_t[2]..'.lua'
+local file_bot = io.open(""..file,"r")
+if file_bot then
+io.close(file_bot)
+t = " ☉┇ بالتاكيد تم توليد ملف → `"..file.."` \n"
+else
+t = " ☉┇ الملف » `"..file.."`\n ☉┇ تم توليده ملف \n"
+end
+if res == 200 then
+os.execute("mkdir "..text.."") 
+send(msg.chat_id_, msg.id_,t) 
+dofile('DRAGON.lua')  
 return false
 end
 if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
@@ -10721,6 +10746,7 @@ database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
 return false
 end
+
 -----------------
 if text == 'تعين الايدي' then
 if not Manager2(msg) then
