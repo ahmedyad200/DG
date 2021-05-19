@@ -3,7 +3,6 @@ echo -e "\e[38;5;77m    •{ SOURCE POWER }•\e[0m"
 #!/usr/bin/env bash
 cd $HOME/DRAGON
 install() {
-clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
 clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
