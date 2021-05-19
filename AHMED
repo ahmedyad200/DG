@@ -9,7 +9,6 @@ wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/serpent.lua
 clear
-mkdir File_Bot
 echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
 rm -rf $HOME/.telegram-cli
 sudo apt-get update -y
