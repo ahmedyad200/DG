@@ -103,7 +103,7 @@ SUDOUSERNAME = database:get(id_server..":USERSUDO"),
 create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
-USERNAMEBOT = database:get(id_server.."USERBOT"),
+USERNAMEBOT = database:get(id_server.."USERBOT")
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
