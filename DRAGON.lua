@@ -103,10 +103,11 @@ SUDOUSERNAME = database:get(id_server..":USERSUDO"),
 create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
+USERNAMEBOT = database:get(id_server.."USERBOT"),
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
+print('\n\27[1;34m BG SO POWER :')
 file = io.open("DRAGON", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -164,6 +165,7 @@ if not f then
 AutoSet()  
 else   
 f:close()  
+database:del(id_server.."USERBOT"),
 database:del(id_server..":token")
 database:del(id_server..":IDSUDO")
 end  
@@ -192,7 +194,7 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 -------------------------------------------------------------------------------------------------------------- 
-t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
+t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n           ____________________\n           "..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -5052,20 +5054,22 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
-send(msg.chat_id_, msg.id_, io.popen([[
+local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+local servar = io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
 echo '☉✔{ نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n`'"$memUsedPrc"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n `'"$HardDisk"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n `'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n `'`curl http://th3boss.com/ip/location`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
-]]):read('*all'))  
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all')
+send_inline_key(msg.chat_id_,servar,nil,inline)
 end
 if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
