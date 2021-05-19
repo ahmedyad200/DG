@@ -192,12 +192,12 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 -------------------------------------------------------------------------------------------------------------- 
-t = "\27[35m".."\nFILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
+t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 i = i + 1
-t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
+t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
@@ -212,7 +212,7 @@ end
 dev_user = {944353237}   
 function DEV(msg)  
 local DRAGON = false  
-for k,v in pairs(dev_users) do  
+for k,v in pairs(dev_user) do  
 if tonumber(msg.sender_user_id_) == tonumber(944353237) then  
 DRAGON = true  
 end  
