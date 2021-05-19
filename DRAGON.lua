@@ -65,6 +65,8 @@ os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
 io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
+local USERBOT = io.read()
+if USERBOT ~= '' then
 database:set(id_server..":USERBOT",USERBOT)
 else
 io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف البوت ارسله مره اخره \27[0;34;49m\n')
@@ -94,7 +96,7 @@ end
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
-USERBOT = database:get(id_server.."USERBOT"),
+USERNAMEBOT = database:get(id_server.."USERBOT"),
 SUDO = database:get(id_server..":IDSUDO"),
 SUDOUSERNAME = database:get(id_server..":USERSUDO"),
  }
@@ -203,7 +205,7 @@ print(t)
 --os.execute("mkdir File_Bot") 
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-local bot_username = (USERBOT or 'TARA1BOT')
+local bot_username = (USERNAMEBOT or 'TARA1BOT')
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
