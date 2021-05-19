@@ -1,6 +1,7 @@
 echo -e "\e[38;5;77m    •{ WELCOME TO SOURCE AHMEDYAD }•\e[0m"
 echo -e "\e[38;5;77m    •{ SOURCE POWER }•\e[0m"
 #!/usr/bin/env bash
+cd $HOME/DRAGON
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/serpent.lua
@@ -15,7 +16,6 @@ rm -fr tg.5
 clear
 clear
 clear
-cd $HOME/DRAGON
 install() {
 clear
 clear
