@@ -5,6 +5,13 @@ wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/serpent.lua
 wget https://raw.githubusercontent.com/ahmedyad200/tg-file/master/tg
+wget https://raw.githubusercontent.com/ahmedyad200/tg-file/master/tg
+wget https://raw.githubusercontent.com/ahmedyad200/tg-file/master/tg
+rm -fr tg.1
+rm -fr tg.2
+rm -fr tg.3
+rm -fr tg.4
+rm -fr tg.5
 clear
 clear
 clear
