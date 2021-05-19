@@ -202,6 +202,7 @@ end
 end
 print(t)
 ----- بدء الاضافات --------
+local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 os.execute("mkdir File_Bot") 
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
@@ -1623,7 +1624,7 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end  
-os.execute("rm -fr File_Bot/ *")
+os.execute("rm -fr File_Bot/*")
 os.execute("mkdir File_Bot")
 os.execute('rm -rf getfile.json')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
@@ -1729,17 +1730,12 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
-local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
-send(msg.chat_id_, msg.id_,' ☉┇ جاري مسح الملفات القديمه')
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
-os.execute("rm -fr File_Bot/ *")
-send(msg.chat_id_, msg.id_,' ☉┇ تم مسح الملفات القديمه')
-send(msg.chat_id_, msg.id_,' ☉┇ جاري تحميل الملفات الجديده')
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
+os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحميل الملفات الجديده')
 send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
 if text == "ضع اسم للبوت ☉" then
@@ -3066,17 +3062,12 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
-local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
-send(msg.chat_id_, msg.id_,' ☉┇ جاري مسح الملفات القديمه')
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
-os.execute("rm -fr File_Bot/ *")
-send(msg.chat_id_, msg.id_,' ☉┇ تم مسح الملفات القديمه')
-send(msg.chat_id_, msg.id_,' ☉┇ جاري تحميل الملفات الجديده')
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
+os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحميل الملفات الجديده')
 send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
 
@@ -3437,7 +3428,7 @@ if not DEV(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
 return false
 end   
-local curlm = 'curl "'..'https://api.telegram.org/bot'.. token ..'/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
+local curlm = 'curl "'..'https://api.telegram.org/bot1893162664:AAEUolDOcLMt5J4IAcH7KYyIUf3W_BkCgqo/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
