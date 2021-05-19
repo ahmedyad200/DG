@@ -49,47 +49,47 @@ print([[
  
  
 ]])
-io.write('\27[0;31m\n ارسل لي توكن البوت الان ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27')
+io.write("\27[31;47m\n◼¦ ارسل لي توكن البوت الان \27[0;34;49m\n")  
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n التوكن غير صحيح تاكد منه ثم ارسله')
+io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله \27[0;34;49m\n")  
 else
 database:set(id_server..":token",token)
 end 
 else
-print('\27[0;35m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━\n لم يتم حفظ التوكن ارسل لي التوكن الان')
+io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان \27[0;34;49m\n")  
 end 
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
-io.write('\27[0;35m\n ارسل لي معرف البوت بدون @ ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
-local USERBOT = io.read()
-if USERBOT ~= '' then
-database:set(id_server..":USERBOT",USERBOT)
+io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
+local BOTUSERNAME = io.read()
+if BOTUSERNAME ~= '' then
+database:set(id_server..":USERBOT",BOTUSERNAME)
 else
-print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ معرف البوت ارسله مره اخره')
+io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف البوت ارسله مره اخره \27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":IDSUDO") then
-io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
+io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي \27[0;34;49m\n')
 local SUDOID = io.read()
 if SUDOID ~= '' then
 database:set(id_server..":IDSUDO",SUDOID)
 else
-print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
+io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره \27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERSUDO") then
-io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND USER FOR SIDO : \27[0;39;49m')
+io.write('\27[31;47m\n◼¦ ارسل معرف المطور الاساسي بدون @ \27[0;34;49m\n')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
 database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
 else
-print('\n\27[1;34m لم يتم حفظ معرف المطور :')
+io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف المطور \27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -3443,17 +3443,20 @@ if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then
 local Text = [[ 
 ☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
 •┉•┉•┉┉•┉•┉••┉•┉•┉┉•┉•┉•
-☉┇ [AHMED](t.me/ahmedyad200)
+☉┇ [AHMEDYAD](t.me/ahmedyad200)
 ☉┇ [DEVID](t.me/de_vi_d)
 ☉┇ [DONGOL](t.me/UU_DON)
-
+•┉•┉•┉┉•┉•┉•┉•┉•
 ☉┇ [POWER](t.me/SOPOWERB0T)
 ☉┇ [FILES](t.me/FIPOWERB0T)
-
+•┉•┉•┉┉•┉•
 ☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
-keyboard.inline_keyboard = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+keyboard.inline_keyboard = {
+{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
+{{text = 'اضف البوت الي مجموعتك', url="t.me/"..USERBOT..""}},
+} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
