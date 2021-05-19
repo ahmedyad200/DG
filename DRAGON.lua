@@ -1838,6 +1838,16 @@ end
 send(msg.chat_id_, msg.id_, t)
 return false
 end
+if text == ("مسح العام ☉") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:del(bot_id..'GBan:User')
+database:del(bot_id..'Gmute:User')
+send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه (الكتم-الحظر) العام')
+return false
+end
 if text == ("مسح الكتم العام ☉") then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -12506,6 +12516,16 @@ local Users = database:scard(bot_id..'User_Bot')
 Text = ' الاحصائيات ☉ \n'..' ☉┇ عدد الجروبات » {`'..Groups..'`}'..'\n ☉┇  عدد المشتركين » {`'..Users..'`}'
 send(msg.chat_id_, msg.id_,Text) 
 end
+return false
+end
+if text == ("مسح العام") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:del(bot_id..'GBan:User')
+database:del(bot_id..'Gmute:User')
+send(msg.chat_id_, msg.id_, '\n ☉┇ تم مسح قائمه (الكتم-الحظر) العام')
 return false
 end
 if text == 'الجروبات' then
