@@ -165,7 +165,7 @@ if not f then
 AutoSet()  
 else   
 f:close()  
-database:del(id_server.."USERBOT"),
+database:del(id_server.."USERBOT")
 database:del(id_server..":token")
 database:del(id_server..":IDSUDO")
 end  
