@@ -4558,19 +4558,32 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم فتح التكرار')
 end
 if text == 'تفعيل الحمايه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل البوتات بالطرد')
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'☉┇ تم وضع الايدي بدون صوره')
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'kick')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل التكرار بالطرد')
 database:set(bot_id.."lock:Link"..msg.chat_id_,'del')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل الروابط')
 database:set(bot_id.."lock:forward"..msg.chat_id_,'del')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل التوجيه')
 database:set(bot_id.."lock:Sticker"..msg.chat_id_,'del')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل الملصقات')
 database:set(bot_id.."lock:Animation"..msg.chat_id_,'del')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل المتحركه')
 database:set(bot_id.."lock:Video"..msg.chat_id_,'del')  
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل الفيديو')
 database:set(bot_id..'lock:Fars'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل الفارسيه')
+database:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل السب')
 database:set(bot_id..'lock:edit'..msg.chat_id_,true) 
-database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)   
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل التعديل')
+database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)
+send(msg.chat_id_, msg.id_,'☉┇ تم قفل التفليش')
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'\n☉┇ تم قفل البوتات بالطرد\n☉┇ تم وضع الايدي بدون صوره\n☉┇ تم قفل التكرار بالطرد\n☉┇ تم قفل الروابط\n☉┇ تم قفل التوجيه\n☉┇ تم قفل الملصقات\n☉┇ تم قفل المتحركه\n☉┇ تم قفل الفيديو\n☉┇ تم قفل السب\n☉┇ تم قفل التعديل\n☉┇ تم قفل الفارسيه\n☉┇ تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
-end,nil)   
+send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
+end,nil)
 end
 --------------------------------------------------------------------------------------------------------------
 if text == 'اعاده التشغيل' or text == 'اعاده التشغيل ☉' then
@@ -5044,12 +5057,12 @@ HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
 echo '☉✔{ نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n`'"$memUsedPrc"'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n `'"$HardDisk"'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n `'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n `'`curl http://th3boss.com/ip/location`'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all'))  
 end
 if text == "all" or text == "@all" and CoSu(msg) then
@@ -5194,22 +5207,6 @@ return false
 end
 os.execute("rm -fr File_Bot/ *")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
-return false
-end
-if text and text:match("^(توليد) (.*)$") and DEV(msg) then
-local name_t = {string.match(text, "^(توليد) (.*)$")}
-local file = name_t[2]..'.lua'
-local file_bot = io.open(""..file,"r")
-if file_bot then
-io.close(file_bot)
-t = " ☉┇ بالتاكيد تم توليد ملف → `"..file.."` \n"
-else
-t = " ☉┇ الملف » `"..file.."`\n ☉┇ تم توليده ملف \n"
-end
-if res == 200 then
-os.execute("mkdir "..text.."") 
-send(msg.chat_id_, msg.id_,t) 
-dofile('DRAGON.lua')  
 return false
 end
 if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
