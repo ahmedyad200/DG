@@ -56,7 +56,6 @@ local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
 print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n التوكن غير صحيح تاكد منه ثم ارسله')
 else
-io.write('\27[0;31m تم حفظ التوكن بنجاح \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
 database:set(id_server..":token",token)
 end 
 else
@@ -65,13 +64,12 @@ end
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
-io.write('\27[1;31m ↓ ارسل معرف البوت بدون @ :\n SEND USER FOR BOT : \27[0;39;49m')
-local BOTUSERNAME = io.read():gsub('@','')
-if BOTUSERNAME ~= '' then
-io.write('\n\27[1;34m تم حفظ معرف البوت :\n\27[0;39;49m')
-database:set(id_server..":USERBOT",'@'..BOTUSERNAME)
+io.write('\27[0;35m\n ارسل لي معرف البوت بدون @ ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
+local USERBOT = io.read()
+if USERBOT ~= '' then
+database:set(id_server..":USERBOT",USERBOT)
 else
-print('\n\27[1;34m لم يتم حفظ معرف البوت :')
+print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ معرف البوت ارسله مره اخره')
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -79,7 +77,6 @@ if not database:get(id_server..":IDSUDO") then
 io.write('\27[0;35m\n ارسل لي ايدي المطور الاساسي ↓ :\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\27[0;33;49m')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-io.write('\27[1;35m تم حفظ ايدي المطور الاساسي \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n27[0;39;49m')
 database:set(id_server..":IDSUDO",SUDOID)
 else
 print('\27[0;31m•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━\n لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره')
@@ -90,7 +87,6 @@ if not database:get(id_server..":USERSUDO") then
 io.write('\27[1;31m ↓ ارسل معرف المطور الاساسي بدون @ :\n SEND USER FOR SIDO : \27[0;39;49m')
 local SUDOUSERNAME = io.read():gsub('@','')
 if SUDOUSERNAME ~= '' then
-io.write('\n\27[1;34m تم حفظ معرف المطور :\n\27[0;39;49m')
 database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
 else
 print('\n\27[1;34m لم يتم حفظ معرف المطور :')
@@ -1398,7 +1394,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
 ]]):read('*all'))  
-send_inline_key(msg.chat_id_,bl,keyboard)
+send_inline_key(msg.chat_id_,nil,inline)
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
