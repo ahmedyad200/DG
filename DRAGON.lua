@@ -1381,7 +1381,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-send_inline_key(msg.chat_id_, msg.id_,inline, io.popen([[
+send(msg.chat_id_, msg.id_,nil,inline, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
