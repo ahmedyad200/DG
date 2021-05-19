@@ -143,7 +143,6 @@ screen -S DRAGON ./DRAGON
 done
 ]])  
 file:close() 
-os.execute("mkdir File_Bot") 
 os.execute('rm -fr $HOME/.telegram-cli')
 end 
 local serialize_to_file = function(data, file, uglify)  
@@ -200,6 +199,8 @@ t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
+----- بدء الاضافات --------
+--os.execute("mkdir File_Bot") 
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 local bot_username = (USERBOT or 'TARA1BOT')
