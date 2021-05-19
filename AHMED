@@ -1,7 +1,12 @@
+echo -e "\e[38;5;77m    •{ WELCOME TO SOURCE AHMEDYAD }•\e[0m"
+echo -e "\e[38;5;77m    •{ SOURCE POWER }•\e[0m"
+#!/usr/bin/env bash
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/serpent.lua
-#!/usr/bin/env bash
+clear
+clear
+clear
 cd $HOME/DRAGON
 install() {
 echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
