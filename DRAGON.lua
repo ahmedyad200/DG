@@ -145,6 +145,7 @@ screen -S DRAGON ./DRAGON
 done
 ]])  
 file:close() 
+os.execute("mkdir File_Bot") 
 os.execute('rm -fr $HOME/.telegram-cli')
 end 
 local serialize_to_file = function(data, file, uglify)  

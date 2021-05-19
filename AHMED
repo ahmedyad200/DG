@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 cd $HOME/DRAGON
-sudo chmod +x CO
-./CO
 install() {
 echo -e "\e[38;5;77m    •{ Welcome to install source power }•\e[0m"
 rm -rf $HOME/.telegram-cli
@@ -40,7 +38,6 @@ echo -e "\e[38;5;77m    •{ install source power  %90 }•\e[0m"
 sudo apt-get install libnotify-dev -y
 sudo chmod +x tg
 lua DRAGON.lua
-sudo chmod +x CO
 sudo chmod +x DRAGON
 sudo chmod +x ./DRG
 ./DRG
@@ -54,7 +51,6 @@ exit 1
 fi
 sudo chmod +x tg
 lua DRAGON.lua
-sudo chmod +x CO
 sudo chmod +x DRAGON
 sudo chmod +x ./DRG
 ./DRG
