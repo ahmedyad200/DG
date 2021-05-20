@@ -14715,11 +14715,41 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
+if text == 'الاوامر خاص' then
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
 return false
 end
+local Text =[[
+اختر من الاوامر بلاسفل
+َ
+َ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = '❶️❶', msg.sender_user_id_, callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+},
+{
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
+},
+{
+{text = 'اوامر التسليه', callback_data="/help7"},
+},
+{
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
+if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
