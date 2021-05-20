@@ -196,7 +196,7 @@ end
 end
 print(t)
 ----- بدء الاضافات --------
-local USERNAMEBOT = database:get(id_server.."USERBOT"),
+local USERNAMEBOT = database:get(id_server.."USERBOT")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 os.execute("mkdir File_Bot") 
 local runapp = sudos.token
