@@ -14839,7 +14839,7 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 end
 if text and text:match("^كرونا (.*)$") then
 local TextCrona = text:match("^كرونا (.*)$")
-co = https.request('https://mode-dev.tk/Api2/Modbr.php?br='..TextCrona..'')
+co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..TextCrona..'')
 cr = JSON.decode(co)
 i = 0
 for k,v in pairs(cr.ok) do
