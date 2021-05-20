@@ -85,7 +85,7 @@ os.execute('lua DRAGON.lua')
 end
 local create_config_auto = function()
 config = {
-token = database:get(id_server..":token"),,
+token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":IDSUDO"),
 SUDOUSERNAME = database:get(id_server..":USERSUDO"),
  }
