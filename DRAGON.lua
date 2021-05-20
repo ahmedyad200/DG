@@ -1737,7 +1737,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -2895,7 +2895,32 @@ return false
 end
 end
 end
-
+if text then
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local num2 = 0
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
+num2 = num2 + 1
+tdcli_function ({ID = "GetUser",user_id_ = admins[i].user_id_},function(arg,b) 
+if b.username_ == true then
+end
+if b.first_name_ == false then
+database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
+end
+end,nil)   
+else
+database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
+end
+end
+if num2 == 0 then
+send(msg.chat_id_, msg.id_,"") 
+else
+send(msg.chat_id_, msg.id_,"") 
+end
+end,nil)   
+end
 if text == 'تفعيل' then
 if not Sudo(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
@@ -3090,7 +3115,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
