@@ -63,10 +63,6 @@ io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي الت
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":USERBOT") then
-io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
-database:set(id_server..":USERBOT",USERBOT)
-end
 if not database:get(id_server..":IDSUDO") then
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي \27[0;34;49m\n')
 local SUDOID = io.read()
@@ -89,8 +85,7 @@ os.execute('lua DRAGON.lua')
 end
 local create_config_auto = function()
 config = {
-token = database:get(id_server..":token"),
-USERNAMEBOT = database:get(id_server.."USERBOT"),
+token = database:get(id_server..":token"),,
 SUDO = database:get(id_server..":IDSUDO"),
 SUDOUSERNAME = database:get(id_server..":USERSUDO"),
  }
@@ -195,6 +190,18 @@ t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
+local TEXTSUDOWELCOM =[[
+شكرا لاستخدامك سورس باور
+اضغط /sudo لاظهار كيبورد المطور الاساسي
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'SO-POWER', url="t.me/SOPOWERB0T"}},
+{{text = 'FI-POWER', url="t.me/FIPOWERB0T"}},}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(TEXTSUDOWELCOM).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 ----- بدء الاضافات --------
 local USERNAMEBOT = database:get(id_server.."USERBOT")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
@@ -202,7 +209,6 @@ os.execute("mkdir File_Bot")
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 local bot_username = (USERNAMEBOT or 'TARA1BOT')
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -14989,6 +14995,7 @@ https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callb
 return false
 end
 local Teext =[[
+
 •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ☉┇ قفل + فتح ← الامر… 
 ☉┇ ← { بالتقيد ، بالطرد ، بالكتم }
@@ -15418,7 +15425,7 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
-if Text == '/help7' or text == 'الاوامر' then
+if Text == '/help7' then
 if not Mod(data) then
 local notText = '🚫 عذرا الاوامر هذه لا تخصك'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
