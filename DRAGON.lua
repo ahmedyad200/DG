@@ -14775,6 +14775,18 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
+if text and text:match('^كشف (%d+)$') then 
+local id = text:match('^كشف (%d+)$') 
+local text = 'وجدت العضو اضغط هنا' 
+tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil) 
+local text = 'لم يتم العثور علي العضو' 
+end 
+local function oChat(chat_id,cb) 
+tdcli_function ({ 
+ID = "OpenChat", 
+chat_id_ = chat_id 
+}, cb, nil) 
+end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
@@ -14881,18 +14893,6 @@ keyboard.inline_keyboard = {
 } 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
-end
-if text and text:match('^كشف (%d+)$') then
-local id = text:match('^كشف (%d+)$')
-local text = 'تم ايجاد العضو اضغط هنا ☉┇'
-tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil)
-local text = 'لم يتم العثور علي العضو'
-end
-local function oChat(chat_id,cb)
-tdcli_function ({
-ID = "OpenChat",
-chat_id_ = chat_id
-}, cb, nil)
 end
 if text == "صلاحياته" and tonumber(msg.reply_to_message_id_) > 0 then    
 if tonumber(msg.reply_to_message_id_) ~= 0 then 
@@ -16118,7 +16118,6 @@ end
 end
 end,nil)
 ------------------------------------------------------------------------
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /SUDO لاظهار كيبورد المطور الاساسي",0,'md')
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
