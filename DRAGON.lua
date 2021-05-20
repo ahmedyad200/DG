@@ -190,7 +190,7 @@ t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
-local TEXTSUDOWELCOM =[[
+local TEXTSUDOWELCOM = [[
 شكرا لاستخدامك سورس باور
 اضغط /sudo لاظهار كيبورد المطور الاساسي
 ]]
@@ -198,8 +198,7 @@ keyboard = {}
 keyboard.inline_keyboard = {
 {{text = 'SO-POWER', url="t.me/SOPOWERB0T"}},
 {{text = 'FI-POWER', url="t.me/FIPOWERB0T"}},}
-local msg_id = msg.id_/2097152/0.5
-io.popen("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(TEXTSUDOWELCOM).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+io.popen("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(TEXTSUDOWELCOM).."&reply_to_message_id="..msg.id_/2097152/0.5.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 ----- بدء الاضافات --------
 local USERNAMEBOT = database:get(id_server.."USERBOT")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
