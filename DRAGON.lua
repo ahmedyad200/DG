@@ -376,7 +376,6 @@ var = false
 end  
 return var
 end 
-sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1360140225) then  
 var = 'مـبـرمـج افـايـره'
@@ -583,6 +582,7 @@ send(msg.chat_id_, msg.id_,"☉┇ الحساب محذوف يرجى استخدا
 end
 end,nil)   
 end 
+sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function Total_Msg(msgs)  
 local DRAGON_Msg = ''  
 if msgs < 100 then 
