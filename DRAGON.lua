@@ -14861,15 +14861,15 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 end
 if text and text:match("^كرونا (.*)$") then
 local Textcrona = text:match("^كرونا (.*)$")
-co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..URL.escape(Textcrona)..'')
+co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..URL.escape(TextCrona)..'')
 cr = JSON.decode(co)
-t = "\n☉┇ احصائيات كرونا في بلدك \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+t = "☉┇ احصائيات كرونا في بلدك"
 i = 0
 for k,v in pairs(cr.ok) do
 i = i + 1
-t = t..i.."-  `"..v.."` \n"
+t = t..v.."\n"
 end
-send(msg.chat_id_, msg.id_, t..'•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
+send(msg.chat_id_, msg.id_, t)
 end
 if text and text:match("^برج (.*)$") then
 local Textbrj = text:match("^برج (.*)$")
@@ -14887,22 +14887,6 @@ local TextName = text:match("^معني (.*)$")
 gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_,br.meaning)
-end
-if text == "تعطيل حساب العمر" then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل حساب العمر')
-database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل حساب العمر" then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل حساب العمر')
-database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") then
 local Textage = text:match("^احسب (.*)$")
