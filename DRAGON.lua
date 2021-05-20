@@ -3516,7 +3516,7 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
-if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
+--[[if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3536,7 +3536,7 @@ local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' عدد الجروبات في الملف { '..#list..'}')
-end
+end]]--
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -13057,18 +13057,13 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 
 if text == "أحمد" or text == 'احمد' then
-database:set(bot_id.."Ahmed_photo:status"..msg.chat_id_,true) 
-local AY_ph = database:get(bot_id.."Ahmed_photo:status"..msg.chat_id_)
-if not AY_ph then
-send(msg.chat_id_, msg.id_," حدث خطأ في ال api") 
-return false  
-end
 local inline = {{{text = 'مـبـرمـج الـسـورس', url="t.me/ahmedyad200"}},} 
+local textt = 'أحمد مبرمج سورس باور @ahmedyad200'
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @ahmedyad200 ", msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,textt, msg.id_, msg.id_, "md")
 else
-send_inline_key(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @ahmedyad200',nil,inline, 1, 'md')
+send_inline_key(msg.chat_id_, msg.id_,textt,nil,inline, 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
