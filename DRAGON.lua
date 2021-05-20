@@ -190,15 +190,6 @@ t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
-local TEXTSUDOWELCOM = [[
-شكرا لاستخدامك سورس باور
-اضغط /sudo لاظهار كيبورد المطور الاساسي
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{{text = 'SO-POWER', url="t.me/SOPOWERB0T"}},
-{{text = 'FI-POWER', url="t.me/FIPOWERB0T"}},}
-io.popen("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(TEXTSUDOWELCOM).."&reply_to_message_id="..msg.id_/2097152/0.5.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 ----- بدء الاضافات --------
 local USERNAMEBOT = database:get(id_server.."USERBOT")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
@@ -622,6 +613,7 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
+sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
