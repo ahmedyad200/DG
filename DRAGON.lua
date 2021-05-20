@@ -3262,19 +3262,6 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 end
-if text == "حذف الجميع" and DEV(msg) then
-tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
-},function(ta,DRAGON)
-local t = "\nツ قائمة الاعضاء \n≪━━━━━━𝐏𝐎𝐖𝐄𝐑━━━━━━≫\n"
-x = 0
-local list = DRAGON.members_
-for k, v in pairs(list) do
- if tonumber(v.user_id_) ~= tonumber(bot_id) then
-chat_kick(msg.chat_id_,v.user_id_)
-end
-end
-end,nil)
-end
 if text == "تفعيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم التفعيل الاسماء المكتومه')
 database:set(bot_id.."block:name:stats"..msg.chat_id_,"open")
