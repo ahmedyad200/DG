@@ -3256,6 +3256,12 @@ t = "\n☉┇ قائمة الاسماء المكتومه \n•┉ • ┉ • �
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
 end
+if #All_name == 0 then
+t = "☉┇ لا يوجد اسماء مكتومه"
+end
+send(msg.chat_id_, msg.id_, t)
+end
+end
 if text == "حذف الجميع" and DEV(msg) then
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-1000',''), offset_ = 0,limit_ = 1000
 },function(ta,DRAGON)
@@ -3268,12 +3274,6 @@ chat_kick(msg.chat_id_,v.user_id_)
 end
 end
 end,nil)
-end
-if #All_name == 0 then
-t = "☉┇ لا يوجد اسماء مكتومه"
-end
-send(msg.chat_id_, msg.id_, t)
-end
 end
 if text == "تفعيل كتم الاسم" and Constructor(msg) and database:get(bot_id.."AL:AddS0FI:stats") == "✔" then
 send(msg.chat_id_, msg.id_, '☉┇ تم التفعيل الاسماء المكتومه')
