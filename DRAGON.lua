@@ -376,6 +376,7 @@ var = false
 end  
 return var
 end 
+sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(1360140225) then  
 var = 'مـبـرمـج افـايـره'
@@ -613,7 +614,6 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
@@ -954,7 +954,7 @@ end
 if Chat_Type == 'USERBOT' then
 if text == 'كيب' or text == '/sudo' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
-local bl = 'اهلا عزيزي المطور الاساسي\nشكرا لاستخدام سورس باور\nيمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
+local bl = '☉┇ اهلا عزيزي المطور\n☉┇ يمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
 local keyboard = {
 {'الاحصائيات ☉'},
 {'ضع اسم للبوت ☉'},
