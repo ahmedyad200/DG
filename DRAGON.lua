@@ -14837,6 +14837,17 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
+if text and text:match("^كرونا (.*)$") then
+local TextCrona = text:match("^كرونا (.*)$")
+co = https.request('https://mode-dev.tk/Api2/Modbr.php?br='..TextCrona..'')
+cr = JSON.decode(co)
+i = 0
+for k,v in pairs(cr.ok) do
+i = i + 1
+t = v.."\n"
+end
+send(msg.chat_id_, msg.id_, t)
+end
 if text and text:match("^برج (.*)$") then
 local Textbrj = text:match("^برج (.*)$")
 gk = https.request('https://mode-dev.tk/Api2/Modbr.php?br='..URL.escape(Textbrj)..'')
