@@ -570,7 +570,6 @@ send(msg.chat_id_, msg.id_,"☉┇ الحساب محذوف يرجى استخدا
 end
 end,nil)   
 end 
-sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لي تشغيل البوت",0,'md')
 function Total_Msg(msgs)  
 local DRAGON_Msg = ''  
 if msgs < 100 then 
@@ -602,6 +601,7 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
+sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لي تشغيل البوت",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
@@ -3486,7 +3486,7 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
-if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
+--[[if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3506,7 +3506,7 @@ local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' عدد الجروبات في الملف { '..#list..'}')
-end
+end]]--
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -4543,31 +4543,19 @@ send(msg.chat_id_, msg.id_,' ☉┇ تم فتح التكرار')
 end
 if text == 'تفعيل الحمايه' and Mod(msg) and msg.reply_to_message_id_ == 0 then 
 database:set(bot_id.."lock:Bot:kick"..msg.chat_id_,'kick')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل البوتات بالطرد')
 database:set(bot_id..'Bot:Id:Photo'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'☉┇ تم وضع الايدي بدون صوره')
 database:hset(bot_id.."flooding:settings:"..msg.chat_id_ ,"flood",'kick')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل التكرار بالطرد')
 database:set(bot_id.."lock:Link"..msg.chat_id_,'del')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل الروابط')
 database:set(bot_id.."lock:forward"..msg.chat_id_,'del')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل التوجيه')
 database:set(bot_id.."lock:Sticker"..msg.chat_id_,'del')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل الملصقات')
 database:set(bot_id.."lock:Animation"..msg.chat_id_,'del')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل المتحركه')
 database:set(bot_id.."lock:Video"..msg.chat_id_,'del')  
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل الفيديو')
 database:set(bot_id..'lock:Fars'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل الفارسيه')
 database:set(bot_id..'lock:Fshar'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل السب')
 database:set(bot_id..'lock:edit'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل التعديل')
 database:set(bot_id..'lock:tagrvrbot'..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_,'☉┇ تم قفل التفليش')
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data) 
-send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
+send(msg.chat_id_, msg.id_,'\n☉┇ تم قفل البوتات بالطرد\n☉┇ تم وضع الايدي بدون صوره\n☉┇ تم قفل التكرار بالطرد\n☉┇ تم قفل الروابط\n☉┇ تم قفل التوجيه\n☉┇ تم قفل الملصقات\n☉┇ تم قفل المتحركه\n☉┇ تم قفل الفيديو\n☉┇ تم قفل السب\n☉┇ تم قفل التعديل\n☉┇ تم قفل الفارسيه\n☉┇ تم قفل التفليش\n\nتم تفعيل الحمايه بواسطه » ['..Rutba(msg.sender_user_id_,msg.chat_id_)..'](T.ME/'..(data.username_ or 'SOPOWERB0T')..')')  
 end,nil)
 end
 --------------------------------------------------------------------------------------------------------------
