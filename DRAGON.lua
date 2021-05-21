@@ -73,21 +73,10 @@ io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاسا�
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":USERSUDO") then
-io.write('\27[31;47m\n◼¦ ارسل معرف المطور الاساسي بدون @ \27[0;34;49m\n')
-local SUDOUSERNAME = io.read():gsub('@','')
-if SUDOUSERNAME ~= '' then
-database:set(id_server..":USERSUDO",'@'..SUDOUSERNAME)
-else
-io.write('\27[31;47m\n◼¦ لم يتم حفظ معرف المطور \27[0;34;49m\n')
-end 
-os.execute('lua DRAGON.lua')
-end
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":IDSUDO"),
-SUDOUSERNAME = database:get(id_server..":USERSUDO"),
  }
 create(config, "./DG_INFO.lua")   
 end 
@@ -180,7 +169,7 @@ sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
 token = sudos.token 
 --- start functions ↓
--------------------------------------------------------------------------------------------------------------- 
+--------------------------------------------------------------------------------------------------------------  
 t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
@@ -191,12 +180,9 @@ end
 end
 print(t)
 ----- بدء الاضافات --------
-local USERNAMEBOT = database:get(id_server.."USERBOT")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
-os.execute("mkdir File_Bot") 
 local runapp = sudos.token
-local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
-local bot_username = (USERNAMEBOT or 'TARA1BOT')
+local bot_username = (database:get(bot_id..'UESR_BOT') or ('TARA1BOT'))
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -221,6 +207,7 @@ end
 return DRAGON  
 end 
 function regexx(data)
+local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
     data = string.gsub(data, '[^'..b..'=]', '')
     return (data:gsub('.', function(x)
         if (x == '=') then return '' end
@@ -1621,49 +1608,6 @@ os.execute("mkdir File_Bot")
 os.execute('rm -rf getfile.json')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
---[[
-if text == 'تغير المطور الاساسي' then
-if not SudoBot(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
-return false
-end
-database:set(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_,true)
-send(msg.chat_id_, msg.id_,' ارسل الان معرف المطور الاساسي الجديد')
-return false
-end
-if text and database:get(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_) then
-if text == 'الغاء' then 
-database:del(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_)
-send(msg.chat_id_, msg.id_,' تم الغاء تغير المطور الاساسي')
-return false
-end
-local username = text:gsub('@','')
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, function(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"𖤓 عذرا عزيزي هذا معرف قناه يرجى ارسال المعرف مره اخره")   
-return false 
-end end
-os.execute('rm -rf DG_INFO.lua')
-local create = function()
-config = {
-token = database:get(id_server..":token"),
-SUDO = database:get(id_server..":IDSUDO"),
-UserName = database:get(id_server..":USERSUDO"),
-}
-create(config, "./DG_INFO.lua")   
-end
-create:close()
-else
-send(msg.chat_id_, msg.id_, '𖤓 لا يوجد حساب بهذا المعرف')
-end
-end, nil)
-database:del(bot_id..'Set:Text:Dev:Bot:id'..msg.chat_id_)
-send(msg.chat_id_, msg.id_,'تم تغير المطور الاساسي \n الرجاء ارسل امر {`اعاده تشغيل`}')
-dofile('DG_INFO.lua')  
-return false
-end
-]]--
 if text and text:match("^رفع ادمن عام @(.*)$") and Sudo(msg) then
 local username = text:match("^رفع ادمن عام @(.*)$")
 if AddChannel(msg.sender_user_id_) == false then
@@ -3440,6 +3384,7 @@ local Text = [[
 ☉┇ [AHMEDYAD](t.me/ahmedyad200)
 ☉┇ [DEVID](t.me/de_vi_d)
 ☉┇ [DONGOL](t.me/UU_DON)
+☉┇ [legand](t.me/L_E_p)
 •┉•┉•┉┉•┉•┉•┉•┉•
 ☉┇ [POWER](t.me/SOPOWERB0T)
 ☉┇ [FILES](t.me/FIPOWERB0T)
@@ -10737,7 +10682,35 @@ database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
 return false
 end
-
+-----------------
+if text == 'مسح معرف البوت' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:del(bot_id..'UESR_BOT')
+send(msg.chat_id_, msg.id_,' ☉┇ تم مسح معرف البوت')
+end
+if text == 'ضع معرف البوت' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:set(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل معرف البوت الان بدون @')
+return false
+end
+if text and database:get(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+if text == 'الغاء' then 
+database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم الغاء حفظ معرف البوت')
+return false
+end
+database:set(bot_id..'UESR_BOT',text)
+database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ معرف البوت')
+return false
+end
 -----------------
 if text == 'تعين الايدي' then
 if not Manager2(msg) then
