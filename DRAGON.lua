@@ -569,7 +569,7 @@ send(msg.chat_id_, msg.id_,"☉┇ الحساب محذوف يرجى استخدا
 end
 end,nil)   
 end 
-sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /setup لي ادخال معلومات البوت\n☉┇ بعد الانتهاء ارسل /sudo لي تشغيل البوت",0,'md')
+sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لي تشغيل البوت",0,'md')
 function Total_Msg(msgs)  
 local DRAGON_Msg = ''  
 if msgs < 100 then 
@@ -938,40 +938,10 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
-if text == '/setup' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end
-database:set(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_,msg.id_,' ☉┇ ارسل رد كلمه بوت الان')
-return false
-end
-if text and database:get(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
-database:set(bot_id..'TEXT_BOT',text)
-database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
-return false
-end
-database:set(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_,msg.id_,' ☉┇ ارسل معرف البوت الان بدون @')
-return false
-end
-if text and database:get(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
-database:set(bot_id..'UESR_BOT',text)
-database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ معرف البوت')
-dofile('DRAGON.lua')
-return false
-end
-database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
-send(msg.chat_id_, msg.id_," ☉┇ ارسل اليه الاسم الان ")
-return false
-end
 if Chat_Type == 'USERBOT' then
 if text == 'كيب' or text == '/sudo' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
-local bl = '☉┇ اهلا عزيزي المطور\n☉┇ يمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
+local bl = '☉┇ اهلا عزيزي المطور\n☉┇ يمكنك التحكم بي البوت من كيبورد المطور الخاص بك \n☉┇ [اضغط لي الدخول الي قناه السورس](t.me/SOPOWERB0T)\n☉┇ [اضغط لي الدخول الي قناه الملفات](t.me/FIPOWERB0T)'
 local keyboard = {
 {'الاحصائيات ☉'},
 {'ضع اسم للبوت ☉','ضع معرف البوت ☉','ضع رد بوت ☉'},
