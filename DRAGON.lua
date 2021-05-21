@@ -76,13 +76,13 @@ end
 local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
-SUDO = database:get(bot_id..'IDSUDO') or database:get(id_server..":IDSUDO"),
+SUDO = database:get(id_server..":IDSUDO"),
  }
 create(config, "./DG_INFO.lua")   
 end 
 create_config_auto()
 token = database:get(id_server..":token")
-SUDO = database:get(bot_id..'IDSUDO') or database:get(id_server..":IDSUDO")
+SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
@@ -10710,27 +10710,6 @@ end
 database:set(bot_id..'UESR_BOT',text)
 database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
 send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ معرف البوت')
-dofile('DRAGON.lua')
-return false
-end
-if text == 'تغير المطور الاساسي' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end
-database:set(bot_id..'Set:IDSUDO'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_,msg.id_,' ☉┇ ارسل ايدي المطور الاساسي الجديد\n☉┇ للخروج ارسل `الغاء`')
-return false
-end
-if text and database:get(bot_id..'Set:IDSUDO'..msg.chat_id_..':'..msg.sender_user_id_) then
-if text == 'الغاء' then 
-database:del(bot_id..'Set:IDSUDO'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ☉┇ تم الغاء تغير المطور الاساسي')
-return false
-end
-database:set(bot_id..'IDSUDO',text)
-database:del(bot_id..'Set:IDSUDO'..msg.chat_id_..':'..msg.sender_user_id_)
-send(msg.chat_id_,msg.id_,' ☉┇ تم تغير المطور الاساسي')
 dofile('DRAGON.lua')
 return false
 end
