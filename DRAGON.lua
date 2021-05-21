@@ -3060,7 +3060,7 @@ os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
