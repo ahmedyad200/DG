@@ -569,7 +569,7 @@ send(msg.chat_id_, msg.id_,"☉┇ الحساب محذوف يرجى استخدا
 end
 end,nil)   
 end 
-sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
+sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /setup لي ادخال معلومات البوت\n☉┇ بعد الانتهاء ارسل /sudo لي تشغيل البوت",0,'md')
 function Total_Msg(msgs)  
 local DRAGON_Msg = ''  
 if msgs < 100 then 
@@ -938,13 +938,43 @@ database:del(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id
 return false
 end
 --------------------------------------------------------------------------------------------------------------
+if text == '/setup' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:set(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل رد كلمه بوت الان')
+return false
+end
+if text and database:get(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+database:set(bot_id..'TEXT_BOT',text)
+database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
+return false
+end
+database:set(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل معرف البوت الان بدون @')
+return false
+end
+if text and database:get(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+database:set(bot_id..'UESR_BOT',text)
+database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ معرف البوت')
+dofile('DRAGON.lua')
+return false
+end
+database:setex(bot_id..'Set:Name:Bot'..msg.sender_user_id_,300,true) 
+send(msg.chat_id_, msg.id_," ☉┇ ارسل اليه الاسم الان ")
+return false
+end
 if Chat_Type == 'USERBOT' then
 if text == 'كيب' or text == '/sudo' or text == "☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉" or text == 'انا المطور' or text == 'حه' or text == 'احا' then  
 if DevSoFi(msg) then
 local bl = '☉┇ اهلا عزيزي المطور\n☉┇ يمكنك التحكم بي البوت من كيبورد المطور الخاص بك'
 local keyboard = {
 {'الاحصائيات ☉'},
-{'ضع اسم للبوت ☉'},
+{'ضع اسم للبوت ☉','ضع معرف البوت ☉','ضع رد بوت ☉'},
 {'المطورين الثانين ☉','المطورين الثالثين ☉'},
 {'مسح المطورين الثانين ☉','مسح المطورين الثالثين ☉'},
 {'الادمنيه العامين ☉','المدراء العامين ☉'},
@@ -964,7 +994,7 @@ local keyboard = {
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
 {'جلب نسخه الاحتياطيه ☉','جلب المشتركين ☉'},
 {'تحديث السورس ☉','اعاده التشغيل ☉','تحديث المتجر ☉'},
-{'معلومات السيرفر ☉'},
+{'معلومات السيرفر ☉'}
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
@@ -978,8 +1008,10 @@ local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
+{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'ايدي','انا مين','العاب باور'},
 {'أحمد','سورس','تغير الايدي'},
+{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
 local start = database:get(bot_id.."Start:Bot")
@@ -1303,6 +1335,47 @@ end
 database:del(bot_id.."Gmod:User")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة الادمنيه العامين  ")
 end
+if text == 'ضع معرف البوت ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:set(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل معرف البوت الان بدون @')
+return false
+end
+if text and database:get(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+if text == 'الغاء' then 
+database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم الغاء حفظ معرف البوت')
+return false
+end
+database:set(bot_id..'UESR_BOT',text)
+database:del(bot_id..'Set:UESR_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ معرف البوت')
+dofile('DRAGON.lua')
+return false
+end
+if text == 'ضع رد بوت ☉' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+database:set(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_,true)
+send(msg.chat_id_,msg.id_,' ☉┇ ارسل رد الان')
+return false
+end
+if text and database:get(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_) then
+if text == 'الغاء' then 
+database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم الغاء حفظ رد بوت')
+return false
+end
+database:set(bot_id..'TEXT_BOT',text)
+database:del(bot_id..'Set:TEXT_BOT'..msg.chat_id_..':'..msg.sender_user_id_)
+send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
+return false
+end
 if text == ("الردود العامه ☉") then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -1354,8 +1427,8 @@ database:set(bot_id..'Set:On'..msg.sender_user_id_..':'..msg.chat_id_,true)
 return false 
 end
 if text == 'معلومات السيرفر ☉' or text == 'السيرفر' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+if not DEV(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
@@ -10683,15 +10756,6 @@ send(msg.chat_id_,msg.id_,' ☉┇ تم حفظ رد بوت')
 return false
 end
 -----------------
-if text == 'مسح معرف البوت' then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end
-database:del(bot_id..'UESR_BOT')
-send(msg.chat_id_, msg.id_,' ☉┇ تم مسح معرف البوت')
-dofile('DRAGON.lua')
-end
 if text == 'ضع معرف البوت' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -16048,7 +16112,6 @@ end
 local text = result.content_.text_
 if not Mod(result) then
 ------------------------------------------------------------------------
-sendText(SUDO,"شكرا لاستخدامك سورس باور\n اضغط /sudo لاظهار كيبورد المطور الاساسي",0,'md')
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
 if database:get(bot_id.."lock:Link"..msg.chat_id_) then
 DeleteMessage(msg.chat_id_,{[0] = data.message_id_}) 
