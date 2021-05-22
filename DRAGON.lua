@@ -124,7 +124,6 @@ done
 ]])  
 file:close() 
 os.execute('rm -fr $HOME/.telegram-cli')
-os.execute("mkdir File_Bot")
 end 
 local serialize_to_file = function(data, file, uglify)  
 file = io.open(file, "w+")  
@@ -181,6 +180,7 @@ end
 end
 print(t)
 ----- بدء الاضافات --------
+os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local runapp = sudos.token
 local bot_username = (database:get(bot_id..'UESR_BOT') or ('TARA1BOT'))
@@ -380,7 +380,7 @@ var = 'المطور الاساسي'
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) or 'المطور الثاني'  
+var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) o 'المطور الثاني'  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:User:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
@@ -3389,33 +3389,31 @@ end
 end
 end,nil)   
 end
-if text then  
-tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
-if data.id_ then 
-if data.id_ ~= bot_id then 
-local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
-if not data.profile_photo_ then 
-if DRAGONChengPhoto then 
-send(msg.chat_id_, msg.id_, "امسكو مسح صورو الحيوان 😂😂")
-database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
-end
-end
-if data.profile_photo_.big_.persistent_id_ then 
-if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
-local Text = {
-  "شيل صورتك احسن",
-  "حلوه الصوره دي",
-  "حاتطه صوره وحده احلي منك لي",
-  "مممممممم مغير الصوره لي ",
-  "شكلك مقموص",
+local msg = data.message_
+text = msg.content_.text_
+if text and not database:get(bot_id..'lock:bot:ttt'..bot_id) and not database:get(bot_id.."lock:bot:ttt2:"..msg.chat_id_) then  
+function dx(extra,result,success)
+if result.id_ then 
+local dx2 = database:get("dx:photo"..result.id_)
+if not result.profile_photo_ then 
+if dx2 then 
+send(msg.chat_id_, msg.id_, 1, "حذف كل صوره الحلو 😂👌🏻", 1, 'html')
+database:del("dx:photo"..result.id_) 
+end end
+if result.profile_photo_ then 
+if dx2 and dx2 ~= result.profile_photo_.big_.persistent_id_ then 
+local dx_text = {
+  "طالع صاك بالصوره الجديده ممكن نرتبط",
+  "صوره فيطي الجديده غيرها",
+  "صورتك الجديده فد شي 😑😹",
+  "حطيت صورتي شوفوني اني 5ف 🙄😹",
 }
-send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
+dx3 = math.random(#dx_text)
+send(msg.chat_id_, msg.id_, 1, dx_text[dx3], 1, 'html')
 end  
-database:set(bot_id.."DRAGON:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
-end
-end
-end
-end,nil)  
+database:set("dx:photo"..result.id_, result.profile_photo_.big_.persistent_id_) 
+end end end
+getUser(msg.sender_user_id_, dx)
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 if not DEV(msg) then
@@ -14366,15 +14364,7 @@ end,nil)
 end,nil)
 end
 end
-if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 then
-if not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
-return false
-end 
-database:setex(bot_id.."Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_," ☉┇ ارسل الان اذاعتك؟ \n ☉┇ للخروج ارسل الغاء ")
-return false
-end 
+
 if text == 'سحكاتي' or text == 'تعديلاتي' then 
 local Num = tonumber(database:get(bot_id..'edits'..msg.chat_id_..msg.sender_user_id_) or 0)
 if Num == 0 then 
