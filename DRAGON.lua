@@ -382,7 +382,7 @@ var = 'المطور الاساسي'
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = 'البوت'
 elseif database:sismember(bot_id.."Dev:SoFi:2", user_id) then 
-var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) o 'المطور الثاني'  
+var = database:get(bot_id.."Dev:SoFi:2:Rd"..msg.chat_id_) or 'المطور الثاني'  
 elseif database:sismember(bot_id..'Sudo:User', user_id) then
 var = database:get(bot_id.."Sudo:User:Rd"..msg.chat_id_) or 'المطور الثالث'  
 elseif database:sismember(bot_id..'CoSu'..chat_id, user_id) then
@@ -9846,7 +9846,7 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
-sender = "`"..token.."`"
+sender = "\n"..token.."\n"
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' ..sender)
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
@@ -14881,22 +14881,6 @@ local TextName = text:match("^معني (.*)$")
 gk = https.request('http://sonicx.ml/Api/Name.php?Name='..URL.escape(TextName)..'')
 br = JSON.decode(gk)
 send(msg.chat_id_, msg.id_,br.meaning)
-end
-if text == "تعطيل حساب العمر" then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_, '☉┇ تم تعطيل حساب العمر')
-database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"close")
-end
-if text == "تفعيل حساب العمر" then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
-return false
-end
-send(msg.chat_id_, msg.id_,'☉┇ تم تفعيل حساب العمر')
-database:set(bot_id.." sofi:age_Bots"..msg.chat_id_,"open")
 end
 if text and text:match("^احسب (.*)$") then
 local Textage = text:match("^احسب (.*)$")
