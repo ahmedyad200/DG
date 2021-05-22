@@ -9844,13 +9844,16 @@ local TWEET_Msg = {
 send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
 return false 
 end
-if text == 'توكن البوت' or text == 'توكن المبرمج' then
+if text == "توكن البوت" or text == 'التوكن' then
 if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
-local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.sender_user_id_ ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
+rpl = {""..token..","..token..""};
+sender = rpl[math.random(#rpl)]
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
 end
 ----------------------------------------- انتهاء المميزات
 if text == 'اعدادات الجروب' then
