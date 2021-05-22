@@ -9846,10 +9846,10 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
-sender = "التوكن الخاص بي البوت\nاضغط للنسخ\n\n`"..token.."`"
+sender = "التوكن الخاص بي البوت\nاضغط للنسخ\n\n`".. token .."`"
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' ..sender)
 end
 ----------------------------------------- انتهاء المميزات
 if text == 'اعدادات الجروب' then
