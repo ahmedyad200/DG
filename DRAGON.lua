@@ -1717,7 +1717,6 @@ return false
 end 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
-os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
@@ -3059,7 +3058,6 @@ return false
 end 
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
-os.execute("rm -fr File_Bot/*")
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
@@ -3071,10 +3069,9 @@ if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end  
-os.execute("rm -fr File_Bot/ *")
 os.execute("mkdir File_Bot")
 os.execute('rm -rf getfile.json')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر')
 end
 
 if text == 'معلومات المتجر' then
@@ -9849,7 +9846,7 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
-rpl = {""..token..","..token..""};
+rpl = {"`"..token.."`"};
 sender = rpl[math.random(#rpl)]
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 local msg_id = msg.id_/2097152/0.5
