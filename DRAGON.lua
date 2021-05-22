@@ -49,17 +49,17 @@ print([[
  
  
 ]])
-io.write("\27[31;47m\n◼¦ ارسل لي توكن البوت الان \27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ ارسل لي توكن البوت الان ¦◼\27[0;34;49m\n")  
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله \27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله ¦◼\27[0;34;49m\n")  
 else
 database:set(id_server..":token",token)
 end 
 else
-io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان \27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼\27[0;34;49m\n")  
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -69,7 +69,7 @@ local SUDOID = io.read()
 if SUDOID ~= '' then
 database:set(id_server..":IDSUDO",SUDOID)
 else
-io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره \27[0;34;49m\n')
+io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼\27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -3389,31 +3389,33 @@ end
 end
 end,nil)   
 end
-local msg = data.message_
-text = msg.content_.text_
-if text and not database:get(bot_id..'lock:bot:ttt'..bot_id) and not database:get(bot_id.."lock:bot:ttt2:"..msg.chat_id_) then  
-function dx(extra,result,success)
-if result.id_ then 
-local dx2 = database:get("dx:photo"..result.id_)
-if not result.profile_photo_ then 
-if dx2 then 
-send(msg.chat_id_, msg.id_, 1, "حذف كل صوره الحلو 😂👌🏻", 1, 'html')
-database:del("dx:photo"..result.id_) 
-end end
-if result.profile_photo_ then 
-if dx2 and dx2 ~= result.profile_photo_.big_.persistent_id_ then 
-local dx_text = {
-  "طالع صاك بالصوره الجديده ممكن نرتبط",
-  "صوره فيطي الجديده غيرها",
-  "صورتك الجديده فد شي 😑😹",
-  "حطيت صورتي شوفوني اني 5ف 🙄😹",
+if text then  
+tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,data)
+if data.id_ then 
+if data.id_ ~= bot_id then 
+local DRAGONChengPhoto = database:get(bot_id.."DRAGON:Cheng:Photo"..data.id_)
+if not data.profile_photo_ then 
+if DRAGONChengPhoto then 
+send(msg.chat_id_, msg.id_, "امسكو مسح صورو الحيوان 😂😂")
+database:del(bot_id.."DRAGON:Cheng:Photo"..data.id_) 
+end
+end
+if data.profile_photo_.big_.persistent_id_ then 
+if DRAGONChengPhoto ~= data.profile_photo_.big_.persistent_id_ then 
+local Text = {
+  "شيل صورتك احسن",
+  "حلوه الصوره دي",
+  "حاتطه صوره وحده احلي منك لي",
+  "مممممممم مغير الصوره لي ",
+  "شكلك مقموص",
 }
-dx3 = math.random(#dx_text)
-send(msg.chat_id_, msg.id_, 1, dx_text[dx3], 1, 'html')
+send(msg.chat_id_, msg.id_,Text[math.random(#Text)])
 end  
-database:set("dx:photo"..result.id_, result.profile_photo_.big_.persistent_id_) 
-end end end
-getUser(msg.sender_user_id_, dx)
+database:set(bot_id.."DRAGON:Cheng:Photo"..data.id_, data.profile_photo_.big_.persistent_id_) 
+end
+end
+end
+end,nil)  
 end
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 if not DEV(msg) then
