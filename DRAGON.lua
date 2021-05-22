@@ -3149,7 +3149,7 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يوجد قناة في الاشترا�
 end
 return false  
 end
-if text == "تفعيل الاضافات" then
+--[[if text == "تفعيل الاضافات" then
 if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
@@ -3416,7 +3416,7 @@ end
 end
 end
 end,nil)  
-end
+end]]--
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 if not DEV(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
