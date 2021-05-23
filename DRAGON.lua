@@ -982,11 +982,7 @@ end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 end
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-keyboard = start
-else
+local Welcome_keyboard = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
@@ -998,7 +994,7 @@ local keyboard = {
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
 end
-send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
+send_inline_key(msg.chat_id_,Welcome_keyboard,Keyboard)
 end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
