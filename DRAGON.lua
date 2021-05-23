@@ -970,12 +970,17 @@ local keyboard = {
 {'الغاء ☉'},
 }
 send_inline_key(msg.chat_id_,bl,keyboard)
-end end
-if Chat_Type == 'USERBOT' then
-if text == '/start' then
+else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+local start = database:get(bot_id.."Start:Bot")
+if start then 
+Start_Source = start
+else
+Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه"
+end
+send_inline_key(msg.chat_id_,Start_Source,nil,inline)
+end
 local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
@@ -986,13 +991,12 @@ local Keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
-local start = database:get(bot_id.."Start:Bot")
+end
 if start then 
 Start_Source = start
 else
-Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه"
+Sudo_Welcome = '☉┇ يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 end
-send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
@@ -1419,10 +1423,6 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all')
 send_inline_key(msg.chat_id_,server,nil,inline)
-end
-if text == '/start' and DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'☉┇ اهلا عزيزي المطور\n☉┇ ارسل /sudo \n☉┇ لاظهار كيبورد المطور الهاص بك') 
-return false
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
