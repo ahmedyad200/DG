@@ -1718,7 +1718,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » `'..Get_VERGON..'`')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -3059,7 +3059,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » `'..Get_VERGON..'`')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -14707,7 +14707,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..data.sender_user_id_},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', callback_data=..data.sender_user_id_.."/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
