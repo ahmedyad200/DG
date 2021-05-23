@@ -973,15 +973,21 @@ send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local start = database:get(bot_id.."Start:Bot")
+local start = database:get(bot_id.."Start:Bot")  
 if start then 
 Start_Source = start
 else
 Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه"
-end
+end 
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 end
-local Keyboard = {
+if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
+local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
+local start = database:get(bot_id.."Start:Bot")  
+if start then 
+keyboard = start
+else
+keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
@@ -992,16 +998,12 @@ local Keyboard = {
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
 end
-if start then 
-Start_Source = start
-else
-Sudo_Welcome = '☉┇ يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-end
 send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
+end
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
-end end
+end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
 send(msg.sender_user_id_, msg.id_,' ☉┇ تم ارسال رسالتك\n ☉┇ سيتم رد في اقرب وقت')
 tdcli_function ({ID = "ForwardMessages", chat_id_ = SUDO,    from_chat_id_ = msg.sender_user_id_,    message_ids_ = {[0] = msg.id_},    disable_notification_ = 1,    from_background_ = 1 },function(arg,data) 
@@ -1424,6 +1426,10 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـ�
 ]]):read('*all')
 send_inline_key(msg.chat_id_,server,nil,inline)
 end
+if text == '/start' and DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'☉┇ اهلا عزيزي المطور\n☉┇ ارسل /sudo \n☉┇ لاظهار كيبورد المطور الهاص بك') 
+return false
+end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -1718,7 +1724,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » `'..Get_VERGON..'`')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -3059,7 +3065,7 @@ end
 os.execute('rm -rf DRAGON.lua')
 os.execute('rm -rf getfile.json')
 os.execute('wget https://raw.githubusercontent.com/ahmedyad200/DG/master/DRAGON.lua')
-send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » `'..Get_VERGON..'`')
+send(msg.chat_id_, msg.id_,' ☉┇ تم تحديث السورس \n☉┇ تم اعاده تشغيل البوت\n☉┇ الاصدار » {`'..Get_VERGON..'`}')
 os.execute("mkdir File_Bot") 
 dofile('DRAGON.lua')
 end
@@ -14707,7 +14713,7 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
+{text = '❶️❶', msg.sender_user_id_, callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
 {text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
