@@ -603,7 +603,7 @@ DRAGON_Msg = 'رب التفاعل'
 end 
 return DRAGON_Msg 
 end
-sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لي تشغيل البوت",0,'md')
+---sendText(SUDO," ☉┇ شكرا لاستخدامك سورس باور\n☉┇ اضغط /sudo لي تشغيل البوت",0,'md')
 function Get_Info(msg,chat,user) 
 local Chek_Info = https.request('https://api.telegram.org/bot'..token..'/getChatMember?chat_id='.. chat ..'&user_id='.. user..'')
 local Json_Info = JSON.decode(Chek_Info)
@@ -972,16 +972,6 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local start = database:get(bot_id.."Start:Bot")  
-if start then 
-Start_Source = start
-else
-Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه"
-end 
-send_inline_key(msg.chat_id_,Start_Source,nil,inline)
-end
-if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
 local Welcome_keyboard = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local keyboard = {
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
@@ -994,9 +984,15 @@ local keyboard = {
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
 end
+local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
+local rtp = Rutba(msg.sender_user_id_,msg.chat_id_)
+local start = database:get(bot_id.."Start:Bot")  
+local Welcome_Source = "\n☉┇ مرحبا عزيزي"..rtp.."\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه\n[مطور البوت](tg://user?id="..SUDO..""
+Start_Source = start or Welcome_Source
+end 
 send_inline_key(msg.chat_id_,Welcome_keyboard,Keyboard)
-end
-end
+send_inline_key(msg.chat_id_,Start_Source,nil,inline)
+end end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
 end
@@ -1421,10 +1417,6 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all')
 send_inline_key(msg.chat_id_,server,nil,inline)
-end
-if text == '/start' and DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'☉┇ اهلا عزيزي المطور\n☉┇ ارسل /sudo \n☉┇ لاظهار كيبورد المطور الهاص بك') 
-return false
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
