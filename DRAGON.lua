@@ -78,7 +78,7 @@ config = {
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":IDSUDO"),
  }
-create(config, "./DG_INFO.lua")   
+create(config, "./INFOBOT.lua")   
 end 
 create_config_auto()
 token = database:get(id_server..":token")
@@ -100,7 +100,7 @@ exit 1
 fi
 if [ ! $token ]; then
 echo "•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━"
-echo -e "\e[1;36mTOKEN IS NOT FIND IN FILE DG_INFO.lua \e[0m"
+echo -e "\e[1;36mTOKEN IS NOT FIND IN FILE INFOBOT.lua \e[0m"
 echo "•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• ━ ━ ━ ━━ ━ ━ ━ ━ ━ ━ ━━ ━"
 exit 1
 fi
@@ -137,7 +137,7 @@ file:write(serialized)
 file:close() 
 end 
 local load_redis = function()  
-local f = io.open("./DG_INFO.lua", "r")  
+local f = io.open("./INFOBOT.lua", "r")  
 if not f then   
 AutoSet()  
 else   
@@ -145,7 +145,7 @@ f:close()
 database:del(id_server..":token")
 database:del(id_server..":IDSUDO")
 end  
-local config = loadfile("./DG_INFO.lua")() 
+local config = loadfile("./INFOBOT.lua")() 
 return config 
 end 
 _redis = load_redis()  
@@ -163,7 +163,7 @@ print([[
                                                             
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ]])
-sudos = dofile("./DG_INFO.lua") 
+sudos = dofile("./INFOBOT.lua") 
 SUDO = tonumber(sudos.SUDO)
 sudo_users = {SUDO}
 bot_id = sudos.token:match("(%d+)")  
@@ -1417,10 +1417,6 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخـ
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all')
 send_inline_key(msg.chat_id_,server,nil,inline)
-end
-if text == '/start' and DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,'☉┇ اهلا عزيزي المطور\n☉┇ ارسل /sudo \n☉┇ لاظهار كيبورد المطور الهاص بك') 
-return false
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
