@@ -77,9 +77,6 @@ local create_config_auto = function()
 config = {
 token = database:get(id_server..":token"),
 SUDO = database:get(id_server..":IDSUDO"),
-
-
-local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
  }
 create(config, "./INFOBOT.lua")   
 end 
@@ -14890,13 +14887,18 @@ local Text_Rand = List[math.random(#List)]
 database:set(bot_id.."KLISH:ID"..msg.chat_id_,Text_Rand)
 send(msg.chat_id_, msg.id_,'☉┇ تم تغير الايدي ارسل ايدي لرؤيته')
 end
+if text == "معلومات التنصيب" or text == 'معلومات البوت' then
+if not SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end 
+send(msg.chat_id_, msg.id_,INFOBOT)
+end
 if text == ("ايدي") and msg.reply_to_message_id_ == 0 and not database:get(bot_id..'Bot:Id'..msg.chat_id_) then     
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+send(msg.chat_id_, msg.id_,'['..textchuser.' msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
 end
 return false
 end
