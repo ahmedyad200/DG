@@ -49,27 +49,27 @@ print([[
  
  
 ]])
-io.write("\27[31;47m\n        ◼¦ ارسل لي توكن البوت الان ¦◼\27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ ارسل لي توكن البوت الان ¦◼        \27[0;34;49m\n")  
 local token = io.read()
 if token ~= '' then
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
-io.write("\27[31;47m\n        ◼¦ التوكن غير صحيح تاكد منه ثم ارسله ¦◼\27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله ¦◼        \27[0;34;49m\n")  
 else
 database:set(id_server..":token",token)
 end 
 else
-io.write("\27[31;47m\n        ◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼\27[0;34;49m\n")  
+io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼        \27[0;34;49m\n")  
 end 
 os.execute('lua DRAGON.lua')
 end
 if not database:get(id_server..":IDSUDO") then
-io.write('\27[31;47m\n        ◼¦ ارسل لي ايدي المطور الاساسي \27[0;34;49m\n')
+io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
 if SUDOID ~= '' then
 database:set(id_server..":IDSUDO",SUDOID)
 else
-io.write('\27[31;47m\n        ◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼\27[0;34;49m\n')
+io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
@@ -84,7 +84,6 @@ create_config_auto()
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":IDSUDO")
 install = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
-print('\n\27[1;34m doneeeeeeee senddddddddddddd :')
 file = io.open("DRAGON", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -5119,7 +5118,7 @@ local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
 if Get_info then
 local TextS = "\n ☉┇ اهلا بك في متجر ملفات سورس باور\n ☉┇ ملفات السورس ↓\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n\n"
-local TextE = "\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n ☉┇ علامة تعني { ✔️ } ملف موجود\n ☉┇ علامة تعني { ✖ } ملف محذوف"
+local TextE = "\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n☉┇ علامة { ✔️ } تعني ملف محمل\n☉┇ علامة { ✖ } تعني ملف محذوف\n☉┇ لي تحميل ملف اكتب `تحميل` + اسم الملف\n☉┇ لي مسح ملف اكتب `مسح` + اسم الملف"
 local NumFile = 0
 for name,Info in pairs(res.plugins_) do
 local Check_File_is_Found = io.open("File_Bot/"..name,"r")
@@ -13041,12 +13040,6 @@ tdcli_function ({ ID = "GetUserProfilePhotos", user_id_ = msg.sender_user_id_, o
 end
 
 if text == "أحمد" or text == 'احمد' then
-database:set(bot_id.."Ahmed_photo:status"..msg.chat_id_,true) 
-local AY_ph = database:get(bot_id.."Ahmed_photo:status"..msg.chat_id_)
-if not AY_ph then
-send(msg.chat_id_, msg.id_," حدث خطأ في ال api") 
-return false  
-end
 local function getpro(extra, result, success)
 if result.photos_[0] then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_," أحمد مبرمج سورس باور @ahmedyad200 ", msg.id_, msg.id_, "md")
@@ -15588,6 +15581,29 @@ keyboard.inline_keyboard = {
 {{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if text == "كشف الكدب" or text == 'كشف الكذب' or text == 'كداب' then
+rpl = {"كداب 🤭","بيعرص 😂","صادق 🌚","معرفش 🥲"};
+sender = rpl[math.random(#rpl)]
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .........................................')
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (sender))
 end
 if Text == "/VOISME1" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 data,res = https.request('https://black-source.tk/BlackTeAM/audios.php')
