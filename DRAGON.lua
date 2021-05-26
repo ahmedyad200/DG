@@ -15583,26 +15583,33 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if text == "كشف الكدب" or text == 'كشف الكذب' or text == 'كداب' then
-rpl = {"كداب 🤭","بيعرص 😂","صادق 🌚","معرفش 🥲"};
-sender = rpl[math.random(#rpl)]
+local rpl = {"كداب 🤭","بيعرص 😂","صادق 🌚","معرفش 🥲"};
+local sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ..')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ...')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب ....')
-https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text=☉┇ جاري كشف الكدب .........................................')
+local kdab1 = '☉┇ جاري كشف الكدب .'
+local kdab2 = '☉┇ جاري كشف الكدب ..'
+local kdab3 = '☉┇ جاري كشف الكدب ...'
+local kdab4 = '☉┇ جاري كشف الكدب ....'
+local kdab5 = '☉┇ جاري كشف الكدب .....'
+local kdab6 = '☉┇ جاري كشف الكدب ..................'
+https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab1))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab2))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab3))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab4))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab5))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab2))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab3))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab4))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab5))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab2))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab3))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab4))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab5))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab2))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab3))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab4))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab5))
+https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (kdab6))
 https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id=' .. msg.chat_id_ .. '&text='.. (sender))
 end
 if Text == "/VOISME1" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
