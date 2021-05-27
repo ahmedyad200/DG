@@ -978,19 +978,23 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
+local iduser = result.sender_user_id_
+local Users = database:scard(bot_id..'User_Bot')  
+local username = ('[@'..data.username_..']' or 'لا يوجد')
+local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 local Keyboard_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
 } 
 local Keyboard = {
+{'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
+{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'ايدي','انا مين','العاب باور'},
 {'سورس','تغير الايدي'},
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
-{'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
 local start = database:get(bot_id.."Start:Bot")
 if start then 
@@ -1000,6 +1004,7 @@ Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصا�
 end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Keyboard_Welcome,Keyboard)
+sendText(SUDO,Textstartwl,0,'md')
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
 end end
@@ -1200,13 +1205,14 @@ end
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
 dofile('DRAGON.lua')  
 end 
+--[[
 if text == '/start' then
 local iduser = result.sender_user_id_
 local Users = database:scard(bot_id..'User_Bot')  
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 sendText(SUDO,Textstartwl,0,'md')
-end end 
+end end ]]--
 if text == ("الردود المتعدده ☉") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
