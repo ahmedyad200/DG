@@ -61,8 +61,9 @@ local url , res = https.request('https://api.telegram.org/bot'..token..'/getMe')
 if res ~= 200 then
 io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله ¦◼        \27[0;34;49m\n")  
 else
-database:set(id_server..":token",token)
+local json = JSON.decode(url)
 database:set(id_server..":token_username",""..json.result.username)
+database:set(id_server..":token",token)
 end 
 else
 io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼        \27[0;34;49m\n")  
@@ -189,7 +190,7 @@ os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local runapp = sudos.token
-local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username",""..json.result.username) or ('TARA1BOT'))
+local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username") or ('TARA1BOT'))
 -- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
