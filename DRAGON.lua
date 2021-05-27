@@ -1204,7 +1204,7 @@ if text == '/start' then
 local iduser = result.sender_user_id_
 local Users = database:scard(bot_id..'User_Bot')  
 local username = ('[@'..data.username_..']' or 'لا يوجد')
-local Textstartwl == '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
+local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 sendText(SUDO,Textstartwl,0,'md')
 end end 
 if text == ("الردود المتعدده ☉") and CoSu(msg) then
