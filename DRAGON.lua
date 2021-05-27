@@ -982,13 +982,12 @@ local iduser = result.sender_user_id_
 local Users = database:scard(bot_id..'User_Bot')  
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local Textstartwl == '☉┇ قام احد بي عمل start لبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
-local Sudo_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
+local Keyboard_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
 local inline = {
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
 } 
 local Keyboard = {
-{'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
@@ -1004,8 +1003,8 @@ else
 Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصائي حمايه جروبات من الدرجه الاوله\n☉┇ طريقه تفعيلي في المجموعات\n☉┇1-قم بي اضافتي الي مجموعتك\n☉┇2-قم بي رفعي مشرف مع كامل الصلاحيات\n☉┇3-قم بي كتابه امر التفعيل {تفعيل} في الدردشه"
 end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
-send_inline_key(msg.chat_id_,Sudo_Welcome,Keyboard)
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(Textstartwl).."&parse_mode=markdown")
+send_inline_key(msg.chat_id_,Keyboard_Welcome,Keyboard)
+sendText(SUDO,Textstartwl,0,'md')
 end
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
 return false
