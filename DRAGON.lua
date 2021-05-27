@@ -971,7 +971,7 @@ local keyboard = {
 {'تفعيل الاشتراك الاجباري ☉','تعطيل الاشتراك الاجباري ☉'},
 {'تغير رساله الاشتراك ☉','مسح رساله الاشتراك ☉','تغير الاشتراك ☉'},
 {'الاشتراك الاجباري ☉','وضع قناة الاشتراك ☉'},
-{'جلب نسخه الاحتياطيه ☉','جلب المشتركين ☉'},
+{'جلب الجروبات ☉','جلب المشتركين ☉'},
 {'تحديث السورس ☉','اعاده التشغيل ☉','تحديث المتجر ☉'},
 {'الغاء ☉'},
 }
@@ -1910,7 +1910,7 @@ database:setex(bot_id.."Send:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_i
 send(msg.chat_id_, msg.id_," ☉┇ ارسل لي التوجيه الان")
 return false
 end 
-if text == 'جلب نسخه الاحتياطيه ☉' then
+if text == 'جلب الجروبات ☉' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3458,7 +3458,7 @@ https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. 
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
-if text == 'رفع نسخه الاحتياطيه' then
+if text == 'رفع الجروبات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -3495,19 +3495,19 @@ end
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
---[[if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
+if text == 'روابط الجروبات' or text == 'روابط المجموعات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
 end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id.."Chek:Groups")
-local Groupslink = database:get(bot_id.."Private:Group:Link"..v)
+local Groupslink = database:get(bot_id.."Private:Group:Link")
 local text = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
 for k,v in pairs(list) do
 if k == 1 then
-text = text..'"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
+text = text..'"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or 'Not Found').." ]\n~~~~~~~~~~~~~~~~~\n"
 else
-text = text..',"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or "Not Found").." ]\n~~~~~~~~~~~~~~~~~\n"
+text = text..',"'..k.." Group ID  : [ "..v.." ]\n Group Link : [ "..(Groupslink or 'Not Found').." ]\n~~~~~~~~~~~~~~~~~\n"
 end
 end
 text = text..']}'
@@ -3515,7 +3515,7 @@ local file = io.open('Groups.txt', 'w')
 file:write(text)
 file:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './Groups.txt', ' عدد الجروبات في الملف { '..#list..'}')
-end]]--
+end
 if text == 'جلب المشتركين' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -3536,7 +3536,7 @@ File:write(t)
 File:close()
 sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}')
 end
-if text == 'جلب نسخه الاحتياطيه' then
+if text == 'جلب الجروبات' then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
 return false
@@ -5097,8 +5097,7 @@ return false
 end
 t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
-for v in io.popen('ls'):lines() do
-if v:match(".lua$") then
+for v in io.popen('ls'):lines() then
 i = i + 1
 t = t..i..'- الملف »>{`'..v..'`}\n'
 end
@@ -14816,7 +14815,7 @@ send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم �
 end
 if text and text:match("^كرونا (.*)$") then
 local TextCrona = text:match("^كرونا (.*)$")
-co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..TextCrona..'')
+co = https.request('http://amerajo.tk/api_saikoo/api.php?corona='..URL.escape(TextCrona)..'')
 cr = JSON.decode(co)
 i = 0
 for k,v in pairs(cr.ok) do
@@ -15283,8 +15282,8 @@ local Teext =[[
 ☉┇ الغاء العام
 ☉┇ قائمه الحظر العام
 ☉┇ مسح قائمه الحظر العام
-☉┇ جلب نسخه الاحتياطيه
-☉┇ رفع نسخه الاحتياطيه
+☉┇ جلب الجروبات
+☉┇ رفع الجروبات
 •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•
 ☉┇ اذاعه خاص
 ☉┇ اذاعه
