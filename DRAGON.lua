@@ -1524,7 +1524,7 @@ end
 if text == '/start' then
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 Text = ' ☉┇ تم عمل start\n'..
-'\n ☉┇ بواسطة {'..Name..'}'..
+'\n ☉┇ بواسطة {'..Name..'}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
@@ -1545,10 +1545,6 @@ return false
 end
 if text == 'زخرفه' then
 send(msg.chat_id_,msg.id_, ' الزخرفه ارسل `زخرفه + الكلمه` ') 
-return false
-end
-if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' and DevSoFi(msg) then
-send(msg.chat_id_,msg.id_, '') 
 return false
 end
 if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' then
