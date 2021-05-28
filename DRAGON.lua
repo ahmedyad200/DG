@@ -2910,6 +2910,7 @@ else
 sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local NameChat = chat.title_
+local admins = data.members_
 local IdChat = msg.chat_id_
 local NumMember = data.member_count_
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
@@ -2918,8 +2919,10 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '☉┇ تم تفعيل جروب جديده\n☉┇ معلومات الجروب كامله'..
-'\n☉┇ منشئ الجروب {['..b.first_name_..'](T.me/'..UserName..')}'..
+Text = '☉┇ تم تفعيل جروب جديده\n☉┇ المعلومات كامله\n'..
+'\n☉┇ اسم المنشئ {'..b.first_name_..'}' or 'حدث خطأ'..
+'\n☉┇ معرف المنشئ {'..UserName..'}' or 'لا يوجد'..
+'\n☉┇ عدد الادمنيه {`'..admins..'`}'..
 '\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n☉┇ اسم الجروب {['..NameChat..']}'..
 '\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
