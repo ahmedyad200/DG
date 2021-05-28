@@ -2882,16 +2882,20 @@ end
 end
 
 if text and Mod(msg) then
-if msg.can_be_deleted_ == false then 
-send(msg.chat_id_, msg.id_,'☉┇ ارفع البوت مشرف او اعطيه صلاحيه حذف الرسائل و سيتم التفعيل البوت تلقائي')
-return false  
-end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,' ☉┇ عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
+end
+if Mod(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب') 
 database:srem(bot_id..'Chek:Groups',msg.chat_id_)
-database:get(bot_id..'Left:Bot'..msg.chat_id_)
-return false
+end
+return false  
+end
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,'☉┇ ارفع البوت مشرف و سيتم التفعيل البوت تلقائي')
+return false  
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
