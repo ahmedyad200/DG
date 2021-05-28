@@ -2900,7 +2900,6 @@ tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b)
 if b.first_name_ == false then
 return false  
 end
-local UserName = (b.username_ or "ahmedyad200")
 end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
@@ -2910,6 +2909,7 @@ else
 sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local NameChat = chat.title_
+local UserName = b.username_
 local admins = data.members_
 local IdChat = msg.chat_id_
 local NumMember = data.member_count_
@@ -2922,10 +2922,11 @@ end
 Text = '☉┇ تم تفعيل جروب جديده\n☉┇ المعلومات كامله\n'..
 '\n☉┇ اسم المنشئ {'..b.first_name_..'}' or 'حدث خطأ'..
 '\n☉┇ معرف المنشئ {'..UserName..'}' or 'لا يوجد'..
+'\n☉┇ ايدي المنشئ {'..owner_id..'}' or 'حدث خطأ'..
 '\n☉┇ عدد الادمنيه {`'..admins..'`}'..
-'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
-'\n☉┇ اسم الجروب {['..NameChat..']}'..
 '\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
+'\n☉┇ اسم الجروب {['..NameChat..']}'..
+'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -2933,6 +2934,7 @@ end
 end
 end,nil) 
 end,nil) 
+end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 
