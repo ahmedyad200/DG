@@ -2891,16 +2891,6 @@ if msg.can_be_deleted_ == false then
 send(msg.chat_id_, msg.id_,'☉┇ ارفع البوت مشرف و سيتم التفعيل البوت تلقائي')
 return false  
 end
-tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
-local admins = data.members_
-for i=0 , #admins do
-if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
-owner_id = admins[i].user_id_
-tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
-if b.first_name_ == false then
-return false  
-end
-end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
