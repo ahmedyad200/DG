@@ -32,7 +32,8 @@ end
 file:write(serialized)    
 file:close()  
 end  
-if not database:get(id_server..":token") then
+os.execute('lua DRAGON.lua')
+if not database:get(id_server..":IDSUDO") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
 
@@ -54,6 +55,16 @@ print([[
  
  
 ]])
+io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
+local SUDOID = io.read()
+if SUDOID ~= '' then
+database:set(id_server..":IDSUDO",SUDOID)
+else
+io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
+end 
+os.execute('lua DRAGON.lua')
+end
+if not database:get(id_server..":token") then
 io.write("\27[31;47m\n◼¦ ارسل لي توكن البوت الان ¦◼        \27[0;34;49m\n")  
 local token = io.read()
 if token ~= '' then
@@ -67,16 +78,6 @@ database:set(id_server..":token",token)
 end 
 else
 io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼        \27[0;34;49m\n")  
-end 
-os.execute('lua DRAGON.lua')
-end
-if not database:get(id_server..":IDSUDO") then
-io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
-local SUDOID = io.read()
-if SUDOID ~= '' then
-database:set(id_server..":IDSUDO",SUDOID)
-else
-io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
 end 
 os.execute('lua DRAGON.lua')
 end
