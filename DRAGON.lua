@@ -2883,7 +2883,6 @@ end
 
 if text and Mod(msg) then
 if msg.can_be_deleted_ == false then 
-if msg.content_.ID == "MessageChatAddMembers" then  
 send(msg.chat_id_, msg.id_,'☉┇ ارفع البوت مشرف او اعطيه صلاحيه حذف الرسائل و سيتم التفعيل البوت تلقائي')
 return false  
 end
