@@ -119,9 +119,9 @@ done
 ]])  
 file:close()  
 file = io.open("luaalllode", "w")  
-token = "]]..database:get(id_server..":token")..[["
-SUDO = "]]..database:get(id_server..":SUDO")..[["
-USERBOT ="]]..database:get(id_server..":token_username")..[["
+token = database:get(id_server..":token")
+SUDO = database:get(id_server..":IDSUDO")
+USERBOT = '@'..database:get(id_server..":token_username")
 PORT = Port
 IPSETVER = IP
 USERSERVER =  whoami
