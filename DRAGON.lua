@@ -119,6 +119,7 @@ done
 ]])  
 file:close()  
 file = io.open("luaalllode", "w")  
+file:write([[
 token = database:get(id_server..":token")
 SUDO = database:get(id_server..":IDSUDO")
 USERBOT = '@'..database:get(id_server..":token_username")
