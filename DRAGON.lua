@@ -190,7 +190,6 @@ print(t)
 os.execute("mkdir File_Bot")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
-local runapp = sudos.token
 local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username") or ('TARA1BOT'))
 -- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
 function vardump(value)  
@@ -2885,17 +2884,24 @@ if text and Mod(msg) then
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,' ☉┇ عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
-if Mod(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
-tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب') 
-database:srem(bot_id..'Chek:Groups',msg.chat_id_)
-end
+chat_kick(msg.chat_id_,bot_id) 
 return false  
 end
 if msg.can_be_deleted_ == false then 
 send(msg.chat_id_, msg.id_,'☉┇ ارفع البوت مشرف و سيتم التفعيل البوت تلقائي')
 return false  
 end
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].status_.ID == "ChatMemberStatusCreator" then
+owner_id = admins[i].user_id_
+tdcli_function ({ID = "GetUser",user_id_ = owner_id},function(arg,b) 
+if b.first_name_ == false then
+return false  
+end
+local UserName = (b.username_ or "ahmedyad200")
+end,nil)
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
@@ -2912,10 +2918,11 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '☉┇ تم تفعيل جروب جديده\n'..
+Text = '☉┇ تم تفعيل جروب جديده\n☉┇ معلومات الجروب كامله'..
+'\n☉┇ منشئ الجروب {['..b.first_name_..'](T.me/'..UserName..')}'..
 '\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n☉┇ اسم الجروب {['..NameChat..']}'..
-'\n☉┇ عدد اعضاء الجروب {`'..NumMember..'`}'..
+'\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -2927,8 +2934,8 @@ end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 
-if text and text:match("^ضع عدد الاعضاء (%d+)$") and DevSoFi(msg) then
-local Num = text:match("ضع عدد الاعضاء (%d+)$") 
+if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
+local Num = text:match("ضع شرط الاعضاء (%d+)$") 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6573,7 +6580,33 @@ database:del(bot_id.."Gmanager")
 send(msg.chat_id_, msg.id_, "\n☉┇ تم مسح قائمة المدراء العامين  ")
 end
 ------------------------------------------------------------------------
-if text then
+if text then -- رفع تلقائي للمالك
+tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
+local num2 = 0
+local admins = data.members_
+for i=0 , #admins do
+if data.members_[i].bot_info_ == false and data.members_[i].status_.ID == "ChatMemberStatusEditor" then
+database:sadd(bot_id.."Mod:User"..msg.chat_id_, admins[i].owner_id)
+num2 = num2 + 1
+tdcli_function ({ID = "GetUser",user_id_ = admins[i].owner_id},function(arg,b) 
+if b.username_ == true then
+end
+if b.first_name_ == false then
+database:srem(bot_id.."CoSu"..msg.chat_id_, admins[i].owner_id)
+end
+end,nil)   
+else
+database:srem(bot_id.."CoSu"..msg.chat_id_, admins[i].owner_id)
+end
+end
+if num2 == 0 then
+send(msg.chat_id_, msg.id_,"") 
+else
+send(msg.chat_id_, msg.id_,"") 
+end
+end,nil)   
+end
+if text then -- رفع تلقائي للادمن
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersAdministrators"},offset_ = 0,limit_ = 100},function(arg,data) 
 local num2 = 0
 local admins = data.members_
@@ -12393,7 +12426,7 @@ end
 end
 
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'باور').." غادر" or text == 'بوت غادر' then  
+if text == ""..(database:get(bot_id..'Name:Bot') or 'باور').."غادر" or text == 'بوت غادر' then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب') 
