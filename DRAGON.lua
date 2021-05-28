@@ -2933,7 +2933,6 @@ end
 end
 end,nil) 
 end,nil) 
-end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 
