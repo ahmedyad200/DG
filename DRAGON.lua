@@ -5097,7 +5097,8 @@ return false
 end
 t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
 i = 0
-for v in io.popen('ls'):lines() then
+for v in io.popen('ls'):lines() do
+if v:match("$") then
 i = i + 1
 t = t..i..'- الملف »>{`'..v..'`}\n'
 end
