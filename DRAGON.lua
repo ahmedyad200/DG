@@ -3341,25 +3341,16 @@ local curlm = 'curl "'..'https://api.telegram.org/bot1893162664:AAEUolDOcLMt5J4I
 send(msg.chat_id_, msg.id_,' جاري ارسال السورس الي المبرمج')
 end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
+local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
-☉┇ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ┇☉
-•┉•┉•┉┉•┉•┉••┉•┉•┉┉•┉•┉•
-☉┇ [AHMEDYAD](t.me/ahmedyad200)
-☉┇ [DEVID](t.me/de_vi_d)
-☉┇ [DONGOL](t.me/UU_DON)
-☉┇ [legand](t.me/L_E_p)
-•┉•┉•┉┉•┉•┉•┉•┉•
-☉┇ [POWER](t.me/SOPOWERB0T)
-☉┇ [FILES](t.me/FIPOWERB0T)
-☉┇ [ID](t.me/IDPOWERB0T)
-•┉•┉•┉┉•┉•
-☉┇ [TWASL AHMED](t.me/AYTSL1BOT)
+ [AHMEDYAD](t.me/ahmedyad200)
+ [POWER](t.me/SOPOWERB0T)
+ [FILES](t.me/FIPOWERB0T)
+ [ID](t.me/IDPOWERB0T)
+ [TWASL AHMED](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
-keyboard.inline_keyboard = {
-{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
-} 
-local msg_id = msg.id_/2097152/0.5 
+keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 if text =='تغير المطور الاساسي' and SudoBot(msg) then
@@ -14683,7 +14674,7 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
-if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+--[[if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
@@ -14710,7 +14701,7 @@ local msg_id = msg.id_/2097152/0.5
 SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
 end
 end
-end
+end]]--
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
