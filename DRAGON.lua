@@ -176,7 +176,7 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------  
-t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n____________________\n"..'\27[m'
+t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n           ____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
@@ -348,7 +348,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = true  
-elseif tonumber(user_id) == tonumber(DEVSSO) then
+elseif tonumber(user_id) == tonumberDEVSSO then
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -396,7 +396,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = 'مـبـرمـج افـايـره²'
-elseif tonumber(user_id) == tonumber(DEVSSO) then
+elseif tonumber(user_id) == tonumberDEVSSO then
 var = 'مطور السورس'  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
@@ -2901,7 +2901,6 @@ tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).I
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
 chat_kick(msg.chat_id_,bot_id) 
-send(msg.chat_id_, msg.id_,' ☉┇ تم مغادره المجموعه')
 return false  
 end
 if msg.can_be_deleted_ == false then 
@@ -2916,7 +2915,6 @@ else
 sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local NameChat = chat.title_
-local UserName = b.username_
 local admins = data.members_
 local IdChat = msg.chat_id_
 local NumMember = data.member_count_
@@ -2927,13 +2925,10 @@ else
 LinkGp = 'حدث خطأ'
 end
 Text = '☉┇ تم تفعيل جروب جديده\n☉┇ المعلومات كامله\n'..
-'\n☉┇ اسم المنشئ {'..b.first_name_..'}' or 'حدث خطأ'..
-'\n☉┇ معرف المنشئ {'..UserName..'}' or 'لا يوجد'..
-'\n☉┇ ايدي المنشئ {'..owner_id..'}' or 'حدث خطأ'..
-'\n☉┇ عدد الادمنيه {`'..admins..'`}' or '0'..
-'\n☉┇ عدد الاعضاء {`'..NumMember..'`}' or '0'..
-'\n☉┇ اسم الجروب {['..NameChat..']}' or 'حدث خطأ'..
-'\n☉┇ ايدي الجروب {`'..IdChat..'`}' or 'حدث خطأ'..
+'\n☉┇ عدد الادمنيه {`'..admins..'`}'..
+'\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
+'\n☉┇ اسم الجروب {['..NameChat..']}'..
+'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -3345,38 +3340,36 @@ end
 if text == 'السورس' or text == 'سورس' or text == 'يا سورس' then 
 local msg_id = msg.id_/2097152/0.5 
 local Text = [[ 
- [AHMEDYAD](t.me/ahmedyad200)
- [POWER](t.me/SOPOWERB0T)
- [FILES](t.me/FIPOWERB0T)
- [ID](t.me/IDPOWERB0T)
- [TWASL AHMED](t.me/AYTSL1BOT)
+[𝘼𝙃𝙈𝙀𝘿𝙔𝘼𝘿](t.me/ahmedyad200)
+[𝙋𝙊𝙒𝙀𝙍](t.me/SOPOWERB0T)
+[𝙁𝙄𝙇𝙀𝙎](t.me/FIPOWERB0T)
+[𝙄𝘿](t.me/IDPOWERB0T)
+[𝙏𝙒𝘼𝙎𝙇 𝘼𝙃𝙈𝙀𝘿](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
 keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
---[[
 if text =='تغير المطور الاساسي' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'✫: ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'Ed:DevBots',true) 
 end
 if database:get(bot_id.."Ed:DevBots") then
 if text and text:match("^(%d+)$") then
-local SUDO = text:match("^(%d+)$")
+local SUDON = text:match("^(%d+)$")
 send(msg.chat_id_,msg.id_, "✫: تم تغير المطور الاساسي")
 os.execute("rm -fr INFOBOT.lua")
 local A = io.open("INFOBOT.lua", 'w')
 A:write([[
-token = "]..token..[["
-SUDO = ]..SUDO..[[  
-])
+token = ]]..token..[[
+SUDO = ]]..SUDON..[[  
+]])
 A:close()
 database:del(bot_id.."Ed:DevBots")
 dofile('INFOBOT.lua')  
 dofile('DRAGON.lua')  
 end
 end
-]]--
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع الجروبات' then
@@ -4564,7 +4557,7 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(DEVSSO) then  
+if tonumber(result.sender_user_id_) == tonumberDEVSSO then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
@@ -4623,7 +4616,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if result.id_ == tonumber(DEVSSO) then
+if result.id_ == tonumberDEVSSO then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4676,7 +4669,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(DEVSSO) then
+if tonumber(userid) == tonumberDEVSSO then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4733,7 +4726,7 @@ if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if result.sender_user_id_ == tonumber(DEVSSO) then
+if result.sender_user_id_ == tonumberDEVSSO then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
@@ -4790,7 +4783,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
 return false 
 end
-if tonumber(result.id_) == tonumber(DEVSSO) then  
+if tonumber(result.id_) == tonumberDEVSSO then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مطور السورس عام")
 return false 
 end
@@ -4842,7 +4835,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(DEVSSO) then
+if tonumber(userid) == tonumberDEVSSO then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
