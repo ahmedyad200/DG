@@ -3064,7 +3064,8 @@ send(msg.chat_id_, msg.id_, " ☉┇ لا يوجد قناة في الاشترا�
 end
 return false  
 end
---[[if text == "تفعيل الاضافات" then
+--[[
+if text == "تفعيل الاضافات" then
 if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
 return false
@@ -3331,7 +3332,8 @@ end
 end
 end
 end,nil)  
-end]]--
+end
+]]--
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 if not DEV(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
@@ -3353,6 +3355,7 @@ keyboard = {}
 keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+--[[
 if text =='تغير المطور الاساسي' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'✫: ارسل ايدي المطور الاساسي الجديد')
 database:set(bot_id..'Ed:DevBots',true) 
@@ -3364,15 +3367,16 @@ send(msg.chat_id_,msg.id_, "✫: تم تغير المطور الاساسي")
 os.execute("rm -fr INFOBOT.lua")
 local A = io.open("INFOBOT.lua", 'w')
 A:write([[
-token = "]]..token..[["
-SUDO = ]]..SUDO..[[  
-]])
+token = "]..token..[["
+SUDO = ]..SUDO..[[  
+])
 A:close()
 database:del(bot_id.."Ed:DevBots")
 dofile('INFOBOT.lua')  
 dofile('DRAGON.lua')  
 end
 end
+]]--
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع الجروبات' then
@@ -8593,6 +8597,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 --------------------------------------------
+--[[
 if text == "مسح المطرودين" then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -8607,6 +8612,7 @@ send(msg.chat_id_, msg.id_,"✫:  تم مسح المطرودين ")
 end    
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 1000}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
+]]--
 if text == 'مسح المحظورين' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -12367,6 +12373,7 @@ end
 end
 
 -------------------------------
+--[[
 if text and text:match("^غادر (-%d+)$") then
 local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
 if DevBot(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
@@ -12376,7 +12383,7 @@ send(GP_ID[2], 0,"✫:  تم مغادرة المجموعه بامر من مطو�
 database:srem(bot_id.."Chek:Groups",GP_ID[2])  
 return false 
 end
-end
+end]]--
 if text == "غادر" then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
