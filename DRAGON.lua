@@ -2891,16 +2891,29 @@ return false
 end
 end
 end
-
 if text and Mod(msg) then
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
-send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'} عضو')
+send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id..'Num:Add:Bot') or 0)..'}')
 chat_kick(msg.chat_id_,bot_id) 
-return false  
+return false
 end
-database:sismember(bot_id..'Chek:Groups',msg.chat_id_)
-database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
+if da and da.user_id_ == msg.sender_user_id_ then
+if da.status_.ID == "ChatMemberStatusCreator" then
+var = 'المالك'
+elseif da.status_.ID == "ChatMemberStatusEditor" then
+var = 'مشرف'
+end
+if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+send(msg.chat_id_, msg.id_,'')
+else
+sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
+database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
+database:sadd(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_)
 local NumMember = data.member_count_
 local NameChat = chat.title_
 local IdChat = msg.chat_id_
@@ -2910,8 +2923,7 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '\n'..
-'\n☉┇ تم تفعيل جروب جديده\n'..
+Text = ' ☉┇ تم تفعيل جروب جديده\n'..
 '\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
 '\n☉┇ عدد اعضاء الجروب {`'..NumMember..'`}'..
 '\n☉┇ اسم الجروب {['..NameChat..']}'..
