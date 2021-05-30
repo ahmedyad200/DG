@@ -14599,16 +14599,13 @@ keyboard.inline_keyboard = {
 {{text = 'التالي', callback_data="/DELL1"..msg.sender_user_id_}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
-{{text = 'Twitter', url="https://www.facebook.com/help/deleteaccount"}}, 
-{{text = 'TikTok', url="https://www.tiktok.com/setting/account-delete?lang=en&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fforyou%3Flang%3Den&enter_from=setting"}}, 
-{{text = 'Telegram', url="t.me/LC6BOT"}}, 
 local msg_id = msg.id_/2097152/0.5 
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 rpl = {"53","54","55","56","57","59","60","1","58","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52"};
 sender = rpl[math.random(#rpl)]
-data,res = https.request('https://t.me/rendom6nele/'..sender)
+data,res = https.request('https://t.me/rendom6nele/1')
 if res == 200 then
 audios = json:decode(data)
 if audios.Info == true then
