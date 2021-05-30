@@ -232,10 +232,9 @@ end
 end  
 return DRAGON  
 end
-(DEVSSO), res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 function SODAPI(msg)  
 local DRAGON = false  
-for k,v in pairs(sudo_users,dev_users,(DEVSSO)) do  
+for k,v in pairs(sudo_users,dev_users,DEVSSO) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
 DRAGON = true  
 end  
