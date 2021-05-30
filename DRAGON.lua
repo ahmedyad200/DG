@@ -187,7 +187,7 @@ end
 print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
-local (DEVSSO), res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
+local DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local CHBOTPO = 'SOPOWERB0T'
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
@@ -3344,7 +3344,6 @@ local Text = [[
 [𝙋𝙊𝙒𝙀𝙍](t.me/SOPOWERB0T)
 [𝙁𝙄𝙇𝙀𝙎](t.me/FIPOWERB0T)
 [𝙄𝘿](t.me/IDPOWERB0T)
-[𝙏𝙒𝘼𝙎𝙇 𝘼𝙃𝙈𝙀𝘿](t.me/AYTSL1BOT)
 ]]
 keyboard = {}
 keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
@@ -5050,10 +5049,12 @@ i = i + 1
 t = t..i..'- الملف »>{`'..v..'`}\n'
 end
 end
+os.execute("mkdir File_Bot")
 send(msg.chat_id_, msg.id_,t)
 end
 if text == "المتجر" or text == 'متجر الملفات' then
 if DevSoFi(msg) then
+os.execute("mkdir File_Bot")
 local Get_Files, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
@@ -5096,6 +5097,7 @@ local json_file, res = https.request("https://raw.githubusercontent.com/ayacay/f
 if res == 200 then
 os.execute("rm -fr File_Bot/"..file)
 send(msg.chat_id_, msg.id_,t) 
+os.execute("mkdir File_Bot")
 dofile('DRAGON.lua')  
 else
 send(msg.chat_id_, msg.id_," ☉┇ فشل مسح الملف \n") 
@@ -5104,6 +5106,7 @@ return false
 end
 if text and text:match("^(تحميل) (.*)(.lua)$") and DevSoFi(msg) then
 local name_t = {string.match(text, "^(تحميل) (.*)(.lua)$")}
+os.execute("mkdir File_Bot")
 local file = name_t[2]..'.lua'
 local file_bot = io.open("File_Bot/"..file,"r")
 if file_bot then
@@ -5130,6 +5133,7 @@ send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لا�
 return false
 end
 os.execute("rm -fr File_Bot/ *")
+os.execute("mkdir File_Bot")
 send(msg.chat_id_,msg.id_," ☉┇ تم مسح ملفات البوت يمكنك تحميلها من `المتجر`")
 return false
 end
@@ -12375,8 +12379,8 @@ tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id
 send(msg.chat_id_, msg.id_,"✫:  تم مغادرة المجموعه") 
 send(GP_ID[2], 0,"✫:  تم مغادرة المجموعه بامر من مطور البوت") 
 database:srem(bot_id.."Chek:Groups",GP_ID[2])  
-return false 
 end
+return false 
 end
 if text == "غادر" then  
 if Sudo(msg) and not database:get(bot_id..'Left:Bot'..msg.chat_id_)  then 
@@ -14582,6 +14586,26 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+if text == 'رابط حذف' or text == 'رابط الحذف' or text == 'بوت حذف' or text == 'بوت الحذف' then 
+local Text = [[ 
+رابط حذف جميع موقع التواصل
+احذف بقي عشان ونبي زهقت منك 
+]] 
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = 'Telegram',url="https://my.telegram.org/auth?to=delete"}},
+{{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}},
+{{text = 'Instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},
+{{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
+{{text = 'التالي', callback_data="/DELL1"..msg.sender_user_id_}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
+} 
+{{text = 'Twitter', url="https://www.facebook.com/help/deleteaccount"}}, 
+{{text = 'TikTok', url="https://www.tiktok.com/setting/account-delete?lang=en&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fforyou%3Flang%3Den&enter_from=setting"}}, 
+{{text = 'Telegram', url="t.me/LC6BOT"}}, 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
 if text == "غنيلي" and not database:get(bot_id.."sing:for:me"..msg.chat_id_) then
 rpl = {"53","54","55","56","57","59","60","1","58","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52"};
 sender = rpl[math.random(#rpl)]
@@ -14675,7 +14699,7 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
---[[if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
@@ -14685,7 +14709,8 @@ local Text ='قصه الفلم'..getmo.info
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
-{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web},{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
+{{text = 'مشاهده الفلم بجوده 480', url=getmo.Web}},
+{{text = 'مشاهده الفلم بجوده 1080', url=getmo.hd}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -14702,7 +14727,7 @@ local msg_id = msg.id_/2097152/0.5
 SendP(msg.chat_id_, msg_id,muaed.ph, muaed.info) 
 end
 end
-end]]--
+end
 if text and text:match("^زخرفه (.*)$") then
 local TextZhrfa = text:match("^زخرفه (.*)$")
 zh = https.request('https://apiabs.ml/zrf.php?abs='..URL.escape(TextZhrfa)..'')
@@ -14794,21 +14819,6 @@ end
 database:set(bot_id..'lock:reply'..msg.chat_id_,true)  
 Text = '\n☉┇ تم تعطيل الردود'
 send(msg.chat_id_, msg.id_,Text) 
-end
-if text == 'رابط حذف' or text == 'رابط الحذف' or text == 'بوت حذف' or text == 'بوت الحذف' then 
-local Text = [[ 
-رابط حذف جميع موقع التواصل
-احذف بقي عشان ونبي زهقت منك 
-]] 
-keyboard = {} 
-keyboard.inline_keyboard = { 
-{{text = 'Telegram',url="https://my.telegram.org/auth?to=delete"},{text = 'BOT Telegram', url="t.me/LC6BOT"}}, 
-{{text = 'instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}}, 
-{{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}}, 
-{{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
-} 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
 end
 if text == "صلاحياته" and tonumber(msg.reply_to_message_id_) > 0 then    
 if tonumber(msg.reply_to_message_id_) ~= 0 then 
@@ -15457,6 +15467,40 @@ keyboard.inline_keyboard = {
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
+if Text == '/DELL1' then 
+local Text = [[ 
+رابط حذف جميع موقع التواصل
+احذف بقي عشان ونبي زهقت منك 
+]] 
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = 'Twitter', url="https://www.facebook.com/help/deleteaccount"}}, 
+{{text = 'TikTok', url="https://www.tiktok.com/setting/account-delete?lang=en&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fforyou%3Flang%3Den&enter_from=setting"}}, 
+{{text = 'Telegram', url="t.me/LC6BOT"}}, 
+{{text = 'السابق', callback_data="/DELL"..msg.sender_user_id_}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+if Text == '/DELL' then 
+local Text = [[ 
+رابط حذف جميع موقع التواصل
+احذف بقي عشان ونبي زهقت منك 
+]] 
+keyboard = {} 
+keyboard.inline_keyboard = { 
+{{text = 'Telegram',url="https://my.telegram.org/auth?to=delete"}},
+{{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}},
+{{text = 'Instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},
+{{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
+{{text = 'التالي', callback_data="/DELL1"..msg.sender_user_id_}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
+} 
+local msg_id = msg.id_/2097152/0.5 
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+end
+
 if Text == '/kdab' then
 rpl = {"كداب 🤭","بيعرص 😂","صادق 🌚","معرفش 🥲"};
 sender = rpl[math.random(#rpl)]
