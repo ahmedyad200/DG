@@ -2899,10 +2899,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id.
 chat_kick(msg.chat_id_,bot_id) 
 return false  
 end
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
-if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-else
+database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local NumMember = data.member_count_
 local NameChat = chat.title_
