@@ -8623,6 +8623,7 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 --------------------------------------------
+--[[
 if text == "مسح المطرودين" then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -8637,7 +8638,7 @@ send(msg.chat_id_, msg.id_,"✫:  تم مسح المطرودين ")
 end    
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 1000}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
-
+]]--
 if text == 'مسح المحظورين' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
