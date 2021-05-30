@@ -5,15 +5,16 @@
 --     @ahmedyad200
 --     @ahmedyad200
 
-database = dofile("./redis.lua").connect("127.0.0.1", 6379)
+database = dofile("./redis.lua")
 serpent = dofile("./serpent.lua")
-JSON    = dofile("./dkjson.lua")
-json    = dofile("./JSON.lua")
-URL     = dofile("./url.lua")
+JSON = dofile("./dkjson.lua")
+json = dofile("./JSON.lua")
+URL = dofile("./url.lua")
 redis = require('redis') 
 https = require ("ssl.https") 
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
+database = redis.connect('127.0.0.1', 6379) 
 id_server = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
 IP = io.popen("dig +short myip.opendns.com @resolver1.opendns.com"):read('*a'):gsub('[\n\r]+', '')
 Name = io.popen("uname -a | awk '{ name = $2 } END { print name }'"):read('*a'):gsub('[\n\r]+', '')
@@ -225,17 +226,17 @@ end
 sudo_users = {SUDO,0987878788,944353237,0988738700,0303030030,0987878700}   
 function SudoBot(msg)  
 local DRAGON = false  
-for k,v in pairs(sudo_users,dev_users) do  
+for k,v in pairs(sudo_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
 DRAGON = true  
 end  
 end  
 return DRAGON  
 end
-DEVSSO = {1360140225,1236115319,1770288756}
+devso_users = {1360140225,1236115319,1770288756}
 function SODAPI(msg)  
 local DRAGON = false  
-for k,v in pairs(sudo_users,dev_users,DEVSSO) do  
+for k,v in pairs(devso_users) do  
 if tonumber(msg.sender_user_id_) == tonumber(v) then  
 DRAGON = true  
 end  
@@ -348,7 +349,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = true  
-elseif tonumber(user_id) == tonumber(DEVSSO) then
+elseif tonumber(user_id) == tonumber(devso_users) then
 var = true  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = true  
@@ -396,7 +397,7 @@ elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
 elseif tonumber(user_id) == tonumber(0987878700) then
 var = 'مـبـرمـج افـايـره²'
-elseif tonumber(user_id) == tonumber(DEVSSO) then
+elseif tonumber(user_id) == tonumber(devso_users) then
 var = 'مطور السورس'  
 elseif tonumber(user_id) == tonumber(SUDO) then
 var = 'المطور الاساسي'  
@@ -2891,6 +2892,7 @@ return false
 end
 end
 end
+
 if text and Mod(msg) then
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = getChatId(msg.chat_id_).ID }, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Num:Add:Bot') or 0) and not DevSoFi(msg) then
@@ -4563,7 +4565,7 @@ if tonumber(result.sender_user_id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(DEVSSO) then  
+if tonumber(result.sender_user_id_) == tonumber(devso_users) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مطور السورس عام")
 return false 
 end
@@ -4626,7 +4628,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر البوت عام")
 return false 
 end
-if result.id_ == tonumber(DEVSSO) then
+if result.id_ == tonumber(devso_users) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4683,7 +4685,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(DEVSSO) then
+if tonumber(userid) == tonumber(devso_users) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مطور السورس عام\n")
 return false 
 end
@@ -4744,7 +4746,7 @@ if result.sender_user_id_ == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if result.sender_user_id_ == tonumber(DEVSSO) then
+if result.sender_user_id_ == tonumber(devso_users) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
@@ -4805,7 +4807,7 @@ if tonumber(result.id_) == tonumber(bot_id) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم البوت عام")
 return false 
 end
-if tonumber(result.id_) == tonumber(DEVSSO) then  
+if tonumber(result.id_) == tonumber(devso_users) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مطور السورس عام")
 return false 
 end
@@ -4861,7 +4863,7 @@ if tonumber(userid) == tonumber(SUDO) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المطور الاساسي عام\n")
 return false 
 end
-if tonumber(userid) == tonumber(DEVSSO) then
+if tonumber(userid) == tonumber(devso_users) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مطور السورس عام\n")
 return false 
 end
@@ -8621,7 +8623,6 @@ tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumbe
 return false
 end
 --------------------------------------------
---[[
 if text == "مسح المطرودين" then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -8636,7 +8637,7 @@ send(msg.chat_id_, msg.id_,"✫:  تم مسح المطرودين ")
 end    
 tdcli_function({ID="GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersKicked"},offset_ = 0,limit_ = 1000}, delbans, {chat_id_ = msg.chat_id_, msg_id_ = msg.id_})    
 end
-]]--
+
 if text == 'مسح المحظورين' then
 if not Mod(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام هذا الامر')
@@ -14635,7 +14636,6 @@ send(msg.chat_id_, msg.id_," ☉┇ تم تغير رد العضو الى »>"..T
 end
 
 ---------------------- الاوامر الجديده
-
 if text == 'الاوامر' then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -14946,7 +14946,7 @@ local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
 if Text == '/help1' then
 if not tonumber(msg.sender_user_id_) then
-local notText = '☉┇ لا يمكنك التحكم بلاوامر'
+local notText = '☉┇ عذرا لا يمكنك التحكم بلاوامر'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
