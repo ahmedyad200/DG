@@ -2899,7 +2899,7 @@ send(msg.chat_id_, msg.id_,' ☉┇ يرجى جمع >> {'..(database:get(bot_id.
 chat_kick(msg.chat_id_,bot_id) 
 return false  
 end
-database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
+database:sismember(bot_id..'Chek:Groups',msg.chat_id_)
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)
 local NumMember = data.member_count_
 local NameChat = chat.title_
