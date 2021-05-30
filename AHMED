@@ -1,7 +1,13 @@
 echo -e "\e[38;5;77m    •{ Welcome to source power }•\e[0m"
+#!/usr/bin/env bash
+cd $HOME/DRAGON
 wget https://raw.githubusercontent.com/ahmedyad200/tg-file/master/tg
 clear
+wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/BoykA/File/url.lua
+clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
+clear
+wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/BoykA/File/redis.lua
 clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 clear
@@ -15,8 +21,6 @@ rm -fr serpent.lua.2
 rm -fr JSON.lua.2
 rm -fr tg.2
 rm -fr dkjson.lua.2
-#!/usr/bin/env bash
-cd $HOME/DRAGON
 echo -e "\033[0;31m\n~ installed library and tg-file \n\033[0m"
 install() {
 rm -rf $HOME/.telegram-cli
@@ -32,6 +36,7 @@ echo -e "\033[0;31m\n~ Depedencies For Ubuntu 18 has been installed \n\033[0m"
 sudo apt-get update -y
 sudo apt-get upgrade -y
 apt upgrade
+echo -e "\e[38;5;77m    •{ install source power  %20 }•\e[0m"
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 sudo luarocks install luasocket
@@ -39,23 +44,22 @@ echo -e "\e[38;5;77m    •{ install source power  %20 }•\e[0m"
 sudo luarocks install luasec
 sudo luarocks install redis-lua
 sudo luarocks install Lua-cURL
-echo -e "\e[38;5;77m    •{ install source power  %20 }•\e[0m"
+echo -e "\e[38;5;77m    •{ install source power  %30 }•\e[0m"
 msudo service redis-server start
 sudo apt-get install tmux
 apt install dnsutils
-echo -e "\e[38;5;77m    •{ install source power  %30 }•\e[0m"
 sudo apt-get install luarocks
-sudo apt-get install g++-4.7 -y c++-4.7
 echo -e "\e[38;5;77m    •{ install source power  %40 }•\e[0m"
+sudo apt-get install g++-4.7 -y c++-4.7
 sudo apt-get install libreadline-dev -y libconfig-dev -y libssl-dev -y lua5.2 -y liblua5.2-dev -y lua-socket -y lua-sec -y lua-expat -y libevent-dev -y make unzip git redis-server autoconf g++ -y libjansson-dev -y libpython-dev -y expat libexpat1-dev -y curl -y htop -y
 sudo apt-get install screen -y
 sudo apt-get install
-sudo apt-get install upstart-sysv
 echo -e "\e[38;5;77m    •{ install source power  %50 }•\e[0m"
+sudo apt-get install upstart-sysv
 sudo apt-get install libstdc++6 -y
 sudo apt-get install lua-lgi -y
-sudo apt-get install libnotify-dev -y
 echo -e "\e[38;5;77m    •{ install source power  %60 }•\e[0m"
+sudo apt-get install libnotify-dev -y
 wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz;tar zxpf luarocks-2.2.2.tar.gz;cd luarocks-2.2.2 && ./configure
 sudo make bootstrap
 sudo luarocks install luasocket
@@ -67,8 +71,8 @@ echo -e "\e[38;5;77m    •{ install source power  %80 }•\e[0m"
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y 
 sudo apt-get install lua-lgi -y  
 sudo apt-get install libnotify-dev -y 
-echo -e "\e[38;5;77m    •{ install source power  %90 }•\e[0m"
 sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev lua-socket lua-sec lua-expat libevent-dev make unzip git redis-server autoconf g++ libjansson-dev libpython-dev expat libexpat1-dev -y
+echo -e "\e[38;5;77m    •{ install source power  %90 }•\e[0m"
 sudo chmod +x tg
 lua DRAGON.lua
 sudo chmod +x DRAGON
