@@ -2944,15 +2944,19 @@ end
 if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+local NumMember = data.member_count_
+local NameChat = chat.title_
+local IdChat = msg.chat_id_
 if not DevSoFi(msg) then
-sendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ ايدي الي طردني `"..msg.sender_user_id_.."`\n☉┇ اسم المجموعه "..chat.title_.."\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
+sendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ ايدي الي طردني `"..msg.sender_user_id_.."`\n☉┇ اسم المجموعه "..NameChat.."\n☉┇ عدد اعضاء الجروب `"..NumMember.."`\n☉┇ ايدي المجموعه `"..IdChat.."`")
 end
 end,nil)
 end,nil)
 end
 
-if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
+if text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
 local Num = text:match("ضع شرط الاعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
