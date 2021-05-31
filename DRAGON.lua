@@ -11775,7 +11775,7 @@ if database:get(bot_id..'lang:gp:'..msg.chat_id_) then
 end
 database:del(bot_id..'bot:viewget'..msg.sender_user_id_)
 else
-send(msg.chat_id_, msg.id_, '☉┇ مشاهدات المنشور '..msg.views_..' مشاهده تقريبا ',)
+send(msg.chat_id_, msg.id_, '☉┇ مشاهدات المنشور '..msg.views_..' مشاهده تقريبا ')
 database:del(bot_id..'bot:viewget'..msg.sender_user_id_)
 end end
 if text == "مشاهده المنشور" then
