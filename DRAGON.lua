@@ -2943,8 +2943,8 @@ end,nil)
 end
 --- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 
-if text and text:match("^ضع شرط الاعضاء (%d+)$") or text:match("^ضع شرط اعضاء (%d+)$") and DevSoFi(msg) then
-local Num = text:match("ضع شرط الاعضاء (%d+)$") or text:match("^ضع شرط اعضاء (%d+)$")
+if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
+local Num = text:match("ضع شرط الاعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -11736,6 +11736,20 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, start_function, nil)
 end
 
+if database:get(bot_id..'bot:viewget'..msg.sender_user_id_) then
+if not msg.forward_info_ then
+if database:get(bot_id..'lang:gp:'..msg.chat_id_) then
+end
+database:del(bot_id..'bot:viewget'..msg.sender_user_id_)
+else
+send(msg.chat_id_, msg.id_, 1, '☉┇ مشاهدات المنشور '..msg.views_..' مشاهده تقريبا .', 1, 'md')
+database:del(bot_id..'bot:viewget'..msg.sender_user_id_)
+end end
+if text:match("^مشاهده المنشور.$") then
+database:set(bot_id..'bot:viewget'..msg.sender_user_id_,true)
+send(msg.chat_id_, msg.id_, 1, '☉┇ ارسل لي المنشور الان ، ', 1, 'md')
+end
+
 if text == ("مسح الردود العامه") then
 if not DevSoFi(msg) then
 send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
@@ -14950,7 +14964,7 @@ local Msg_id = data.message_id_
 local msg_idd = Msg_id/2097152/0.5
 local Text = data.payload_.data_
 if Text == '/help1' then
-if not tonumber(msg.sender_user_id_) then
+if not tonumber(data.sender_user_id_) then
 local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
@@ -15009,8 +15023,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help2' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15068,8 +15082,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help3' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15138,8 +15152,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help4' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15241,8 +15255,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help5' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15334,8 +15348,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help6' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15387,8 +15401,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help7' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
@@ -15461,8 +15475,8 @@ keyboard.inline_keyboard = {
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/help' then
-if not Mod(data) then
-local notText = '🚫 عذرا الاوامر هذه لا تخصك'
+if not tonumber(data.sender_user_id_) then
+local notText = '☉┇ لا يمكنك الضغط فقط صاحب الامر يمكته التحكم'
 https.request("https://api.telegram.org/bot"..token.."/answerCallbackQuery?callback_query_id="..data.id_.."&text="..URL.escape(notText).."&show_alert=true")
 return false
 end
