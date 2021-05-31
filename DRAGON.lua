@@ -5131,7 +5131,7 @@ else
 CeckFile = "(✖)"
 end
 NumFile = NumFile + 1
-TextS = TextS.."☉┇ "..Info..' \n☉┇ '..NumFile.." `"..name..'` '..CheckFile.."\n"
+TextS = TextS.."☉┇ "..Info..' \n☉┇ '..NumFile.." `"..name..'` '..CeckFile.."\n"
 end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
