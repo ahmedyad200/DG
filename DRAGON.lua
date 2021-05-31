@@ -252,7 +252,7 @@ return idbot
 end
 function DevSoFi(msg)
 local hash = database:sismember(bot_id.."Dev:SoFi:2", msg.sender_user_id_) 
-if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) or Bot(msg) then  
+if hash or DEV(msg) or SODAPI(msg) or SudoBot(msg) then  
 return true  
 else  
 return false  
@@ -5131,7 +5131,7 @@ else
 CeckFile = "(✖)"
 end
 NumFile = NumFile + 1
-TextS = TextS..'*'..NumFile.."→* {`"..name..'`} »>'..CeckFile..'\n[The-source-file]('..Info..')\n'
+TextS = TextS.."☉┇ "..Info..' \n☉┇ '..NumFile.." `"..name..'` '..CheckFile.."\n"
 end
 send(msg.chat_id_, msg.id_,TextS..TextE) 
 end
@@ -10823,6 +10823,7 @@ end,nil)
 end
 end,nil)
 end
+--[[
 if text and text == "اهمس" or text and text == "همسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  
 send(msg.chat_id_, msg.id_, '☉┇ يمكنك من خلال هذا البوت\n☉┇ ارسال همسه سريه للاعضاء \n☉┇ الامر كالاتي مثال \nاهمس بحبك ❤ [@ahmedyad200]')
 end
@@ -10876,7 +10877,7 @@ send(msg.chat_id_, msg.id_, '☉┇ اسلك يسطا الهمسه مش ليك �
 end else 
 send(msg.chat_id_, msg.id_, '☉┇ اسلك يسطا الهمسه مش ليك 😂')
 end end
-
+]]--
 if database:get(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء حفظ القوانين") 
