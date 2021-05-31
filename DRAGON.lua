@@ -2956,7 +2956,7 @@ end,nil)
 end,nil)
 end
 
-if text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
+if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
 local Num = text:match("ضع شرط الاعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
