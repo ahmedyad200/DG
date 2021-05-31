@@ -2953,9 +2953,9 @@ elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'مشرف'
 end
 if database:sismember(bot_id..'Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'')
+send(msg.chat_id_, msg.id_,'؟؟؟')
 else
-sendText(msg.chat_id_,'\n',msg.id_/2097152/0.5,'md')
+sendText(msg.chat_id_,'؟؟؟',msg.id_/2097152/0.5,'md')
 database:sadd(bot_id..'Chek:Groups',msg.chat_id_)  
 database:sadd(bot_id..'CoSu'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
@@ -2972,14 +2972,19 @@ end
 Text = '☉┇ تم طرد البوت\n'..
 '\n☉┇ بواسطة {'..Name..'}'..
 '\n☉┇ موقعه في الجروب {'..AddPy..'}' ..
-'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
-'\n☉┇ عدد اعضاء الجروب {`'..NumMember..'`}'..
+'\n☉┇ ايدي الجروب {'..IdChat..'}'..
+'\n☉┇ عدد اعضاء الجروب {'..NumMember..'}'..
 '\n☉┇ اسم الجروب {['..NameChat..']}'..
 '\n☉┇ الرابط {['..LinkGp..']}'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
-end,nil)
+end
+end
+end
+end,nil)   
+end,nil) 
+end,nil) 
 end,nil)
 end
 
