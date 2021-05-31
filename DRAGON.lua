@@ -4589,7 +4589,6 @@ if text and text:match("^حظر عام @(.*)$")  and DevSoFi(msg) then
 local username = text:match("^حظر عام @(.*)$") 
 local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
-local Groups = database:scard(bot_id..'Chek:Groups')  
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
@@ -4652,7 +4651,6 @@ if text and text:match("^حظر عام (%d+)$") and DevSoFi(msg) then
 local userid = text:match("^حظر عام (%d+)$")
 local Groups = database:scard(bot_id..'Chek:Groups')  
 if AddChannel(msg.sender_user_id_) == false then
-local Groups = database:scard(bot_id..'Chek:Groups')  
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
 send(msg.chat_id_, msg.id_,'['..textchuser..']')
@@ -10825,13 +10823,11 @@ end,nil)
 end
 end,nil)
 end
-
-local msg = data.message_
-text = msg.content_.text_ 
-if not database:get(bot_id..'TFF'..msg.chat_id_) then
-if text and text:match("^اهمس (.*) (.*)") then 
-text = text:gsub('@',"")
-faed_dx = {string.match(text, "اهمس (.*) (.*)")}
+if text and text == "اهمس" or text and text == "همسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  
+send(msg.chat_id_, msg.id_, '☉┇ يمكنك من خلال هذا البوت\n☉┇ ارسال همسه سريه للاعضاء \n☉┇ الامر كالاتي مثال \nاهمس بحبك ❤ [@ahmedyad200]')
+end
+if text and text:match("^اهمس (.*) @(.*)") then 
+local username = text:match("^اهمس (.*) @(.*)")}
 function hamss(res1,res2)
 if not res2.id_ then 
 send(msg.chat_id_, msg.id_, '☉┇ المعرف غير صحيح ')
@@ -10848,14 +10844,14 @@ chat_id_= msg.chat_id_,
 message_ids_= {[0] = msg.id_}
 }, 
 dl_cb, nil)
-database:set(bot_id.."HM:"..msg.chat_id_..msg.id_..res2.id_,faed_dx[1])
+database:set(bot_id.."HM:"..msg.chat_id_..msg.id_..res2.id_,username[1])
 function bot_id_get(ros1,ros2)
 function Dxx(ross1,ross2)
 local hms = msg.sender_user_id_
 if ross2.username_ then 
 hms = "@"..ross2.username_
 end
-send(msg.chat_id_, msg.id_, "☉┇ هذه همسه سريه الى { @["..faed_dx[2].."] }\n☉┇ مرسله من { ["..hms.."] }\n☉┇ هو فقط من يستطيع رويتها\n☉┇ [اضغط هنا لعرض الهمسه](https://t.me/"..bot_username.."?start=hms"..msg.chat_id_..msg.id_.."_"..res2.id_..") ")
+send(msg.chat_id_, msg.id_, "☉┇ هذه همسه سريه الى { @["..username[2].."] }\n☉┇ مرسله من { ["..hms.."] }\n☉┇ هو فقط من يستطيع رويتها\n☉┇ [اضغط هنا لعرض الهمسه](https://t.me/"..bot_username.."?start=hms"..msg.chat_id_..msg.id_.."_"..res2.id_..") ")
 end
 getUser(msg.sender_user_id_, Dxx)
 end
@@ -10867,15 +10863,12 @@ chat_id_ = msg.chat_id_,
 user_id_ = res2.id_
 }, hamssss, nil)
 end
-resolve_username(faed_dx[2],hamss) 
+resolve_username(username[2],hamss) 
 end end
-if text and text == "اهمس" or text and text == "همسه" or text and text == "اريد بوت الهمسه" or text and text == "دزلي بوت الهمسه" or  text and text == "دزولي بوت الهمسه" then  
-send(msg.chat_id_, msg.id_, 1, '☉┇ يمكنك من خلال هذا البوت\n☉┇ ارسال همسه سريه للاعضاء \n☉┇ الامر كالاتي مثال :\nاهمس بحبك ❤ [@ahmedyad200]', 1, 'md')
-end
 if text and text:match("/start hms(.*)_(%d+)") then 
-faed_dx = {string.match(text, "^/start hms(.*)_(%d+)")}
-if tonumber(msg.sender_user_id_) == tonumber(faed_dx[2]) then 
-hmsa = database:get(bot_id.."HM:"..faed_dx[1]..faed_dx[2])
+username = {string.match(text, "^/start hms(.*)_(%d+)")}
+if tonumber(msg.sender_user_id_) == tonumber(username[2]) then 
+hmsa = database:get(bot_id.."HM:"..username[1]..username[2])
 if hmsa then 
 send(msg.chat_id_, msg.id_, '☉┇ الهمسه هي\n☉┇ { ['..hmsa..'] }')
 else 
