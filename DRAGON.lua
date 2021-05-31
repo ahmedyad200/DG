@@ -2960,7 +2960,7 @@ local NameChat = NameChat:gsub("*","")
 local NameChat = NameChat:gsub("{","") 
 local NameChat = NameChat:gsub("}","") 
 if not DevSoFi(msg) then
-SendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ بواسطة "..Name.."\n☉┇ اسم المجموعه ↫ ["..NameChat.."]\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
+sendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ بواسطة "..Name.."\n☉┇ اسم المجموعه ↫ ["..NameChat.."]\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
 end
 end,nil)
 end,nil)
