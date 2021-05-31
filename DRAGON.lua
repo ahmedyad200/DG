@@ -10827,7 +10827,7 @@ if text and text == "اهمس" or text and text == "همسه" or text and text =
 send(msg.chat_id_, msg.id_, '☉┇ يمكنك من خلال هذا البوت\n☉┇ ارسال همسه سريه للاعضاء \n☉┇ الامر كالاتي مثال \nاهمس بحبك ❤ [@ahmedyad200]')
 end
 if text and text:match("^اهمس (.*) @(.*)") then 
-local username = text:match("^اهمس (.*) @(.*)")}
+local username = text:match("^اهمس (.*) @(.*)")
 function hamss(res1,res2)
 if not res2.id_ then 
 send(msg.chat_id_, msg.id_, '☉┇ المعرف غير صحيح ')
