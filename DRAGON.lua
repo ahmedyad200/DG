@@ -2940,31 +2940,18 @@ end,nil)
 end,nil) 
 end,nil)
 end
+
 if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
 database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
-local Name1 = result.first_name_
-local Name1 = Name1:gsub('"',"") 
-local Name1 = Name1:gsub("'","") 
-local Name1 = Name1:gsub("`","") 
-local Name1 = Name1:gsub("*","") 
-local Name1 = Name1:gsub("{","") 
-local Name1 = Name1:gsub("}","") 
-local Name = '['..Name1..'](tg://user?id='..result.id_..')'
-local NameChat = dp.title_
-local NameChat = NameChat:gsub('"',"") 
-local NameChat = NameChat:gsub("'","") 
-local NameChat = NameChat:gsub("`","") 
-local NameChat = NameChat:gsub("*","") 
-local NameChat = NameChat:gsub("{","") 
-local NameChat = NameChat:gsub("}","") 
 if not DevSoFi(msg) then
-sendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ بواسطة "..Name.."\n☉┇ اسم المجموعه ↫ ["..NameChat.."]\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
+sendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ ايدي الي طردني `"..msg.sender_user_id_.."`\n☉┇ اسم المجموعه "..chat.title_.."\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
 end
 end,nil)
 end,nil)
 end
+
 if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
 local Num = text:match("ضع شرط الاعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
