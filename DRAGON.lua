@@ -14797,20 +14797,7 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
-if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
-if not Mod(msg) then
-send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
-return false
-end
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
+if text == 'الدردشه' then
 local Text =[[
 اختر من الاوامر بلاسفل
 َ
@@ -15692,9 +15679,9 @@ if Text == '/lockchat' then
 local Teext =[[
 تم قفل الدردشه
 ]]
+database:set(bot_id.."lock:text"..msg.chat_id_,true) 
 keyboard = {} 
 keyboard.inline_keyboard = {{{text = 'رجوع', callback_data="/lockcha"}},}
-database:set(bot_id.."lock:text"..msg.chat_id_,true) 
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/game' then
