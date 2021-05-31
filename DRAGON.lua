@@ -1004,8 +1004,7 @@ local Keyboard = {
 {'نسبه الكره','نسبه الرجوله'},
 {'نسبه الحب','نسبه الانوثه'},
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
-{'ايدي','انا مين','العاب باور'},
-{'سورس','تغير الايدي'},
+{'ايدي','العاب باور','سورس','تغير الايدي'},
 {'☉ 𝐒𝐎𝐔𝐑𝐂𝐄 𝐏𝐎𝐖𝐄𝐑 ☉'},
 {'زخرفه','معاني الاسماء','الابراج','حساب العمر'},
 }
@@ -2941,8 +2940,31 @@ end,nil)
 end,nil) 
 end,nil)
 end
---- if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
-
+if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
+database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
+local Name1 = result.first_name_
+local Name1 = Name1:gsub('"',"") 
+local Name1 = Name1:gsub("'","") 
+local Name1 = Name1:gsub("`","") 
+local Name1 = Name1:gsub("*","") 
+local Name1 = Name1:gsub("{","") 
+local Name1 = Name1:gsub("}","") 
+local Name = '['..Name1..'](tg://user?id='..result.id_..')'
+local NameChat = dp.title_
+local NameChat = NameChat:gsub('"',"") 
+local NameChat = NameChat:gsub("'","") 
+local NameChat = NameChat:gsub("`","") 
+local NameChat = NameChat:gsub("*","") 
+local NameChat = NameChat:gsub("{","") 
+local NameChat = NameChat:gsub("}","") 
+if not DevSoFi(msg) then
+SendText(SUDO,"☉┇ تم طرد البوت من جروب \n☉┇ بواسطة "..Name.."\n☉┇ اسم المجموعه ↫ ["..NameChat.."]\n☉┇ ايدي المجموعه `"..msg.chat_id_.."`")
+end
+end,nil)
+end,nil)
+end
 if text and text:match("^ضع شرط الاعضاء (%d+)$") and DevSoFi(msg) then
 local Num = text:match("ضع شرط الاعضاء (%d+)$")
 if AddChannel(msg.sender_user_id_) == false then
@@ -15634,8 +15656,7 @@ keyboard.inline_keyboard = {
 {{text = 'السابق', callback_data="/DELL"}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/DELL' then 
 local Text = [[ 
@@ -15651,8 +15672,7 @@ keyboard.inline_keyboard = {
 {{text = 'التالي', callback_data="/DELL1"}},
 {{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
 } 
-local msg_id = msg.id_/2097152/0.5 
-https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard)) 
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 
 if Text == '/kdab' then
