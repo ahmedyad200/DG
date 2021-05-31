@@ -2987,11 +2987,7 @@ end,nil)
 end,nil) 
 end
 ]]--
-
-if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
-database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
-tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
-tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
+--[[
 if da and da.status_.ID == "ChatMemberStatusEditor" or da and da.status_.ID == "ChatMemberStatusCreator" then
 if da and da.user_id_ == msg.sender_user_id_ then
 if da.status_.ID == "ChatMemberStatusCreator" then
@@ -2999,6 +2995,11 @@ var = 'المالك'
 elseif da.status_.ID == "ChatMemberStatusEditor" then
 var = 'مشرف'
 end
+]]--
+if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.id_) == tonumber(bot_id) then 
+database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
+tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
+tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
 local Name1 = result.first_name_
 local Name1 = Name1:gsub('"',"") 
 local Name1 = Name1:gsub("'","") 
@@ -3015,7 +3016,7 @@ local NameChat = NameChat:gsub("*","")
 local NameChat = NameChat:gsub("{","") 
 local NameChat = NameChat:gsub("}","") 
 if not DevSoFi(msg) then
-sendText(SUDO,"☉┇ تم طرد البوت من المجموعه \n☉┇ بواسطة  "..Name.."\n☉┇ موقعه في الجروب "..AddPy.."\n☉┇ اسم المجموعه "..NameChat.."\n☉┇ ايدي المجموعه `"..msg.chat_id_.."` ",0,'md')
+sendText(SUDO,"☉┇ تم طرد البوت من المجموعه \n☉┇ بواسطة  "..Name.."\n☉┇ اسم المجموعه "..NameChat.."\n☉┇ ايدي المجموعه `"..msg.chat_id_.."` ",0,'md')
 end
 end,nil)
 end,nil)
