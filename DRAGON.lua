@@ -2924,11 +2924,11 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = ' ☉┇ تم تفعيل جروب جديده\n'..
-'\n☉┇ ايدي الجروب {`'..IdChat..'`}'..
-'\n☉┇ عدد اعضاء الجروب {`'..NumMember..'`}'..
-'\n☉┇ اسم الجروب {['..NameChat..']}'..
-'\n☉┇ الرابط {['..LinkGp..']}'
+Text = '☉┇ تم تفعيل جروب جديده\n'..
+'\n☉┇ اسم الجروب ['..NameChat..']'..
+'\n☉┇ ايدي الجروب `'..IdChat..'`'..
+'\n☉┇ عدد اعضاء الجروب `'..NumMember..'`'..
+'\n☉┇ الرابط ['..LinkGp..']'
 if not DevSoFi(msg) then
 sendText(SUDO,Text,0,'md')
 end
@@ -3000,6 +3000,7 @@ if msg.content_.ID == "MessageChatDeleteMember" and tonumber(msg.content_.user_.
 database:srem(bot_id.."Chek:Groups", msg.chat_id_) 
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,dp) 
+local NumMember = data.member_count_
 local Name1 = result.first_name_
 local Name1 = Name1:gsub('"',"") 
 local Name1 = Name1:gsub("'","") 
@@ -3016,7 +3017,7 @@ local NameChat = NameChat:gsub("*","")
 local NameChat = NameChat:gsub("{","") 
 local NameChat = NameChat:gsub("}","") 
 if not DevSoFi(msg) then
-sendText(SUDO,"☉┇ تم طرد البوت من المجموعه \n☉┇ بواسطة  "..Name.."\n☉┇ اسم المجموعه "..NameChat.."\n☉┇ ايدي المجموعه `"..msg.chat_id_.."` ",0,'md')
+sendText(SUDO,"☉┇ تم طرد البوت من جروب \n\n☉┇ بواسطة  {"..Name.."}\n☉┇ اسم الجروب {"..NameChat.."}\n☉┇ ايدي الجروب {`"..msg.chat_id_.."`}\n☉┇ عدد اعضاء الجروب {`"..NumMember.."`} ",0,'md')
 end
 end,nil)
 end,nil)
@@ -14796,6 +14797,35 @@ local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 return false
 end
+if text == 'الاوامر' and not database:get(bot_id.."coomand"..msg.chat_id_) then
+if not Mod(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون ادمن لاستخدام الاوامر')
+return false
+end
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,' ☉┇ لا تستطيع استخدام البوت \n ☉┇ يرجى الاشتراك بالقناه اولا \n ☉┇ اشترك هنا ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local Text =[[
+اختر من الاوامر بلاسفل
+َ
+َ
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {
+{
+{text = 'قفل الدردشه', callback_data="/lockchat"},{text = 'فتح الدردشه', callback_data="/oppinchat"},
+},
+}
+local msg_id = msg.id_/2097152/0.5
+https.request("https://api.telegram.org/bot"..token..'/sendMessage?chat_id=' .. msg.chat_id_ .. '&text=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
+return false
+end
 if text == 'رابط حذف' or text == 'رابط الحذف' or text == 'بوت حذف' or text == 'بوت الحذف' then 
 local Text = [[ 
 رابط حذف جميع موقع التواصل
@@ -15656,6 +15686,15 @@ keyboard.inline_keyboard = {
 {{text = 'مبرمج السورس', url="t.me/ahmedyad200"}},
 {{text = '❶️❶', callback_data="/game1"},{text = '⌯ ❷❷ ⌯', callback_data="/game"}},
 }
+return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
+end
+if Text == '/lockchat' then
+local Teext =[[
+تم قفل الدردشه
+]]
+keyboard = {} 
+keyboard.inline_keyboard = {{{text = 'رجوع', callback_data="/lockcha"}},}
+database:set(bot_id.."lock:text"..msg.chat_id_,true) 
 return https.request("https://api.telegram.org/bot"..token..'/editMessageText?chat_id='..Chat_id..'&text='..URL.escape(Teext)..'&message_id='..msg_idd..'&parse_mode=markdown&disable_web_page_preview=true&reply_markup='..JSON.encode(keyboard)) 
 end
 if Text == '/game' then
