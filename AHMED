@@ -7,7 +7,7 @@ wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/BoykA/File/url.lua
 clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/JSON.lua
 clear
-wget https://raw.githubusercontent.com/BOYKA-DeV/BoykA/BoykA/File/redis.lua
+wget https://raw.githubusercontent.com/DEV-NAG/DEV-NAG/main/File_Libs/redis.lua
 clear
 wget https://raw.githubusercontent.com/aVAER200/som/main/library/dkjson.lua
 clear

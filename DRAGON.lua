@@ -5,12 +5,13 @@
 --     @ahmedyad200
 --     @ahmedyad200
 ----------------------------------------------------------------
+redis = require('redis') 
+https = require ("ssl.https") 
+database = dofile("./redis.lua")
 serpent = dofile("./serpent.lua")
 JSON = dofile("./dkjson.lua")
 json = dofile("./JSON.lua")
 URL = dofile("./url.lua")
-redis = require('redis') 
-https = require ("ssl.https") 
 URL = require('socket.url')  
 utf8 = require ('lua-utf8') 
 database = redis.connect('127.0.0.1', 6379) 
@@ -10824,7 +10825,7 @@ end,nil)
 end
 end,nil)
 end
---[[
+
 local msg = data.message_
 text = msg.content_.text_ 
 if not database:get(bot_id..'TFF'..msg.chat_id_) then
@@ -10833,12 +10834,12 @@ text = text:gsub('@',"")
 faed_dx = {string.match(text, "اهمس (.*) (.*)")}
 function hamss(res1,res2)
 if not res2.id_ then 
-send(msg.chat_id_, msg.id_, 1, '☉┇ المعرف غير صحيح ، ', 1, 'html')
+send(msg.chat_id_, msg.id_, '☉┇ المعرف غير صحيح ')
 return "dx"
 end
 function hamssss(ress1,ress2)
 if (ress2 and ((ress2.status_ and ress2.status_.ID == "ChatMemberStatusLeft") or ress2.ID == "Error")) then 
-send(msg.chat_id_, msg.id_, 1, '☉┇ العضو غير موجود بالمجموعه ، ', 1, 'html')
+send(msg.chat_id_, msg.id_, '☉┇ العضو غير موجود بالمجموعه ')
 return "dx"
 end
 tdcli_function ({
@@ -10854,7 +10855,7 @@ local hms = msg.sender_user_id_
 if ross2.username_ then 
 hms = "@"..ross2.username_
 end
-send(msg.chat_id_, msg.id_, 1, "☉┇ هذه همسه سريه الى { @["..faed_dx[2].."] }\n☉┇ مرسله من { ["..hms.."] }\n☉┇ هو فقط من يستطيع رويتها\n☉┇ [اضغط هنا لعرض الهمسه](https://t.me/"..bot_username.."?start=hms"..msg.chat_id_..msg.id_.."_"..res2.id_..") ", 1, 'md')
+send(msg.chat_id_, msg.id_, "☉┇ هذه همسه سريه الى { @["..faed_dx[2].."] }\n☉┇ مرسله من { ["..hms.."] }\n☉┇ هو فقط من يستطيع رويتها\n☉┇ [اضغط هنا لعرض الهمسه](https://t.me/"..bot_username.."?start=hms"..msg.chat_id_..msg.id_.."_"..res2.id_..") ")
 end
 getUser(msg.sender_user_id_, Dxx)
 end
@@ -10876,13 +10877,13 @@ faed_dx = {string.match(text, "^/start hms(.*)_(%d+)")}
 if tonumber(msg.sender_user_id_) == tonumber(faed_dx[2]) then 
 hmsa = database:get(bot_id.."HM:"..faed_dx[1]..faed_dx[2])
 if hmsa then 
-send(msg.chat_id_, msg.id_, 1, '☉┇ الهمسه هي\n☉┇ { ['..hmsa..'] }', 1, 'md')
+send(msg.chat_id_, msg.id_, '☉┇ الهمسه هي\n☉┇ { ['..hmsa..'] }')
 else 
-send(msg.chat_id_, msg.id_, 1, '☉┇ اسلك يسطا الهمسه مش ليك 😂', 1, 'md')
+send(msg.chat_id_, msg.id_, '☉┇ اسلك يسطا الهمسه مش ليك 😂')
 end else 
-send(msg.chat_id_, msg.id_, 1, '☉┇ اسلك يسطا الهمسه مش ليك 😂', 1, 'md')
+send(msg.chat_id_, msg.id_, '☉┇ اسلك يسطا الهمسه مش ليك 😂')
 end end
-]]--
+
 if database:get(bot_id.."Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == 'الغاء' then 
 send(msg.chat_id_, msg.id_, " ☉┇ تم الغاء حفظ القوانين") 
