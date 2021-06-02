@@ -54,6 +54,32 @@ end
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
 if SUDOID ~= '' then
+if not SUDOID:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
+io.write('\27[31;47m\n◼¦ هذا الايدي غير موجود بل تلجرام ¦◼        \27[0;34;49m\n')
+else 
+local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
+if res ~= 200 then
+io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
+else
+local json = JSON.decode(url)
+database:set(id_server..':SUDO_USERNAME',''..json.result.username)
+database:set(id_server..":IDSUDO",SUDOID)
+end
+else
+io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
+end 
+local TEXTSUDOWLCOME = "☉┇ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDOID..") \n☉┇ شكرا لاستخدامك سورس باور \n☉┇ تم تنصيب بوتك بنجاح ارسل  /start\n☉┇ لاظهار كيبورد المطور الاساسي الخاص بك\n\n️☉┇ مبرمج السورس @ahmedyad200"
+https.request('https://api.telegram.org/bot'..token..'/sendMessage?chat_id='..SUDOID..'&text='..URL.escape(TEXTSUDOWLCOME)..'&parse_mode=Markdown')
+os.execute('lua DRAGON.lua')
+end
+
+if not database:get(id_server..":IDSUDO") then
+io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
+local SUDOID = io.read()
+if SUDOID ~= '' then
+if not SUDOID:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
+io.write('\27[31;47m\n◼¦ هذا الايدي غير موجود بل تلجرام ¦◼        \27[0;34;49m\n')
+else 
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
 if res ~= 200 then
 io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
