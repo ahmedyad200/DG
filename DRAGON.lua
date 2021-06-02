@@ -65,7 +65,7 @@ end
 else
 io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
 end 
-local TEXTSUDOWLCOME = "☉┇ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDOID..") \n☉┇ شكرا لاستخدامك سورس باور \n☉┇ تم تنصيب بوتك بنجاح ارسل  /start\n☉┇ لاضهار كيبورد المطور الاساسي الخاص بك\n\n️☉┇ مبرمج السورس @ahmedyad200"
+local TEXTSUDOWLCOME = "☉┇ اهلا عزيزي [المطور الاساسي](tg://user?id="..SUDOID..") \n☉┇ شكرا لاستخدامك سورس باور \n☉┇ تم تنصيب بوتك بنجاح ارسل  /start\n☉┇ لاظهار كيبورد المطور الاساسي الخاص بك\n\n️☉┇ مبرمج السورس @ahmedyad200"
 https.request('https://api.telegram.org/bot'..token..'/sendMessage?chat_id='..SUDOID..'&text='..URL.escape(TEXTSUDOWLCOME)..'&parse_mode=Markdown')
 os.execute('lua DRAGON.lua')
 end
@@ -178,7 +178,7 @@ end
 print(t)
 ----- بد الاضافات --------
 os.execute("mkdir File_Bot")
-local SUDOUSER = database:get(id_server..":username")
+local SUDOUSER = database:get(id_server..":SUDO_USERNAME")
 local Name_Bot = database:get(bot_id..'Name:Bot') or database:get(id_server..":BOT_NAME")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local CHBOTPO = 'SOPOWERB0T'
