@@ -52,11 +52,10 @@ io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي الت
 end 
 os.execute('lua DRAGON.lua')
 end
-if not database:get(id_server..":IDSUDO") then
+
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-local token = database:get(id_server..":token")
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
 if res ~= 200 then
 io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
@@ -182,7 +181,6 @@ print(t)
 ----- بدء الاضافات --------
 os.execute("mkdir File_Bot")
 local SUDOUSER = database:get(id_server..":username")
-local devso_users = '1360140225' or '1236115319' or '1770288756'
 local Name_Bot = database:get(bot_id..'Name:Bot') or database:get(id_server..":BOT_NAME")
 local Get_VERGON, res = https.request("https://raw.githubusercontent.com/ahmedyad200/files-power/master/GETVERGON.json")
 local CHBOTPO = 'SOPOWERB0T'
@@ -336,13 +334,13 @@ end
 function Can_or_NotCan(user_id,chat_id)
 if tonumber(user_id) == tonumber(944353237) then  
 var = true  
-elseif tonumber(user_id) == tonumber(0987878788) then
+elseif tonumber(user_id) == tonumber(1360140225) then
 var = true  
-elseif tonumber(user_id) == tonumber(0988738700) then
+elseif tonumber(user_id) == tonumber(1236115319) then
 var = true  
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = true  
-elseif tonumber(user_id) == tonumber(0987878700) then
+elseif tonumber(user_id) == tonumber(1770288756) then
 var = true  
 elseif tonumber(user_id) == tonumber(devso_users) then
 var = true  
@@ -382,15 +380,15 @@ end
 return var
 end 
 function Rutba(user_id,chat_id)
-if tonumber(user_id) == tonumber(0987878788) then  
+if tonumber(user_id) == tonumber(1360140225) then  
 var = 'مـبـرمـج افـايـره'
 elseif tonumber(user_id) == tonumber(944353237) then
 var = 'المبرمج'
-elseif tonumber(user_id) == tonumber(0988738700) then
+elseif tonumber(user_id) == tonumber(1236115319) then
 var = 'المبرمج ليجاند'
 elseif tonumber(user_id) == tonumber(0303030030) then
 var = 'الباشمبرمج'
-elseif tonumber(user_id) == tonumber(0987878700) then
+elseif tonumber(user_id) == tonumber(1770288756) then
 var = 'مـبـرمـج افـايـره²'
 elseif tonumber(user_id) == tonumber(devso_users) then
 var = 'مطور السورس'  
@@ -3463,7 +3461,10 @@ local Text = [[
 [𝙄𝘿](t.me/IDPOWERB0T)
 ]]
 keyboard = {}
-keyboard.inline_keyboard = {{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},} 
+keyboard.inline_keyboard = {
+{{text = 'الـمـطـور', url="http://t.me/"..SUDOUSER..""}},
+{{text = 'اضف البوت الي مجموعتك', url="http://t.me/"..bot_username.."?startgroup=start"}},
+} 
 https.request("https://api.telegram.org/bot"..token..'/sendPhoto?chat_id=' .. msg.chat_id_ .. '&photo=https://t.me/SOPOWERB0T&caption=' .. URL.escape(Text).."&reply_to_message_id="..msg_id.."&parse_mode=markdown&disable_web_page_preview=true&reply_markup="..JSON.encode(keyboard))
 end
 
@@ -4664,15 +4665,15 @@ if Sudo(result.sender_user_id_) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
+if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0988738700) then  
+if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0987878700) then  
+if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -4726,15 +4727,15 @@ if Sudo(result.id_) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if result.id_ == tonumber(0987878788) then
+if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره عام\n")
 return false 
 end
-if result.id_ == tonumber(0988738700) then
+if result.id_ == tonumber(1236115319) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر المبرمج ليجاند عام\n")
 return false 
 end
-if result.id_ == tonumber(0987878700) then
+if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك حظر مـبـرمـج افـايـره² عام\n")
 return false 
 end
@@ -4782,15 +4783,15 @@ if Sudo(userid) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if tonumber(userid) == tonumber(0987878788) then  
+if tonumber(userid) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(0988738700) then  
+if tonumber(userid) == tonumber(1236115319) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر المبرمج ليجاند عام")
 return false 
 end
-if tonumber(userid) == tonumber(0987878700) then  
+if tonumber(userid) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع حظر مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -4843,15 +4844,15 @@ if Sudo(result.sender_user_id_) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0987878788) then  
+if tonumber(result.sender_user_id_) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0988738700) then  
+if tonumber(result.sender_user_id_) == tonumber(1236115319) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
-if tonumber(result.sender_user_id_) == tonumber(0987878700) then  
+if tonumber(result.sender_user_id_) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -4904,15 +4905,15 @@ if Sudo(result.id_) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if result.id_ == tonumber(0987878788) then
+if result.id_ == tonumber(1360140225) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره عام\n")
 return false 
 end
-if result.id_ == tonumber(0988738700) then
+if result.id_ == tonumber(1236115319) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم المبرمج ليجاند عام\n")
 return false 
 end
-if result.id_ == tonumber(0987878700) then
+if result.id_ == tonumber(1770288756) then
 send(msg.chat_id_, msg.id_, " ☉┇ لا يمكنك كتم مـبـرمـج افـايـره² عام \n")
 return false 
 end
@@ -4960,15 +4961,15 @@ if Sudo(userid) == true then
 send(msg.chat_id_, msg.id_, "لا تستطيع حظر المطور عام")
 return false 
 end
-if tonumber(userid) == tonumber(0988738700) then  
+if tonumber(userid) == tonumber(1236115319) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم المبرمج ليجاند عام")
 return false 
 end
-if tonumber(userid) == tonumber(0987878788) then  
+if tonumber(userid) == tonumber(1360140225) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره عام")
 return false 
 end
-if tonumber(userid) == tonumber(0987878700) then  
+if tonumber(userid) == tonumber(1770288756) then  
 send(msg.chat_id_, msg.id_, " ☉┇ لا تسطيع كتم مـبـرمـج افـايـره² عام")
 return false 
 end
@@ -10408,6 +10409,27 @@ local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 sendText(msg.chat_id_,Name,msg.id_/2097152/0.5,'md')
 end,nil)
 end
+end
+if text == ("قائمه الكتم العام") then
+if not DevSoFi(msg) then
+send(msg.chat_id_, msg.id_,'يجب ان تكون المطور الثاني لاستخدام هذا الامر')
+return false
+end
+local list = database:smembers(bot_id..'Gmute:User')
+t = "\n☉┇ قائمة المكتومين عام \n•┉ • ┉ • ┉ 𝔓𝔒𝔚𝔈ℜ ┉ • ┉ • ┉•\n"
+for k,v in pairs(list) do
+local username = database:get(bot_id.."user:Name" .. v)
+if username then
+t = t..""..k.."- ([@"..username.."])\n"
+else
+t = t..""..k.."- ("..v..")\n"
+end
+end
+if #list == 0 then
+t = " ☉┇ لا يوجد مكتومين عام"
+end
+send(msg.chat_id_, msg.id_, t)
+return false
 end
 ---------------------
 if text == "تفعيل صورتي" or text == 'تفعيل الصوره' then
