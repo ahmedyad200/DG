@@ -50,8 +50,8 @@ end
 else
 io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي التوكن الان ¦◼        \27[0;34;49m\n")  
 end 
-os.execute('lua DRAGON.lua')
-end
+--os.execute('lua DRAGON.lua')
+--end
 
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
