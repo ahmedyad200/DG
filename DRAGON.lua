@@ -52,6 +52,7 @@ io.write("\27[31;47m\n◼¦ لم يتم حفظ التوكن ارسل لي الت
 end 
 os.execute('lua DRAGON.lua')
 end
+local token = database:get(id_server..":token"),
 if not database:get(id_server..":IDSUDO") then
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
