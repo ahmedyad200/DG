@@ -56,7 +56,7 @@ if not database:get(id_server..":IDSUDO") then
 io.write('\27[31;47m\n◼¦ ارسل لي ايدي المطور الاساسي ¦◼        \27[0;34;49m\n')
 local SUDOID = io.read()
 if SUDOID ~= '' then
-local token = database:get(id_server..":token"),
+local token = database:get(id_server..":token")
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
 if res ~= 200 then
 io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
