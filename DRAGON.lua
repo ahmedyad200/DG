@@ -63,6 +63,7 @@ else
 local json = JSON.decode(url)
 database:set(id_server..':SUDO_USERNAME',''..json.result.username)
 database:set(id_server..":IDSUDO",SUDOID)
+ens
 else
 io.write('\27[31;47m\n◼¦ لم يتم حفظ ايدي المطور الاساسي ارسله مره اخره ¦◼        \27[0;34;49m\n')
 end 
