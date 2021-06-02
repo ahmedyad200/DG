@@ -79,7 +79,7 @@ local SUDOID = io.read()
 if SUDOID ~= '' then
 if not SUDOID:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
 io.write('\27[31;47m\n◼¦ هذا الايدي غير موجود بل تلجرام ¦◼        \27[0;34;49m\n')
-else 
+end 
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
 if res ~= 200 then
 io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
@@ -95,6 +95,7 @@ local TEXTSUDOWLCOME = "☉┇ اهلا عزيزي [المطور الاساسي]
 https.request('https://api.telegram.org/bot'..token..'/sendMessage?chat_id='..SUDOID..'&text='..URL.escape(TEXTSUDOWLCOME)..'&parse_mode=Markdown')
 os.execute('lua DRAGON.lua')
 end
+
 local create_config_auto = function()
 config = {
 SUDOUSER = database:get(id_server..":SUDO_USERNAME"),
