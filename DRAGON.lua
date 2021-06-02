@@ -1248,9 +1248,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1272,9 +1272,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1288,9 +1288,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1308,9 +1308,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1428,9 +1428,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1458,7 +1458,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n`'`whoami`'`'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n`'"$uptime"'`'
 ]]):read('*all')
-send_inline_key(msg.chat_id_,server,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,server,nil,inline)
 end
 if text == 'جلب المشتركين ☉' then
 if not DevSoFi(msg) then
@@ -1488,9 +1488,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1516,9 +1516,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1571,9 +1571,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1603,9 +1603,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1630,9 +1630,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1658,9 +1658,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1715,9 +1715,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -1747,9 +1747,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -2078,9 +2078,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -2110,9 +2110,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -2137,9 +2137,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -2165,9 +2165,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -3109,9 +3109,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -3708,9 +3708,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -4738,9 +4738,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -4798,9 +4798,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -4863,9 +4863,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -4926,9 +4926,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -4985,9 +4985,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5050,9 +5050,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5113,9 +5113,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5140,9 +5140,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5170,9 +5170,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5239,7 +5239,7 @@ echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ موقـع ا�
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ الــدخــول } ⊰•\n`'`whoami`'`'
 echo '≪━━━━𝐏𝐎𝐖𝐄𝐑━━━━≫\n☉✔{ مـده تـشغيـل الـسـيـرفـر } ⊰•  \n`'"$uptime"'`'
 ]]):read('*all')
-send_inline_key(msg.chat_id_,server,nil,inline)
+send_inline_key(msg.chat_id_,msg.id_,server,nil,inline)
 end
 if text and text:match("^all (.*)$") or text:match("^@all (.*)$") and CoSu(msg) then
 local ttag = text:match("^all (.*)$") or text:match("^@all (.*)$")
@@ -5436,9 +5436,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5460,9 +5460,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5492,9 +5492,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5522,9 +5522,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5547,9 +5547,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5575,9 +5575,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5606,9 +5606,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5630,9 +5630,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5662,9 +5662,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5692,9 +5692,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5717,9 +5717,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5745,9 +5745,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5779,9 +5779,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5803,9 +5803,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5835,9 +5835,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5865,9 +5865,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5890,9 +5890,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5918,9 +5918,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -5999,9 +5999,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6024,9 +6024,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6056,9 +6056,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6086,9 +6086,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6111,9 +6111,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6139,9 +6139,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6315,9 +6315,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6340,9 +6340,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6372,9 +6372,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6398,9 +6398,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6423,9 +6423,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6451,9 +6451,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6534,9 +6534,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6558,9 +6558,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6590,9 +6590,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6615,9 +6615,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6640,9 +6640,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6668,9 +6668,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6731,9 +6731,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6756,9 +6756,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6789,9 +6789,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6815,9 +6815,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6840,9 +6840,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -6868,9 +6868,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7134,9 +7134,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7163,9 +7163,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7199,9 +7199,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7229,9 +7229,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7254,9 +7254,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7282,9 +7282,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7328,9 +7328,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7357,9 +7357,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7393,9 +7393,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7423,9 +7423,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7448,9 +7448,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7476,9 +7476,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7507,9 +7507,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7554,9 +7554,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7609,9 +7609,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7707,9 +7707,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7736,9 +7736,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7773,9 +7773,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7808,9 +7808,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7833,9 +7833,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7861,9 +7861,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7921,9 +7921,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -7954,9 +7954,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8012,9 +8012,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8045,9 +8045,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8103,9 +8103,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8136,9 +8136,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8194,9 +8194,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8228,9 +8228,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8286,9 +8286,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8319,9 +8319,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8377,9 +8377,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8410,9 +8410,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8468,9 +8468,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8501,9 +8501,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8559,9 +8559,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8592,9 +8592,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8650,9 +8650,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8683,9 +8683,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8741,9 +8741,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8774,9 +8774,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8832,9 +8832,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8865,9 +8865,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8923,9 +8923,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -8956,9 +8956,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9014,9 +9014,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9047,9 +9047,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9105,9 +9105,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9138,9 +9138,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9207,9 +9207,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9296,9 +9296,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9349,9 +9349,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9380,9 +9380,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9414,9 +9414,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9479,9 +9479,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9516,9 +9516,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9631,9 +9631,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9673,9 +9673,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9698,9 +9698,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9727,9 +9727,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9758,9 +9758,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9792,9 +9792,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9906,9 +9906,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9945,9 +9945,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -9971,9 +9971,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10000,9 +10000,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10027,9 +10027,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10070,9 +10070,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10106,9 +10106,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10150,9 +10150,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10728,9 +10728,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10762,9 +10762,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10796,9 +10796,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10842,9 +10842,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10912,9 +10912,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10941,9 +10941,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -10965,9 +10965,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11017,9 +11017,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11038,9 +11038,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11285,9 +11285,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11316,9 +11316,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11351,9 +11351,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11390,9 +11390,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11499,9 +11499,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11594,9 +11594,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11613,9 +11613,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11662,9 +11662,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11700,9 +11700,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11738,9 +11738,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11779,9 +11779,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11823,9 +11823,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11894,9 +11894,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11919,9 +11919,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -11942,9 +11942,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12056,9 +12056,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12098,9 +12098,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12123,9 +12123,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12148,9 +12148,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12173,9 +12173,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12191,9 +12191,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12246,9 +12246,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12335,9 +12335,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12565,9 +12565,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12586,9 +12586,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12633,9 +12633,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12826,9 +12826,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -12847,9 +12847,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -13034,9 +13034,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -13058,9 +13058,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -13074,9 +13074,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -13424,9 +13424,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -14947,9 +14947,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -15086,9 +15086,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -15284,9 +15284,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -15306,9 +15306,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -15385,9 +15385,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
@@ -15441,9 +15441,9 @@ local inline = {{{text = 'اضغط هنا للاشتراك بي القناه', u
 local ttttttt = '☉┇ لا تستطيع استخدام البوت \n☉┇ يرجى الاشتراك بالقناه اولا \n☉┇ اشترك هنا '..addch..''
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
-send_inline_key(msg.chat_id_,textchuser,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,textchuser,nil,inline)
 else
-send_inline_key(msg.chat_id_,ttttttt,msg.id_,inline)
+send_inline_key(msg.chat_id_,msg.id_,ttttttt,nil,inline)
 end
 return false
 end
