@@ -56,7 +56,7 @@ local SUDOID = io.read()
 if SUDOID ~= '' then
 if not SUDOID:match('(%d+)(%d+)(%d+)(%d+)(%d+)') then
 io.write('\27[31;47m\n◼¦ هذا الايدي غير موجود بل تلجرام ¦◼        \27[0;34;49m\n')
-else 
+end 
 local url , res = https.request('https://api.telegram.org/bot'..token..'/getchat?chat_id='..SUDOID)
 if res ~= 200 then
 io.write('\27[31;47m\n◼¦ لم يقم المطور الاساسي بعمل /start للبوت ¦◼        \27[0;34;49m\n')
